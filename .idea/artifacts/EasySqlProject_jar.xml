@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact name="EasySqlProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EasySqlProject_jar</output-path>
+    <root id="root">
+      <element id="archive" name="EasySqlProject.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/../easysqljar/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="EasySqlProject" />
+      </element>
+      <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.15" />
+      <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+      <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+      <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class class_name="Student" table_name="student" >
+        <id
+            field_name="id"
+            field_type="long"
+            type="auto_increment"/>
+        <fields>
+            <field
+                    field_name="name"
+                    field_type="java.lang.String"
+                    column_name="student_name"
+                    constraint="not null"
+            />
+            <field
+                    field_name="mark"
+                    field_type="float"
+                    column_name="student_mark"
+            />
+        </fields>
+    </class>
+</mapping>
