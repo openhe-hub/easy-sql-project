@@ -331,18 +331,36 @@ public class SessionHandler {
 
      //delete
 
-    public void deleteAsID(Object id_value){
-        StringBuilder sql=new StringBuilder("delete from"+table_name+" where "+idInfo.getColumn_name()+"="+id_value+";");
+    public <T> void deleteAsID(T bean){
+        Object id_value= null;
+        try {
+            id_value = BeanUtils.getProperty(bean,idInfo.getField_name());
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        StringBuilder sql=new StringBuilder("delete from "+table_name+" where "+idInfo.getColumn_name()+"="+id_value+";");
         DBConnector.executeSQL(sql.toString());
     }
 
     public void delete(String condition){
-        StringBuilder sql=new StringBuilder("delete from"+table_name+" where "+condition+";");
+        StringBuilder sql=new StringBuilder("delete from "+table_name+" where "+condition+";");
+        DBConnector.executeSQL(sql.toString());
     }
+
+    public <T> void deleteListAsID(ArrayList<T> id_values){
+        for (Object id_value : id_values) {
+            deleteAsID(id_value);
+        }
+    }
+
 
     //cache
     public <T> Cache startCache(ArrayList<T> data,int mode){
-        Cache cache=new Cache(data,mode);
+        Cache<T> cache=new Cache<T>(data,mode,this);
         return cache;
     }
 

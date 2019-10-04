@@ -8,6 +8,7 @@ import org.easysql.session.Session;
 import org.easysql.session.SessionHandler;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Test {
     public static void main(String[] args) {
@@ -16,10 +17,16 @@ public class Test {
         session.init();//初始化session
 
         SessionHandler handler=session.getHandler();//创建对应的SessionHandler
-        ArrayList<Student> students= (ArrayList<Student>) handler.selectAll();
-        for (Student student : students) {
-            student.setMark(100);
-        }
-        handler.updateListToTableAsID(students);
+
+
+        Cache<Student> cache=handler.startCache(handler.selectAll(),Cache.READ_WRITE_MODE);
+
+        cache.setFilter((data -> {return data.getId()==29444;}));
+        cache.delete();
+        cache.close();
+        session.close();
+
+
+
     }
 }
