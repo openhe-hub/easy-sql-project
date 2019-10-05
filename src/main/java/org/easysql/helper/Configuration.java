@@ -6,12 +6,15 @@ import org.dom4j.Element;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
 import java.util.List;
 
 public class Configuration {
     private static Element root;
     private static Element class_root;
     private static Element db_root;
+    @Getter
+    private static Connection connection;
     @Getter
     private static String bean_pkg;
     private static final String JAVA_SRC_PATH="\\src\\main\\java\\";//适用于maven
@@ -24,6 +27,7 @@ public class Configuration {
         class_root=root.element("class_config");
         db_root=root.element("db_config");
         bean_pkg=class_root.attributeValue("bean_pkg");
+        connection=DBConnector.getConnection();
     }
 
     public static void configure(Class main_class){

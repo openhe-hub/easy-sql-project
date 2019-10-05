@@ -5,15 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data@AllArgsConstructor@NoArgsConstructor
-public class Student {
+public class Teacher {
     private long id;
     private String name;
-    private double mark;
-    private long teacher_id;
 
-    public Student(String name, double mark, long teacher_id) {
+    public Teacher(String name) {
         this.name = name;
-        this.mark = mark;
-        this.teacher_id = teacher_id;
     }
 }

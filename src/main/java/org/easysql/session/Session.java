@@ -21,13 +21,13 @@ public class Session<T> {
     @Getter
     private String class_name;
     private String xml_config_name="";
-    private SessionHandler sessionHandler;
+    private SessionHandler<T> sessionHandler;
 
     public Session(String class_name){
         this.class_name=class_name;
     }
 
-    public SessionHandler getHandler(){
+    public SessionHandler<T> getHandler(){
         if (sessionHandler!=null){
             return sessionHandler;
         }
@@ -40,9 +40,7 @@ public class Session<T> {
     public void init(){
         xml_config_name= Configuration.getConfiguration(class_name);
         getConfig();
-        DBConnector.getConnection();
-        DBConnector.getStatement();
-        this.sessionHandler=new SessionHandler<T>(this);
+        this.sessionHandler=new SessionHandler<>(this);
     }
 
     /*自动创建或更新表：
@@ -62,13 +60,13 @@ public class Session<T> {
     //更改表名：仅用于表名的更改
     public void alter_table_name(String old_name){
         getConfig();
-        sessionHandler=new SessionHandler(this);
+        sessionHandler=new SessionHandler<T>(this);
         sessionHandler.alter_table_name(old_name);
     }
 
     //删除所有数据
     public void clear(){
-        sessionHandler.delete("1=1");
+        sessionHandler.delete("*","1=1");
     }
 
     //删除所有数据

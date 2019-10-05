@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Student" table_name="student">
+    <class class_name="Teacher" table_name="teacher">
         <id
                 field_name="id"
                 field_type="long"
@@ -9,22 +9,13 @@
             <field
                     field_name="name"
                     field_type="java.lang.String"
-                    column_name="student_name"
+                    column_name="teacher_name"
                     constraint="not null"
-            />
-            <field
-                    field_name="mark"
-                    field_type="float"
-                    column_name="student_mark"
-            />
-            <field
-                    field_name="teacher_id"
-                    field_type="long"
             />
         </fields>
         <sets>
             <foreign_key
-                    type="many-to-one"
+                    type="one-to-many"
                     from="teacher_id"
                     to="Teacher"
             />

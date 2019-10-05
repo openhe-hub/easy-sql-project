@@ -1,5 +1,6 @@
 package org.easysql.helper;
 
+import lombok.Getter;
 import org.dom4j.Element;
 
 import java.sql.*;
@@ -10,22 +11,21 @@ public class DBConnector {
     private static PreparedStatement pstmt;
     private static ResultSet rs;
     private static ResultSetMetaData rsmd;
+    @Getter
     private static String db_name;
+    private static String driver_class;
+    private static String user;
+    private static String pwd;
+    private static String url;
 
     public static Connection getConnection(){
         //解析数据库配置用户信息
-       Element db_config=XmlHelper.getRootElement("center_config").element("db_config");
-       db_name=db_config.element("database").attributeValue("name");
-       String user=db_config.element("user").attributeValue("name");
-       String pwd=db_config.element("pwd").attributeValue("pwd");
-       String driver_class=db_config.element("driver_class").attributeValue("class_name");
-       Element url_element=db_config.element("url");
-       String url=url_element.attributeValue("url1")+db_name+url_element.attributeValue("url2");
-
-       //获取数据库连接
+        getUserInfo();
+        //获取数据库连接
         try {
             Class.forName(driver_class);
             conn=DriverManager.getConnection(url,user,pwd);
+            getStatement();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -40,6 +40,8 @@ public class DBConnector {
             return null;
         }
     }
+
+
 
     public static Statement getStatement(){
         try {
@@ -90,9 +92,7 @@ public class DBConnector {
         }
         return pstmt;
     }
-    public static String get_db_Name(){
-        return db_name;
-    }
+
     public static void close(){
         try {
             if (conn!=null){
@@ -110,5 +110,15 @@ public class DBConnector {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void getUserInfo() {
+        Element db_config= XmlHelper.getRootElement("center_config").element("db_config");
+        db_name=db_config.element("database").attributeValue("name");
+        user=db_config.element("user").attributeValue("name");
+        pwd=db_config.element("pwd").attributeValue("pwd");
+        driver_class=db_config.element("driver_class").attributeValue("class_name");
+        Element url_element=db_config.element("url");
+        url=url_element.attributeValue("url1")+db_name+url_element.attributeValue("url2");
     }
 }

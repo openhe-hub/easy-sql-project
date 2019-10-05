@@ -1,3 +1,4 @@
+org\easysql\bean\Teacher.class
 org\easysql\helper\DBConnector.class
 org\easysql\helper\XmlHelper.class
 org\easysql\helper\Configuration.class

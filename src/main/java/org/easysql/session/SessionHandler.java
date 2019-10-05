@@ -10,10 +10,7 @@ import org.easysql.info.FieldInfo;
 import org.easysql.info.IdInfo;
 
 import java.lang.reflect.InvocationTargetException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.*;
 
 
@@ -95,7 +92,7 @@ public class SessionHandler<T> {
 
     //表是否存在
     public boolean if_table_exists() {
-        String db_name = DBConnector.get_db_Name();
+        String db_name = DBConnector.getDb_name();
         boolean ans = false;
         try {
             rs = DBConnector.executeQuery("select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + db_name + "\' and TABLE_NAME=\'" + table_name + "\';");
@@ -117,7 +114,7 @@ public class SessionHandler<T> {
 
     //DML
     //insert
-    public void insertAll(Object bean) {
+    public void insertAll(T bean) {
         StringBuffer sql = new StringBuffer("insert into " + table_name + " values(");
         try {
             String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
@@ -145,12 +142,13 @@ public class SessionHandler<T> {
      *   若是基本数据类型，会赋初始值（如double会插入数据：0.0）
      *   若是对象，不会执行数据插入
      * */
-    public void insert(Object bean) {
+    public void insert(T bean) {
         try {
             ArrayList<String> toInsertColumns = getInsertPstmt(bean);
             for (int i = 0; i < toInsertColumns.size(); i++) {
                 pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
             }
+            System.out.println(pstmt);
             pstmt.executeUpdate();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -207,10 +205,10 @@ public class SessionHandler<T> {
                 insert_values.append("?,");
                 toInsertColumns.add(field_name.get(0));
             }
-            for (int i = 1; i < fields_info.size(); i++) {
+            for (int i = 1; i <= fields_info.size(); i++) {
                 String value = BeanUtils.getProperty(bean, field_name.get(i));
                 if (value != null) {//拼接其余字段
-                    insert_columns.append(field_name.get(i) + ",");
+                    insert_columns.append(column_name.get(i) + ",");
                     insert_values.append("?,");
                     toInsertColumns.add(field_name.get(i));
                 }
@@ -445,7 +443,7 @@ public class SessionHandler<T> {
 
     //delete
 
-    public <T> void deleteAsID(T bean) {
+    public  void deleteAsID(T bean) {
         Object id_value = null;
         try {
             id_value = BeanUtils.getProperty(bean, idInfo.getField_name());
@@ -460,22 +458,40 @@ public class SessionHandler<T> {
         DBConnector.executeSQL(sql.toString());
     }
 
-    public void delete(String condition) {
-        StringBuilder sql = new StringBuilder("delete from " + table_name + " where " + condition + ";");
+    public void delete(String columns,String condition) {
+        StringBuilder sql = new StringBuilder("delete from " + table_name);
+        if (columns.equals("*")){
+            sql.append(" where " + condition + ";");
+        }
+        else {
+            sql.append("("+columns+ "） where " + condition + ";");
+        }
         DBConnector.executeSQL(sql.toString());
     }
 
-    public <T> void deleteListAsID(ArrayList<T> id_values) {
-        for (Object id_value : id_values) {
-            deleteAsID(id_value);
+    public void deleteListAsID(ArrayList<T> beans) {
+        for (T bean : beans) {
+            deleteAsID(bean);
         }
     }
 
 
     //cache
-    public <T> Cache startCache(ArrayList<T> data, int mode) {
+    public Cache startCache(ArrayList<T> data, int mode) {
         Cache<T> cache = new Cache<T>(data, mode, this);
         return cache;
     }
+
+    public Transaction startTransaction(){
+        Transaction transaction=new Transaction(Configuration.getConnection(), Connection.TRANSACTION_REPEATABLE_READ);
+        return transaction;
+    }
+
+    public Transaction startTransaction(int level){
+        Transaction transaction=new Transaction(Configuration.getConnection(), level);
+        return transaction;
+    }
+
+
 
 }
