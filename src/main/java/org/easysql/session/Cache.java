@@ -2,13 +2,16 @@ package org.easysql.session;
 
 import lombok.Setter;
 import org.apache.commons.beanutils.BeanUtils;
+import org.easysql.info.FieldInfo;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 public class Cache <T> {
     private static long time;
-    private SessionHandler handler;
+    private SessionHandler<T> handler;
+    private LinkedHashMap<String, FieldInfo> fields_info;
     private int mode;
     @Setter
     private Filter<T> filter;
@@ -26,7 +29,7 @@ public class Cache <T> {
 
     public Cache(ArrayList<T> source_data,int mode,SessionHandler handler) {
         this.mode=mode;
-        this.handler=handler;
+        this.fields_info=handler.getFields_info();
         datas=new ArrayList<ArrayList<T>>();
         ArrayList<T> origin_data = source_data;
         datas.add(origin_data);
@@ -95,8 +98,8 @@ public class Cache <T> {
                     for (int j=0;j<data.size();j++) {
                         T t=data.get(j);
                         if (filter.filter(t)) {
-                            for (String key:handler.getFields_info().keySet()){
-                                String field_name=handler.getFields_info().get(key).getField_name();
+                            for (String key:fields_info.keySet()){
+                                String field_name=fields_info.get(key).getField_name();
                                 BeanUtils.setProperty(t,field_name,BeanUtils.getProperty(bean,field_name));
                             }
                              if (i==Cache.INSERTED_DATA_INDEX||i==Cache.ORIGIN_DATA_INDEX){
@@ -170,7 +173,7 @@ public class Cache <T> {
 
     private void commit() {
         handler.insertListToTable(datas.get(Cache.INSERTED_DATA_INDEX));
-        handler.updateListToTableAsID(datas.get(Cache.UPDATED_DATA_INDEX));
+        handler.updateListToTableByID(datas.get(Cache.UPDATED_DATA_INDEX));
         handler.deleteListAsID(datas.get(Cache.DELETED_DATA_INDEX));
     }
 

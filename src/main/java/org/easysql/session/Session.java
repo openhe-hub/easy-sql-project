@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class Session {
+public class Session<T> {
     @Getter
     private ClassInfo classInfo;
     private IdInfo idInfo;
@@ -42,7 +42,7 @@ public class Session {
         getConfig();
         DBConnector.getConnection();
         DBConnector.getStatement();
-        this.sessionHandler=new SessionHandler(this);
+        this.sessionHandler=new SessionHandler<T>(this);
     }
 
     /*自动创建或更新表：
