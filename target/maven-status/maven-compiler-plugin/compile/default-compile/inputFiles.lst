@@ -3,11 +3,15 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\IdInfo
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\SessionHandler.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\DBConnector.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\XmlHelper.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\SessionManager.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\test\Test.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ConstraintType.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Transaction.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ClassInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Filter.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ForeignKeyInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\Configuration.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Teacher.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\FieldInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Session.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Student.java

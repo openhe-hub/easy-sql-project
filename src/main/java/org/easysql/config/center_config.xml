@@ -12,6 +12,10 @@
 
     <class_config bean_pkg="org.easysql.bean">
         <class class_name="Student"
+               table_name="student"
                 config_name="student_mapping"/>
+        <class class_name="Teacher"
+               table_name="teacher"
+                config_name="teacher_mapping"/>
     </class_config>
 </center_config>

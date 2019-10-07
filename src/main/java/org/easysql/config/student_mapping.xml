@@ -22,13 +22,13 @@
                     field_type="long"
             />
         </fields>
-        <sets>
+        <set>
             <foreign_key
-                    type="many-to-one"
+                    type="many_to_one"
                     from="teacher_id"
-                    to="Teacher"
+                    to="teacher.id"
             />
-        </sets>
+        </set>
 
     </class>
 </mapping>

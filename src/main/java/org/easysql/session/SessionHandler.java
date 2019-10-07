@@ -4,10 +4,7 @@ import lombok.Getter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
-import org.easysql.info.ClassInfo;
-import org.easysql.info.ConstraintType;
-import org.easysql.info.FieldInfo;
-import org.easysql.info.IdInfo;
+import org.easysql.info.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -20,6 +17,8 @@ public class SessionHandler<T> {
     @Getter
     private LinkedHashMap<String, FieldInfo> fields_info;
     @Getter
+    private ArrayList<ForeignKeyInfo> fk_list;
+    @Getter
     private IdInfo idInfo;
     private String table_name;
     private Class BeanClass;
@@ -31,9 +30,10 @@ public class SessionHandler<T> {
         ClassInfo classInfos = session.getClassInfo();
         class_info = classInfos.getClass_info();
         fields_info = classInfos.getField_infos();
+        fk_list =classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
-        String[] class_str = class_info.get(session.getClass_name());
-        table_name = class_str[1];
+        table_name=session.getTable_name();
+
         try {
             BeanClass = Class.forName(Configuration.getBean_pkg() + "." + session.getClass_name());
         } catch (ClassNotFoundException e) {
@@ -59,12 +59,28 @@ public class SessionHandler<T> {
             sql.append(column_name + " " + column_type + " " + constraint_type + ",\n");
         }
 
+        for (ForeignKeyInfo fk_info : fk_list) {
+            sql.append(appendFkConstraints(fk_info));
+        }
+
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
         DBConnector.executeSQL(sql.toString());
     }
 
-    //拼接sql约束
+     private String appendFkConstraints(ForeignKeyInfo fk_info){
+        if (SessionManager.check_fk_connect(fk_info)){
+            return "constraint "+fk_info.getName()+" foreign key("+fk_info.getFromColumn()+") references "+
+                    fk_info.getToTable()+"("+fk_info.getToColumn()+"),\n";
+        }
+        else {
+            System.out.println("error:if type is many_to_one,foreign key can't be created in table "+table_name);
+            System.out.println("if type is one_to_many,foreign key will be created then.Don't worry.");
+            return "";
+        }
+     }
+
+   //拼接sql约束
     private String appendConstraints(FieldInfo fieldInfo) {
         String constraint_type = "";
         ConstraintType[] constraints = fieldInfo.getConstraints();

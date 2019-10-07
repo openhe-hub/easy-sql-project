@@ -47,19 +47,20 @@ public class Configuration {
     }
 
     //@para1 class_name Bean类名
-    public static String getConfiguration(String class_name){
-        String config_xml_name="";//返回class配置文件名
+    public static String[] getConfiguration(String class_name){
+        String config_xml_name=null;//返回class配置文件名
+        String table_name=null;
         List<Element> class_list= class_root.elements("class");
         for (Element e:class_list) {
             String searched_class_name=e.attributeValue("class_name");//searched_class_name:searched class name(not para1!)
-            String config_name=e.attributeValue("config_name");
             if (searched_class_name.equals(class_name)){
-                config_xml_name=config_name;
+                config_xml_name=e.attributeValue("config_name");
+                table_name=e.attributeValue("table_name");
             }
         }
 
-        if (!config_xml_name.equals("")){
-            return config_xml_name;
+        if (config_xml_name!=null&&table_name!=null){
+            return new String[]{table_name,config_xml_name};
         }
         else {
             System.out.println("error:class name not found!\nPlease check your class name and center_config.xml");

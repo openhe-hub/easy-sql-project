@@ -13,13 +13,13 @@
                     constraint="not null"
             />
         </fields>
-        <sets>
+        <set>
             <foreign_key
-                    type="one-to-many"
-                    from="teacher_id"
-                    to="Teacher"
+                    type="one_to_many"
+                    from="id"
+                    to="student.teacher_id"
             />
-        </sets>
+        </set>
 
     </class>
 </mapping>

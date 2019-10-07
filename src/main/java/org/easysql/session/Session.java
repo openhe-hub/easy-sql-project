@@ -5,11 +5,9 @@ import org.dom4j.Element;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
 import org.easysql.helper.XmlHelper;
-import org.easysql.info.ClassInfo;
-import org.easysql.info.ConstraintType;
-import org.easysql.info.FieldInfo;
-import org.easysql.info.IdInfo;
+import org.easysql.info.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,11 +18,17 @@ public class Session<T> {
     private IdInfo idInfo;
     @Getter
     private String class_name;
-    private String xml_config_name="";
+    @Getter
+    private String table_name;
+    private String xml_config_name;
     private SessionHandler<T> sessionHandler;
 
     public Session(String class_name){
         this.class_name=class_name;
+        String[] config_infos=Configuration.getConfiguration(class_name);
+        table_name=config_infos[0];
+        xml_config_name=config_infos[1];
+        SessionManager.registerSession(this);
     }
 
     public SessionHandler<T> getHandler(){
@@ -38,7 +42,6 @@ public class Session<T> {
     }
 
     public void init(){
-        xml_config_name= Configuration.getConfiguration(class_name);
         getConfig();
         this.sessionHandler=new SessionHandler<>(this);
     }
@@ -88,15 +91,17 @@ public class Session<T> {
         } else {
             Element root=XmlHelper.getRootElement(xml_config_name);
             Element class_element=root.element("class");
+            Element set=class_element.element("set");
             LinkedHashMap<String,String[]> class_map = getClassInfo(class_element);
             LinkedHashMap<String,FieldInfo> field_map= getFieldInfo(class_element.element("fields"));
+            ArrayList<ForeignKeyInfo> fk_list= getForeignKeyInfo(set);
             getIdInfo(class_element.element("id"));
-            classInfo=new ClassInfo(class_map,field_map,idInfo);
+            classInfo=new ClassInfo(class_map,field_map,idInfo,fk_list);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
         class_name=class_element.attributeValue("class_name");
-        String table_name=class_element.attributeValue("table_name");
+        table_name=class_element.attributeValue("table_name");
         LinkedHashMap<String,String[]> class_map=new LinkedHashMap<String, String[]>();
         class_map.put(class_name,new String[]{class_name,table_name});
         return class_map;
@@ -129,6 +134,25 @@ public class Session<T> {
             field_map.put(field_name,fieldInfo);
         }
         return field_map;
+    }
+
+    private ArrayList<ForeignKeyInfo> getForeignKeyInfo(Element set){
+        List<Element> fk_elements=set.elements("foreign_key");
+        ArrayList<ForeignKeyInfo> fk_list=new ArrayList<>();
+        for (Element fk_element:fk_elements) {
+            String from_table=table_name;
+            String from_column=fk_element.attributeValue("from");
+            String to_info=fk_element.attributeValue("to");
+            String[] to_infos=to_info.split("\\.");
+            ConstraintType type=ConstraintType.fromConstraintType(fk_element.attributeValue("type"));
+            String name=null;
+            if ((name=fk_element.attributeValue("name"))==null){
+                name="fk_"+from_table+"_"+to_infos[0]+"_to_"+to_infos[1];
+            }
+            fk_list.add(new ForeignKeyInfo(from_table,to_infos[0],from_column,to_infos[1],type,name));
+        }
+        return fk_list;
+
     }
 
     //解析sql约束
