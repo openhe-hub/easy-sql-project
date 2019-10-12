@@ -19,6 +19,8 @@ public class SessionHandler<T> {
     @Getter
     private ArrayList<ForeignKeyInfo> fk_list;
     @Getter
+    private ArrayList<IndexInfo> index_list;
+    @Getter
     private IdInfo idInfo;
     private String table_name;
     private Class BeanClass;
@@ -32,6 +34,7 @@ public class SessionHandler<T> {
         fields_info = classInfos.getField_infos();
         fk_list =classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
+        index_list=classInfos.getIndexInfos();
         table_name=session.getTable_name();
 
         try {
@@ -63,6 +66,13 @@ public class SessionHandler<T> {
             sql.append(appendFkConstraints(fk_info));
         }
 
+
+        if (index_list!=null) {
+            for (IndexInfo index_info:index_list){
+                sql.append(appendIndex(index_info));
+            }
+        }
+
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
         DBConnector.executeSQL(sql.toString());
@@ -79,6 +89,12 @@ public class SessionHandler<T> {
             return "";
         }
      }
+
+     private String appendIndex(IndexInfo index_info){
+        return index_info.getType().getConstraint_type()+" "+index_info.getName()+"("+
+                fields_info.get(index_info.getField_name()).getColumn_name()+"),\n";
+     }
+
 
    //拼接sql约束
     private String appendConstraints(FieldInfo fieldInfo) {

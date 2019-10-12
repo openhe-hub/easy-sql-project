@@ -24,9 +24,13 @@
         </fields>
         <set>
             <foreign_key
-                    type="many_to_one"
-                    from="teacher_id"
-                    to="teacher.id"
+                type="many_to_one"
+                from="teacher_id"
+                to="teacher.id"
+            />
+            <index
+                    field="name"
+                    type="fulltext"
             />
         </set>
 

@@ -92,11 +92,12 @@ public class Session<T> {
             Element root=XmlHelper.getRootElement(xml_config_name);
             Element class_element=root.element("class");
             Element set=class_element.element("set");
+            getIdInfo(class_element.element("id"));
             LinkedHashMap<String,String[]> class_map = getClassInfo(class_element);
             LinkedHashMap<String,FieldInfo> field_map= getFieldInfo(class_element.element("fields"));
             ArrayList<ForeignKeyInfo> fk_list= getForeignKeyInfo(set);
-            getIdInfo(class_element.element("id"));
-            classInfo=new ClassInfo(class_map,field_map,idInfo,fk_list);
+            ArrayList<IndexInfo> index_list=getIndexInfo(set);
+            classInfo=new ClassInfo(class_map,field_map,idInfo,fk_list,index_list);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
@@ -153,6 +154,21 @@ public class Session<T> {
         }
         return fk_list;
 
+    }
+
+    private ArrayList<IndexInfo> getIndexInfo(Element set){
+        List<Element> index_elements=set.elements("index");
+        ArrayList<IndexInfo> index_list=new ArrayList<>();
+        for (Element index_element:index_elements) {
+            String field_name=index_element.attributeValue("field");
+            ConstraintType type=ConstraintType.fromConstraintType(index_element.attributeValue("type"));
+            String name=null;
+            if ((name=index_element.attributeValue("name"))==null){
+                name="index_"+field_name;
+            }
+            index_list.add(new IndexInfo(field_name,name,type));
+        }
+        return index_list;
     }
 
     //解析sql约束

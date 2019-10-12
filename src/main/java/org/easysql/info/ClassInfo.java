@@ -13,4 +13,5 @@ public class ClassInfo {
     private LinkedHashMap<String, FieldInfo> field_infos;
     private IdInfo idInfo;
     private ArrayList<ForeignKeyInfo> foreignKeyInfos;
+    private ArrayList<IndexInfo> indexInfos;
 }
