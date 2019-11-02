@@ -18,4 +18,8 @@
                table_name="teacher"
                 config_name="teacher_mapping"/>
     </class_config>
+
+    <sql_config>
+        <sql name="service"/>
+    </sql_config>
 </center_config>

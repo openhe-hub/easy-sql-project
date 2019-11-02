@@ -509,7 +509,7 @@ public class SessionHandler<T> {
 
 
     //cache
-    public Cache startCache(ArrayList<T> data, int mode) {
+    public Cache<T> startCache(ArrayList<T> data, int mode) {
         Cache<T> cache = new Cache<T>(data, mode, this);
         return cache;
     }

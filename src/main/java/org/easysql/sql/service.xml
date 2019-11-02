@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <select id="sel_name_mark">
+        <fields>name,mark</fields>
+        <from>Student</from>
+        <where>
+            mark>140,
+            mark&lt;150
+        </where>
+    </select>
+    <where id="condition1">
+        mark>?,
+        mark&lt;?
+    </where>
+    <where id="condition2" class="Student" rename="s">
+        mark>s.mark,
+        mark&lt;s.mark
+    </where>
+
+    <insert id="insert1" class="Student" rename="s">
+        <fields>*</fields>
+        <class>Student</class>
+        <value>s.*</value>
+    </insert>
+
+    <update id="update1" class="Student" rename="s">
+        <fields>name</fields>
+        <class>Student</class>
+        <value>good</value>
+        <where>
+            mark=s.mark
+        </where>
+    </update>
+
+
+
+</sql>
