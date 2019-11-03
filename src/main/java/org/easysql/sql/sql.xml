@@ -11,6 +11,9 @@
     <where id="condition1" class="Student" >
         @(mark)>?
     </where>
+    <fields id="to_select" class="Student">
+        @(id),@(name),@(mark)
+    </fields>
     <where id="condition2" class="Student" >
         @(mark)>@{mark},
         @(mark)&lt;@{mark}

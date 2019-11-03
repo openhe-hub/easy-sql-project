@@ -9,6 +9,8 @@ import org.easysql.info.*;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SessionHandler<T> {
@@ -16,6 +18,8 @@ public class SessionHandler<T> {
     private LinkedHashMap<String, String[]> class_info;
     @Getter
     private LinkedHashMap<String, FieldInfo> fields_info;
+    @Getter
+    private LinkedHashMap<String, FieldInfo> columns_info;
     @Getter
     private ArrayList<ForeignKeyInfo> fk_list;
     @Getter
@@ -32,6 +36,7 @@ public class SessionHandler<T> {
         ClassInfo classInfos = session.getClassInfo();
         class_info = classInfos.getClass_info();
         fields_info = classInfos.getField_infos();
+        columns_info=classInfos.getColumn_infos();
         fk_list =classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
         index_list=classInfos.getIndexInfos();
@@ -153,11 +158,7 @@ public class SessionHandler<T> {
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
             DBConnector.executeSQL(sql.toString());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -177,13 +178,7 @@ public class SessionHandler<T> {
             }
             System.out.println(pstmt);
             pstmt.executeUpdate();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -205,13 +200,7 @@ public class SessionHandler<T> {
                 pstmt.addBatch();
             }
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -244,11 +233,7 @@ public class SessionHandler<T> {
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
             pstmt = DBConnector.getPreparedStatement(sql.toString());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         return toInsertColumns;
@@ -259,11 +244,7 @@ public class SessionHandler<T> {
     public void updateAsID(T bean,String condition) {
         try {
             update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name())+" and "+condition, bean);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -271,11 +252,7 @@ public class SessionHandler<T> {
     public void updateAsID(T bean) {
         try {
             update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name()), bean);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -287,13 +264,7 @@ public class SessionHandler<T> {
                 pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumn.get(i)));
             }
             pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -310,13 +281,7 @@ public class SessionHandler<T> {
                 pstmt.addBatch();
             }
             pstmt.executeBatch();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -362,11 +327,7 @@ public class SessionHandler<T> {
                     toInsertColumns.add(field_name.get(i));
                 }
             }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         sql.deleteCharAt(sql.length() - 1);
@@ -378,10 +339,11 @@ public class SessionHandler<T> {
 
     //select
     /*
-     * @para1:Bean.class
-     * @para2:like "=value" or ">value" or... You can append like "and column>value"*/
-    public ArrayList<T> select(String toSelect, StringBuilder condition) {
-        StringBuffer sql = new StringBuffer("select " + toSelect + " from " + table_name);
+     * @para1:columns like:col1,col2...
+     * @para2:like "=value" or ">value" or... You can append like "and column>value"
+     * */
+    public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition) {
+        StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + table_name);
         if (condition.equals("") == true) {
             sql.append(";");
         } else {
@@ -394,15 +356,24 @@ public class SessionHandler<T> {
             list = new ArrayList<>(fields_info.keySet());
             list.add(0, idInfo.getColumn_name());
         } else {
-            String[] toSelectColumns = toSelect.split(",");
-            list = new ArrayList<String>(Arrays.asList(toSelectColumns));
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
+            Matcher m = p.matcher(toSelect.toString());
+            String[] select_columns=m.replaceAll("").split(",");
+            list = new ArrayList<>();
+            for(String select_column:select_columns){
+                if(select_column.equals(idInfo.getColumn_name())){
+                    list.add(idInfo.getField_name());
+                }else{
+                    list.add(columns_info.get(select_column).getField_name());
+                }
+            }
         }
         ArrayList<T> beans = ResultSetToBean(rs, list);
         return beans;
     }
 
     public ArrayList<T> selectAll() {
-        return select("*", new StringBuilder(""));
+        return select(new StringBuilder("*"), new StringBuilder(""));
     }
 
     public T selectAsID(Object id_value) {

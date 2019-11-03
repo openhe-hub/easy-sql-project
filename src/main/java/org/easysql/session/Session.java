@@ -101,10 +101,12 @@ public class Session<T> {
             Element set=class_element.element("set");
             getIdInfo(class_element.element("id"));
             LinkedHashMap<String,String[]> class_map = getClassInfo(class_element);
-            LinkedHashMap<String,FieldInfo> field_map= getFieldInfo(class_element.element("fields"));
+            ArrayList<LinkedHashMap<String,FieldInfo>>  field_maps= getFieldInfo(class_element.element("fields"));
+            LinkedHashMap<String,FieldInfo> field_map=field_maps.get(0);
+            LinkedHashMap<String,FieldInfo> column_map=field_maps.get(1);
             ArrayList<ForeignKeyInfo> fk_list= getForeignKeyInfo(set);
             ArrayList<IndexInfo> index_list=getIndexInfo(set);
-            classInfo=new ClassInfo(class_map,field_map,idInfo,fk_list,index_list);
+            classInfo=new ClassInfo(class_map,field_map,column_map,idInfo,fk_list,index_list);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
@@ -126,10 +128,11 @@ public class Session<T> {
         idInfo=new IdInfo(finished_info,constraintTypes,type);
     }
 
-    private  LinkedHashMap<String, FieldInfo> getFieldInfo(Element field_element)
+    private ArrayList<LinkedHashMap<String, FieldInfo>>  getFieldInfo(Element field_element)
     {
         List<Element> field_list=field_element.elements("field");
-        LinkedHashMap<String,FieldInfo> field_map=new LinkedHashMap<String, FieldInfo>();
+        LinkedHashMap<String,FieldInfo> field_map=new LinkedHashMap<>();
+        LinkedHashMap<String,FieldInfo> column_map=new LinkedHashMap<>();
 
         for (Element e:field_list){
             String field_name=e.attributeValue("field_name");
@@ -140,8 +143,12 @@ public class Session<T> {
             ConstraintType[] constraintTypes = getConstraintTypes(e);
             FieldInfo fieldInfo=new FieldInfo(finished_info,constraintTypes);
             field_map.put(field_name,fieldInfo);
+            column_map.put(column_name,fieldInfo);
         }
-        return field_map;
+        ArrayList<LinkedHashMap<String, FieldInfo>> ans=new ArrayList<>();
+        ans.add(field_map);
+        ans.add(column_map);
+        return ans;
     }
 
     private ArrayList<ForeignKeyInfo> getForeignKeyInfo(Element set){

@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 public class ClassInfo {
     private LinkedHashMap<String,String[]> class_info;
     private LinkedHashMap<String, FieldInfo> field_infos;
+    private LinkedHashMap<String,FieldInfo> column_infos;
     private IdInfo idInfo;
     private ArrayList<ForeignKeyInfo> foreignKeyInfos;
     private ArrayList<IndexInfo> indexInfos;
