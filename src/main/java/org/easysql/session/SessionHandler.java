@@ -36,12 +36,7 @@ public class SessionHandler<T> {
         idInfo = classInfos.getIdInfo();
         index_list=classInfos.getIndexInfos();
         table_name=session.getTable_name();
-
-        try {
-            BeanClass = Class.forName(Configuration.getBean_pkg() + "." + session.getClass_name());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        BeanClass=session.getBeanClass();
     }
 
     //DDL
@@ -385,12 +380,12 @@ public class SessionHandler<T> {
     /*
      * @para1:Bean.class
      * @para2:like "=value" or ">value" or... You can append like "and column>value"*/
-    public ArrayList<T> select(String toSelect, String condition) {
+    public ArrayList<T> select(String toSelect, StringBuilder condition) {
         StringBuffer sql = new StringBuffer("select " + toSelect + " from " + table_name);
         if (condition.equals("") == true) {
             sql.append(";");
         } else {
-            sql.append(" where " + condition);
+            sql.append(" where " + condition.toString()+";");
         }
         rs = DBConnector.executeQuery(sql.toString());
 
@@ -407,7 +402,7 @@ public class SessionHandler<T> {
     }
 
     public ArrayList<T> selectAll() {
-        return select("*", "");
+        return select("*", new StringBuilder(""));
     }
 
     public T selectAsID(Object id_value) {

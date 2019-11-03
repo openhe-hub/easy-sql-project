@@ -19,7 +19,7 @@
                 config_name="teacher_mapping"/>
     </class_config>
 
-    <sql_config>
+    <sql_config sql_pkg="org.easysql.sql">
         <sql name="service"/>
     </sql_config>
 </center_config>

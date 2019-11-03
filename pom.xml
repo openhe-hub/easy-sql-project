@@ -6,7 +6,7 @@
 
     <groupId>org.easysql</groupId>
     <artifactId>EasySql</artifactId>
-    <version>3.3.20191102</version>
+    <version>3.4.1.20191103</version>
     <build>
         <plugins>
             <plugin>

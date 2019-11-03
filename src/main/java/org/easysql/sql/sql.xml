@@ -8,27 +8,26 @@
             mark&lt;150
         </where>
     </select>
-    <where id="condition1">
-        mark>?,
-        mark&lt;?
+    <where id="condition1" class="Student" >
+        @(mark)>?
     </where>
-    <where id="condition2" class="Student" rename="s">
-        mark>s.mark,
-        mark&lt;s.mark
+    <where id="condition2" class="Student" >
+        @(mark)>@{mark},
+        @(mark)&lt;@{mark}
     </where>
 
-    <insert id="insert1" class="Student" rename="s">
+    <insert id="insert1" class="Student" >
         <fields>*</fields>
         <class>Student</class>
-        <value>s.*</value>
+        <value>@{*}</value>
     </insert>
 
-    <update id="update1" class="Student" rename="s">
+    <update id="update1" class="Student" >
         <fields>name</fields>
         <class>Student</class>
         <value>good</value>
         <where>
-            mark=s.mark
+            @(mark)=@{mark}
         </where>
     </update>
 

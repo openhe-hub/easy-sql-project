@@ -4,6 +4,7 @@ import org.easysql.bean.Student;
 import org.easysql.bean.Teacher;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
+import org.easysql.helper.XmlHelper;
 import org.easysql.info.CRUD_VALUE;
 import org.easysql.session.*;
 
@@ -22,13 +23,18 @@ public class Test {
         studentSession.init();
 
         SessionHandler<Student> handler=studentSession.getHandler();
+        XmlHelper.init_sql_parser("sql",studentSession);
+        Student student=new Student(4567,"he",100,1);
 
-        Cache<Student> cache=handler.startCache(handler.selectAll(),CRUD_VALUE.READ_MODE);
-        Cache.start_timer();
-        LinkedHashMap<Object,ArrayList<Student>> students=cache.group_by("mark");
-        System.out.println(Cache.calc_time());
+        StringBuilder sql=XmlHelper.parseCondition("condition1");
+        sql=XmlHelper.fill(student,new String[]{"140"},sql);
+
+        ArrayList<Student> students=handler.select("*",sql);
+        for (Student stu : students) {
+            System.out.println(stu.toString());
+        }
+
         studentSession.close();
-
 
     }
 }

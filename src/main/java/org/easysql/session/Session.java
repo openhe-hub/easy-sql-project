@@ -19,12 +19,19 @@ public class Session<T> {
     @Getter
     private String class_name;
     @Getter
+    private Class BeanClass;
+    @Getter
     private String table_name;
     private String xml_config_name;
     private SessionHandler<T> sessionHandler;
 
     public Session(String class_name){
         this.class_name=class_name;
+        try {
+            BeanClass = Class.forName(Configuration.getBean_pkg() + "." + class_name);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         String[] config_infos=Configuration.getConfiguration(class_name);
         table_name=config_infos[0];
         xml_config_name=config_infos[1];
