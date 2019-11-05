@@ -3,15 +3,20 @@ package org.easysql.helper;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.beanutils.BeanUtils;
+import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.easysql.session.Session;
+import org.easysql.session.SessionHandler;
+import org.w3c.dom.NodeList;
 
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class XmlHelper {
@@ -31,8 +36,14 @@ public class XmlHelper {
     private static Element sql_root;
     @Setter
     private  Session session;
-    @Getter
+    @Setter
+    private  SessionHandler handler;
+    @Getter@Setter
     private  StringBuilder sql;
+    @Getter
+    private ArrayList<String> paras;
+    @Getter
+    private int paras_cursor;
 
     public static Element getRootElement(String config_name) {
         Element element = null;
@@ -54,8 +65,10 @@ public class XmlHelper {
     }
 
     //动态sql解析
-    public void init_sql_parser(String sql_xml_name,Session default_session) {
+    public void init_sql_parser(String sql_xml_name, Session default_session,SessionHandler default_handler) {
         session=default_session;
+        handler=default_handler;
+        paras=new ArrayList<>();
         StringBuilder config_pkg=new StringBuilder(CONFIG_PATH);
         sql_path=config_pkg.replace(config_pkg.length()-7,config_pkg.length()-1,"sql").toString();
         File sql_file = new File(sql_path + sql_xml_name + CONFIG_FILE_TYPE);
@@ -69,51 +82,100 @@ public class XmlHelper {
 
     //where条件解析
     public XmlHelper parseCondition(String id) {
-        sql = null;
-        List<Element> where_list = sql_root.elements("where");
-        for (Element where_element : where_list) {
-            if (where_element.attributeValue("id").equals(id)) {
-                sql = new StringBuilder(where_element.getText());
-                for (int i = 0; i < sql.length(); i++) {
-                    if (sql.charAt(i) == ',') {
-                        sql.replace(i,i+1," and ");
-                    }
-                }
-                break;
-            }
-        }
-        if (sql != null) {
+        Element where_element=findSqlElementByID(id,"where");
+        if(where_element!=null){
+            sql=new StringBuilder(where_element.getText());
+            fillAnd();
             return this;
-        } else {
+        }
+        else {
             System.out.println("error:Condition not found!Please check your sql.xml and id.");
             return null;
         }
     }
 
     public XmlHelper parseColumns(String id){
-        sql=null;
-        List<Element> col_list = sql_root.elements("fields");
-        for (Element col_element : col_list) {
-            if (col_element.attributeValue("id").equals(id)) {
-                sql = new StringBuilder(col_element.getText());
-                break;
-            }
-        }
-        if (sql != null) {
+        Element column_element=findSqlElementByID(id,"fields");
+        if(column_element!=null){
+            sql=new StringBuilder(column_element.getText());
             return this;
-        } else {
-            System.out.println("error:Columns not found!Please check your sql.xml and id.");
+        }
+        else {
+            System.out.println("error:Condition not found!Please check your sql.xml and id.");
             return null;
         }
     }
 
-    public <T> StringBuilder fill(T bean, String[] datas) {
+    //单表查询
+    public <T> ArrayList<T> parseSelect(String id,T bean,String[] datas){
+        Element select_element=findSqlElementByID(id,"select");
+        StringBuilder to_select=new StringBuilder();
+        StringBuilder condition=new StringBuilder();
+        String table_name="";
+        int data_cursor=0;
+        ArrayList<Object> select_paras=new ArrayList<>();
+        ArrayList<T> result_list=new ArrayList<>();
+        List<Element> sub_elements=select_element.elements();
+        for (Element sub_element : sub_elements) {
+            String element_name=sub_element.getName();
+            String text = sub_element.getText();
+            switch (element_name){
+                case "fields":{
+                    setSql(new StringBuilder(text));
+                    to_select=fill().getSql().append("\n");
+                }break;
+                case "from":{
+                    String class_name= text;
+                    table_name=session.getTable_name();
+                    if(!class_name.equals(session.getClass_name())||
+                       !table_name.equals(handler.getTable_name())){
+                        System.out.println("error:session or handler not suit!");
+                        return null;
+                    }
+                }break;
+                case "where":{
+                    setSql(new StringBuilder(text));
+                    fillAnd();
+                    fill(bean,Arrays.copyOfRange(datas,data_cursor,datas.length));
+                    data_cursor=getParas_cursor();
+                    condition=getSql();
+                    select_paras.addAll(getParas());
+                }break;
+                case "order":{
+                    String type=sub_element.attributeValue("type");
+                    setSql(new StringBuilder(text));
+                    fill();
+                    condition.append("\n order by ").append(getSql()).append(" ").append(type);
+                }break;
+                case "limit":{
+                    setSql(new StringBuilder(text));
+                    fill(Arrays.copyOfRange(datas,data_cursor,datas.length));
+                    condition.append("\n limit ").append(text);
+                    ArrayList<Integer> list=new ArrayList<>();
+                    for (String para : paras) {
+                        list.add(Integer.parseInt(para));
+                    }
+                    select_paras.addAll(list);
+                }break;
+            }
+        }
+        result_list=handler.select(to_select,condition,select_paras);
+        return result_list;
+    }
+
+
+
+
+
+    public <T> XmlHelper fill(T bean, String[] datas) {
+        paras.clear();
         if (session != null) {
             //填充bean数据
-            if (bean != null) {
+            if (bean != null&&datas!=null&&datas.length>0) {
                 if (bean.getClass().equals(session.getBeanClass())) {
                     int start_fill = 0;
                     int end_fill = 0;
+                    paras_cursor=0;
                     boolean is_fill_data = false;
                     boolean is_fill_column = false;
                     for (int i = 0; i < sql.length(); i++) {
@@ -133,19 +195,20 @@ public class XmlHelper {
                             end_fill = i - 1;
                             i = fill_column( start_fill, end_fill, i);
                             is_fill_column = false;
+                        }else if(c=='?'){
+                            paras.add(datas[paras_cursor++]);
                         }
                     }
                 } else {
                     System.out.println("error:Class type not equal!");
                 }
             } else {
-                System.out.println("warning:no bean to fill data!");
+                System.out.println("warning:no data to fill!");
             }
-            sql=fill_data(datas, sql);
         } else {
             System.out.println("error:No session to get class info!");
         }
-        return sql;
+        return this;
     }
 
     //only fill columns
@@ -170,6 +233,7 @@ public class XmlHelper {
 
     //fill columns and datas
     public XmlHelper fill(String[] datas){
+        paras.clear();
         fill();
         fill_data(datas,sql);
         return this;
@@ -197,7 +261,8 @@ public class XmlHelper {
         String field = sql.substring(start_fill, end_fill+1);
         try {
             String data= "\'" + BeanUtils.getProperty(bean, field) + "\'";
-            sql.replace(start_fill-2, end_fill+2,data);//注入数据
+            paras.add(data);//注入数据到参数集
+            sql.replace(start_fill-2, end_fill+2, "?");//先使用占位符替代，到handler层注入
             i=start_fill-2+data.length();
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -207,17 +272,36 @@ public class XmlHelper {
 
     private StringBuilder fill_data(String[] datas, StringBuilder sql) {
         if (datas.length > 0) {
-            int cursor = 0;
+            paras_cursor = 0;
             for (int i = 0; i < sql.length(); i++) {
                 char c = sql.charAt(i);
                 if (c == '?') {
-                    sql.replace(i, i+1, datas[cursor++]);
+                    paras.add(datas[paras_cursor++]);
                 }
             }
         } else {
             System.out.println("warning:no datas to fill data!");
         }
         return sql;
+    }
+
+    private void fillAnd() {
+        for(int i=0;i<sql.length();i++){
+            if(sql.charAt(i)==','){
+                sql.replace(i,i+1," and ");
+            }
+        }
+    }
+
+    private Element findSqlElementByID(String id,String element_type){
+        List<Element> elements = sql_root.elements(element_type);
+        for (Element element : elements) {
+            if (element.attributeValue("id").equals(id)) {
+                return element;
+            }
+        }
+        System.out.println("error:Condition not found!Please check your sql.xml and id.");
+        return null;
     }
 }
 

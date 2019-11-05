@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sql>
-    <select id="sel_name_mark">
-        <fields>name,mark</fields>
+    <select id="sel_mark_rank10" return="Student">
+        <fields>@(id),@(name),@(mark)</fields>
         <from>Student</from>
         <where>
-            mark>140,
-            mark&lt;150
+            @(mark)>?,
+            @(mark)&lt;>@{mark}
         </where>
+        <order type="desc">@(mark)</order>
+        <limit>?,?</limit>
     </select>
     <where id="condition1" class="Student" >
         @(mark)>?
@@ -14,26 +16,6 @@
     <fields id="to_select" class="Student">
         @(id),@(name),@(mark)
     </fields>
-    <where id="condition2" class="Student" >
-        @(mark)>@{mark},
-        @(mark)&lt;@{mark}
-    </where>
-
-    <insert id="insert1" class="Student" >
-        <fields>*</fields>
-        <class>Student</class>
-        <value>@{*}</value>
-    </insert>
-
-    <update id="update1" class="Student" >
-        <fields>name</fields>
-        <class>Student</class>
-        <value>good</value>
-        <where>
-            @(mark)=@{mark}
-        </where>
-    </update>
-
 
 
 </sql>

@@ -24,19 +24,12 @@ public class Test {
 
         SessionHandler<Student> handler=studentSession.getHandler();
         XmlHelper parser=new XmlHelper();
-        parser.init_sql_parser("sql",studentSession);
+        parser.init_sql_parser("sql",studentSession,handler);
 
-
-        StringBuilder condition1=parser.parseCondition("condition1").fill(new String[]{"145"}).getSql();
-        StringBuilder to_select=parser.parseColumns("to_select").fill().getSql();
-
-
-        ArrayList<Student> students=handler.select(to_select,condition1);
-
-        for (Student stu : students) {
-            System.out.println(stu.toString());
+        ArrayList<Student> students=parser.parseSelect("sel_mark_rank10",new Student("he",144,1),new String[]{"140","1000","1100"});
+        for (Student student : students) {
+            System.out.println(student);
         }
-
         studentSession.close();
 
     }

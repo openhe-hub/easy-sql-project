@@ -26,6 +26,7 @@ public class SessionHandler<T> {
     private ArrayList<IndexInfo> index_list;
     @Getter
     private IdInfo idInfo;
+    @Getter
     private String table_name;
     private Class BeanClass;
     private ResultSet rs;
@@ -36,12 +37,12 @@ public class SessionHandler<T> {
         ClassInfo classInfos = session.getClassInfo();
         class_info = classInfos.getClass_info();
         fields_info = classInfos.getField_infos();
-        columns_info=classInfos.getColumn_infos();
-        fk_list =classInfos.getForeignKeyInfos();
+        columns_info = classInfos.getColumn_infos();
+        fk_list = classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
-        index_list=classInfos.getIndexInfos();
-        table_name=session.getTable_name();
-        BeanClass=session.getBeanClass();
+        index_list = classInfos.getIndexInfos();
+        table_name = session.getTable_name();
+        BeanClass = session.getBeanClass();
     }
 
     //DDL
@@ -67,8 +68,8 @@ public class SessionHandler<T> {
         }
 
 
-        if (index_list!=null) {
-            for (IndexInfo index_info:index_list){
+        if (index_list != null) {
+            for (IndexInfo index_info : index_list) {
                 sql.append(appendIndex(index_info));
             }
         }
@@ -78,25 +79,24 @@ public class SessionHandler<T> {
         DBConnector.executeSQL(sql.toString());
     }
 
-     private String appendFkConstraints(ForeignKeyInfo fk_info){
-        if (SessionManager.check_fk_connect(fk_info)){
-            return "constraint "+fk_info.getName()+" foreign key("+fk_info.getFromColumn()+") references "+
-                    fk_info.getToTable()+"("+fk_info.getToColumn()+"),\n";
-        }
-        else {
-            System.out.println("error:if type is many_to_one,foreign key can't be created in table "+table_name);
+    private String appendFkConstraints(ForeignKeyInfo fk_info) {
+        if (SessionManager.check_fk_connect(fk_info)) {
+            return "constraint " + fk_info.getName() + " foreign key(" + fk_info.getFromColumn() + ") references " +
+                    fk_info.getToTable() + "(" + fk_info.getToColumn() + "),\n";
+        } else {
+            System.out.println("error:if type is many_to_one,foreign key can't be created in table " + table_name);
             System.out.println("if type is one_to_many,foreign key will be created then.Don't worry.");
             return "";
         }
-     }
+    }
 
-     private String appendIndex(IndexInfo index_info){
-        return index_info.getType().getConstraint_type()+" "+index_info.getName()+"("+
-                fields_info.get(index_info.getField_name()).getColumn_name()+"),\n";
-     }
+    private String appendIndex(IndexInfo index_info) {
+        return index_info.getType().getConstraint_type() + " " + index_info.getName() + "(" +
+                fields_info.get(index_info.getField_name()).getColumn_name() + "),\n";
+    }
 
 
-   //拼接sql约束
+    //拼接sql约束
     private String appendConstraints(FieldInfo fieldInfo) {
         String constraint_type = "";
         ConstraintType[] constraints = fieldInfo.getConstraints();
@@ -178,7 +178,7 @@ public class SessionHandler<T> {
             }
             System.out.println(pstmt);
             pstmt.executeUpdate();
-        }catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+        } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }
@@ -241,9 +241,9 @@ public class SessionHandler<T> {
 
 
     //update
-    public void updateAsID(T bean,String condition) {
+    public void updateAsID(T bean, String condition) {
         try {
-            update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name())+" and "+condition, bean);
+            update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name()) + " and " + condition, bean);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -269,8 +269,8 @@ public class SessionHandler<T> {
         }
     }
 
-    public void updateListToTable(ArrayList<T> beans){
-        StringBuilder condition=new StringBuilder(idInfo.getColumn_name()+"=?");
+    public void updateListToTable(ArrayList<T> beans) {
+        StringBuilder condition = new StringBuilder(idInfo.getColumn_name() + "=?");
         ArrayList<String> toInsertColumns = getUpdatePstmt(condition.toString(), beans.get(0));
         toInsertColumns.add(idInfo.getField_name());
         try {
@@ -287,31 +287,30 @@ public class SessionHandler<T> {
     }
 
 
-    public void updateListToTableByID(ArrayList<T> beans,ArrayList<HashMap<Integer,String>> conditions) {
-        int condition_index=0;
-        String condition=null;
-        boolean is_condition_end=false;
+    public void updateListToTableByID(ArrayList<T> beans, ArrayList<HashMap<Integer, String>> conditions) {
+        int condition_index = 0;
+        String condition = null;
+        boolean is_condition_end = false;
         for (int i = 0; i < beans.size(); i++) {
-            if ((condition = conditions.get(condition_index).get(i)) != null && is_condition_end == false){
-                updateAsID(beans.get(i),condition);
-                if (condition_index<conditions.size()-1) {
+            if ((condition = conditions.get(condition_index).get(i)) != null && is_condition_end == false) {
+                updateAsID(beans.get(i), condition);
+                if (condition_index < conditions.size() - 1) {
                     condition_index++;
+                } else {
+                    is_condition_end = true;
                 }
-                else {
-                    is_condition_end=true;
-                }
-            }
-            else {
+            } else {
                 updateAsID(beans.get(i));
             }
         }
     }
 
     public void updateListToTableByID(ArrayList<T> beans) {
-        for (T bean:beans) {
+        for (T bean : beans) {
             updateAsID(bean);
         }
     }
+
     private ArrayList<String> getUpdatePstmt(String condition, T bean) {
         StringBuilder sql = new StringBuilder("update " + table_name + " set ");
         ArrayList<String> column_name = getColumnList();
@@ -342,14 +341,25 @@ public class SessionHandler<T> {
      * @para1:columns like:col1,col2...
      * @para2:like "=value" or ">value" or... You can append like "and column>value"
      * */
-    public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition) {
+    public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<String> paras) {
         StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + table_name);
         if (condition.equals("") == true) {
             sql.append(";");
         } else {
-            sql.append(" where " + condition.toString()+";");
+            sql.append(" where " + condition.toString() + ";");
         }
-        rs = DBConnector.executeQuery(sql.toString());
+        System.out.println(sql);
+        pstmt = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
+        try {
+            if (paras!=null&&paras.size()>0) {
+                for (int i = 0; i < paras.size(); i++) {
+                    pstmt.setObject(i + 1, paras.get(i));
+                }
+            }
+            rs = pstmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         ArrayList<String> list = null;
         if (toSelect.equals("*")) {
@@ -358,12 +368,12 @@ public class SessionHandler<T> {
         } else {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
             Matcher m = p.matcher(toSelect.toString());
-            String[] select_columns=m.replaceAll("").split(",");
+            String[] select_columns = m.replaceAll("").split(",");
             list = new ArrayList<>();
-            for(String select_column:select_columns){
-                if(select_column.equals(idInfo.getColumn_name())){
+            for (String select_column : select_columns) {
+                if (select_column.equals(idInfo.getColumn_name())) {
                     list.add(idInfo.getField_name());
-                }else{
+                } else {
                     list.add(columns_info.get(select_column).getField_name());
                 }
             }
@@ -373,7 +383,7 @@ public class SessionHandler<T> {
     }
 
     public ArrayList<T> selectAll() {
-        return select(new StringBuilder("*"), new StringBuilder(""));
+        return select(new StringBuilder("*"), new StringBuilder(""),null);
     }
 
     public T selectAsID(Object id_value) {
@@ -441,7 +451,7 @@ public class SessionHandler<T> {
 
     //delete
 
-    public  void deleteAsID(T bean) {
+    public void deleteAsID(T bean) {
         Object id_value = null;
         try {
             id_value = BeanUtils.getProperty(bean, idInfo.getField_name());
@@ -456,13 +466,12 @@ public class SessionHandler<T> {
         DBConnector.executeSQL(sql.toString());
     }
 
-    public void delete(String columns,String condition) {
+    public void delete(String columns, String condition) {
         StringBuilder sql = new StringBuilder("delete from " + table_name);
-        if (columns.equals("*")){
+        if (columns.equals("*")) {
             sql.append(" where " + condition + ";");
-        }
-        else {
-            sql.append("("+columns+ "） where " + condition + ";");
+        } else {
+            sql.append("(" + columns + "） where " + condition + ";");
         }
         DBConnector.executeSQL(sql.toString());
     }
@@ -480,16 +489,15 @@ public class SessionHandler<T> {
         return cache;
     }
 
-    public Transaction startTransaction(){
-        Transaction transaction=new Transaction(Configuration.getConnection(), Connection.TRANSACTION_REPEATABLE_READ);
+    public Transaction startTransaction() {
+        Transaction transaction = new Transaction(Configuration.getConnection(), Connection.TRANSACTION_REPEATABLE_READ);
         return transaction;
     }
 
-    public Transaction startTransaction(int level){
-        Transaction transaction=new Transaction(Configuration.getConnection(), level);
+    public Transaction startTransaction(int level) {
+        Transaction transaction = new Transaction(Configuration.getConnection(), level);
         return transaction;
     }
-
 
 
 }

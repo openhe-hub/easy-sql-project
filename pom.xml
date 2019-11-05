@@ -6,7 +6,7 @@
 
     <groupId>org.easysql</groupId>
     <artifactId>EasySql</artifactId>
-    <version>3.4.1.20191103</version>
+    <version>3.4.2.20191104</version>
     <build>
         <plugins>
             <plugin>
@@ -54,9 +54,6 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.3</version>
         </dependency>
-
-
-
     </dependencies>
 
 </project>
