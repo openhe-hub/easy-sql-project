@@ -342,6 +342,9 @@ public class SessionHandler<T> {
      * @para2:like "=value" or ">value" or... You can append like "and column>value"
      * */
     public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<String> paras) {
+        Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
+        Matcher m = p.matcher(toSelect.toString());
+        toSelect=new StringBuilder(m.replaceAll(""));
         StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + table_name);
         if (condition.equals("") == true) {
             sql.append(";");
@@ -361,13 +364,11 @@ public class SessionHandler<T> {
             e.printStackTrace();
         }
 
-        ArrayList<String> list = null;
-        if (toSelect.equals("*")) {
+        ArrayList<String> list;
+        if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fields_info.keySet());
             list.add(0, idInfo.getColumn_name());
         } else {
-            Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
-            Matcher m = p.matcher(toSelect.toString());
             String[] select_columns = m.replaceAll("").split(",");
             list = new ArrayList<>();
             for (String select_column : select_columns) {

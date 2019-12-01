@@ -17,6 +17,9 @@
         <class class_name="Teacher"
                table_name="teacher"
                 config_name="teacher_mapping"/>
+        <class class_name="Mark"
+               table_name="mark"
+                config_name="mark_mapping"/>
     </class_config>
 
     <sql_config sql_pkg="org.easysql.sql">

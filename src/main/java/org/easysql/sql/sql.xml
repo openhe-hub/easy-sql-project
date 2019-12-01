@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sql>
-    <select id="sel_mark_rank10" return="Student">
+    <select id="sel_mark_rank10" class="Student" return="Student">
         <fields>@(id),@(name),@(mark)</fields>
         <from>Student</from>
         <where>
@@ -8,7 +8,6 @@
             @(mark)&lt;>@{mark}
         </where>
         <order type="desc">@(mark)</order>
-        <limit>?,?</limit>
     </select>
     <where id="condition1" class="Student" >
         @(mark)>?
@@ -17,5 +16,18 @@
         @(id),@(name),@(mark)
     </fields>
 
+    <select id="sel2" class="Student" return="Student">
+        <fields>*</fields>
+        <from>Student</from>
+        <where>
+            @(mark)> (select @(mark) from @(#) where id=?)
+         </where>
+    </select>
+
+    <select id="test1" class="Student,Teacher,Mark" return="Student" >
+        <fields>@(#Student).*,@(#Teacher).@(name),@(#Mark).@(mark)</fields>
+        <join join="Teacher"/>
+        <join join="Mark"/>
+    </select>
 
 </sql>

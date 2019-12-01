@@ -2,20 +2,24 @@ package org.easysql.session;
 
 import org.easysql.info.ConstraintType;
 import org.easysql.info.ForeignKeyInfo;
+import org.easysql.info.Join;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SessionManager {
-    private static LinkedHashMap<String, Session> sessions;//table_name to session
+    private static LinkedHashMap<String,Session> sessions;//table_name to session
+    private static LinkedHashMap<String,Session> class_to_sessions;//class_name to session
 
     static {
         sessions = new LinkedHashMap<>();
+        class_to_sessions=new LinkedHashMap<>();
     }
 
     public static void registerSession(Session session) {
         sessions.put(session.getTable_name(), session);
+        class_to_sessions.put(session.getClass_name(),session);
     }
 
     public static void initAll(){
@@ -34,6 +38,14 @@ public class SessionManager {
         for (Map.Entry<String,Session> entry:sessions.entrySet()){
             entry.getValue().close();
         }
+    }
+
+    public static Session select_session_by_class_name(String class_name){
+        return class_to_sessions.get(class_name);
+    }
+
+    public static Session select_session_by_table_name(String table_name){
+        return sessions.get(table_name);
     }
 
 
@@ -56,6 +68,16 @@ public class SessionManager {
             default:{
                 return false;
             }
+        }
+    }
+
+    public static Join getJoin(String main_class,String join_class){
+        Session main_session=class_to_sessions.get(main_class);
+        Join join = main_session.getClassInfo().getJoins().get(join_class);
+        if(join.getTo_class().equals(join_class)){
+           return join;
+        }else {
+            return null;
         }
     }
 

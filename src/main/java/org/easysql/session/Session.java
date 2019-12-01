@@ -8,7 +8,6 @@ import org.easysql.helper.XmlHelper;
 import org.easysql.info.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -24,6 +23,8 @@ public class Session<T> {
     private String table_name;
     private String xml_config_name;
     private SessionHandler<T> sessionHandler;
+    @Getter
+    private int field_length;
 
     public Session(String class_name){
         this.class_name=class_name;
@@ -46,6 +47,17 @@ public class Session<T> {
             System.out.println("error:Sessionhandler is null.Please init first!");
             return null;
         }
+    }
+
+    public Object getInstance(){
+        try {
+            return  BeanClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void init(){
@@ -106,7 +118,8 @@ public class Session<T> {
             LinkedHashMap<String,FieldInfo> column_map=field_maps.get(1);
             ArrayList<ForeignKeyInfo> fk_list= getForeignKeyInfo(set);
             ArrayList<IndexInfo> index_list=getIndexInfo(set);
-            classInfo=new ClassInfo(class_map,field_map,column_map,idInfo,fk_list,index_list);
+            LinkedHashMap<String,Join> join_list= getJoinMap(set);
+            classInfo=new ClassInfo(class_map,field_map,column_map,idInfo,fk_list,index_list,join_list);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
@@ -131,6 +144,7 @@ public class Session<T> {
     private ArrayList<LinkedHashMap<String, FieldInfo>>  getFieldInfo(Element field_element)
     {
         List<Element> field_list=field_element.elements("field");
+        field_length=field_list.size();
         LinkedHashMap<String,FieldInfo> field_map=new LinkedHashMap<>();
         LinkedHashMap<String,FieldInfo> column_map=new LinkedHashMap<>();
 
@@ -183,6 +197,25 @@ public class Session<T> {
             index_list.add(new IndexInfo(field_name,name,type));
         }
         return index_list;
+    }
+
+    private LinkedHashMap<String,Join> getJoinMap(Element set){
+        List<Element> join_elements=set.elements("join");
+        LinkedHashMap<String,Join> join_list=new LinkedHashMap<>();
+        for (Element join_element:join_elements) {
+           String type=join_element.attributeValue("type");
+           String form=join_element.attributeValue("form");
+           String from_field=join_element.attributeValue("from_field");
+           String to_class=join_element.attributeValue("to_class");
+           String[] point=join_element.attributeValue("point").split("->");
+           String condition=join_element.attributeValue("cond");
+           String from_class_name=getClass_name();
+           condition= (condition==null)?"=":condition;
+           join_list.put(to_class,new Join(from_class_name,from_field,to_class,
+                   ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
+                   ,point,condition));
+        }
+        return join_list;
     }
 
     //解析sql约束

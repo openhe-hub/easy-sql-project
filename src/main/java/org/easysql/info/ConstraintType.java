@@ -10,13 +10,17 @@ public enum ConstraintType {
     NULL("null"),
     UNIQUE("unique"),
 
-    MANY_TO_ONE("many_to_one"),
-    ONE_TO_MANY("one_to_many"),
-    ONE_TO_ONE("one_to_one"),
+    MANY_TO_ONE("many to one"),
+    ONE_TO_MANY("one to many"),
+    ONE_TO_ONE("one to one"),
 
     FULL_TEXT_INDEX("fulltext"),
     UNIQUE_INDEX("unique"),
-    INDEX("index");
+    INDEX("index"),
+
+    LEFT_JOIN("left join"),
+    RIGHT_JOIN("right join"),
+    INNER_JOIN("inner join");
 
 
     @Getter
