@@ -25,14 +25,15 @@ public class Test {
         Session<Mark> markSession=new Session<>("Mark");
 
         SessionManager.initAll();
+
         SessionHandler<Student> studentHandler=studentSession.getHandler();
 
         XmlHelper xml=new XmlHelper();
         xml.init_sql_parser("sql",studentSession,studentHandler);
-        xml.parseSelect("test1",null,null);
-
+        ArrayList<Teacher> teachers=xml.parseSelect("test2",null,null);
+        for (Teacher teacher : teachers) {
+            System.out.println(teacher.toString());
+        }
         SessionManager.closeAll();
-
-
     }
 }

@@ -136,67 +136,135 @@ public class XmlHelper {
 
     //!!! unfinished method
     private <T> ArrayList<T> select_tables(Element select_element, T bean, String[] datas, String[] classes) {
-        ArrayList<T> result_list=null;
-        ResultSet rs=null;
-        ResultSetMetaData rsmd=null;
+        ArrayList<T> result_list = new ArrayList<>();
+        ArrayList<LinkedHashMap<Session,Object>> table_data=new ArrayList<>();
+        String merge = select_element.attributeValue("merge");
+        String main_class = select_element.attributeValue("return");
+        ResultSet rs = null;
         //analyze
-        AnalyseMultiSelectPackage analyseMultiSelectPackage=analyse_multi_select_sql(select_element,bean,datas,new ArrayList<>());
+        AnalyseMultiSelectPackage analyseMultiSelectPackage = analyse_multi_select_sql(select_element, bean, datas, new ArrayList<>());
         //fill paras and get result
-        PreparedStatement pstmt=DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
-        ArrayList<Object> paras=analyseMultiSelectPackage.getSelect_paras();
-        LinkedHashMap<Session,ColumnCursor> columnCursor=analyseMultiSelectPackage.getColumn_cursor();
-
+        PreparedStatement pstmt = DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
+        ArrayList<Object> paras = analyseMultiSelectPackage.getSelect_paras();
+        LinkedHashMap<Session, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumn_cursor();
+        LinkedHashMap<String,Session> sessions=analyseMultiSelectPackage.getSessions();
         try {
-            if (paras!=null&&paras.size()>0) {
+            if (paras != null && paras.size() > 0) {
                 for (int i = 0; i < paras.size(); i++) {
                     pstmt.setObject(i + 1, paras.get(i));
                 }
             }
             rs = pstmt.executeQuery();
-            if (rs!=null){
-                rsmd=rs.getMetaData();
-                while (rs.next()){
-                    for(Map.Entry<Session,ColumnCursor> cursorEntry:columnCursor.entrySet()){
-                        Session session=cursorEntry.getKey();
-                        ColumnCursor cursor=cursorEntry.getValue();
-                        Object new_bean=session.getInstance();
-                        for(int i=cursor.start;i<=cursor.end;i++){
-                            Object obj=rs.getObject(i+1);
-                            BeanUtils.setProperty(new_bean,cursor.getFields().get(i),obj);
+            if (rs != null) {
+                while (rs.next()) {
+                    T data = null;
+                    LinkedHashMap<Session,Object> objs=new LinkedHashMap<>();
+                    for (Map.Entry<Session, ColumnCursor> cursorEntry : columnCursor.entrySet()) {
+                        Session session = cursorEntry.getKey();
+                        ColumnCursor cursor = cursorEntry.getValue();
+                        if (session.getClass_name().equals(main_class)) {
+                            data = (T) session.getInstance();
+                            for (int i = cursor.start; i <= cursor.end; i++) {
+                                Object obj = rs.getObject(i + 1);
+                                BeanUtils.setProperty(data, cursor.getFields().get(i-cursor.start), obj);
+                            }
+                        }else {
+                            Object new_bean = session.getInstance();
+                            for (int i = cursor.start; i <= cursor.end; i++) {
+                                Object obj = rs.getObject(i + 1);
+                                BeanUtils.setProperty(new_bean, cursor.getFields().get(i-cursor.start), obj);
+                            }
+                            objs.put(session,new_bean);
                         }
                     }
-
+                    table_data.add(objs);
+                    result_list.add(data);
                 }
+                result_list=analyze_data(result_list,table_data,main_class,merge);
             }
         } catch (SQLException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        return null;
+        return result_list;
     }
 
-    private <T> AnalyseMultiSelectPackage analyse_multi_select_sql(Element select_element,T bean,String[] datas,ArrayList<Object> select_paras){
-        ArrayList<String> table_names=new ArrayList<>();
+    private <T>  ArrayList<T> analyze_data(ArrayList<T> result_list,ArrayList<LinkedHashMap<Session,Object>> table_data,String main_class,String merge){
+        Session main_session=SessionManager.select_session_by_class_name(main_class);
+        for (int i=0;i<table_data.size();i++) {
+            LinkedHashMap<Session,Object> objs=table_data.get(i);
+            T data=result_list.get(i);
+            for (Map.Entry<Session,Object> entry:objs.entrySet()) {
+                Object obj=entry.getValue();
+                Session session=entry.getKey();
+                Join join=SessionManager.getJoin(main_class,session.getClass_name());
+                ConstraintType type=join.getType();
+                try {
+                    String inject_point = join.getFrom_field();;//inject point where data inject into main bean
+                    switch (type){
+                        case ONE_TO_ONE:{
+                            BeanUtils.setProperty(data, inject_point,obj);
+                        }break;
+                        
+                        case MANY_TO_ONE:{
+                            BeanUtils.setProperty(data, inject_point,obj);
+                        }break;
+                        
+                        case ONE_TO_MANY:{
+                            ArrayList<Object> list=new ArrayList<>();
+                            list.add(obj);
+                            Object refer=BeanUtils.getProperty(data,merge);
+                            for(int j=i+1;j<result_list.size();j++){
+                               if(BeanUtils.getProperty(result_list.get(j),merge).equals(refer)){
+                                   list.add(table_data.get(j).get(session));
+                                   if(j==result_list.size()-1){
+                                       for (int k = i+1; k <=j; k++) {
+                                           result_list.remove(i+1);
+                                           table_data.remove(i+1);
+                                       }
+                                   }
+                               }else {
+                                  for (int k = i+1; k <j; k++) {
+                                       result_list.remove(i+1);
+                                       table_data.remove(i+1);
+                                  }
+                                  break;
+                               }
+                            }
+                            BeanUtils.setProperty(data, inject_point,list);
+
+                        }
+                    }
+                } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result_list;
+    }
+
+    private <T> AnalyseMultiSelectPackage analyse_multi_select_sql(Element select_element, T bean, String[] datas, ArrayList<Object> select_paras) {
+        ArrayList<String> table_names = new ArrayList<>();
         int data_cursor = 0;
         StringBuilder to_select = new StringBuilder();
         StringBuilder condition = new StringBuilder();
-        StringBuilder sql=new StringBuilder("select ");
-        LinkedHashMap<String,Session> sessions=new LinkedHashMap<>();
-        LinkedHashMap<Session,ColumnCursor>  column_cursor=new LinkedHashMap<>();
+        StringBuilder sql = new StringBuilder("select ");
+        LinkedHashMap<String, Session> sessions = new LinkedHashMap<>();
+        LinkedHashMap<Session, ColumnCursor> column_cursor = new LinkedHashMap<>();
 
-        String main_class=select_element.attributeValue("return");
+        String main_class = select_element.attributeValue("return");
         Session main_session = SessionManager.select_session_by_class_name(main_class);
-        String main_table= main_session.getTable_name();
+        String main_table = main_session.getTable_name();
 
-        String[] classes=select_element.attributeValue("class").split(",");
-        sessions.put(main_class,main_session);
+        String[] classes = select_element.attributeValue("class").split(",");
+        sessions.put(main_class, main_session);
         for (String class_name : classes) {
-            Session session=SessionManager.select_session_by_class_name(class_name);
-            if (session==null) {
-                System.out.println("error:class:"+class_name+" not found!Please check your sql.xml");
+            Session session = SessionManager.select_session_by_class_name(class_name);
+            if (session == null) {
+                System.out.println("error:class:" + class_name + " not found!Please check your sql.xml");
                 return null;
             }
             if (!session.getClass_name().equals(main_class)) {
-                sessions.put(class_name,session);
+                sessions.put(class_name, session);
                 table_names.add(session.getTable_name());
             }
         }
@@ -209,46 +277,46 @@ public class XmlHelper {
             switch (element_name) {
                 case "fields": {
                     setSql(new StringBuilder(text));
-                    String[] fields=getSql().toString().split(",");
-                    column_cursor=record_select_field(sessions,fields);
-                    to_select =multi_fill(fields,sessions);
+                    String[] fields = getSql().toString().split(",");
+                    column_cursor = record_select_field(sessions, fields);
+                    to_select = multi_fill(fields, sessions);
                     sql.append(to_select);
-                    sql.append("\nfrom "+SessionManager.select_session_by_class_name(main_class).getTable_name()+"\n");
+                    sql.append("\nfrom " + SessionManager.select_session_by_class_name(main_class).getTable_name() + "\n");
                 }
                 break;
-                case "join":{
-                    String join_class=sub_element.attributeValue("join");
-                    Join join =SessionManager.getJoin(main_class,join_class);
-                    String form=join.getForm().getConstraint_type();
-                    String join_table=SessionManager.select_session_by_class_name(join_class).getTable_name();
-                    String[] point=join.getPoint();
-                    String join_condition=join.getCondition();
-                    condition=new StringBuilder(" "+form+" "+join_table+" on "+main_table+"."+point[0]+join_condition+join_table+"."+point[1]);
+                case "join": {
+                    String join_class = sub_element.attributeValue("join");
+                    Join join = SessionManager.getJoin(main_class, join_class);
+                    String form = join.getForm().getConstraint_type();
+                    String join_table = SessionManager.select_session_by_class_name(join_class).getTable_name();
+                    String[] point = join.getPoint();
+                    String join_condition = join.getCondition();
+                    condition = new StringBuilder(" " + form + " " + join_table + " on " + main_table + "." + point[0] + join_condition + join_table + "." + point[1]);
 
-                    Element where=sub_element.element("where");
-                    if(where!=null){
+                    Element where = sub_element.element("where");
+                    if (where != null) {
                         condition.append(" and ");
                         setSql(new StringBuilder(where.getText()));
                         fillAnd();
                         String[] sub_datas = Arrays.copyOfRange(datas, data_cursor, datas.length);
-                        if (bean!=null&&datas!=null){
+                        if (bean != null && datas != null) {
                             fill(bean, sub_datas);
-                        }else if(bean==null&&datas!=null){
+                        } else if (bean == null && datas != null) {
                             fill(sub_datas);
-                        }else if(bean==null&&datas==null){
+                        } else if (bean == null && datas == null) {
                             fill();
                         }
                         data_cursor = getParas_cursor();
                         condition.append(getSql());
                         select_paras.addAll(getParas());
                     }
-                    sql.append(condition+"\n");
+                    sql.append(condition + "\n");
                 }
                 break;
             }
         }
         sql.append(";\n");
-        return new AnalyseMultiSelectPackage(sessions,column_cursor,sql);
+        return new AnalyseMultiSelectPackage(sessions, column_cursor, sql);
     }
 
     private <T> AnalyseSelectPackage analyze_select_sql(Element select_element, T bean, String[] datas, ArrayList<Object> select_paras) {
@@ -280,11 +348,11 @@ public class XmlHelper {
                     setSql(new StringBuilder(text));
                     fillAnd();
                     String[] sub_datas = Arrays.copyOfRange(datas, data_cursor, datas.length);
-                    if (bean!=null&&datas!=null){
+                    if (bean != null && datas != null) {
                         fill(bean, sub_datas);
-                    }else if(bean==null&&datas!=null){
+                    } else if (bean == null && datas != null) {
                         fill(sub_datas);
-                    }else if(bean==null&&datas==null){
+                    } else if (bean == null && datas == null) {
                         fill();
                     }
                     data_cursor = getParas_cursor();
@@ -405,11 +473,10 @@ public class XmlHelper {
             column_name = session.getClassInfo().getIdInfo().getColumn_name();
         } else if (field.equals("#")) {//类名
             column_name = session.getTable_name();
-        }else if(field.charAt(0)=='#'){//多表类名
-            String class_name=field.substring(1);
-            column_name= SessionManager.select_session_by_class_name(class_name).getTable_name();
-        }
-        else {//字段名
+        } else if (field.charAt(0) == '#') {//多表类名
+            String class_name = field.substring(1);
+            column_name = SessionManager.select_session_by_class_name(class_name).getTable_name();
+        } else {//字段名
             column_name = session.getClassInfo().getField_infos().get(field).getColumn_name();
         }
         if (column_name != null) {
@@ -450,8 +517,8 @@ public class XmlHelper {
     }
 
     //multi-tables fill column
-    private StringBuilder multi_fill(String[] fields,LinkedHashMap<String,Session> sessions){
-        StringBuilder sql=new StringBuilder();
+    private StringBuilder multi_fill(String[] fields, LinkedHashMap<String, Session> sessions) {
+        StringBuilder sql = new StringBuilder();
         for (String field : fields) {
             String[] src = field.split("\\.");
             String class_name = src[0];
@@ -460,16 +527,16 @@ public class XmlHelper {
 
             if (class_name.substring(0, 3).equals("@(#") &&
                     class_name.charAt(class_name.length() - 1) == ')') {
-                class_name = class_name.substring(3,class_name.length()-1);
+                class_name = class_name.substring(3, class_name.length() - 1);
                 session = sessions.get(class_name);
                 class_name = session.getTable_name();
             }
             sql.append(class_name + ".");
 
-            if(!field_name.equals("*")){
+            if (!field_name.equals("*")) {
                 if (field_name.substring(0, 2).equals("@(") &&
                         field_name.charAt(field_name.length() - 1) == ')') {
-                    field_name = field_name.substring(2,field_name.length()-1);
+                    field_name = field_name.substring(2, field_name.length() - 1);
                     field_name = field_name.equals(session.getClassInfo().getIdInfo().getColumn_name()) ?
                             session.getClassInfo().getIdInfo().getColumn_name() :
                             session.getClassInfo().getField_infos().get(field_name).getColumn_name();
@@ -477,56 +544,56 @@ public class XmlHelper {
             }
             sql.append(field_name + ",");
         }
-        sql.deleteCharAt(sql.length()-1);
+        sql.deleteCharAt(sql.length() - 1);
         return sql;
     }
 
-    //undebuged
-    private LinkedHashMap<Session,ColumnCursor> record_select_field(LinkedHashMap<String,Session> sessions,String[] fields){
-        LinkedHashMap<Session,ColumnCursor> ans=new LinkedHashMap<>();
-        String curr_class="";
-        int curr_length=0,start=0,end=0;
-        Session curr_session=null;
-        ArrayList<String> curr_fields=new ArrayList<>();
-        for (int i=0;i<fields.length;i++) {
-            String field=fields[i];
+    private LinkedHashMap<Session, ColumnCursor> record_select_field(LinkedHashMap<String, Session> sessions, String[] fields) {
+        LinkedHashMap<Session, ColumnCursor> ans = new LinkedHashMap<>();
+        String curr_class = "";
+        int curr_length = 0, start = 0, end = 0;
+        Session curr_session = null;
+        ArrayList<String> curr_fields = new ArrayList<>();
+        for (int i = 0; i < fields.length; i++) {
+            String field = fields[i];
             String[] src = field.split("\\.");
             String class_name = src[0];
             String field_name = src[1];
 
             if (class_name.substring(0, 3).equals("@(#") &&
                     class_name.charAt(class_name.length() - 1) == ')') {
-                class_name = class_name.substring(3,class_name.length()-1);
-                if(!class_name.equals(curr_class)){
-                    if (i!=0) {
-                        end=start+curr_length-1;
-                        ans.put(curr_session,new ColumnCursor(start,end,curr_class,new ArrayList<>(curr_fields)));
-                        start=end+1;
+                class_name = class_name.substring(3, class_name.length() - 1);
+                if (!class_name.equals(curr_class)) {
+                    if (i != 0) {
+                        end = start + curr_length - 1;
+                        ans.put(curr_session, new ColumnCursor(start, end, curr_class, new ArrayList<>(curr_fields)));
+                        start = end + 1;
                         curr_fields.clear();
-                        curr_length=0;
+                        curr_length = 0;
                     }
-                    curr_class=class_name;
-                    curr_session=sessions.get(class_name);
-                 }
+                    curr_class = class_name;
+                    curr_session = sessions.get(class_name);
+                }
             }
 
-            if(!field_name.equals("*")){
+            if (!field_name.equals("*")) {
                 if (field_name.substring(0, 2).equals("@(") &&
                         field_name.charAt(field_name.length() - 1) == ')') {
-                    field_name = field_name.substring(2,field_name.length()-1);
+                    field_name = field_name.substring(2, field_name.length() - 1);
                     curr_fields.add(field_name);
                     curr_length++;
                 }
-            }else{
+            } else {
                 LinkedHashMap<String, FieldInfo> all_field = curr_session.getClassInfo().getField_infos();
-                for(Map.Entry<String,FieldInfo> entry:all_field.entrySet()){
+                curr_fields.add(session.getClassInfo().getIdInfo().getField_name());
+                for (Map.Entry<String, FieldInfo> entry : all_field.entrySet()) {
                     curr_fields.add(entry.getValue().getField_name());
                 }
-                curr_length+=curr_session.getField_length();
+                curr_length += curr_session.getField_length()+1;
             }
         }
-        end=start+curr_length-1;
-        ans.put(curr_session,new ColumnCursor(start,end,curr_class,curr_fields));
+        end = start + curr_length - 1;
+        ans.put(curr_session, new ColumnCursor(start, end, curr_class, curr_fields));
         return ans;
     }
 
@@ -559,11 +626,13 @@ class AnalyseSelectPackage {
     ArrayList<Object> select_paras;
 }
 
-@Data@AllArgsConstructor@NoArgsConstructor
-class AnalyseMultiSelectPackage extends AnalyseSelectPackage{
-     LinkedHashMap<String,Session> sessions;
-     LinkedHashMap<Session,ColumnCursor>  column_cursor;
-     StringBuilder sql;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class AnalyseMultiSelectPackage extends AnalyseSelectPackage {
+    LinkedHashMap<String, Session> sessions;
+    LinkedHashMap<Session, ColumnCursor> column_cursor;
+    StringBuilder sql;
 
     public AnalyseMultiSelectPackage(StringBuilder to_select, StringBuilder condition, ArrayList<Object> select_paras, LinkedHashMap<String, Session> sessions, LinkedHashMap<Session, ColumnCursor> column_cursor, StringBuilder sql) {
         super(to_select, condition, select_paras);
@@ -573,8 +642,10 @@ class AnalyseMultiSelectPackage extends AnalyseSelectPackage{
     }
 }
 
-@Data@NoArgsConstructor@AllArgsConstructor
-class ColumnCursor{
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+class ColumnCursor {
     int start;//start(inclusive)
     int end;//2->end(inclusive)
     String class_name;

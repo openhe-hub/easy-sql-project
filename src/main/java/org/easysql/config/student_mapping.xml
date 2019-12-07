@@ -7,14 +7,15 @@
                 type="auto_increment"/>
         <fields>
             <field
-                    field_name="student_id"
-                    field_type="int"
-                />
+                field_name="student_id"
+                field_type="int"
+                constraint="unique"
+            />
             <field
                     field_name="name"
                     field_type="java.lang.String"
                     column_name="student_name"
-                    constraint="not null"
+                    constraint="not null,unique"
             />
             <field
                     field_name="teacher_id"

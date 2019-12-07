@@ -24,10 +24,17 @@
          </where>
     </select>
 
-    <select id="test1" class="Student,Teacher,Mark" return="Student" >
+    <select id="test1" class="Student,Teacher,Mark" return="Student" merge="student_id" >
         <fields>@(#Student).*,@(#Teacher).@(name),@(#Mark).@(mark)</fields>
         <join join="Teacher"/>
         <join join="Mark"/>
     </select>
+
+    <select id="test2" class="Student,Teacher" return="Teacher" merge="id" >
+        <fields>@(#Student).*,@(#Teacher).*</fields>
+        <join join="Student"/>
+    </select>
+
+
 
 </sql>

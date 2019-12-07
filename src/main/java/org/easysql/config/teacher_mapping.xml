@@ -19,6 +19,11 @@
                     from="id"
                     to="student.teacher_id"
             />
+            <join type="one to many" form="inner join"
+                  from_field="students"
+                  to_class="Student"
+                  point="id->teacher_id"
+            />
         </set>
 
     </class>
