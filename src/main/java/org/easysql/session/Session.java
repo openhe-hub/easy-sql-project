@@ -1,7 +1,9 @@
 package org.easysql.session;
 
 import lombok.Getter;
+import org.apache.log4j.Logger;
 import org.dom4j.Element;
+import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
 import org.easysql.helper.XmlHelper;
@@ -25,6 +27,7 @@ public class Session<T> {
     private SessionHandler<T> sessionHandler;
     @Getter
     private int field_length;
+    private Logger logger=Logger.getLogger(Session.class);
 
     public Session(String class_name){
         this.class_name=class_name;
@@ -37,6 +40,7 @@ public class Session<T> {
         table_name=config_infos[0];
         xml_config_name=config_infos[1];
         SessionManager.registerSession(this);
+        init();
     }
 
     public SessionHandler<T> getHandler(){
@@ -52,9 +56,7 @@ public class Session<T> {
     public Object getInstance(){
         try {
             return  BeanClass.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;
@@ -63,6 +65,13 @@ public class Session<T> {
     public void init(){
         getConfig();
         this.sessionHandler=new SessionHandler<>(this);
+        if (classInfo!=null&&sessionHandler!=null){
+            logger.info(CommonValue.PROCESS+"Init finished.");
+        }
+        else{
+            logger.fatal(" Configuration failed.");
+            logger.debug(CommonValue.SUGGESTION+" Please check your configuration file");
+        }
     }
 
     /*自动创建或更新表：
@@ -265,7 +274,8 @@ public class Session<T> {
                     return "varchar(255)";
                 }
                 default:{
-                    System.out.println("error:This field type isn't supported!Please set it in mapping.xml!");
+                    logger.error(" This field type isn't supported.");
+                    logger.info(CommonValue.SUGGESTION+" Please set it in your mapping.xml.");
                     return null;
                 }
             }

@@ -21,19 +21,10 @@ public class Test {
     public static void main(String[] args)  {
         Configuration.configure(Test.class);
         Session<Student> studentSession=new Session<>("Student");
-        Session<Teacher> teacherSession=new Session<>("Teacher");
-        Session<Mark> markSession=new Session<>("Mark");
-
-        SessionManager.initAll();
-
-        SessionHandler<Student> studentHandler=studentSession.getHandler();
-
-        XmlHelper xml=new XmlHelper();
-        xml.init_sql_parser("sql",studentSession,studentHandler);
-        ArrayList<Teacher> teachers=xml.parseSelect("test2",null,null);
-        for (Teacher teacher : teachers) {
-            System.out.println(teacher.toString());
+        SessionHandler<Student> studentSessionHandler=studentSession.getHandler();
+        ArrayList<Student> students=studentSessionHandler.selectAll();
+        for (Student student : students) {
+            System.out.println(student.toString());
         }
-        SessionManager.closeAll();
     }
 }

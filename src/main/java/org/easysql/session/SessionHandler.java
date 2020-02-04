@@ -2,6 +2,8 @@ package org.easysql.session;
 
 import lombok.Getter;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
+import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
 import org.easysql.info.*;
@@ -32,6 +34,7 @@ public class SessionHandler<T> {
     private ResultSet rs;
     private ResultSetMetaData rsmd;
     private PreparedStatement pstmt;
+    private Logger logger=Logger.getLogger(SessionHandler.class);
 
     public SessionHandler(Session session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
@@ -52,9 +55,12 @@ public class SessionHandler<T> {
 
     public void create_table(String table_name) {
         StringBuilder sql = new StringBuilder("create table ");
-        sql.append(table_name + "(\n");//拼接表名
-        sql.append(idInfo.getColumn_name() + " " + idInfo.getColumn_type() + " primary key " + idInfo.getPk_type() + " "
-                + appendConstraints(idInfo) + ",\n");//拼接主键信息
+        sql.append(table_name).append("(\n");//拼接表名
+        sql.append(idInfo.getColumn_name()).append(" ")
+                .append(idInfo.getColumn_type()).append(" primary key ")
+                .append(idInfo.getPk_type()).append(" ")
+                .append(appendConstraints(idInfo))
+                .append(",\n");//拼接主键信息
         for (String key : fields_info.keySet()) {//拼接字段信息
             FieldInfo fieldInfo = fields_info.get(key);
             String column_name = fieldInfo.getColumn_name();
@@ -346,12 +352,12 @@ public class SessionHandler<T> {
         Matcher m = p.matcher(toSelect.toString());
         toSelect=new StringBuilder(m.replaceAll(""));
         StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + table_name);
-        if (condition.equals("") == true) {
+        if (condition==null) {
             sql.append(";");
         } else {
             sql.append(" where " + condition.toString() + ";");
         }
-        System.out.println(sql);
+
         pstmt = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
         try {
             if (paras!=null&&paras.size()>0) {
@@ -363,7 +369,7 @@ public class SessionHandler<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        logger.info(CommonValue.SQLOUTPUT+sql);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fields_info.keySet());
@@ -384,7 +390,7 @@ public class SessionHandler<T> {
     }
 
     public ArrayList<T> selectAll() {
-        return select(new StringBuilder("*"), new StringBuilder(""),null);
+        return select(new StringBuilder("*"), null,null);
     }
 
     public T selectAsID(Object id_value) {
