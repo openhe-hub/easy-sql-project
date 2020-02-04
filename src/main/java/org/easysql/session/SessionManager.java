@@ -1,5 +1,8 @@
 package org.easysql.session;
 
+import org.apache.log4j.Logger;
+import org.easysql.helper.CommonValue;
+import org.easysql.helper.Configuration;
 import org.easysql.info.ConstraintType;
 import org.easysql.info.ForeignKeyInfo;
 import org.easysql.info.Join;
@@ -11,21 +14,25 @@ import java.util.Map;
 public class SessionManager {
     private static LinkedHashMap<String,Session> sessions;//table_name to session
     private static LinkedHashMap<String,Session> class_to_sessions;//class_name to session
+    private static Logger logger;
 
     static {
         sessions = new LinkedHashMap<>();
         class_to_sessions=new LinkedHashMap<>();
+        logger= Configuration.createLogger(SessionManager.class);
     }
 
     public static void registerSession(Session session) {
         sessions.put(session.getTableName(), session);
         class_to_sessions.put(session.getClassName(),session);
+        logger.info(CommonValue.PROCESS+"Registering session("+session.getClassName()+") finished.");
     }
 
     public static void initAll(){
         for (Map.Entry<String,Session> entry:sessions.entrySet()){
             entry.getValue().init();
         }
+        logger.info(CommonValue.PROCESS+"All sessions have been successfully initiated.");
     }
 
     public static void createAll(){
@@ -60,10 +67,10 @@ public class SessionManager {
                 return false;
             }
             case MANY_TO_ONE: {
-                return if_fk_correct(from_table, to_table, from_column, to_column,ConstraintType.ONE_TO_MANY);
+                return ifForeignKeyExists(from_table, to_table, from_column, to_column,ConstraintType.ONE_TO_MANY);
             }
             case ONE_TO_ONE: {
-                return if_fk_correct(from_table, to_table, from_column, to_column,ConstraintType.ONE_TO_ONE);
+                return ifForeignKeyExists(from_table, to_table, from_column, to_column,ConstraintType.ONE_TO_ONE);
             }
             default:{
                 return false;
@@ -81,10 +88,10 @@ public class SessionManager {
         }
     }
 
-    private static boolean if_fk_correct(String from_table, String to_table, String from_column, String to_column,ConstraintType type) {
+    private static boolean ifForeignKeyExists(String from_table, String to_table, String from_column, String to_column, ConstraintType type) {
         Session toSession = sessions.get(to_table);
         SessionHandler sessionHandler = toSession.getHandler();
-        if (!sessionHandler.if_table_exists()) {
+        if (!sessionHandler.ifTableExists()) {
             return false;
         } else {
             ArrayList<ForeignKeyInfo> toSearch_fk_infos = toSession.getClassInfo().getForeignKeyInfos();

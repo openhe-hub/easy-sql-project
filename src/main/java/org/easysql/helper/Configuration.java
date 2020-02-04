@@ -1,7 +1,5 @@
 package org.easysql.helper;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
@@ -9,36 +7,39 @@ import org.dom4j.Element;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.util.List;
 
 public class Configuration {
-    private static Element root;
-    private static Element class_root;
-    private static Element db_root;
-    private static Element sql_root;
+    private static Element rootElement;
+    private static Element classRoot;
+    private static Element dbRoot;
+    private static Element sqlRoot;
     @Getter
     private static Connection connection;
     @Getter
-    private static String bean_pkg;
+    private static String beanPkg;
     @Getter
-    private static String sql_pkg;
+    private static String sqlPkg;
     private static final String JAVA_SRC_PATH="\\src\\main\\java\\";//适用于maven
     private static final String CONFIG_PKG_NAME="config\\";
+    @Getter@Setter
     private static Logger logger;
 
 
     private static void configure(String path){
         XmlHelper.setCONFIG_PATH(path);
-        root=XmlHelper.getRootElement("center_config");//中央配置仓库
-        class_root=root.element("class_config");
-        db_root=root.element("db_config");
-        sql_root=root.element("sql_config");
-        bean_pkg=class_root.attributeValue("bean_pkg");
-        sql_pkg=sql_root.attributeValue("sql_pkg");
-        if (root!=null){
-            logger.info(CommonValue.PROCESS+"getting central configuration finished.");
+        rootElement =XmlHelper.getRootElement("center_config");//中央配置仓库
+        classRoot = rootElement.element("class_config");
+        dbRoot = rootElement.element("db_config");
+        sqlRoot = rootElement.element("sql_config");
+        beanPkg = classRoot.attributeValue("bean_pkg");
+        sqlPkg = sqlRoot.attributeValue("sql_pkg");
+        if (rootElement !=null){
+            logger.info(CommonValue.PROCESS+"Getting central configuration finished.");
+        }else {
+            logger.fatal(CommonValue.ERROR+"Getting central configuration failed.");
+            logger.info(CommonValue.SUGGESTION+"Please check your center_config.xml.");
         }
         connection=DBConnector.getConnection();
     }
@@ -53,7 +54,7 @@ public class Configuration {
                 configPath+=pkgs[i]+"\\";
             }
             String path = project + JAVA_SRC_PATH + configPath + CONFIG_PKG_NAME;
-            setLogger(mainClass);
+            setLogger(createLogger(Configuration.class));
             configure(path);
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,7 +65,7 @@ public class Configuration {
     public static SessionConfiguration getConfiguration(String className){
         String configXmlName=null;//返回class配置文件名
         String tableName=null;
-        List<Element> class_list= class_root.elements("class");
+        List<Element> class_list= classRoot.elements("class");
         for (Element e:class_list) {
             if (e.attributeValue("class_name").equals(className)){
                 configXmlName=e.attributeValue("config_name");
@@ -76,17 +77,14 @@ public class Configuration {
             return new SessionConfiguration(configXmlName,tableName,className);
         }
         else {
-            System.out.println("error:class name not found!\nPlease check your class name and center_config.xml");
+            logger.fatal(CommonValue.ERROR+"Class name not found.");
+            logger.info(CommonValue.SUGGESTION+"Please check your class name and center_config.xml.");
             return null;
         }
     }
 
-    public static void setLogger(Class clazz){
-        logger=Logger.getLogger(clazz);
-    }
-
-    public static Logger getLogger(){
-        return logger;
+    public static Logger createLogger(Class clazz){
+        return Logger.getLogger(clazz);
     }
 }
 

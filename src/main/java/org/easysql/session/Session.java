@@ -24,34 +24,36 @@ public class Session<T> {
     private SessionHandler<T> sessionHandler;
     @Getter
     private int field_length;
-    private Logger logger=Logger.getLogger(Session.class);
+    private Logger logger;
 
     public Session(String className){
         this.className =className;
+        logger = Configuration.createLogger(Session.class);
         try {
-            BeanClass = Class.forName(Configuration.getBean_pkg() + "." + className);
+            BeanClass = Class.forName(Configuration.getBeanPkg() + "." + className);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.fatal(CommonValue.ERROR + "class not found. " + e);
         }
         SessionConfiguration sessionConfiguration=Configuration.getConfiguration(className);
         if (sessionConfiguration!=null){
-            logger.info(CommonValue.PROCESS+"getting session "+className+" 's configuration finished." );
+            logger.info(CommonValue.PROCESS + "Getting session(" + className + ") 's configuration finished.");
+            tableName = sessionConfiguration.getTableName();
+            xmlConfigName = sessionConfiguration.getConfigXmlName();
+            init();
+            SessionManager.registerSession(this);
+        } else {
+            logger.fatal(CommonValue.ERROR + "Getting session " + className + " 's configuration failed.");
         }
-        else {
-            logger.fatal("getting session "+className+" 's configuration failed.");
-        }
-        tableName =sessionConfiguration.getTableName();
-        xmlConfigName =sessionConfiguration.getConfigXmlName();
-        SessionManager.registerSession(this);
-        init();
     }
 
     public SessionHandler<T> getHandler(){
         if (sessionHandler!=null){
+            logger.info(CommonValue.PROCESS + "SessionHandler(" + className + ") has been built successfully.");
             return sessionHandler;
         }
         else {
-            System.out.println("error:Sessionhandler is null.Please init first!");
+            logger.error(CommonValue.ERROR + "SessionHandler(" + className + ") is null.");
+            logger.info(CommonValue.SUGGESTION + "Please init first.");
             return null;
         }
     }
@@ -68,11 +70,11 @@ public class Session<T> {
     public void init(){
         getConfig();
         this.sessionHandler=new SessionHandler<>(this);
-        if (classInfo!=null&&sessionHandler!=null){
-            logger.info(CommonValue.PROCESS+"Init finished.");
+        if (classInfo != null) {
+            logger.info(CommonValue.PROCESS + "Initiating session(" + className + ") finished.");
         }
         else{
-            logger.fatal(" Configuration failed.");
+            logger.fatal(CommonValue.ERROR + "Initiating session(" + className + ") failed.");
             logger.debug(CommonValue.SUGGESTION+" Please check your configuration file");
         }
     }
@@ -83,19 +85,19 @@ public class Session<T> {
     *  3.若表结构不需更新，无需用此方法
     *  4.若需更改表名，请调用alter_table_name方法*/
     public void create(){
-        if (!sessionHandler.if_table_exists()){
-            sessionHandler.create_table();
-        }
-        else {
-            sessionHandler.update_table();
-        }
+        sessionHandler.createTable();
+        logger.info(CommonValue.PROCESS + "Table(" + tableName + ") has been created successfully.");
     }
 
-    //更改表名：仅用于表名的更改
-    public void alter_table_name(String old_name){
-        getConfig();
-        sessionHandler=new SessionHandler<T>(this);
-        sessionHandler.alter_table_name(old_name);
+    public void update(String updateData) {
+        if (sessionHandler.ifTableExists()) {
+            String[] updateInfo=updateData.split(":");
+            String[] updateColumnList=updateInfo[1].split(",");
+            sessionHandler.updateTable(updateInfo[0],updateColumnList);
+            logger.info(CommonValue.PROCESS+"Table("+tableName+") updated successfully.");
+        }else {
+            logger.error(CommonValue.ERROR+"Table("+tableName+") not exists.Update failed.");
+        }
     }
 
     //删除所有数据
@@ -118,7 +120,8 @@ public class Session<T> {
     //private method
     private void getConfig() {
         if (xmlConfigName.equals("")) {
-            System.out.println("error:mapping xml not found!Please check your mapping xml and center_config.xml");
+            logger.error(CommonValue.ERROR + "Mapping xml not found.Can't read Session(" + className + ") 's configuration.");
+            logger.info(CommonValue.SUGGESTION + "Please check your mapping xml and center_config.xml.");
         } else {
             Element root=XmlHelper.getRootElement(xmlConfigName);
             Element class_element=root.element("class");
@@ -157,8 +160,8 @@ public class Session<T> {
     {
         List<Element> field_list=field_element.elements("field");
         field_length=field_list.size();
-        LinkedHashMap<String,FieldInfo> field_map=new LinkedHashMap<>();
-        LinkedHashMap<String,FieldInfo> column_map=new LinkedHashMap<>();
+        LinkedHashMap<String,FieldInfo> fieldMap=new LinkedHashMap<>();
+        LinkedHashMap<String,FieldInfo> columnMap=new LinkedHashMap<>();
 
         for (Element e:field_list){
             String field_name=e.attributeValue("field_name");
@@ -168,12 +171,12 @@ public class Session<T> {
             String[] finished_info=generate_info(new String[]{field_name,field_type,column_name,column_type});
             ConstraintType[] constraintTypes = getConstraintTypes(e);
             FieldInfo fieldInfo=new FieldInfo(finished_info,constraintTypes);
-            field_map.put(field_name,fieldInfo);
-            column_map.put(column_name,fieldInfo);
+            fieldMap.put(fieldInfo.getField_name(),fieldInfo);
+            columnMap.put(fieldInfo.getColumn_name(),fieldInfo);
         }
         ArrayList<LinkedHashMap<String, FieldInfo>> ans=new ArrayList<>();
-        ans.add(field_map);
-        ans.add(column_map);
+        ans.add(fieldMap);
+        ans.add(columnMap);
         return ans;
     }
 
@@ -249,18 +252,18 @@ public class Session<T> {
             src[2]=src[0];//将field_name作为column_name
         }
         if (src[3]==null){//如果默认配置column_type
-            src[3]=judge_type(src[1]);//根据filed_type智能识别column_type
+            src[3] = judgeType(src[1], src[0]);//根据filed_type智能识别column_type
         }
         return src;
     }
 
-    private String judge_type(String origin_type){
-        if (origin_type==null){
-            System.out.println("error!:field_type is null!Please complete field type!");
+    private String judgeType(String originType, String originName) {
+        if (originType == null) {
+            logger.error(CommonValue.ERROR + "Field type(" + originName + ") is null.Generating column type automatically failed.");
             return null;
         }
         else {
-            switch (origin_type) {
+            switch (originType) {
                 case "int": {
                     return "int";
                 }

@@ -335,7 +335,7 @@ public class XmlHelper {
                     String class_name = text;
                     table_name = session.getTableName();
                     if (!class_name.equals(session.getClassName()) ||
-                            !table_name.equals(handler.getTable_name())) {
+                            !table_name.equals(handler.getTableName())) {
                         System.out.println("error:session or handler not suit!");
                         return null;
                     }

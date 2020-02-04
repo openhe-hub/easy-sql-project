@@ -21,18 +21,23 @@
                     field_name="teacher_id"
                     field_type="long"
             />
+            <field
+                    field_name="birthday"
+                    field_type="java.util.Date"
+                    column_type="datetime"
+            />
         </fields>
         <set>
-            <foreign_key
+            <!--<foreign_key
                 type="many to one"
                 from="teacher_id"
                 to="teacher.id"
-            />
+            />-->
             <index
                     field="name"
                     type="fulltext"
             />
-            <join type="many to one" form="left join"
+            <!--<join type="many to one" form="left join"
                 from_field="teacher"
                   to_class="Teacher"
                   point="teacher_id->id"
@@ -41,7 +46,7 @@
                 from_field="mark"
                   to_class="Mark"
                   point="student_id->student_id"
-            />
+            />-->
         </set>
 
     </class>

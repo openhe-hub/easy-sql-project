@@ -4,12 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data@AllArgsConstructor@NoArgsConstructor
 public class Student {
     private int id;
     private int student_id;
     private String name;
     private long teacher_id;
+    private Date birthday;
 
     private Mark mark;
     private Teacher teacher;

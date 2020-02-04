@@ -9,3 +9,166 @@
 2020-02-04 18:18:47 INFO  Session:38 - process: getting session Student 's configuration finished.
 2020-02-04 18:18:47 INFO  Session:72 - process: Init finished.
 2020-02-04 18:18:47 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 19:08:48 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 19:08:48 INFO  Test:39 - process: getting session Student 's configuration finished.
+2020-02-04 19:08:48 INFO  Test:73 - process: Init finished.
+2020-02-04 19:08:48 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:12:00 INFO  Configuration:42 - process: getting central configuration finished.
+2020-02-04 20:12:00 INFO  Session:39 - process: getting session Student 's configuration finished.
+2020-02-04 20:12:00 INFO  Session:73 - process: Init finished.
+2020-02-04 20:12:00 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:16:08 INFO  Configuration:42 - process: getting central configuration finished.
+2020-02-04 20:16:09 INFO  Session:39 - process: getting session( Student) 's configuration finished.
+2020-02-04 20:16:09 INFO  Session:73 - process: Init finished.
+2020-02-04 20:16:09 INFO  SessionManager:28 - process: registering session(Student) finished.
+2020-02-04 20:16:09 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:27:51 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:27:52 INFO  Session:39 - process: getting session(Student) 's configuration finished.
+2020-02-04 20:27:52 INFO  Session:73 - process: Initiating session(Student) finished.
+2020-02-04 20:27:52 INFO  SessionManager:28 - process: registering session(Student) finished.
+2020-02-04 20:27:52 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:31:34 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:31:34 INFO  Session:39 - process: getting session(Student) 's configuration finished.
+2020-02-04 20:31:34 INFO  Session:73 - process: Initiating session(Student) finished.
+2020-02-04 20:31:34 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 20:31:34 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:45:14 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:45:14 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 20:45:14 INFO  Session:76 - process: Initiating session(Student) finished.
+2020-02-04 20:45:14 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 20:45:14 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
+2020-02-04 20:45:14 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 20:46:35 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:46:35 FATAL Session:35 - java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+2020-02-04 20:46:35 FATAL Configuration:80 - ERRORClass name not found.
+2020-02-04 20:46:35 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:46:35 FATAL Session:46 - ERRORGetting session Stdent 's configuration failed.
+2020-02-04 20:46:35 ERROR Session:57 - ERRORSessionHandler(Stdent) is null.
+2020-02-04 20:46:35 INFO  Session:58 - suggestion: Please init first.
+2020-02-04 20:47:10 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:47:10 FATAL Session:35 - java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+2020-02-04 20:47:10 FATAL Configuration:80 - error: Class name not found.
+2020-02-04 20:47:10 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:47:10 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
+2020-02-04 20:47:10 ERROR Session:57 - error: SessionHandler(Stdent) is null.
+2020-02-04 20:47:10 INFO  Session:58 - suggestion: Please init first.
+2020-02-04 20:48:39 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:48:39 FATAL Session:35 - error: class not found.
+
+java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.easysql.session.Session.<init>(Session.java:33)
+	at org.easysql.test.Test.main(Test.java:23)
+2020-02-04 20:48:39 FATAL Configuration:80 - error: Class name not found.
+2020-02-04 20:48:39 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:48:39 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
+2020-02-04 20:48:39 ERROR Session:56 - error: SessionHandler(Stdent) is null.
+2020-02-04 20:48:39 INFO  Session:57 - suggestion: Please init first.
+2020-02-04 20:49:09 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:49:09 FATAL Session:35 - error: class not found.
+
+java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.easysql.session.Session.<init>(Session.java:33)
+	at org.easysql.test.Test.main(Test.java:23)
+2020-02-04 20:49:09 FATAL Configuration:80 - error: Class name not found.
+2020-02-04 20:49:09 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:49:09 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
+2020-02-04 20:49:09 ERROR Session:56 - error: SessionHandler(Stdent) is null.
+2020-02-04 20:49:09 INFO  Session:57 - suggestion: Please init first.
+2020-02-04 20:49:52 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:49:52 FATAL Session:35 - error: class not found.
+java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+2020-02-04 20:49:52 FATAL Configuration:80 - error: Class name not found.
+2020-02-04 20:49:52 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:49:52 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
+2020-02-04 20:49:52 ERROR Session:56 - error: SessionHandler(Stdent) is null.
+2020-02-04 20:49:52 INFO  Session:57 - suggestion: Please init first.
+2020-02-04 20:52:19 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 20:52:19 FATAL Session:35 - error: class not found.java.lang.ClassNotFoundException: org.easysql.bean.Stdent
+2020-02-04 20:52:19 FATAL Configuration:80 - error: Class name not found.
+2020-02-04 20:52:19 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
+2020-02-04 20:52:19 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
+2020-02-04 20:52:19 ERROR Session:56 - error: SessionHandler(Stdent) is null.
+2020-02-04 20:52:19 INFO  Session:57 - suggestion: Please init first.
+2020-02-04 21:05:47 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 21:05:47 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 21:05:47 INFO  Session:75 - process: Initiating session(Student) finished.
+2020-02-04 21:05:47 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 21:05:47 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
+2020-02-04 21:05:47 INFO  SessionHandler:372 - sql output: select * from student;
+2020-02-04 21:30:46 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 21:30:46 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 21:30:46 INFO  Session:75 - process: Initiating session(Student) finished.
+2020-02-04 21:30:46 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 21:32:51 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 21:32:52 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 21:32:52 INFO  Session:75 - process: Initiating session(Student) finished.
+2020-02-04 21:32:52 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:31:30 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:31:30 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:31:30 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:31:30 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:31:30 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:32:21 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:32:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:32:22 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:32:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:32:22 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:34:22 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:34:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:36:18 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:36:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:36:18 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:36:47 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:36:48 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:38:44 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:38:44 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:38:44 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:38:58 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:38:59 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:38:59 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:38:59 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:38:59 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:38:59 ERROR SessionHandler:146 - error: Can't find your update type.
+2020-02-04 22:38:59 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:38:59 INFO  Session:97 - process: Table(student) updated successfully.
+2020-02-04 22:39:25 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:39:25 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:39:25 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:39:25 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:39:25 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:03 ERROR SessionHandler:146 - error: Can't find your update type.
+2020-02-04 22:41:03 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:03 INFO  Session:97 - process: Table(student) updated successfully.
+2020-02-04 22:41:08 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:41:09 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:41:09 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:41:09 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:41:09 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:13 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:13 INFO  Session:97 - process: Table(student) updated successfully.
+2020-02-04 22:41:17 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:41:18 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:41:18 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:41:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:41:18 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:18 INFO  SessionHandler:7 - sql output: sql
+2020-02-04 22:41:18 INFO  Session:97 - process: Table(student) updated successfully.
+2020-02-04 22:42:49 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-04 22:42:50 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-04 22:42:50 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-04 22:42:50 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
+2020-02-04 22:42:50 INFO  Session:97 - process: Table(student) updated successfully.

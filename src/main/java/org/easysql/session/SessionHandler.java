@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
 import org.easysql.helper.DBConnector;
+import org.easysql.helper.LoggerHelper;
 import org.easysql.info.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,11 +30,11 @@ public class SessionHandler<T> {
     @Getter
     private IdInfo idInfo;
     @Getter
-    private String table_name;
+    private String tableName;
     private Class BeanClass;
     private ResultSet rs;
-    private ResultSetMetaData rsmd;
-    private PreparedStatement pstmt;
+    private ResultSetMetaData resultSetMetaData;
+    private PreparedStatement preparedStatement;
     private Logger logger=Logger.getLogger(SessionHandler.class);
 
     public SessionHandler(Session session) {//将session里的数据解包
@@ -44,16 +45,16 @@ public class SessionHandler<T> {
         fk_list = classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
         index_list = classInfos.getIndexInfos();
-        table_name = session.getTableName();
+        tableName = session.getTableName();
         BeanClass = session.getBeanClass();
     }
 
     //DDL
-    public void create_table() {
-        this.create_table(this.table_name);
+    public void createTable() {
+        this.createTable(this.tableName);
     }
 
-    public void create_table(String table_name) {
+    public void createTable(String table_name) {
         StringBuilder sql = new StringBuilder("create table ");
         sql.append(table_name).append("(\n");//拼接表名
         sql.append(idInfo.getColumn_name()).append(" ")
@@ -90,7 +91,7 @@ public class SessionHandler<T> {
             return "constraint " + fk_info.getName() + " foreign key(" + fk_info.getFromColumn() + ") references " +
                     fk_info.getToTable() + "(" + fk_info.getToColumn() + "),\n";
         } else {
-            System.out.println("error:if type is many_to_one,foreign key can't be created in table " + table_name);
+            System.out.println("error:if type is many_to_one,foreign key can't be created in table " + tableName);
             System.out.println("if type is one_to_many,foreign key will be created then.Don't worry.");
             return "";
         }
@@ -115,25 +116,50 @@ public class SessionHandler<T> {
     }
 
     //更新表结构
-    public void update_table() {//表名未改变，未增减列
-        String temp_name = "temp" + new Random().nextInt(10000);
-        create_table(temp_name);
-        DBConnector.executeSQL("insert into " + temp_name + " select * from " + table_name + ";");
-        DBConnector.executeSQL("drop table " + table_name + ";");
-        DBConnector.executeSQL("rename table " + temp_name + " to " + table_name + ";");
-    }
-
-    //更改表名
-    public void alter_table_name(String old_name) {
-        DBConnector.executeSQL("rename table " + old_name + " to " + table_name + ";");
+    public void updateTable(String flag, String[] columns) {
+        for (String column : columns) {
+            String sql = null;
+            String columnType = columns_info.get(column).getColumn_type();
+            String type = flag.concat(":");
+            switch (type) {
+                case CommonValue.ADD_COLUMN: {
+                    sql = "alter table " + tableName + " add " + column + " " + columnType + ";";
+                }
+                break;
+                case CommonValue.DELETE_COLUMN: {
+                    sql = "alter table " + tableName + " drop column " + column + ";";
+                }
+                break;
+                case CommonValue.ALTER_COLUMN_NAME: {
+                    sql = "alter table " + tableName + " modify " + column + " " + columnType + ";";
+                }
+                break;
+                case CommonValue.ALTER_COLUMN_TYPE: {
+                    sql = "alter table " + tableName + " alter column " + column + " " + columnType + ";";
+                }
+                break;
+                case CommonValue.ALTER_TABLE_NAME: {
+                    String oldTableName = column;
+                    sql = "rename table " + oldTableName + " to " + tableName + ";";//here column is the old table name
+                }
+                break;
+                default:{
+                    logger.error(CommonValue.ERROR+"Can't find your update type.");
+                }
+            }
+            DBConnector.executeSQL(sql);
+            LoggerHelper.sqlOutput(sql, logger);
+        }
     }
 
     //表是否存在
-    public boolean if_table_exists() {
+    public boolean ifTableExists() {
         String db_name = DBConnector.getDb_name();
         boolean ans = false;
         try {
-            rs = DBConnector.executeQuery("select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + db_name + "\' and TABLE_NAME=\'" + table_name + "\';");
+            String sql = "select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + db_name + "\' and TABLE_NAME=\'" + tableName + "\';";
+            LoggerHelper.sqlOutput(sql, logger);
+            rs = DBConnector.executeQuery(sql);
             while (rs.next()) {
                 ans = rs.getInt(1) != 0;
             }
@@ -146,14 +172,14 @@ public class SessionHandler<T> {
 
     //删除表
     public void delete_table() {
-        StringBuilder sql = new StringBuilder("drop table " + table_name + ";");
+        StringBuilder sql = new StringBuilder("drop table " + tableName + ";");
         DBConnector.executeSQL(sql.toString());
     }
 
     //DML
     //insert
     public void insertAll(T bean) {
-        StringBuffer sql = new StringBuffer("insert into " + table_name + " values(");
+        StringBuffer sql = new StringBuffer("insert into " + tableName + " values(");
         try {
             String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
             sql.append("\'" + id_value + "\',");
@@ -180,10 +206,10 @@ public class SessionHandler<T> {
         try {
             ArrayList<String> toInsertColumns = getInsertPstmt(bean);
             for (int i = 0; i < toInsertColumns.size(); i++) {
-                pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
+                preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
             }
-            System.out.println(pstmt);
-            pstmt.executeUpdate();
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -201,11 +227,11 @@ public class SessionHandler<T> {
         try {
             for (T bean : beans) {
                 for (int i = 0; i < toInsertColumns.size(); i++) {
-                    pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
+                    preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
                 }
-                pstmt.addBatch();
+                preparedStatement.addBatch();
             }
-            pstmt.executeBatch();
+            preparedStatement.executeBatch();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -215,7 +241,7 @@ public class SessionHandler<T> {
     private ArrayList<String> getInsertPstmt(Object bean) {
         ArrayList<String> toInsertColumns = null;
         try {
-            StringBuffer sql = new StringBuffer("insert into " + table_name);
+            StringBuffer sql = new StringBuffer("insert into " + tableName);
             StringBuffer insert_columns = new StringBuffer("(");
             StringBuffer insert_values = new StringBuffer(" values(");
             ArrayList<String> column_name = getColumnList();
@@ -238,7 +264,7 @@ public class SessionHandler<T> {
             insert_columns.deleteCharAt(insert_columns.length() - 1).append(")");
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
-            pstmt = DBConnector.getPreparedStatement(sql.toString());
+            preparedStatement = DBConnector.getPreparedStatement(sql.toString());
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -267,9 +293,9 @@ public class SessionHandler<T> {
         ArrayList<String> toInsertColumn = getUpdatePstmt(condition, bean);
         try {
             for (int i = 0; i < toInsertColumn.size(); i++) {
-                pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumn.get(i)));
+                preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumn.get(i)));
             }
-            pstmt.executeUpdate();
+            preparedStatement.executeUpdate();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -282,11 +308,11 @@ public class SessionHandler<T> {
         try {
             for (T bean : beans) {
                 for (int i = 0; i < toInsertColumns.size(); i++) {
-                    pstmt.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
+                    preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
                 }
-                pstmt.addBatch();
+                preparedStatement.addBatch();
             }
-            pstmt.executeBatch();
+            preparedStatement.executeBatch();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -318,7 +344,7 @@ public class SessionHandler<T> {
     }
 
     private ArrayList<String> getUpdatePstmt(String condition, T bean) {
-        StringBuilder sql = new StringBuilder("update " + table_name + " set ");
+        StringBuilder sql = new StringBuilder("update " + tableName + " set ");
         ArrayList<String> column_name = getColumnList();
         ArrayList<String> field_name = getFieldList();
         ArrayList<String> toInsertColumns = null;
@@ -337,7 +363,7 @@ public class SessionHandler<T> {
         }
         sql.deleteCharAt(sql.length() - 1);
         sql.append(" where " + condition);
-        pstmt = DBConnector.getPreparedStatement(sql.toString());
+        preparedStatement = DBConnector.getPreparedStatement(sql.toString());
         return toInsertColumns;
     }
 
@@ -351,25 +377,25 @@ public class SessionHandler<T> {
         Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
         Matcher m = p.matcher(toSelect.toString());
         toSelect=new StringBuilder(m.replaceAll(""));
-        StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + table_name);
+        StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + tableName);
         if (condition==null) {
             sql.append(";");
         } else {
             sql.append(" where " + condition.toString() + ";");
         }
 
-        pstmt = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
+        preparedStatement = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
         try {
             if (paras!=null&&paras.size()>0) {
                 for (int i = 0; i < paras.size(); i++) {
-                    pstmt.setObject(i + 1, paras.get(i));
+                    preparedStatement.setObject(i + 1, paras.get(i));
                 }
             }
-            rs = pstmt.executeQuery();
+            rs = preparedStatement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        logger.info(CommonValue.SQL_OUTPUT +sql);
+        LoggerHelper.sqlOutput(sql.toString(), logger);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fields_info.keySet());
@@ -394,7 +420,7 @@ public class SessionHandler<T> {
     }
 
     public T selectAsID(Object id_value) {
-        rs = DBConnector.executeQuery("select * from " + table_name + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
+        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
         ArrayList<String> list = getFieldList();
         return ResultSetToBean(rs, list).get(0);
     }
@@ -421,12 +447,12 @@ public class SessionHandler<T> {
         ArrayList<T> objects = new ArrayList<T>();
         try {
             ArrayList<ArrayList<String>> origin_data = new ArrayList<ArrayList<String>>();
-            rsmd = DBConnector.getRsmd(rs);
+            resultSetMetaData = DBConnector.getRsmd(rs);
             int row_count = 0;
 
             while (rs.next()) {//遍历resultset
                 ArrayList<String> row_data = new ArrayList<String>();
-                for (int i = 0; i < rsmd.getColumnCount(); i++) {
+                for (int i = 0; i < resultSetMetaData.getColumnCount(); i++) {
                     row_data.add(rs.getString(i + 1));
                 }
                 origin_data.add(row_data);
@@ -469,12 +495,12 @@ public class SessionHandler<T> {
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
-        StringBuilder sql = new StringBuilder("delete from " + table_name + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
+        StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
         DBConnector.executeSQL(sql.toString());
     }
 
     public void delete(String columns, String condition) {
-        StringBuilder sql = new StringBuilder("delete from " + table_name);
+        StringBuilder sql = new StringBuilder("delete from " + tableName);
         if (columns.equals("*")) {
             sql.append(" where " + condition + ";");
         } else {
