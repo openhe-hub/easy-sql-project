@@ -3,10 +3,7 @@ package org.easysql.session;
 import lombok.Getter;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
-import org.easysql.helper.CommonValue;
-import org.easysql.helper.Configuration;
-import org.easysql.helper.DBConnector;
-import org.easysql.helper.XmlHelper;
+import org.easysql.helper.*;
 import org.easysql.info.*;
 
 import java.util.ArrayList;
@@ -18,27 +15,33 @@ public class Session<T> {
     private ClassInfo classInfo;
     private IdInfo idInfo;
     @Getter
-    private String class_name;
+    private String className;
     @Getter
     private Class BeanClass;
     @Getter
-    private String table_name;
-    private String xml_config_name;
+    private String tableName;
+    private String xmlConfigName;
     private SessionHandler<T> sessionHandler;
     @Getter
     private int field_length;
     private Logger logger=Logger.getLogger(Session.class);
 
-    public Session(String class_name){
-        this.class_name=class_name;
+    public Session(String className){
+        this.className =className;
         try {
-            BeanClass = Class.forName(Configuration.getBean_pkg() + "." + class_name);
+            BeanClass = Class.forName(Configuration.getBean_pkg() + "." + className);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String[] config_infos=Configuration.getConfiguration(class_name);
-        table_name=config_infos[0];
-        xml_config_name=config_infos[1];
+        SessionConfiguration sessionConfiguration=Configuration.getConfiguration(className);
+        if (sessionConfiguration!=null){
+            logger.info(CommonValue.PROCESS+"getting session "+className+" 's configuration finished." );
+        }
+        else {
+            logger.fatal("getting session "+className+" 's configuration failed.");
+        }
+        tableName =sessionConfiguration.getTableName();
+        xmlConfigName =sessionConfiguration.getConfigXmlName();
         SessionManager.registerSession(this);
         init();
     }
@@ -114,10 +117,10 @@ public class Session<T> {
 
     //private method
     private void getConfig() {
-        if (xml_config_name.equals("")) {
+        if (xmlConfigName.equals("")) {
             System.out.println("error:mapping xml not found!Please check your mapping xml and center_config.xml");
         } else {
-            Element root=XmlHelper.getRootElement(xml_config_name);
+            Element root=XmlHelper.getRootElement(xmlConfigName);
             Element class_element=root.element("class");
             Element set=class_element.element("set");
             getIdInfo(class_element.element("id"));
@@ -132,10 +135,10 @@ public class Session<T> {
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
-        class_name=class_element.attributeValue("class_name");
-        table_name=class_element.attributeValue("table_name");
+        className =class_element.attributeValue("class_name");
+        tableName =class_element.attributeValue("table_name");
         LinkedHashMap<String,String[]> class_map=new LinkedHashMap<String, String[]>();
-        class_map.put(class_name,new String[]{class_name,table_name});
+        class_map.put(className,new String[]{className, tableName});
         return class_map;
     }
 
@@ -178,7 +181,7 @@ public class Session<T> {
         List<Element> fk_elements=set.elements("foreign_key");
         ArrayList<ForeignKeyInfo> fk_list=new ArrayList<>();
         for (Element fk_element:fk_elements) {
-            String from_table=table_name;
+            String from_table= tableName;
             String from_column=fk_element.attributeValue("from");
             String to_info=fk_element.attributeValue("to");
             String[] to_infos=to_info.split("\\.");
@@ -218,7 +221,7 @@ public class Session<T> {
            String to_class=join_element.attributeValue("to_class");
            String[] point=join_element.attributeValue("point").split("->");
            String condition=join_element.attributeValue("cond");
-           String from_class_name=getClass_name();
+           String from_class_name= getClassName();
            condition= (condition==null)?"=":condition;
            join_list.put(to_class,new Join(from_class_name,from_field,to_class,
                    ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)

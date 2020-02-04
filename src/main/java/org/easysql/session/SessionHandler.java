@@ -44,7 +44,7 @@ public class SessionHandler<T> {
         fk_list = classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
         index_list = classInfos.getIndexInfos();
-        table_name = session.getTable_name();
+        table_name = session.getTableName();
         BeanClass = session.getBeanClass();
     }
 
@@ -369,7 +369,7 @@ public class SessionHandler<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        logger.info(CommonValue.SQLOUTPUT+sql);
+        logger.info(CommonValue.SQL_OUTPUT +sql);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fields_info.keySet());

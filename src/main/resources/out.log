@@ -1,0 +1,11 @@
+2020-02-04 18:12:01 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:13:40 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:14:33 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:16:17 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:16:18 FATAL Session:41 - getting session Student 's configuration failed.
+2020-02-04 18:17:49 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:17:58 FATAL Session:41 - getting session Student 's configuration failed.
+2020-02-04 18:18:47 INFO  Test:41 - process: getting central configuration finished.
+2020-02-04 18:18:47 INFO  Session:38 - process: getting session Student 's configuration finished.
+2020-02-04 18:18:47 INFO  Session:72 - process: Init finished.
+2020-02-04 18:18:47 INFO  SessionHandler:372 - sql output: select * from student;

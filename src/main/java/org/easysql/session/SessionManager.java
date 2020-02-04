@@ -18,8 +18,8 @@ public class SessionManager {
     }
 
     public static void registerSession(Session session) {
-        sessions.put(session.getTable_name(), session);
-        class_to_sessions.put(session.getClass_name(),session);
+        sessions.put(session.getTableName(), session);
+        class_to_sessions.put(session.getClassName(),session);
     }
 
     public static void initAll(){

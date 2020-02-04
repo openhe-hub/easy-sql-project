@@ -2,7 +2,6 @@ package org.easysql.helper;
 
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
-import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -13,14 +12,12 @@ import org.easysql.info.Join;
 import org.easysql.session.Session;
 import org.easysql.session.SessionHandler;
 import org.easysql.session.SessionManager;
-import org.w3c.dom.NodeList;
 
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -162,7 +159,7 @@ public class XmlHelper {
                     for (Map.Entry<Session, ColumnCursor> cursorEntry : columnCursor.entrySet()) {
                         Session session = cursorEntry.getKey();
                         ColumnCursor cursor = cursorEntry.getValue();
-                        if (session.getClass_name().equals(main_class)) {
+                        if (session.getClassName().equals(main_class)) {
                             data = (T) session.getInstance();
                             for (int i = cursor.start; i <= cursor.end; i++) {
                                 Object obj = rs.getObject(i + 1);
@@ -196,7 +193,7 @@ public class XmlHelper {
             for (Map.Entry<Session,Object> entry:objs.entrySet()) {
                 Object obj=entry.getValue();
                 Session session=entry.getKey();
-                Join join=SessionManager.getJoin(main_class,session.getClass_name());
+                Join join=SessionManager.getJoin(main_class,session.getClassName());
                 ConstraintType type=join.getType();
                 try {
                     String inject_point = join.getFrom_field();;//inject point where data inject into main bean
@@ -253,7 +250,7 @@ public class XmlHelper {
 
         String main_class = select_element.attributeValue("return");
         Session main_session = SessionManager.select_session_by_class_name(main_class);
-        String main_table = main_session.getTable_name();
+        String main_table = main_session.getTableName();
 
         String[] classes = select_element.attributeValue("class").split(",");
         sessions.put(main_class, main_session);
@@ -263,9 +260,9 @@ public class XmlHelper {
                 System.out.println("error:class:" + class_name + " not found!Please check your sql.xml");
                 return null;
             }
-            if (!session.getClass_name().equals(main_class)) {
+            if (!session.getClassName().equals(main_class)) {
                 sessions.put(class_name, session);
-                table_names.add(session.getTable_name());
+                table_names.add(session.getTableName());
             }
         }
 
@@ -281,14 +278,14 @@ public class XmlHelper {
                     column_cursor = record_select_field(sessions, fields);
                     to_select = multi_fill(fields, sessions);
                     sql.append(to_select);
-                    sql.append("\nfrom " + SessionManager.select_session_by_class_name(main_class).getTable_name() + "\n");
+                    sql.append("\nfrom " + SessionManager.select_session_by_class_name(main_class).getTableName() + "\n");
                 }
                 break;
                 case "join": {
                     String join_class = sub_element.attributeValue("join");
                     Join join = SessionManager.getJoin(main_class, join_class);
                     String form = join.getForm().getConstraint_type();
-                    String join_table = SessionManager.select_session_by_class_name(join_class).getTable_name();
+                    String join_table = SessionManager.select_session_by_class_name(join_class).getTableName();
                     String[] point = join.getPoint();
                     String join_condition = join.getCondition();
                     condition = new StringBuilder(" " + form + " " + join_table + " on " + main_table + "." + point[0] + join_condition + join_table + "." + point[1]);
@@ -336,8 +333,8 @@ public class XmlHelper {
                 break;
                 case "from": {
                     String class_name = text;
-                    table_name = session.getTable_name();
-                    if (!class_name.equals(session.getClass_name()) ||
+                    table_name = session.getTableName();
+                    if (!class_name.equals(session.getClassName()) ||
                             !table_name.equals(handler.getTable_name())) {
                         System.out.println("error:session or handler not suit!");
                         return null;
@@ -472,10 +469,10 @@ public class XmlHelper {
         if (field.equals(session.getClassInfo().getIdInfo().getField_name())) {//主键
             column_name = session.getClassInfo().getIdInfo().getColumn_name();
         } else if (field.equals("#")) {//类名
-            column_name = session.getTable_name();
+            column_name = session.getTableName();
         } else if (field.charAt(0) == '#') {//多表类名
             String class_name = field.substring(1);
-            column_name = SessionManager.select_session_by_class_name(class_name).getTable_name();
+            column_name = SessionManager.select_session_by_class_name(class_name).getTableName();
         } else {//字段名
             column_name = session.getClassInfo().getField_infos().get(field).getColumn_name();
         }
@@ -529,7 +526,7 @@ public class XmlHelper {
                     class_name.charAt(class_name.length() - 1) == ')') {
                 class_name = class_name.substring(3, class_name.length() - 1);
                 session = sessions.get(class_name);
-                class_name = session.getTable_name();
+                class_name = session.getTableName();
             }
             sql.append(class_name + ".");
 
