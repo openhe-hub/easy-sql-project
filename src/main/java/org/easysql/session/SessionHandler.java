@@ -116,44 +116,75 @@ public class SessionHandler<T> {
     }
 
     //更新表结构
-    public void updateTable(String flag, String[] columns) {
-        for (String column : columns) {
-            String sql = null;
-            String columnType = columns_info.get(column).getColumn_type();
-            String type = flag.concat(":");
-            switch (type) {
-                case CommonValue.ADD_COLUMN: {
-                    sql = "alter table " + tableName + " add " + column + " " + columnType + ";";
+    private void updateTable(String flag, String[] columns) {
+        if (ifTableExists(null)||flag.equals(CommonValue.ALTER_TABLE_NAME)) {
+            for (String str : columns) {
+                String sql = null;
+                String columnType = null;
+                switch (flag) {
+                    case CommonValue.ADD_COLUMN: {
+                        columnType=columns_info.get(str).getColumn_type();
+                        sql = "alter table " + tableName + " add " + str + " " + columnType + ";";
+                    }
+                    break;
+                    case CommonValue.DELETE_COLUMN: {
+                        sql = "alter table " + tableName + " drop column " + str + ";";
+                    }
+                    break;
+                    case CommonValue.ALTER_COLUMN_NAME: {
+                        String[] changes=str.split("->");
+                        String oldColumnName=changes[0];
+                        String newColumnName=changes[1];
+                        sql = "alter table " + tableName + " rename column " + oldColumnName + " to " + newColumnName + ";";
+                    }
+                    break;
+                    case CommonValue.ALTER_COLUMN_TYPE: {
+                        columnType=columns_info.get(str).getColumn_type();
+                        sql = "alter table " + tableName + " modify " + str + " " + columnType + ";";
+                    }
+                    break;
+                    case CommonValue.ALTER_TABLE_NAME: {
+                        sql = "rename table " + str + " to " + tableName + ";";//here column is the old table name
+                    }
+                    break;
+                    default: {
+                        logger.error(CommonValue.ERROR + "Can't find your update type.");
+                    }
                 }
-                break;
-                case CommonValue.DELETE_COLUMN: {
-                    sql = "alter table " + tableName + " drop column " + column + ";";
-                }
-                break;
-                case CommonValue.ALTER_COLUMN_NAME: {
-                    sql = "alter table " + tableName + " modify " + column + " " + columnType + ";";
-                }
-                break;
-                case CommonValue.ALTER_COLUMN_TYPE: {
-                    sql = "alter table " + tableName + " alter column " + column + " " + columnType + ";";
-                }
-                break;
-                case CommonValue.ALTER_TABLE_NAME: {
-                    String oldTableName = column;
-                    sql = "rename table " + oldTableName + " to " + tableName + ";";//here column is the old table name
-                }
-                break;
-                default:{
-                    logger.error(CommonValue.ERROR+"Can't find your update type.");
-                }
+                LoggerHelper.sqlOutput(sql, logger);
+                DBConnector.executeSQL(sql);
             }
-            DBConnector.executeSQL(sql);
-            LoggerHelper.sqlOutput(sql, logger);
+            logger.info(CommonValue.PROCESS + "Table(" + tableName + ") updated successfully.");
+        } else {
+            logger.error(CommonValue.ERROR + "Table(" + tableName + ") not exists.Update failed.");
         }
     }
 
+    public void addColumn(String updateData) {
+        updateTable(CommonValue.ADD_COLUMN, updateData.split(","));
+    }
+
+    public void deleteColumn(String updateData) {
+        updateTable(CommonValue.DELETE_COLUMN, updateData.split(","));
+    }
+
+    public void alterColumnName(String updateData) {
+        updateTable(CommonValue.ALTER_COLUMN_NAME, updateData.split(","));
+    }
+
+    public void alterColumnType(String updateData) {
+        updateTable(CommonValue.ALTER_COLUMN_TYPE, updateData.split(","));
+    }
+
+    public void alterTableName(String updateData) {
+        updateTable(CommonValue.ALTER_TABLE_NAME, updateData.split(","));
+    }
+
     //表是否存在
-    public boolean ifTableExists() {
+    public boolean ifTableExists(String tableName) {
+        if (tableName==null){
+            tableName=this.tableName;
+        }
         String db_name = DBConnector.getDb_name();
         boolean ans = false;
         try {

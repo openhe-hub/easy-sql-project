@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Student" table_name="student">
+    <class class_name="Student" table_name="student_info">
         <id
                 field_name="id"
                 field_type="int"
@@ -22,9 +22,9 @@
                     field_type="long"
             />
             <field
-                    field_name="birthday"
+                    field_name="student_birthday"
                     field_type="java.util.Date"
-                    column_type="datetime"
+                    column_type="date"
             />
         </fields>
         <set>

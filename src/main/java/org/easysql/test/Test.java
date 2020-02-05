@@ -10,6 +10,7 @@ public class Test {
     public static void main(String[] args)  {
         Configuration.configure(Test.class);
         Session<Student> studentSession=new Session<>("Student");
-        studentSession.update(CommonValue.ADD_COLUMN+"birthday");
+        SessionHandler<Student> studentSessionHandler=studentSession.getHandler();
+        studentSessionHandler.addColumn("student_birthday");
     }
 }

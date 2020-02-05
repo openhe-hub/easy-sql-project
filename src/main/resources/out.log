@@ -172,3 +172,147 @@ java.lang.ClassNotFoundException: org.easysql.bean.Stdent
 2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
 2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
 2020-02-04 22:42:50 INFO  Session:97 - process: Table(student) updated successfully.
+2020-02-05 20:40:07 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:40:07 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:40:07 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:40:07 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:40:07 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:40:07 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:40:07 ERROR SessionHandler:148 - error: Can't find your update type.
+2020-02-05 20:40:07 INFO  SessionHandler:7 - sql output: null
+2020-02-05 20:40:07 INFO  SessionHandler:154 - process: Table(student) updated successfully.
+2020-02-05 20:41:02 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:41:02 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:41:02 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:41:02 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:41:02 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:41:02 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:41:02 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
+2020-02-05 20:41:02 INFO  SessionHandler:153 - process: Table(student) updated successfully.
+2020-02-05 20:41:46 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:41:47 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:41:47 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:41:47 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:41:47 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:41:47 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:41:47 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
+2020-02-05 20:41:47 INFO  SessionHandler:153 - process: Table(student) updated successfully.
+2020-02-05 20:43:36 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:43:37 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:43:37 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:43:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:43:37 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:43:37 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:50:07 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:50:08 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:50:08 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:50:08 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:50:08 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:50:08 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:50:08 INFO  SessionHandler:7 - sql output: alter table student rename column birthday to student_birthday;
+2020-02-05 20:50:08 INFO  SessionHandler:158 - process: Table(student) updated successfully.
+2020-02-05 20:51:01 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:51:01 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:51:01 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:51:01 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:51:01 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:51:01 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:54:31 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:54:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:54:31 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:54:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:54:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:54:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:54:32 INFO  SessionHandler:7 - sql output: alter table student alter column student_birthday date;
+2020-02-05 20:54:32 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-05 20:55:14 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:55:14 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:55:14 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:55:14 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:55:14 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:55:14 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:55:14 INFO  SessionHandler:7 - sql output: alter table student alter column student_birthday date;
+2020-02-05 20:55:14 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-05 20:56:20 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:56:20 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:56:20 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:56:20 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:56:20 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:56:20 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:56:20 INFO  SessionHandler:7 - sql output: alter table student modify student_birthday date;
+2020-02-05 20:56:21 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-05 20:58:03 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:58:03 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:58:03 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:58:03 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:58:03 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:58:03 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:58:03 INFO  SessionHandler:7 - sql output: alter table student drop column student_birthday;
+2020-02-05 20:58:04 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-05 20:58:37 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:58:38 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:58:38 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:58:38 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:58:38 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:58:38 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:59:15 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:59:16 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:59:16 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:59:16 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:59:16 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:59:16 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-05 20:59:16 INFO  SessionHandler:7 - sql output: rename table student_info to student;
+2020-02-05 20:59:16 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-05 20:59:53 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 20:59:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 20:59:54 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 20:59:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 20:59:54 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 20:59:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 20:59:54 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
+2020-02-05 21:00:56 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:00:56 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:00:56 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:00:56 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:00:56 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:00:56 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:00:56 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
+2020-02-05 21:02:30 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:02:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:02:31 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:02:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:02:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:02:58 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:03:06 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
+2020-02-05 21:05:54 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:05:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:05:54 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:05:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:05:54 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:05:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:05:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:05:54 ERROR SessionHandler:161 - error: Table(student_info) not exists.Update failed.
+2020-02-05 21:07:48 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:07:49 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:07:49 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:07:49 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:07:49 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:07:49 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:07:49 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:07:49 ERROR SessionHandler:161 - error: Table(student_info) not exists.Update failed.
+2020-02-05 21:08:23 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:08:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:08:23 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:08:23 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:08:23 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:08:23 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:08:23 INFO  SessionHandler:7 - sql output: rename table student to student_info;
+2020-02-05 21:08:23 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
+2020-02-05 21:08:55 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-05 21:08:56 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-05 21:08:56 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-05 21:08:56 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-05 21:08:56 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: alter table student_info add student_birthday date;
+2020-02-05 21:08:56 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.

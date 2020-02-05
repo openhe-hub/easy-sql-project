@@ -91,7 +91,7 @@ public class SessionManager {
     private static boolean ifForeignKeyExists(String from_table, String to_table, String from_column, String to_column, ConstraintType type) {
         Session toSession = sessions.get(to_table);
         SessionHandler sessionHandler = toSession.getHandler();
-        if (!sessionHandler.ifTableExists()) {
+        if (!sessionHandler.ifTableExists(null)) {
             return false;
         } else {
             ArrayList<ForeignKeyInfo> toSearch_fk_infos = toSession.getClassInfo().getForeignKeyInfos();

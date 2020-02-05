@@ -89,7 +89,7 @@ public class Session<T> {
         logger.info(CommonValue.PROCESS + "Table(" + tableName + ") has been created successfully.");
     }
 
-    public void update(String updateData) {
+  /*  public void update(String updateData) {
         if (sessionHandler.ifTableExists()) {
             String[] updateInfo=updateData.split(":");
             String[] updateColumnList=updateInfo[1].split(",");
@@ -98,7 +98,7 @@ public class Session<T> {
         }else {
             logger.error(CommonValue.ERROR+"Table("+tableName+") not exists.Update failed.");
         }
-    }
+    }*/
 
     //删除所有数据
     public void clear(){
