@@ -89,25 +89,16 @@ public class Session<T> {
         logger.info(CommonValue.PROCESS + "Table(" + tableName + ") has been created successfully.");
     }
 
-  /*  public void update(String updateData) {
-        if (sessionHandler.ifTableExists()) {
-            String[] updateInfo=updateData.split(":");
-            String[] updateColumnList=updateInfo[1].split(",");
-            sessionHandler.updateTable(updateInfo[0],updateColumnList);
-            logger.info(CommonValue.PROCESS+"Table("+tableName+") updated successfully.");
-        }else {
-            logger.error(CommonValue.ERROR+"Table("+tableName+") not exists.Update failed.");
-        }
-    }*/
-
     //删除所有数据
     public void clear(){
         sessionHandler.delete("*","1=1");
+        logger.info(CommonValue.PROCESS+"Table("+tableName+") 's data have been deleted successfully.");
     }
 
     //删除所有数据
     public void destroy(){
-        sessionHandler.delete_table();
+        sessionHandler.deleteTable();
+        logger.info(CommonValue.PROCESS+"Table("+tableName+") has been deleted successfully.");
     }
 
     public void close(){
@@ -196,7 +187,6 @@ public class Session<T> {
             fk_list.add(new ForeignKeyInfo(from_table,to_infos[0],from_column,to_infos[1],type,name));
         }
         return fk_list;
-
     }
 
     private ArrayList<IndexInfo> getIndexInfo(Element set){
@@ -251,8 +241,8 @@ public class Session<T> {
         if (src[2]==null){//如果默认配置column_name
             src[2]=src[0];//将field_name作为column_name
         }
-        if (src[3]==null){//如果默认配置column_type
-            src[3] = judgeType(src[1], src[0]);//根据filed_type智能识别column_type
+        if (src[3]==null){//if choose default setting
+            src[3] = judgeType(src[1], src[0]);//EasySql will
         }
         return src;
     }
@@ -278,6 +268,9 @@ public class Session<T> {
                 }
                 case "java.lang.String": {
                     return "varchar(255)";
+                }
+                case "java.util.Date":{
+                    return "datetime";//default date type in EasySql is datetime.
                 }
                 default:{
                     logger.error(" This field type isn't supported.");

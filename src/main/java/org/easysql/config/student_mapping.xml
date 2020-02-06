@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Student" table_name="student_info">
+    <class class_name="Student" table_name="student">
         <id
                 field_name="id"
                 field_type="int"
@@ -22,17 +22,16 @@
                     field_type="long"
             />
             <field
-                    field_name="student_birthday"
+                    field_name="birthday"
                     field_type="java.util.Date"
-                    column_type="date"
             />
         </fields>
         <set>
-            <!--<foreign_key
+            <foreign_key
                 type="many to one"
                 from="teacher_id"
                 to="teacher.id"
-            />-->
+            />
             <index
                     field="name"
                     type="fulltext"

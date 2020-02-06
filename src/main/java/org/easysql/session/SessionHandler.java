@@ -67,41 +67,42 @@ public class SessionHandler<T> {
             String column_name = fieldInfo.getColumn_name();
             String column_type = fieldInfo.getColumn_type();
             String constraint_type = appendConstraints(fieldInfo);
-            sql.append(column_name + " " + column_type + " " + constraint_type + ",\n");
+            sql.append(column_name).append(" ").append(column_type).append(" ").append(constraint_type).append(",\n");
         }
 
-        for (ForeignKeyInfo fk_info : fk_list) {
-            sql.append(appendFkConstraints(fk_info));
-        }
-
-
-        if (index_list != null) {
-            for (IndexInfo index_info : index_list) {
-                sql.append(appendIndex(index_info));
+        for (ForeignKeyInfo foreignKeyInfo : fk_list) {
+            if (!foreignKeyInfo.getType().equals(ConstraintType.ONE_TO_MANY)) {
+                sql.append(appendForeignKeyConstraints(foreignKeyInfo));
             }
         }
 
+        if (index_list != null) {
+            for (IndexInfo indexInfo : index_list) {
+                sql.append(appendIndex(indexInfo));
+            }
+        }
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
+        LoggerHelper.sqlOutput(sql.toString(),logger);
         DBConnector.executeSQL(sql.toString());
     }
 
-    private String appendFkConstraints(ForeignKeyInfo fk_info) {
-        if (SessionManager.check_fk_connect(fk_info)) {
-            return "constraint " + fk_info.getName() + " foreign key(" + fk_info.getFromColumn() + ") references " +
-                    fk_info.getToTable() + "(" + fk_info.getToColumn() + "),\n";
-        } else {
-            System.out.println("error:if type is many_to_one,foreign key can't be created in table " + tableName);
-            System.out.println("if type is one_to_many,foreign key will be created then.Don't worry.");
-            return "";
+    private String appendForeignKeyConstraints(ForeignKeyInfo foreignKeyInfo) {
+        String fromColumn = foreignKeyInfo.getFromColumn();
+        String toTable = foreignKeyInfo.getToTable();
+        String toColumn = foreignKeyInfo.getToColumn();
+        String sql="constraint " + foreignKeyInfo.getName() + " foreign key(" + fromColumn + ") references " +
+                toTable + "(" + toColumn + "),\n";
+        if (!SessionManager.checkForeignKeyConnect(foreignKeyInfo)) {
+            logger.warn("your foreign key("+tableName+"."+ fromColumn+"->"+toTable+"."+toColumn+") maybe invalid.");
         }
+        return sql;
     }
 
     private String appendIndex(IndexInfo index_info) {
         return index_info.getType().getConstraint_type() + " " + index_info.getName() + "(" +
                 fields_info.get(index_info.getField_name()).getColumn_name() + "),\n";
     }
-
 
     //拼接sql约束
     private String appendConstraints(FieldInfo fieldInfo) {
@@ -202,24 +203,26 @@ public class SessionHandler<T> {
     /*增减列配置请先delete再create*/
 
     //删除表
-    public void delete_table() {
+    public void deleteTable() {
         StringBuilder sql = new StringBuilder("drop table " + tableName + ";");
+        LoggerHelper.sqlOutput(sql.toString(),logger);
         DBConnector.executeSQL(sql.toString());
     }
 
     //DML
     //insert
     public void insertAll(T bean) {
-        StringBuffer sql = new StringBuffer("insert into " + tableName + " values(");
+        StringBuilder sql = new StringBuilder("insert into " + tableName + " values(");
         try {
             String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
-            sql.append("\'" + id_value + "\',");
+            sql.append("\'").append(id_value).append("\',");
             for (String key : fields_info.keySet()) {//填充其它数据
                 String values = BeanUtils.getProperty(bean, key);
-                sql.append("\'" + values + "\',");
+                sql.append("\'").append(values).append("\',");
             }
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
+            LoggerHelper.sqlOutput(sql.toString(),logger);
             DBConnector.executeSQL(sql.toString());
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -235,11 +238,11 @@ public class SessionHandler<T> {
      * */
     public void insert(T bean) {
         try {
-            ArrayList<String> toInsertColumns = getInsertPstmt(bean);
+            ArrayList<String> toInsertColumns = getInsertPreparedStatement(bean);
             for (int i = 0; i < toInsertColumns.size(); i++) {
                 preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
             }
-            System.out.println(preparedStatement);
+
             preparedStatement.executeUpdate();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -254,7 +257,7 @@ public class SessionHandler<T> {
     }
 
     public void insertListToTable(ArrayList<T> beans) {
-        ArrayList<String> toInsertColumns = getInsertPstmt(beans.get(0));
+        ArrayList<String> toInsertColumns = getInsertPreparedStatement(beans.get(0));
         try {
             for (T bean : beans) {
                 for (int i = 0; i < toInsertColumns.size(); i++) {
@@ -269,25 +272,25 @@ public class SessionHandler<T> {
     }
 
 
-    private ArrayList<String> getInsertPstmt(Object bean) {
+    private ArrayList<String> getInsertPreparedStatement(Object bean) {
         ArrayList<String> toInsertColumns = null;
         try {
-            StringBuffer sql = new StringBuffer("insert into " + tableName);
-            StringBuffer insert_columns = new StringBuffer("(");
-            StringBuffer insert_values = new StringBuffer(" values(");
+            StringBuilder sql = new StringBuilder("insert into " + tableName);
+            StringBuilder insert_columns = new StringBuilder("(");
+            StringBuilder insert_values = new StringBuilder(" values(");
             ArrayList<String> column_name = getColumnList();
             ArrayList<String> field_name = getFieldList();
             toInsertColumns = new ArrayList<>();
             String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
             if (id_value != null) {//拼接id字段和数据
-                insert_columns.append(column_name.get(0) + ",");
+                insert_columns.append(column_name.get(0)).append(",");
                 insert_values.append("?,");
                 toInsertColumns.add(field_name.get(0));
             }
             for (int i = 1; i <= fields_info.size(); i++) {
                 String value = BeanUtils.getProperty(bean, field_name.get(i));
                 if (value != null) {//拼接其余字段
-                    insert_columns.append(column_name.get(i) + ",");
+                    insert_columns.append(column_name.get(i)).append(",");
                     insert_values.append("?,");
                     toInsertColumns.add(field_name.get(i));
                 }
@@ -295,6 +298,7 @@ public class SessionHandler<T> {
             insert_columns.deleteCharAt(insert_columns.length() - 1).append(")");
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
+            LoggerHelper.sqlOutput(sql.toString(),logger);
             preparedStatement = DBConnector.getPreparedStatement(sql.toString());
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -321,7 +325,7 @@ public class SessionHandler<T> {
     }
 
     public void update(String condition, T bean) {
-        ArrayList<String> toInsertColumn = getUpdatePstmt(condition, bean);
+        ArrayList<String> toInsertColumn = getUpdatePreparedStatement(condition, bean);
         try {
             for (int i = 0; i < toInsertColumn.size(); i++) {
                 preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumn.get(i)));
@@ -334,7 +338,7 @@ public class SessionHandler<T> {
 
     public void updateListToTable(ArrayList<T> beans) {
         StringBuilder condition = new StringBuilder(idInfo.getColumn_name() + "=?");
-        ArrayList<String> toInsertColumns = getUpdatePstmt(condition.toString(), beans.get(0));
+        ArrayList<String> toInsertColumns = getUpdatePreparedStatement(condition.toString(), beans.get(0));
         toInsertColumns.add(idInfo.getField_name());
         try {
             for (T bean : beans) {
@@ -374,7 +378,7 @@ public class SessionHandler<T> {
         }
     }
 
-    private ArrayList<String> getUpdatePstmt(String condition, T bean) {
+    private ArrayList<String> getUpdatePreparedStatement(String condition, T bean) {
         StringBuilder sql = new StringBuilder("update " + tableName + " set ");
         ArrayList<String> column_name = getColumnList();
         ArrayList<String> field_name = getFieldList();
@@ -393,7 +397,8 @@ public class SessionHandler<T> {
             e.printStackTrace();
         }
         sql.deleteCharAt(sql.length() - 1);
-        sql.append(" where " + condition);
+        sql.append(" where ").append(condition);
+        LoggerHelper.sqlOutput(sql.toString(),logger);
         preparedStatement = DBConnector.getPreparedStatement(sql.toString());
         return toInsertColumns;
     }
@@ -474,14 +479,14 @@ public class SessionHandler<T> {
     }
 
 
-    private ArrayList<T> ResultSetToBean(ResultSet rs, ArrayList<String> data_name) {//convert resultset to list
+    private ArrayList<T> ResultSetToBean(ResultSet rs, ArrayList<String> data_name) {//convert resultSet to list
         ArrayList<T> objects = new ArrayList<T>();
         try {
             ArrayList<ArrayList<String>> origin_data = new ArrayList<ArrayList<String>>();
             resultSetMetaData = DBConnector.getRsmd(rs);
             int row_count = 0;
 
-            while (rs.next()) {//遍历resultset
+            while (rs.next()) {//遍历resultSet
                 ArrayList<String> row_data = new ArrayList<String>();
                 for (int i = 0; i < resultSetMetaData.getColumnCount(); i++) {
                     row_data.add(rs.getString(i + 1));
@@ -500,13 +505,7 @@ public class SessionHandler<T> {
                 objects.add(obj);
             }
             return objects;
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (InstantiationException | InvocationTargetException | SQLException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;
@@ -519,24 +518,22 @@ public class SessionHandler<T> {
         Object id_value = null;
         try {
             id_value = BeanUtils.getProperty(bean, idInfo.getField_name());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
+        LoggerHelper.sqlOutput(sql.toString(),logger);
         DBConnector.executeSQL(sql.toString());
     }
 
     public void delete(String columns, String condition) {
         StringBuilder sql = new StringBuilder("delete from " + tableName);
         if (columns.equals("*")) {
-            sql.append(" where " + condition + ";");
+            sql.append(" where ").append(condition).append(";");
         } else {
-            sql.append("(" + columns + "） where " + condition + ";");
+            sql.append("(").append(columns).append("） where ").append(condition).append(";");
         }
+        LoggerHelper.sqlOutput(sql.toString(),logger);
         DBConnector.executeSQL(sql.toString());
     }
 

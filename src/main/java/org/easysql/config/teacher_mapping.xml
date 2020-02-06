@@ -15,7 +15,7 @@
         </fields>
         <set>
             <foreign_key
-                    type="one_to_many"
+                    type="one to many"
                     from="id"
                     to="student.teacher_id"
             />

@@ -316,3 +316,326 @@ java.lang.ClassNotFoundException: org.easysql.bean.Stdent
 2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
 2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: alter table student_info add student_birthday date;
 2020-02-05 21:08:56 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
+2020-02-06 09:18:56 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 09:18:57 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 09:18:57 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 09:18:57 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 09:18:57 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 09:18:57 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
+2020-02-06 09:18:57 INFO  SessionHandler:7 - sql output: alter table student_info add birthday datetime;
+2020-02-06 09:18:58 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
+2020-02-06 09:23:55 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 09:23:55 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 09:23:55 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 09:23:55 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 09:23:55 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 09:23:55 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 09:23:55 INFO  SessionHandler:7 - sql output: rename table student_info to student;
+2020-02-06 09:23:55 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-06 11:11:37 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:11:37 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:11:37 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:11:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:11:37 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:11:37 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:11:37 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:27:31 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:27:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:27:31 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:27:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:27:31 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:27:31 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:27:31 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:28:28 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:28:29 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:28:30 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:28:30 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:28:30 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:28:30 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:28:30 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:29:56 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:29:57 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:32:31 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:32:33 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:32:35 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:32:49 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:32:50 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:33:54 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:33:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:33:54 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:33:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:33:54 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:33:54 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:33:54 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:34:51 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:34:52 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:36:21 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:36:27 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:36:36 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:37:35 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:37:35 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:37:40 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:37:41 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:37:41 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:37:41 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:37:41 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:37:41 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:37:41 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:37:41 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 11:37:41 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 11:37:41 WARN  SessionHandler:96 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 11:37:41 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 11:37:41 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: rename table student_info to student;
+2020-02-06 11:37:41 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-06 11:41:31 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:41:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:41:31 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:41:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:41:31 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:41:31 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:41:31 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:41:31 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 11:41:31 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 11:41:31 WARN  SessionHandler:96 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 11:41:31 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 11:41:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: rename table student_info to student;
+2020-02-06 11:41:31 INFO  SessionHandler:157 - process: Table(student) updated successfully.
+2020-02-06 11:44:22 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:44:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:44:22 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:44:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:44:22 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:44:22 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:44:22 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: create table teacher(
+id bigint primary key auto_increment ,
+teacher_name varchar(255) not null ,
+constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+);
+2020-02-06 11:44:22 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 11:44:22 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 11:44:22 WARN  SessionHandler:95 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: create table student(
+id int primary key auto_increment ,
+student_id int unique ,
+student_name varchar(255) not null unique ,
+teacher_id bigint ,
+birthday datetime ,
+constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+fulltext index_name(student_name)
+);
+2020-02-06 11:44:22 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 11:44:22 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: rename table student_info to student;
+2020-02-06 11:44:22 INFO  SessionHandler:156 - process: Table(student) updated successfully.
+2020-02-06 11:49:39 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:49:39 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:49:39 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:49:39 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:49:39 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:49:39 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:49:39 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 11:49:39 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 11:49:39 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 11:49:39 WARN  SessionHandler:95 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 11:49:39 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 11:49:39 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	rename table student_info to student;
+2020-02-06 11:49:39 INFO  SessionHandler:156 - process: Table(student) updated successfully.
+2020-02-06 11:57:32 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 11:57:32 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 11:57:33 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 11:57:33 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 11:57:33 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 11:57:33 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 11:57:33 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 11:57:33 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 11:57:33 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 11:57:33 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 11:57:33 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 11:57:33 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
+2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	rename table student_info to student;
+2020-02-06 11:57:33 INFO  SessionHandler:158 - process: Table(student) updated successfully.
+2020-02-06 12:05:11 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:05:12 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:05:20 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:05:20 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:05:20 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:05:20 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:05:20 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:05:20 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:05:20 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:05:23 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:05:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:05:23 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:05:23 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:05:23 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:05:23 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:05:23 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:06:36 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:06:36 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:06:36 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:06:36 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 12:06:40 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:06:41 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:06:41 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:06:41 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:06:41 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:06:41 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:06:41 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:06:41 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:06:41 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:06:41 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:06:41 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 12:18:03 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:18:03 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:18:03 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:18:03 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:18:03 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:18:03 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:18:03 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:18:03 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:18:03 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:18:03 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:18:03 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 12:18:59 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:18:59 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:19:00 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:19:00 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:19:00 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:19:00 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:19:00 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:19:00 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:19:00 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:19:00 WARN  SessionHandler:99 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:19:00 INFO  Session:89 - process: Table(student) has been created successfully.
+2020-02-06 12:21:22 INFO  Configuration:39 - process: Getting central configuration finished.
+2020-02-06 12:21:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
+2020-02-06 12:21:22 INFO  Session:74 - process: Initiating session(Student) finished.
+2020-02-06 12:21:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-06 12:21:22 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
+2020-02-06 12:21:22 INFO  Session:74 - process: Initiating session(Teacher) finished.
+2020-02-06 12:21:22 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	create table teacher(
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null 
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:21:22 INFO  Session:89 - process: Table(teacher) has been created successfully.
+2020-02-06 12:21:22 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	create table student(
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
+2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	);
+2020-02-06 12:21:23 INFO  Session:89 - process: Table(student) has been created successfully.

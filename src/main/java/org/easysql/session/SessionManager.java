@@ -56,7 +56,7 @@ public class SessionManager {
     }
 
 
-    public static boolean check_fk_connect(ForeignKeyInfo fk_info) {
+    public static boolean checkForeignKeyConnect(ForeignKeyInfo fk_info) {
         String from_table = fk_info.getFromTable();
         String to_table = fk_info.getToTable();
         String from_column = fk_info.getFromColumn();
@@ -64,7 +64,7 @@ public class SessionManager {
         ConstraintType type = fk_info.getType();
         switch (type) {
             case ONE_TO_MANY: {
-                return false;
+                return true;
             }
             case MANY_TO_ONE: {
                 return ifForeignKeyExists(from_table, to_table, from_column, to_column,ConstraintType.ONE_TO_MANY);
