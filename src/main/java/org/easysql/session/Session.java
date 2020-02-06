@@ -131,7 +131,7 @@ public class Session<T> {
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
         className =class_element.attributeValue("class_name");
         tableName =class_element.attributeValue("table_name");
-        LinkedHashMap<String,String[]> class_map=new LinkedHashMap<String, String[]>();
+        LinkedHashMap<String,String[]> class_map=new LinkedHashMap<>();
         class_map.put(className,new String[]{className, tableName});
         return class_map;
     }
