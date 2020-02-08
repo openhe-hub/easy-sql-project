@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
+import org.easysql.session.Session;
 
 import java.io.File;
 import java.io.IOException;

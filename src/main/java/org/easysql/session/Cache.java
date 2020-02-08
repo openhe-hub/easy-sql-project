@@ -2,7 +2,9 @@ package org.easysql.session;
 
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
-import org.easysql.info.CRUD_VALUE;
+import org.apache.log4j.Logger;
+import org.easysql.helper.CommonValue;
+import org.easysql.helper.LoggerHelper;
 import org.easysql.info.FieldInfo;
 
 import java.lang.reflect.InvocationTargetException;
@@ -12,29 +14,31 @@ import java.util.LinkedHashMap;
 public class Cache<T> {
     private static long time;
     private SessionHandler<T> handler;
-    private LinkedHashMap<String, FieldInfo> fields_info;
+    private LinkedHashMap<String, FieldInfo> fieldsInfo;
     private int mode;
     @Setter
     private Filter<T> filter;
     @Getter
-    private ArrayList<CacheData<T>> datas;
-
+    private ArrayList<CacheData<T>> dataList;
+    private Logger logger;
 
     public Cache(ArrayList<T> source_data, int mode, SessionHandler handler) {
         this.mode = mode;
-        this.fields_info = handler.getFields_info();
-        datas=new ArrayList<>();
+        this.fieldsInfo = handler.getFieldsInfo();
+        dataList =new ArrayList<>();
         for (T t : source_data) {
-            datas.add(new CacheData<>(t, CRUD_VALUE.ORIGIN_DATA_INDEX));
+            dataList.add(new CacheData<>(t, CommonValue.ORIGIN_DATA_INDEX));
         }
+        logger = Logger.getLogger(Cache.class);
+        LoggerHelper.ProcessOutput("Cache("+handler.getClassName()+")"+" has benn created successfully.", logger);
     }
 
     //效率计时器
-    public static void start_timer() {
+    public static void startTimer() {
         time = System.currentTimeMillis();
     }
 
-    public static long calc_time() {
+    public static long calcTime() {
         return System.currentTimeMillis() - time;
     }
 
@@ -42,23 +46,23 @@ public class Cache<T> {
     //查询
     public ArrayList<T> selectAll() {
         ArrayList<T> result = new ArrayList<>();
-        for (CacheData<T> cacheData : datas) {
+        for (CacheData<T> cacheData : dataList) {
             result.add(cacheData.getData());
         }
         return result;
     }
 
     public ArrayList<T> select() {
-        return select(CRUD_VALUE.ALL_VALUE);
+        return select(CommonValue.ALL_VALUE);
     }
 
-    public ArrayList<T> select(int select_type) {
+    public ArrayList<T> select(int selectType) {
         ArrayList<T> ans = new ArrayList<T>();
-        for (CacheData<T> cacheData : datas) {
+        for (CacheData<T> cacheData : dataList) {
             T data = cacheData.getData();
             if (filter.filter(data)) {
                 ans.add(data);
-                if (select_type == CRUD_VALUE.ONLY_VALUE) {
+                if (selectType == CommonValue.ONLY_VALUE) {
                     return ans;
                 }
             }
@@ -67,16 +71,23 @@ public class Cache<T> {
     }
 
     public void logAll(){
-        for (CacheData<T> cacheData : datas) {
+        setFilter((T data)-> true);
+        log();
+    }
+
+    public void log(){
+        for (CacheData<T> cacheData : dataList) {
             T data = cacheData.getData();
-            System.out.println(data.toString());
+            if (filter.filter(data)){
+                LoggerHelper.DataOutput(data,logger);
+            }
         }
     }
 
     //插入
     public void insert(T bean) {
-        if (type_check()) {
-            datas.add(new CacheData<>(bean,CRUD_VALUE.INSERTED_DATA_INDEX));
+        if (modeCheck()) {
+            dataList.add(new CacheData<>(bean,CommonValue.INSERTED_DATA_INDEX));
         }
     }
 
@@ -87,27 +98,23 @@ public class Cache<T> {
     }
 
     public void update(T bean) {
-        if (type_check()) {
+        if (modeCheck()) {
             try {
-                for (int i=0;i<datas.size();i++) {
-                    T data=datas.get(i).getData();
-                    int type=datas.get(i).getType();
+                for (int i = 0; i< dataList.size(); i++) {
+                    T data= dataList.get(i).getData();
+                    int type= dataList.get(i).getType();
                     if (filter.filter(data)) {
-                        for (String key : fields_info.keySet()) {
-                            String field_name = fields_info.get(key).getField_name();
+                        for (String key : fieldsInfo.keySet()) {
+                            String field_name = fieldsInfo.get(key).getField_name();
                             BeanUtils.setProperty(data, field_name, BeanUtils.getProperty(bean, field_name));
                         }
-                        if (type == CRUD_VALUE.INSERTED_DATA_INDEX || type == CRUD_VALUE.ORIGIN_DATA_INDEX) {
-                            datas.set(i,new CacheData<>(data,CRUD_VALUE.UPDATED_DATA_INDEX));
+                        if (type == CommonValue.INSERTED_DATA_INDEX || type == CommonValue.ORIGIN_DATA_INDEX) {
+                            dataList.set(i,new CacheData<>(data,CommonValue.UPDATED_DATA_INDEX));
                         }
                         return;
                     }
                 }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
+            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
         }
@@ -119,50 +126,49 @@ public class Cache<T> {
         }
     }
 
-
     public void delete() {
-        if (type_check()) {
-            for (int i = 0; i < datas.size(); i++) {
-               datas.set(i,new CacheData<>(datas.get(i).getData(),CRUD_VALUE.DELETED_DATA_INDEX));
+        if (modeCheck()) {
+            for (int i = 0; i < dataList.size(); i++) {
+               dataList.set(i,new CacheData<>(dataList.get(i).getData(),CommonValue.DELETED_DATA_INDEX));
             }
         }
     }
 
-    public void order_by(String field_name, int ORDER_TYPE,int SORT_TYPE) {
-        datas.sort((data1, data2) -> {
+    public void orderBy(String field_name, int ORDER_TYPE, int SORT_TYPE) {
+        dataList.sort((data1, data2) -> {
             T t1=data1.getData();
             T t2=data2.getData();
             try {
                 switch (SORT_TYPE){
-                    case CRUD_VALUE.NUMBER_SORT:{
+                    case CommonValue.NUMBER_SORT:{
                         double num1=Double.parseDouble(BeanUtils.getProperty(t1,field_name));
                         double num2=Double.parseDouble(BeanUtils.getProperty(t2,field_name));
                         double d_value = (num1 - num2) / (Math.abs(num1 - num2));
-                        if(ORDER_TYPE==CRUD_VALUE.ASC){
+                        if(ORDER_TYPE==CommonValue.ASC){
                             return (int) d_value;
                         }
-                        else if(ORDER_TYPE==CRUD_VALUE.DESC){
+                        else if(ORDER_TYPE==CommonValue.DESC){
                             return -(int) d_value;
                         }
                     } break;
-                    case CRUD_VALUE.LONG_NUMBER_SORT:{
+                    case CommonValue.LONG_NUMBER_SORT:{
                         long num1=Long.parseLong(BeanUtils.getProperty(t1,field_name));
                         long num2=Long.parseLong(BeanUtils.getProperty(t2,field_name));
                         long d_value = (num1 - num2) / (Math.abs(num1 - num2));
-                        if(ORDER_TYPE==CRUD_VALUE.ASC){
+                        if(ORDER_TYPE==CommonValue.ASC){
                             return (int)d_value;
                         }
-                        else if(ORDER_TYPE==CRUD_VALUE.DESC){
+                        else if(ORDER_TYPE==CommonValue.DESC){
                             return -(int)d_value;
                         }
                     } break;
-                    case CRUD_VALUE.STRING_SORT:{
+                    case CommonValue.STRING_SORT:{
                         String str1=BeanUtils.getProperty(t1,field_name);
                         String str2=BeanUtils.getProperty(t2,field_name);
-                        if(ORDER_TYPE==CRUD_VALUE.ASC){
+                        if(ORDER_TYPE==CommonValue.ASC){
                             return str1.compareTo(str2);
                         }
-                        else if(ORDER_TYPE==CRUD_VALUE.DESC){
+                        else if(ORDER_TYPE==CommonValue.DESC){
                             return -(str1.compareTo(str2));
                         }
                     }break;
@@ -170,21 +176,17 @@ public class Cache<T> {
                         return 0;
                     }
                 }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
+            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
             return 0;
         });
     }
 
-    public  LinkedHashMap<Object,ArrayList<T>> group_by(String group_field){
+    public  LinkedHashMap<Object,ArrayList<T>> groupBy(String group_field){
         LinkedHashMap<Object,ArrayList<T>> ans=new LinkedHashMap<>();
         try {
-            for (CacheData<T> cacheData : datas) {
+            for (CacheData<T> cacheData : dataList) {
                 T data = cacheData.getData();
                 String key = BeanUtils.getProperty(data, group_field);
                 if (!ans.containsKey(key)){
@@ -198,22 +200,24 @@ public class Cache<T> {
                     ans.put(key,list);
                 }
             }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         return ans;
     }
 
+    public long countBy(){
+        long count=0;
+        for (CacheData<T> cacheData : dataList) {
+            if (filter.filter(cacheData.getData())){
+                count++;
+            }
+        }
+        return count;
+    }
 
-
-
-
-    private boolean type_check() {
-        if (mode == CRUD_VALUE.READ_WRITE_MODE) {
+    private boolean modeCheck() {
+        if (mode == CommonValue.READ_WRITE_MODE) {
             return true;
         } else {
             System.out.println("error:This is a only_read cache,you can't modify it!");
@@ -221,32 +225,30 @@ public class Cache<T> {
         }
     }
 
-
     public void close() {
-        if (mode == CRUD_VALUE.READ_WRITE_MODE) {
+        if (mode == CommonValue.READ_WRITE_MODE) {
             commit();
         }
-        datas.clear();
-        datas = null;
+        dataList.clear();
+        dataList = null;
         System.gc();
     }
-
 
     private void commit() {
         ArrayList<T> insert_list=new ArrayList<>();
         ArrayList<T> update_list=new ArrayList<>();
         ArrayList<T> delete_list=new ArrayList<>();
-        for (CacheData<T> cacheData : datas) {
+        for (CacheData<T> cacheData : dataList) {
             T data=cacheData.getData();
             int type=cacheData.getType();
             switch (type){
-                case CRUD_VALUE.INSERTED_DATA_INDEX:{
+                case CommonValue.INSERTED_DATA_INDEX:{
                     insert_list.add(data);
                 }break;
-                case CRUD_VALUE.UPDATED_DATA_INDEX:{
+                case CommonValue.UPDATED_DATA_INDEX:{
                     update_list.add(data);
                 }break;
-                case CRUD_VALUE.DELETED_DATA_INDEX:{
+                case CommonValue.DELETED_DATA_INDEX:{
                     delete_list.add(data);
                 }break;
                 default: {

@@ -17,7 +17,7 @@ public class Session<T> {
     @Getter
     private String className;
     @Getter
-    private Class BeanClass;
+    private Class beanClass;
     @Getter
     private String tableName;
     private String xmlConfigName;
@@ -26,14 +26,12 @@ public class Session<T> {
     private int field_length;
     private Logger logger;
 
-    public Session(String className){
-        this.className =className;
+    public Session(Class<T> beanClass){
+        this.beanClass=beanClass;
+        String canonicalName =beanClass.getCanonicalName();
+        String[] pathArr=canonicalName.split("\\.");
+        this.className =pathArr[pathArr.length-1];
         logger = Configuration.createLogger(Session.class);
-        try {
-            BeanClass = Class.forName(Configuration.getBeanPkg() + "." + className);
-        } catch (ClassNotFoundException e) {
-            logger.fatal(CommonValue.ERROR + "class not found. " + e);
-        }
         SessionConfiguration sessionConfiguration=Configuration.getConfiguration(className);
         if (sessionConfiguration!=null){
             logger.info(CommonValue.PROCESS + "Getting session(" + className + ") 's configuration finished.");
@@ -60,7 +58,7 @@ public class Session<T> {
 
     public Object getInstance(){
         try {
-            return  BeanClass.newInstance();
+            return  beanClass.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -280,7 +278,4 @@ public class Session<T> {
             }
         }
     }
-
-
-
 }

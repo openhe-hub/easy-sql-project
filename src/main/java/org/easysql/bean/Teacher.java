@@ -13,8 +13,12 @@ public class Teacher {
     private ArrayList<Student> students;
 
 
-    public Teacher(String name, ArrayList<Student> students) {
+    public Teacher(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
+    public Teacher(String name, ArrayList<Student> students) {
         this.name = name;
         this.students = students;
     }

@@ -18,19 +18,21 @@ import java.util.regex.Pattern;
 
 public class SessionHandler<T> {
     @Getter
-    private LinkedHashMap<String, String[]> class_info;
+    private LinkedHashMap<String, String[]> classInfo;
     @Getter
-    private LinkedHashMap<String, FieldInfo> fields_info;
+    private LinkedHashMap<String, FieldInfo> fieldsInfo;
     @Getter
-    private LinkedHashMap<String, FieldInfo> columns_info;
+    private LinkedHashMap<String, FieldInfo> columnsInfo;
     @Getter
-    private ArrayList<ForeignKeyInfo> fk_list;
+    private ArrayList<ForeignKeyInfo> foreignKeyInfos;
     @Getter
-    private ArrayList<IndexInfo> index_list;
+    private ArrayList<IndexInfo> indexInfos;
     @Getter
     private IdInfo idInfo;
     @Getter
     private String tableName;
+    @Getter
+    private String className;
     private Class BeanClass;
     private ResultSet rs;
     private ResultSetMetaData resultSetMetaData;
@@ -39,13 +41,14 @@ public class SessionHandler<T> {
 
     public SessionHandler(Session session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
-        class_info = classInfos.getClass_info();
-        fields_info = classInfos.getField_infos();
-        columns_info = classInfos.getColumn_infos();
-        fk_list = classInfos.getForeignKeyInfos();
+        classInfo = classInfos.getClass_info();
+        fieldsInfo = classInfos.getField_infos();
+        columnsInfo = classInfos.getColumn_infos();
+        foreignKeyInfos = classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
-        index_list = classInfos.getIndexInfos();
+        indexInfos = classInfos.getIndexInfos();
         tableName = session.getTableName();
+        className=session.getClassName();
         BeanClass = session.getBeanClass();
     }
 
@@ -62,22 +65,22 @@ public class SessionHandler<T> {
                 .append(idInfo.getPk_type()).append(" ")
                 .append(appendConstraints(idInfo))
                 .append(",\n");//拼接主键信息
-        for (String key : fields_info.keySet()) {//拼接字段信息
-            FieldInfo fieldInfo = fields_info.get(key);
+        for (String key : fieldsInfo.keySet()) {//拼接字段信息
+            FieldInfo fieldInfo = fieldsInfo.get(key);
             String column_name = fieldInfo.getColumn_name();
             String column_type = fieldInfo.getColumn_type();
             String constraint_type = appendConstraints(fieldInfo);
             sql.append(column_name).append(" ").append(column_type).append(" ").append(constraint_type).append(",\n");
         }
 
-        for (ForeignKeyInfo foreignKeyInfo : fk_list) {
+        for (ForeignKeyInfo foreignKeyInfo : foreignKeyInfos) {
             if (!foreignKeyInfo.getType().equals(ConstraintType.ONE_TO_MANY)) {
                 sql.append(appendForeignKeyConstraints(foreignKeyInfo));
             }
         }
 
-        if (index_list != null) {
-            for (IndexInfo indexInfo : index_list) {
+        if (indexInfos != null) {
+            for (IndexInfo indexInfo : indexInfos) {
                 sql.append(appendIndex(indexInfo));
             }
         }
@@ -101,7 +104,7 @@ public class SessionHandler<T> {
 
     private String appendIndex(IndexInfo index_info) {
         return index_info.getType().getConstraint_type() + " " + index_info.getName() + "(" +
-                fields_info.get(index_info.getField_name()).getColumn_name() + "),\n";
+                fieldsInfo.get(index_info.getField_name()).getColumn_name() + "),\n";
     }
 
     //拼接sql约束
@@ -124,7 +127,7 @@ public class SessionHandler<T> {
                 String columnType = null;
                 switch (flag) {
                     case CommonValue.ADD_COLUMN: {
-                        columnType=columns_info.get(str).getColumn_type();
+                        columnType= columnsInfo.get(str).getColumn_type();
                         sql = "alter table " + tableName + " add " + str + " " + columnType + ";";
                     }
                     break;
@@ -140,7 +143,7 @@ public class SessionHandler<T> {
                     }
                     break;
                     case CommonValue.ALTER_COLUMN_TYPE: {
-                        columnType=columns_info.get(str).getColumn_type();
+                        columnType= columnsInfo.get(str).getColumn_type();
                         sql = "alter table " + tableName + " modify " + str + " " + columnType + ";";
                     }
                     break;
@@ -151,9 +154,12 @@ public class SessionHandler<T> {
                     default: {
                         logger.error(CommonValue.ERROR + "Can't find your update type.");
                     }
+                    break;
                 }
-                LoggerHelper.sqlOutput(sql, logger);
-                DBConnector.executeSQL(sql);
+                if (sql!=null) {
+                    LoggerHelper.sqlOutput(sql, logger);
+                    DBConnector.executeSQL(sql);
+                }
             }
             logger.info(CommonValue.PROCESS + "Table(" + tableName + ") updated successfully.");
         } else {
@@ -204,9 +210,9 @@ public class SessionHandler<T> {
 
     //删除表
     public void deleteTable() {
-        StringBuilder sql = new StringBuilder("drop table " + tableName + ";");
-        LoggerHelper.sqlOutput(sql.toString(),logger);
-        DBConnector.executeSQL(sql.toString());
+        String sql = "drop table " + tableName + ";";
+        LoggerHelper.sqlOutput(sql,logger);
+        DBConnector.executeSQL(sql);
     }
 
     //DML
@@ -216,7 +222,7 @@ public class SessionHandler<T> {
         try {
             String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
             sql.append("\'").append(id_value).append("\',");
-            for (String key : fields_info.keySet()) {//填充其它数据
+            for (String key : fieldsInfo.keySet()) {//填充其它数据
                 String values = BeanUtils.getProperty(bean, key);
                 sql.append("\'").append(values).append("\',");
             }
@@ -242,7 +248,6 @@ public class SessionHandler<T> {
             for (int i = 0; i < toInsertColumns.size(); i++) {
                 preparedStatement.setObject(i + 1, BeanUtils.getProperty(bean, toInsertColumns.get(i)));
             }
-
             preparedStatement.executeUpdate();
         } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -287,7 +292,7 @@ public class SessionHandler<T> {
                 insert_values.append("?,");
                 toInsertColumns.add(field_name.get(0));
             }
-            for (int i = 1; i <= fields_info.size(); i++) {
+            for (int i = 1; i <= fieldsInfo.size(); i++) {
                 String value = BeanUtils.getProperty(bean, field_name.get(i));
                 if (value != null) {//拼接其余字段
                     insert_columns.append(column_name.get(i)).append(",");
@@ -434,7 +439,7 @@ public class SessionHandler<T> {
         LoggerHelper.sqlOutput(sql.toString(), logger);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
-            list = new ArrayList<>(fields_info.keySet());
+            list = new ArrayList<>(fieldsInfo.keySet());
             list.add(0, idInfo.getColumn_name());
         } else {
             String[] select_columns = m.replaceAll("").split(",");
@@ -443,7 +448,7 @@ public class SessionHandler<T> {
                 if (select_column.equals(idInfo.getColumn_name())) {
                     list.add(idInfo.getField_name());
                 } else {
-                    list.add(columns_info.get(select_column).getField_name());
+                    list.add(columnsInfo.get(select_column).getField_name());
                 }
             }
         }
@@ -465,15 +470,15 @@ public class SessionHandler<T> {
     private ArrayList<String> getColumnList() {
         ArrayList<String> list = new ArrayList<String>();
         list.add(idInfo.getColumn_name());
-        for (String key : fields_info.keySet()) {
-            list.add(fields_info.get(key).getColumn_name());
+        for (String key : fieldsInfo.keySet()) {
+            list.add(fieldsInfo.get(key).getColumn_name());
         }
         return list;
     }
 
     //get a filed string list
     private ArrayList<String> getFieldList() {
-        ArrayList<String> list = new ArrayList<>(fields_info.keySet());
+        ArrayList<String> list = new ArrayList<>(fieldsInfo.keySet());
         list.add(0, idInfo.getField_name());
         return list;
     }
@@ -545,9 +550,8 @@ public class SessionHandler<T> {
 
 
     //cache
-    public Cache<T> startCache(ArrayList<T> data, int mode) {
-        Cache<T> cache = new Cache<T>(data, mode, this);
-        return cache;
+    public Cache<T> buildCache(ArrayList<T> data, int mode) {
+        return new Cache<T>(data, mode, this);
     }
 
     public Transaction startTransaction() {
