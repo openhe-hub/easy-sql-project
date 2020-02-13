@@ -13,18 +13,18 @@ import java.util.Map;
 
 public class SessionManager {
     private static LinkedHashMap<String,Session> sessions;//table_name to session
-    private static LinkedHashMap<String,Session> class_to_sessions;//class_name to session
+    private static LinkedHashMap<String,Session> classToSessions;//class_name to session
     private static Logger logger;
 
     static {
         sessions = new LinkedHashMap<>();
-        class_to_sessions=new LinkedHashMap<>();
+        classToSessions =new LinkedHashMap<>();
         logger= Configuration.createLogger(SessionManager.class);
     }
 
     public static void registerSession(Session session) {
         sessions.put(session.getTableName(), session);
-        class_to_sessions.put(session.getClassName(),session);
+        classToSessions.put(session.getClassName(),session);
         logger.info(CommonValue.PROCESS+"Registering session("+session.getClassName()+") finished.");
     }
 
@@ -47,11 +47,11 @@ public class SessionManager {
         }
     }
 
-    public static Session select_session_by_class_name(String class_name){
-        return class_to_sessions.get(class_name);
+    public static Session selectSessionByClassName(String class_name){
+        return classToSessions.get(class_name);
     }
 
-    public static Session select_session_by_table_name(String table_name){
+    public static Session selectSessionByTableName(String table_name){
         return sessions.get(table_name);
     }
 
@@ -79,9 +79,9 @@ public class SessionManager {
     }
 
     public static Join getJoin(String main_class,String join_class){
-        Session main_session=class_to_sessions.get(main_class);
+        Session main_session= classToSessions.get(main_class);
         Join join = main_session.getClassInfo().getJoins().get(join_class);
-        if(join.getTo_class().equals(join_class)){
+        if(join.getToClass().equals(join_class)){
            return join;
         }else {
             return null;

@@ -160,8 +160,8 @@ public class Session<T> {
             String[] finished_info=generate_info(new String[]{field_name,field_type,column_name,column_type});
             ConstraintType[] constraintTypes = getConstraintTypes(e);
             FieldInfo fieldInfo=new FieldInfo(finished_info,constraintTypes);
-            fieldMap.put(fieldInfo.getField_name(),fieldInfo);
-            columnMap.put(fieldInfo.getColumn_name(),fieldInfo);
+            fieldMap.put(fieldInfo.getFieldName(),fieldInfo);
+            columnMap.put(fieldInfo.getColumnName(),fieldInfo);
         }
         ArrayList<LinkedHashMap<String, FieldInfo>> ans=new ArrayList<>();
         ans.add(fieldMap);

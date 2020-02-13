@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 
 @Data@AllArgsConstructor@NoArgsConstructor
 public class Join {
-    private String from_class_name;
-    private String from_field;
-    private String to_class;
+    private String fromClassName;
+    private String fromField;
+    private String toClass;
     private ConstraintType type;
     private ConstraintType form;
     private String[] point;

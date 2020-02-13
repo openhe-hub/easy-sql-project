@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 
 @Data@AllArgsConstructor@NoArgsConstructor
 public class FieldInfo {
-    private String field_name;
-    private String field_type;
-    private String column_name;
-    private String column_type;
+    private String fieldName;
+    private String fieldType;
+    private String columnName;
+    private String columnType;
     private ConstraintType[] constraints;
 
-    public FieldInfo(String[] finished_info,ConstraintType[] constraints){
-        this(finished_info[0],finished_info[1],finished_info[2],finished_info[3],constraints);
+    public FieldInfo(String[] finishedInfo,ConstraintType[] constraints){
+        this(finishedInfo[0],finishedInfo[1],finishedInfo[2],finishedInfo[3],constraints);
     }
 }

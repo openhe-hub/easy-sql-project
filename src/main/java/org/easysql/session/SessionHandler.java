@@ -41,9 +41,9 @@ public class SessionHandler<T> {
 
     public SessionHandler(Session session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
-        classInfo = classInfos.getClass_info();
-        fieldsInfo = classInfos.getField_infos();
-        columnsInfo = classInfos.getColumn_infos();
+        classInfo = classInfos.getClassInfo();
+        fieldsInfo = classInfos.getFieldInfos();
+        columnsInfo = classInfos.getColumnInfos();
         foreignKeyInfos = classInfos.getForeignKeyInfos();
         idInfo = classInfos.getIdInfo();
         indexInfos = classInfos.getIndexInfos();
@@ -60,15 +60,15 @@ public class SessionHandler<T> {
     public void createTable(String table_name) {
         StringBuilder sql = new StringBuilder("create table ");
         sql.append(table_name).append("(\n");//拼接表名
-        sql.append(idInfo.getColumn_name()).append(" ")
-                .append(idInfo.getColumn_type()).append(" primary key ")
-                .append(idInfo.getPk_type()).append(" ")
+        sql.append(idInfo.getColumnName()).append(" ")
+                .append(idInfo.getColumnType()).append(" primary key ")
+                .append(idInfo.getPrimaryKeyType()).append(" ")
                 .append(appendConstraints(idInfo))
                 .append(",\n");//拼接主键信息
         for (String key : fieldsInfo.keySet()) {//拼接字段信息
             FieldInfo fieldInfo = fieldsInfo.get(key);
-            String column_name = fieldInfo.getColumn_name();
-            String column_type = fieldInfo.getColumn_type();
+            String column_name = fieldInfo.getColumnName();
+            String column_type = fieldInfo.getColumnType();
             String constraint_type = appendConstraints(fieldInfo);
             sql.append(column_name).append(" ").append(column_type).append(" ").append(constraint_type).append(",\n");
         }
@@ -104,7 +104,7 @@ public class SessionHandler<T> {
 
     private String appendIndex(IndexInfo index_info) {
         return index_info.getType().getConstraint_type() + " " + index_info.getName() + "(" +
-                fieldsInfo.get(index_info.getField_name()).getColumn_name() + "),\n";
+                fieldsInfo.get(index_info.getFieldName()).getColumnName() + "),\n";
     }
 
     //拼接sql约束
@@ -127,7 +127,7 @@ public class SessionHandler<T> {
                 String columnType = null;
                 switch (flag) {
                     case CommonValue.ADD_COLUMN: {
-                        columnType= columnsInfo.get(str).getColumn_type();
+                        columnType= columnsInfo.get(str).getColumnType();
                         sql = "alter table " + tableName + " add " + str + " " + columnType + ";";
                     }
                     break;
@@ -143,7 +143,7 @@ public class SessionHandler<T> {
                     }
                     break;
                     case CommonValue.ALTER_COLUMN_TYPE: {
-                        columnType= columnsInfo.get(str).getColumn_type();
+                        columnType= columnsInfo.get(str).getColumnType();
                         sql = "alter table " + tableName + " modify " + str + " " + columnType + ";";
                     }
                     break;
@@ -220,7 +220,7 @@ public class SessionHandler<T> {
     public void insertAll(T bean) {
         StringBuilder sql = new StringBuilder("insert into " + tableName + " values(");
         try {
-            String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
+            String id_value = BeanUtils.getProperty(bean, idInfo.getFieldName());//先填充主键数据
             sql.append("\'").append(id_value).append("\',");
             for (String key : fieldsInfo.keySet()) {//填充其它数据
                 String values = BeanUtils.getProperty(bean, key);
@@ -286,7 +286,7 @@ public class SessionHandler<T> {
             ArrayList<String> column_name = getColumnList();
             ArrayList<String> field_name = getFieldList();
             toInsertColumns = new ArrayList<>();
-            String id_value = BeanUtils.getProperty(bean, idInfo.getField_name());//先填充主键数据
+            String id_value = BeanUtils.getProperty(bean, idInfo.getFieldName());//先填充主键数据
             if (id_value != null) {//拼接id字段和数据
                 insert_columns.append(column_name.get(0)).append(",");
                 insert_values.append("?,");
@@ -315,7 +315,7 @@ public class SessionHandler<T> {
     //update
     public void updateAsID(T bean, String condition) {
         try {
-            update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name()) + " and " + condition, bean);
+            update(idInfo.getColumnName() + "=" + BeanUtils.getProperty(bean, idInfo.getFieldName()) + " and " + condition, bean);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -323,7 +323,7 @@ public class SessionHandler<T> {
 
     public void updateAsID(T bean) {
         try {
-            update(idInfo.getColumn_name() + "=" + BeanUtils.getProperty(bean, idInfo.getField_name()), bean);
+            update(idInfo.getColumnName() + "=" + BeanUtils.getProperty(bean, idInfo.getFieldName()), bean);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -342,9 +342,9 @@ public class SessionHandler<T> {
     }
 
     public void updateListToTable(ArrayList<T> beans) {
-        StringBuilder condition = new StringBuilder(idInfo.getColumn_name() + "=?");
+        StringBuilder condition = new StringBuilder(idInfo.getColumnName() + "=?");
         ArrayList<String> toInsertColumns = getUpdatePreparedStatement(condition.toString(), beans.get(0));
-        toInsertColumns.add(idInfo.getField_name());
+        toInsertColumns.add(idInfo.getFieldName());
         try {
             for (T bean : beans) {
                 for (int i = 0; i < toInsertColumns.size(); i++) {
@@ -440,15 +440,15 @@ public class SessionHandler<T> {
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fieldsInfo.keySet());
-            list.add(0, idInfo.getColumn_name());
+            list.add(0, idInfo.getColumnName());
         } else {
             String[] select_columns = m.replaceAll("").split(",");
             list = new ArrayList<>();
             for (String select_column : select_columns) {
-                if (select_column.equals(idInfo.getColumn_name())) {
-                    list.add(idInfo.getField_name());
+                if (select_column.equals(idInfo.getColumnName())) {
+                    list.add(idInfo.getFieldName());
                 } else {
-                    list.add(columnsInfo.get(select_column).getField_name());
+                    list.add(columnsInfo.get(select_column).getFieldName());
                 }
             }
         }
@@ -461,7 +461,7 @@ public class SessionHandler<T> {
     }
 
     public T selectAsID(Object id_value) {
-        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
+        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
         ArrayList<String> list = getFieldList();
         return ResultSetToBean(rs, list).get(0);
     }
@@ -469,9 +469,9 @@ public class SessionHandler<T> {
     //get a column string list
     private ArrayList<String> getColumnList() {
         ArrayList<String> list = new ArrayList<String>();
-        list.add(idInfo.getColumn_name());
+        list.add(idInfo.getColumnName());
         for (String key : fieldsInfo.keySet()) {
-            list.add(fieldsInfo.get(key).getColumn_name());
+            list.add(fieldsInfo.get(key).getColumnName());
         }
         return list;
     }
@@ -479,7 +479,7 @@ public class SessionHandler<T> {
     //get a filed string list
     private ArrayList<String> getFieldList() {
         ArrayList<String> list = new ArrayList<>(fieldsInfo.keySet());
-        list.add(0, idInfo.getField_name());
+        list.add(0, idInfo.getFieldName());
         return list;
     }
 
@@ -522,11 +522,11 @@ public class SessionHandler<T> {
     public void deleteAsID(T bean) {
         Object id_value = null;
         try {
-            id_value = BeanUtils.getProperty(bean, idInfo.getField_name());
+            id_value = BeanUtils.getProperty(bean, idInfo.getFieldName());
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
-        StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumn_name() + "=" + id_value + ";");
+        StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
         LoggerHelper.sqlOutput(sql.toString(),logger);
         DBConnector.executeSQL(sql.toString());
     }

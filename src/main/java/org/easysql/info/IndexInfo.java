@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data@AllArgsConstructor@NoArgsConstructor
 public class IndexInfo {
-    private String field_name;
+    private String fieldName;
     private String name;
     private ConstraintType type;
 }

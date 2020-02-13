@@ -2,13 +2,12 @@ package org.easysql.helper;
 
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.easysql.info.ConstraintType;
-import org.easysql.info.FieldInfo;
-import org.easysql.info.Join;
+import org.easysql.info.*;
 import org.easysql.session.Session;
 import org.easysql.session.SessionHandler;
 import org.easysql.session.SessionManager;
@@ -27,15 +26,16 @@ public class XmlHelper {
     private static String CONFIG_PATH = "";
     @Getter
     private static final String CONFIG_FILE_TYPE = ".xml";
-    private static String center_config_path = "";
-    private static String sql_path = "";
+    private static String centerConfigPath = "";
+    private static String sqlPath = "";
     @Setter
-    public static String sql_xml_name = "";
+    public static String sqlXmlName = "";
     private static SAXReader saxReader;
+    private static Logger logger = Configuration.createLogger(XmlHelper.class);;
 
-    private static Document configure_doc;
-    private static Document sql_doc;
-    private static Element sql_root;
+    private static Document configureDoc;
+    private static Document sqlDoc;
+    private static Element sqlRoot;
     @Setter
     private Session session;
     @Setter
@@ -46,38 +46,38 @@ public class XmlHelper {
     @Getter
     private ArrayList<String> paras;
     @Getter
-    private int paras_cursor;
+    private int parasCursor;
 
-    public static Element getRootElement(String config_name) {
+    public static Element getRootElement(String configName) {
         Element element = null;
-        center_config_path = CONFIG_PATH + config_name + CONFIG_FILE_TYPE;
+        centerConfigPath = CONFIG_PATH + configName + CONFIG_FILE_TYPE;
         saxReader = new SAXReader();
-        File configure_file = new File(center_config_path);
+        File configureFile = new File(centerConfigPath);
         try {
-            configure_doc = saxReader.read(configure_file);
-            element = configure_doc.getRootElement();
+            configureDoc = saxReader.read(configureFile);
+            element = configureDoc.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();
         }
         if (element != null) {
             return element;
         } else {
-            System.out.println("config name error!");
+            logger.error("Configure name error.");
             return null;
         }
     }
 
     //动态sql解析
-    public void init_sql_parser(String sql_xml_name, Session default_session, SessionHandler default_handler) {
-        session = default_session;
-        handler = default_handler;
+    public void initSqlParser(String sqlXmlName, Session defaultSession, SessionHandler defaultHandler) {
+        session = defaultSession;
+        handler = defaultHandler;
         paras = new ArrayList<>();
-        StringBuilder config_pkg = new StringBuilder(CONFIG_PATH);
-        sql_path = config_pkg.replace(config_pkg.length() - 7, config_pkg.length() - 1, "sql").toString();
-        File sql_file = new File(sql_path + sql_xml_name + CONFIG_FILE_TYPE);
+        StringBuilder configPkg = new StringBuilder(CONFIG_PATH);
+        sqlPath = configPkg.replace(configPkg.length() - 7, configPkg.length() - 1, "sql").toString();
+        File sqlFile = new File(sqlPath + sqlXmlName + CONFIG_FILE_TYPE);
         try {
-            sql_doc = saxReader.read(sql_file);
-            sql_root = sql_doc.getRootElement();
+            sqlDoc = saxReader.read(sqlFile);
+            sqlRoot = sqlDoc.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();
         }
@@ -85,73 +85,86 @@ public class XmlHelper {
 
     //where条件解析
     public XmlHelper parseCondition(String id) {
-        Element where_element = findSqlElementByID(id, "where");
-        if (where_element != null) {
-            sql = new StringBuilder(where_element.getText());
+        Element whereElement = findSqlElementByID(id, "where");
+        if (whereElement != null) {
+            sql = new StringBuilder(whereElement.getText());
             fillAnd();
             return this;
         } else {
-            System.out.println("error:Condition not found!Please check your sql.xml and id.");
+            logger.error("Condition not found.");
+            logger.info(CommonValue.SUGGESTION + "Please check your sql.xml and id.");
             return null;
         }
     }
 
     public XmlHelper parseColumns(String id) {
-        Element column_element = findSqlElementByID(id, "fields");
-        if (column_element != null) {
-            sql = new StringBuilder(column_element.getText());
+        Element columnElement = findSqlElementByID(id, "fields");
+        if (columnElement != null) {
+            sql = new StringBuilder(columnElement.getText());
             return this;
         } else {
-            System.out.println("error:Condition not found!Please check your sql.xml and id.");
+            logger.error("Column not found.");
+            logger.info(CommonValue.SUGGESTION + "Please check your sql.xml and id.");
             return null;
         }
     }
 
     //单表查询
     public <T> ArrayList<T> parseSelect(String id, T bean, String[] datas) {
-        Element select_element = findSqlElementByID(id, "select");
-        String select_class = select_element.attributeValue("class");
-        String[] classes = select_class.split(",");
-        int num = classes.length;
-        if (num == 1) {
-            return select_one_table(select_element, bean, datas);
-        } else if (num > 1) {
-            return select_tables(select_element, bean, datas, classes);
+        Element selectElement = findSqlElementByID(id, "select");
+        if (selectElement != null) {
+            String selectClass = selectElement.attributeValue("class");
+            String[] classes = selectClass.split(",");
+            int num = classes.length;
+            if (num == 1) {
+                return selectOneTable(selectElement, bean, datas);
+            } else if (num > 1) {
+                return selectTables(selectElement, bean, datas);
+            } else {
+                logger.error("No class to select.");
+                logger.info(CommonValue.SUGGESTION + "Please add class attribute value.");
+                return null;
+            }
         } else {
-            System.out.println("error:No class to select!Please add 'class' attribute value.");
+            logger.error("Select sql not found.");
+            logger.info(CommonValue.SUGGESTION + "Please check your sql.xml and id.");
             return null;
         }
     }
 
-    private <T> ArrayList<T> select_one_table(Element select_element, T bean, String[] datas) {
-        ArrayList<T> result_list;
-        AnalyseSelectPackage analyseSelectPackage = analyze_select_sql(select_element, bean, datas, new ArrayList<>());
-        result_list = handler.select(analyseSelectPackage.getTo_select(), analyseSelectPackage.getCondition(),
-                analyseSelectPackage.getSelect_paras());
-        return result_list;
+    private <T> ArrayList<T> selectOneTable(Element selectElement, T bean, String[] datas) {
+        ArrayList resultList;
+        AnalyseSelectPackage analyseSelectPackage = analyzeSelectSql(selectElement, bean, datas, new ArrayList<>());
+        resultList = handler.select(analyseSelectPackage.getToSelect(), analyseSelectPackage.getCondition(),
+                analyseSelectPackage.getSelectParas());
+        if (resultList != null) {
+            return (ArrayList<T>) resultList;
+        } else {
+            return null;
+        }
     }
 
-    //!!! unfinished method
-    private <T> ArrayList<T> select_tables(Element select_element, T bean, String[] datas, String[] classes) {
-        ArrayList<T> result_list = new ArrayList<>();
-        ArrayList<LinkedHashMap<Session,Object>> table_data=new ArrayList<>();
-        String merge = select_element.attributeValue("merge");
-        String main_class = select_element.attributeValue("return");
-        ResultSet rs = null;
+
+    private <T> ArrayList<T> selectTables(Element selectElement, T bean, String[] datas) {
+        ArrayList<T> resultList = new ArrayList<>();
+        ArrayList<LinkedHashMap<Session,Object>> tableData=new ArrayList<>();
+        String merge = selectElement.attributeValue("merge");
+        String mainClass = selectElement.attributeValue("return");
+        ResultSet rs;
         //analyze
-        AnalyseMultiSelectPackage analyseMultiSelectPackage = analyse_multi_select_sql(select_element, bean, datas, new ArrayList<>());
+        AnalyseMultiSelectPackage analyseMultiSelectPackage = analyseMultiSelectSql(selectElement, bean, datas, new ArrayList<>());
         //fill paras and get result
-        PreparedStatement pstmt = DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
-        ArrayList<Object> paras = analyseMultiSelectPackage.getSelect_paras();
-        LinkedHashMap<Session, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumn_cursor();
+        PreparedStatement preparedStatement = DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
+        ArrayList<Object> paras = analyseMultiSelectPackage.getSelectParas();
+        LinkedHashMap<Session, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumnCursor();
         LinkedHashMap<String,Session> sessions=analyseMultiSelectPackage.getSessions();
         try {
             if (paras != null && paras.size() > 0) {
                 for (int i = 0; i < paras.size(); i++) {
-                    pstmt.setObject(i + 1, paras.get(i));
+                    preparedStatement.setObject(i + 1, paras.get(i));
                 }
             }
-            rs = pstmt.executeQuery();
+            rs = preparedStatement.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
                     T data = null;
@@ -159,76 +172,71 @@ public class XmlHelper {
                     for (Map.Entry<Session, ColumnCursor> cursorEntry : columnCursor.entrySet()) {
                         Session session = cursorEntry.getKey();
                         ColumnCursor cursor = cursorEntry.getValue();
-                        if (session.getClassName().equals(main_class)) {
+                        if (session.getClassName().equals(mainClass)) {
                             data = (T) session.getInstance();
-                            for (int i = cursor.start; i <= cursor.end; i++) {
+                            for (int i = cursor.getStart(); i <= cursor.getEnd(); i++) {
                                 Object obj = rs.getObject(i + 1);
-                                BeanUtils.setProperty(data, cursor.getFields().get(i-cursor.start), obj);
+                                BeanUtils.setProperty(data, cursor.getFields().get(i - cursor.getStart()), obj);
                             }
                         }else {
-                            Object new_bean = session.getInstance();
-                            for (int i = cursor.start; i <= cursor.end; i++) {
+                            Object newBean = session.getInstance();
+                            for (int i = cursor.getStart(); i <= cursor.getEnd(); i++) {
                                 Object obj = rs.getObject(i + 1);
-                                BeanUtils.setProperty(new_bean, cursor.getFields().get(i-cursor.start), obj);
+                                BeanUtils.setProperty(newBean, cursor.getFields().get(i - cursor.getStart()), obj);
                             }
-                            objs.put(session,new_bean);
+                            objs.put(session,newBean);
                         }
                     }
-                    table_data.add(objs);
-                    result_list.add(data);
+                    tableData.add(objs);
+                    resultList.add(data);
                 }
-                result_list=analyze_data(result_list,table_data,main_class,merge);
+                resultList = analyzeData(resultList, tableData, mainClass, merge);
             }
         } catch (SQLException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
-        return result_list;
+        return resultList;
     }
 
-    private <T>  ArrayList<T> analyze_data(ArrayList<T> result_list,ArrayList<LinkedHashMap<Session,Object>> table_data,String main_class,String merge){
-        Session main_session=SessionManager.select_session_by_class_name(main_class);
-        for (int i=0;i<table_data.size();i++) {
-            LinkedHashMap<Session,Object> objs=table_data.get(i);
-            T data=result_list.get(i);
+    private <T> ArrayList<T> analyzeData(ArrayList<T> resultList, ArrayList<LinkedHashMap<Session, Object>> tableData, String mainClass, String merge) {
+        for (int i=0;i<tableData.size();i++) {
+            LinkedHashMap<Session,Object> objs=tableData.get(i);
+            T data=resultList.get(i);
             for (Map.Entry<Session,Object> entry:objs.entrySet()) {
                 Object obj=entry.getValue();
                 Session session=entry.getKey();
-                Join join=SessionManager.getJoin(main_class,session.getClassName());
+                Join join=SessionManager.getJoin(mainClass,session.getClassName());
                 ConstraintType type=join.getType();
                 try {
-                    String inject_point = join.getFrom_field();;//inject point where data inject into main bean
+                    String injectPoint = join.getFromField();;//inject point where data inject into main bean
                     switch (type){
-                        case ONE_TO_ONE:{
-                            BeanUtils.setProperty(data, inject_point,obj);
+                        case ONE_TO_ONE:
+                        case MANY_TO_ONE: {
+                            BeanUtils.setProperty(data, injectPoint,obj);
                         }break;
-                        
-                        case MANY_TO_ONE:{
-                            BeanUtils.setProperty(data, inject_point,obj);
-                        }break;
-                        
+
                         case ONE_TO_MANY:{
                             ArrayList<Object> list=new ArrayList<>();
                             list.add(obj);
                             Object refer=BeanUtils.getProperty(data,merge);
-                            for(int j=i+1;j<result_list.size();j++){
-                               if(BeanUtils.getProperty(result_list.get(j),merge).equals(refer)){
-                                   list.add(table_data.get(j).get(session));
-                                   if(j==result_list.size()-1){
+                            for(int j=i+1;j<resultList.size();j++){
+                               if(BeanUtils.getProperty(resultList.get(j),merge).equals(refer)){
+                                   list.add(tableData.get(j).get(session));
+                                   if(j==resultList.size()-1){
                                        for (int k = i+1; k <=j; k++) {
-                                           result_list.remove(i+1);
-                                           table_data.remove(i+1);
+                                           resultList.remove(i+1);
+                                           tableData.remove(i+1);
                                        }
                                    }
                                }else {
                                   for (int k = i+1; k <j; k++) {
-                                       result_list.remove(i+1);
-                                       table_data.remove(i+1);
+                                       resultList.remove(i+1);
+                                       tableData.remove(i+1);
                                   }
                                   break;
                                }
                             }
-                            BeanUtils.setProperty(data, inject_point,list);
-
+                            BeanUtils.setProperty(data, injectPoint,list);
                         }
                     }
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
@@ -236,107 +244,108 @@ public class XmlHelper {
                 }
             }
         }
-        return result_list;
+        return resultList;
     }
 
-    private <T> AnalyseMultiSelectPackage analyse_multi_select_sql(Element select_element, T bean, String[] datas, ArrayList<Object> select_paras) {
-        ArrayList<String> table_names = new ArrayList<>();
-        int data_cursor = 0;
-        StringBuilder to_select = new StringBuilder();
+    private <T> AnalyseMultiSelectPackage analyseMultiSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
+        ArrayList<String> tableNames = new ArrayList<>();
+        int dataCursor = 0;
+        StringBuilder toSelect = new StringBuilder();
         StringBuilder condition = new StringBuilder();
         StringBuilder sql = new StringBuilder("select ");
         LinkedHashMap<String, Session> sessions = new LinkedHashMap<>();
-        LinkedHashMap<Session, ColumnCursor> column_cursor = new LinkedHashMap<>();
+        LinkedHashMap<Session, ColumnCursor> columnCursor = new LinkedHashMap<>();
 
-        String main_class = select_element.attributeValue("return");
-        Session main_session = SessionManager.select_session_by_class_name(main_class);
-        String main_table = main_session.getTableName();
+        String mainClass = selectElement.attributeValue("return");
+        Session mainSession = SessionManager.selectSessionByClassName(mainClass);
+        String mainTable = mainSession.getTableName();
 
-        String[] classes = select_element.attributeValue("class").split(",");
-        sessions.put(main_class, main_session);
-        for (String class_name : classes) {
-            Session session = SessionManager.select_session_by_class_name(class_name);
+        String[] classes = selectElement.attributeValue("class").split(",");
+        sessions.put(mainClass, mainSession);
+        for (String className : classes) {
+            Session session = SessionManager.selectSessionByClassName(className);
             if (session == null) {
-                System.out.println("error:class:" + class_name + " not found!Please check your sql.xml");
+                logger.error("Class:" + className + " not found.");
+                logger.info(CommonValue.SUGGESTION+"Please check your sql.xml.");
                 return null;
             }
-            if (!session.getClassName().equals(main_class)) {
-                sessions.put(class_name, session);
-                table_names.add(session.getTableName());
+            if (!session.getClassName().equals(mainClass)) {
+                sessions.put(className, session);
+                tableNames.add(session.getTableName());
             }
         }
 
 
-        List<Element> sub_elements = select_element.elements();
-        for (Element sub_element : sub_elements) {
-            String element_name = sub_element.getName();
-            String text = sub_element.getText();
-            switch (element_name) {
+        List<Element> subElements = selectElement.elements();
+        for (Element subElement : subElements) {
+            String subElementName = subElement.getName();
+            String text = subElement.getText();
+            switch (subElementName) {
                 case "fields": {
                     setSql(new StringBuilder(text));
                     String[] fields = getSql().toString().split(",");
-                    column_cursor = record_select_field(sessions, fields);
-                    to_select = multi_fill(fields, sessions);
-                    sql.append(to_select);
-                    sql.append("\nfrom " + SessionManager.select_session_by_class_name(main_class).getTableName() + "\n");
+                    columnCursor = recordSelectField(sessions, fields);
+                    toSelect = multiFill(fields, sessions);
+                    sql.append(toSelect);
+                    sql.append("\nfrom ").append(SessionManager.selectSessionByClassName(mainClass).getTableName()).append("\n");
                 }
                 break;
                 case "join": {
-                    String join_class = sub_element.attributeValue("join");
-                    Join join = SessionManager.getJoin(main_class, join_class);
+                    String joinClass = subElement.attributeValue("join");
+                    Join join = SessionManager.getJoin(mainClass, joinClass);
                     String form = join.getForm().getConstraint_type();
-                    String join_table = SessionManager.select_session_by_class_name(join_class).getTableName();
+                    String joinTable = SessionManager.selectSessionByClassName(joinClass).getTableName();
                     String[] point = join.getPoint();
-                    String join_condition = join.getCondition();
-                    condition = new StringBuilder(" " + form + " " + join_table + " on " + main_table + "." + point[0] + join_condition + join_table + "." + point[1]);
+                    String joinCondition = join.getCondition();
+                    condition = new StringBuilder(" " + form + " " + joinTable + " on " + mainTable + "." + point[0] + joinCondition + joinTable + "." + point[1]);
 
-                    Element where = sub_element.element("where");
+                    Element where = subElement.element("where");
                     if (where != null) {
                         condition.append(" and ");
                         setSql(new StringBuilder(where.getText()));
                         fillAnd();
-                        String[] sub_datas = Arrays.copyOfRange(datas, data_cursor, datas.length);
+                        String[] subDatas = Arrays.copyOfRange(datas, dataCursor, datas.length);
                         if (bean != null && datas != null) {
-                            fill(bean, sub_datas);
+                            fill(bean, subDatas);
                         } else if (bean == null && datas != null) {
-                            fill(sub_datas);
+                            fill(subDatas);
                         } else if (bean == null && datas == null) {
                             fill();
                         }
-                        data_cursor = getParas_cursor();
+                        dataCursor = getParasCursor();
                         condition.append(getSql());
-                        select_paras.addAll(getParas());
+                        selectParas.addAll(getParas());
                     }
-                    sql.append(condition + "\n");
+                    sql.append(condition).append("\n");
                 }
                 break;
             }
         }
         sql.append(";\n");
-        return new AnalyseMultiSelectPackage(sessions, column_cursor, sql);
+        return new AnalyseMultiSelectPackage(sessions, columnCursor, sql);
     }
 
-    private <T> AnalyseSelectPackage analyze_select_sql(Element select_element, T bean, String[] datas, ArrayList<Object> select_paras) {
-        String table_name;
-        int data_cursor = 0;
-        StringBuilder to_select = new StringBuilder();
+    private <T> AnalyseSelectPackage analyzeSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
+        String tableName;
+        int dataCursor = 0;
+        StringBuilder toSelect = new StringBuilder();
         StringBuilder condition = new StringBuilder();
-        List<Element> sub_elements = select_element.elements();
-        for (Element sub_element : sub_elements) {
-            String element_name = sub_element.getName();
-            String text = sub_element.getText();
-            switch (element_name) {
+        List<Element> subElements = (List<Element>) selectElement.elements();
+        for (Element subElement : subElements) {
+            String subElementName = subElement.getName();
+            String text = subElement.getText();
+            switch (subElementName) {
                 case "fields": {
                     setSql(new StringBuilder(text));
-                    to_select = fill().getSql().append("\n");
+                    toSelect = fill().getSql().append("\n");
                 }
                 break;
                 case "from": {
-                    String class_name = text;
-                    table_name = session.getTableName();
-                    if (!class_name.equals(session.getClassName()) ||
-                            !table_name.equals(handler.getTableName())) {
-                        System.out.println("error:session or handler not suit!");
+                    String className = text;
+                    tableName = session.getTableName();
+                    if (!className.equals(session.getClassName()) ||
+                            !tableName.equals(handler.getTableName())) {
+                        logger.error("Session or handler not suit.");
                         return null;
                     }
                 }
@@ -344,21 +353,21 @@ public class XmlHelper {
                 case "where": {
                     setSql(new StringBuilder(text));
                     fillAnd();
-                    String[] sub_datas = Arrays.copyOfRange(datas, data_cursor, datas.length);
+                    String[] subDatas = Arrays.copyOfRange(datas, dataCursor, datas.length);
                     if (bean != null && datas != null) {
-                        fill(bean, sub_datas);
+                        fill(bean, subDatas);
                     } else if (bean == null && datas != null) {
-                        fill(sub_datas);
+                        fill(subDatas);
                     } else if (bean == null && datas == null) {
                         fill();
                     }
-                    data_cursor = getParas_cursor();
+                    dataCursor = getParasCursor();
                     condition = getSql();
-                    select_paras.addAll(getParas());
+                    selectParas.addAll(getParas());
                 }
                 break;
                 case "order": {
-                    String type = sub_element.attributeValue("type");
+                    String type = subElement.attributeValue("type");
                     setSql(new StringBuilder(text));
                     fill();
                     condition.append("\n order by ").append(getSql()).append(" ").append(type);
@@ -366,18 +375,18 @@ public class XmlHelper {
                 break;
                 case "limit": {
                     setSql(new StringBuilder(text));
-                    fill(Arrays.copyOfRange(datas, data_cursor, datas.length));
+                    fill(Arrays.copyOfRange(datas, dataCursor, datas.length));
                     condition.append("\n limit ").append(text);
                     ArrayList<Integer> list = new ArrayList<>();
                     for (String para : paras) {
                         list.add(Integer.parseInt(para));
                     }
-                    select_paras.addAll(list);
+                    selectParas.addAll(list);
                 }
                 break;
             }
         }
-        return new AnalyseSelectPackage(to_select, condition, select_paras);
+        return new AnalyseSelectPackage(toSelect, condition, selectParas);
     }
 
 
@@ -386,50 +395,50 @@ public class XmlHelper {
         if (session != null) {
             //填充datas数据
             if (datas != null) {
-                paras_cursor = 0;
+                parasCursor = 0;
                 for (int i = 0; i < sql.length(); i++) {
                     char c = sql.charAt(i);
                     if (c == '?') {
-                        paras.add(datas[paras_cursor++]);
+                        paras.add(datas[parasCursor++]);
                     }
                 }
             } else {
-                System.out.println("warning:no datas to fill!");
+                logger.warn("No datas to fill.");
             }
             //填充bean数据
             if (bean != null) {
                 if (bean.getClass().equals(session.getBeanClass())) {
-                    int start_fill = 0;
-                    int end_fill = 0;
-                    boolean is_fill_data = false;
-                    boolean is_fill_column = false;
+                    int startFill = 0;
+                    int endFill = 0;
+                    boolean isFillData = false;
+                    boolean isFillColumn = false;
                     for (int i = 0; i < sql.length(); i++) {
                         char c = sql.charAt(i);
                         if (c == '@') {//获取开始填充标记@
-                            start_fill = i + 2;
+                            startFill = i + 2;
                             if (sql.charAt(i + 1) == '{') {//获取开始填充数据标记{
-                                is_fill_data = true;
+                                isFillData = true;
                             } else if (sql.charAt(i + 1) == '(') {//获取开始填充字段标记(
-                                is_fill_column = true;
+                                isFillColumn = true;
                             }
-                        } else if (c == '}' && is_fill_data) {//获取结束填充数据标记}，并填充数据
-                            end_fill = i - 1;
-                            i = fill_bean_data(bean, sql, start_fill, end_fill, i);
-                            is_fill_data = false;
-                        } else if (c == ')' && is_fill_column) {//获取结束填充字段标记)，并填充字段
-                            end_fill = i - 1;
-                            i = fill_column(start_fill, end_fill, i);
-                            is_fill_column = false;
+                        } else if (c == '}' && isFillData) {//获取结束填充数据标记}，并填充数据
+                            endFill = i - 1;
+                            i = fillBeanData(bean, sql, startFill, endFill, i);
+                            isFillData = false;
+                        } else if (c == ')' && isFillColumn) {//获取结束填充字段标记)，并填充字段
+                            endFill = i - 1;
+                            i = fillColumn(startFill, endFill, i);
+                            isFillColumn = false;
                         }
                     }
                 } else {
-                    System.out.println("error:Class type not equal!");
+                    logger.error("Class type not equal.");
                 }
             } else {
-                System.out.println("warning:no bean to fill!");
+                logger.warn("No bean to fill.");
             }
         } else {
-            System.out.println("error:No session to get class info!");
+            logger.warn("No session to get class info.");
         }
 
         return this;
@@ -437,18 +446,18 @@ public class XmlHelper {
 
     //only fill columns
     public XmlHelper fill() {
-        int start_fill = 0;
-        int end_fill = 0;
-        boolean is_fill_column = false;
+        int startFill = 0;
+        int endFill = 0;
+        boolean isFillColumn = false;
         for (int i = 0; i < sql.length(); i++) {
             char c = sql.charAt(i);
             if (c == '@' && sql.charAt(i + 1) == '(') {
-                start_fill = i + 2;
-                is_fill_column = true;
-            } else if (c == ')' && is_fill_column) {
-                end_fill = i - 1;
-                i = fill_column(start_fill, end_fill, i);
-                is_fill_column = false;
+                startFill = i + 2;
+                isFillColumn = true;
+            } else if (c == ')' && isFillColumn) {
+                endFill = i - 1;
+                i = fillColumn(startFill, endFill, i);
+                isFillColumn = false;
             }
         }
         return this;
@@ -458,139 +467,141 @@ public class XmlHelper {
     public XmlHelper fill(String[] datas) {
         paras.clear();
         fill();
-        fill_data(datas, sql);
+        fillData(datas, sql);
         return this;
     }
 
 
-    private int fill_column(int start_fill, int end_fill, int i) {
-        String column_name = null;
-        String field = sql.substring(start_fill, end_fill + 1);
-        if (field.equals(session.getClassInfo().getIdInfo().getField_name())) {//主键
-            column_name = session.getClassInfo().getIdInfo().getColumn_name();
+    private int fillColumn(int startFill, int endFill, int i) {
+        String columnName;
+        String field = sql.substring(startFill, endFill + 1);
+        if (field.equals(session.getClassInfo().getIdInfo().getFieldName())) {//主键
+            columnName = session.getClassInfo().getIdInfo().getColumnName();
         } else if (field.equals("#")) {//类名
-            column_name = session.getTableName();
+            columnName = session.getTableName();
         } else if (field.charAt(0) == '#') {//多表类名
-            String class_name = field.substring(1);
-            column_name = SessionManager.select_session_by_class_name(class_name).getTableName();
+            String className = field.substring(1);
+            columnName = SessionManager.selectSessionByClassName(className).getTableName();
         } else {//字段名
-            column_name = session.getClassInfo().getField_infos().get(field).getColumn_name();
+            columnName = session.getClassInfo().getFieldInfos().get(field).getColumnName();
         }
-        if (column_name != null) {
-            sql.replace(start_fill - 2, end_fill + 2, column_name);//注入字段
-            i = start_fill - 2 + column_name.length();
+        if (columnName != null) {
+            sql.replace(startFill - 2, endFill + 2, columnName);//注入字段
+            i = startFill - 2 + columnName.length();
         } else {
-            System.out.println("error:Field not found!Please check your sql.xml.");
+
+            logger.error("Field not found.");
+            logger.info(CommonValue.SUGGESTION+"Please check your sql.xml.");
         }
         return i;
     }
 
-    private <T> int fill_bean_data(T bean, StringBuilder sql, int start_fill, int end_fill, int i) {
-        String field = sql.substring(start_fill, end_fill + 1);
+    private <T> int fillBeanData(T bean, StringBuilder sql, int startFill, int endFill, int i) {
+        String field = sql.substring(startFill, endFill + 1);
         try {
             String data = "\'" + BeanUtils.getProperty(bean, field) + "\'";
             paras.add(data);//注入数据到参数集
-            sql.replace(start_fill - 2, end_fill + 2, "?");//先使用占位符替代，到handler层注入
-            i = start_fill - 2 + data.length();
+            sql.replace(startFill - 2, endFill + 2, "?");//先使用占位符替代，到handler层注入
+            i = startFill - 2 + data.length();
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         return i;
     }
 
-    private StringBuilder fill_data(String[] datas, StringBuilder sql) {
+    private StringBuilder fillData(String[] datas, StringBuilder sql) {
         if (datas.length > 0) {
-            paras_cursor = 0;
+            parasCursor = 0;
             for (int i = 0; i < sql.length(); i++) {
                 char c = sql.charAt(i);
                 if (c == '?') {
-                    paras.add(datas[paras_cursor++]);
+                    paras.add(datas[parasCursor++]);
                 }
             }
         } else {
-            System.out.println("warning:no datas to fill data!");
+            logger.warn("No datas to fill data.");
         }
         return sql;
     }
 
     //multi-tables fill column
-    private StringBuilder multi_fill(String[] fields, LinkedHashMap<String, Session> sessions) {
+    private StringBuilder multiFill(String[] fields, LinkedHashMap<String, Session> sessions) {
         StringBuilder sql = new StringBuilder();
         for (String field : fields) {
             String[] src = field.split("\\.");
-            String class_name = src[0];
-            String field_name = src[1];
+            String className = src[0];
+            String fieldName = src[1];
             Session session = null;
 
-            if (class_name.substring(0, 3).equals("@(#") &&
-                    class_name.charAt(class_name.length() - 1) == ')') {
-                class_name = class_name.substring(3, class_name.length() - 1);
-                session = sessions.get(class_name);
-                class_name = session.getTableName();
+            if (className.substring(0, 3).equals("@(#") &&
+                    className.charAt(className.length() - 1) == ')') {
+                className = className.substring(3, className.length() - 1);
+                session = sessions.get(className);
+                className = session.getTableName();
             }
-            sql.append(class_name + ".");
+            sql.append(className + ".");
 
-            if (!field_name.equals("*")) {
-                if (field_name.substring(0, 2).equals("@(") &&
-                        field_name.charAt(field_name.length() - 1) == ')') {
-                    field_name = field_name.substring(2, field_name.length() - 1);
-                    field_name = field_name.equals(session.getClassInfo().getIdInfo().getColumn_name()) ?
-                            session.getClassInfo().getIdInfo().getColumn_name() :
-                            session.getClassInfo().getField_infos().get(field_name).getColumn_name();
+            if (!fieldName.equals("*")) {
+                if (fieldName.substring(0, 2).equals("@(") &&
+                        fieldName.charAt(fieldName.length() - 1) == ')') {
+                    fieldName = fieldName.substring(2, fieldName.length() - 1);
+                    fieldName = fieldName.equals(session.getClassInfo().getIdInfo().getColumnName()) ?
+                            session.getClassInfo().getIdInfo().getColumnName() :
+                            session.getClassInfo().getFieldInfos().get(fieldName).getColumnName();
                 }
             }
-            sql.append(field_name + ",");
+            sql.append(fieldName).append(",");
         }
         sql.deleteCharAt(sql.length() - 1);
         return sql;
     }
 
-    private LinkedHashMap<Session, ColumnCursor> record_select_field(LinkedHashMap<String, Session> sessions, String[] fields) {
+    private LinkedHashMap<Session, ColumnCursor> recordSelectField(LinkedHashMap<String, Session> sessions, String[] fields) {
         LinkedHashMap<Session, ColumnCursor> ans = new LinkedHashMap<>();
-        String curr_class = "";
-        int curr_length = 0, start = 0, end = 0;
-        Session curr_session = null;
-        ArrayList<String> curr_fields = new ArrayList<>();
+        String currClass = "";
+        int currLength = 0, start = 0, end = 0;
+        Session currSession = null;
+        ArrayList<String> currFields = new ArrayList<>();
         for (int i = 0; i < fields.length; i++) {
             String field = fields[i];
             String[] src = field.split("\\.");
-            String class_name = src[0];
-            String field_name = src[1];
+            String className = src[0];
+            String fieldName = src[1];
 
-            if (class_name.substring(0, 3).equals("@(#") &&
-                    class_name.charAt(class_name.length() - 1) == ')') {
-                class_name = class_name.substring(3, class_name.length() - 1);
-                if (!class_name.equals(curr_class)) {
+            if (className.substring(0, 3).equals("@(#") &&
+                    className.charAt(className.length() - 1) == ')') {
+                className = className.substring(3, className.length() - 1);
+                if (!className.equals(currClass)) {
                     if (i != 0) {
-                        end = start + curr_length - 1;
-                        ans.put(curr_session, new ColumnCursor(start, end, curr_class, new ArrayList<>(curr_fields)));
+                        end = start + currLength - 1;
+                        ans.put(currSession, new ColumnCursor(start, end, currClass, new ArrayList<>(currFields)));
                         start = end + 1;
-                        curr_fields.clear();
-                        curr_length = 0;
+                        currFields.clear();
+                        currLength = 0;
                     }
-                    curr_class = class_name;
-                    curr_session = sessions.get(class_name);
+                    currClass = className;
+                    currSession = sessions.get(className);
                 }
             }
 
-            if (!field_name.equals("*")) {
-                if (field_name.substring(0, 2).equals("@(") &&
-                        field_name.charAt(field_name.length() - 1) == ')') {
-                    field_name = field_name.substring(2, field_name.length() - 1);
-                    curr_fields.add(field_name);
-                    curr_length++;
+            if (!fieldName.equals("*")) {
+                if (fieldName.substring(0, 2).equals("@(") &&
+                        fieldName.charAt(fieldName.length() - 1) == ')') {
+                    fieldName = fieldName.substring(2, fieldName.length() - 1);
+                    currFields.add(fieldName);
+                    currLength++;
                 }
             } else {
-                LinkedHashMap<String, FieldInfo> all_field = curr_session.getClassInfo().getField_infos();
-                curr_fields.add(session.getClassInfo().getIdInfo().getField_name());
-                for (Map.Entry<String, FieldInfo> entry : all_field.entrySet()) {
-                    curr_fields.add(entry.getValue().getField_name());
+                LinkedHashMap<String, FieldInfo> allField = currSession.getClassInfo().getFieldInfos();
+                currFields.add(session.getClassInfo().getIdInfo().getFieldName());
+                for (Map.Entry<String, FieldInfo> entry : allField.entrySet()) {
+                    currFields.add(entry.getValue().getFieldName());
                 }
-                curr_length += curr_session.getField_length()+1;
+                currLength += currSession.getField_length() + 1;
             }
         }
-        end = start + curr_length - 1;
-        ans.put(curr_session, new ColumnCursor(start, end, curr_class, curr_fields));
+        end = start + currLength - 1;
+        ans.put(currSession, new ColumnCursor(start, end, currClass, currFields));
         return ans;
     }
 
@@ -602,51 +613,16 @@ public class XmlHelper {
         }
     }
 
-    private Element findSqlElementByID(String id, String element_type) {
-        List<Element> elements = sql_root.elements(element_type);
+    private Element findSqlElementByID(String id, String elementType) {
+        List<Element> elements = (List<Element>) sqlRoot.elements(elementType);
         for (Element element : elements) {
             if (element.attributeValue("id").equals(id)) {
                 return element;
             }
         }
-        System.out.println("error:Condition not found!Please check your sql.xml and id.");
+        logger.error("Condition not found.");
+        logger.info(CommonValue.SUGGESTION+"Please check your sql.xml and id.");
         return null;
     }
 }
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class AnalyseSelectPackage {
-    StringBuilder to_select;
-    StringBuilder condition;
-    ArrayList<Object> select_paras;
-}
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class AnalyseMultiSelectPackage extends AnalyseSelectPackage {
-    LinkedHashMap<String, Session> sessions;
-    LinkedHashMap<Session, ColumnCursor> column_cursor;
-    StringBuilder sql;
-
-    public AnalyseMultiSelectPackage(StringBuilder to_select, StringBuilder condition, ArrayList<Object> select_paras, LinkedHashMap<String, Session> sessions, LinkedHashMap<Session, ColumnCursor> column_cursor, StringBuilder sql) {
-        super(to_select, condition, select_paras);
-        this.sessions = sessions;
-        this.column_cursor = column_cursor;
-        this.sql = sql;
-    }
-}
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class ColumnCursor {
-    int start;//start(inclusive)
-    int end;//2->end(inclusive)
-    String class_name;
-    ArrayList<String> fields;
-}
-
 

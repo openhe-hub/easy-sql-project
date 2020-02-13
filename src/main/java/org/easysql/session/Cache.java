@@ -105,7 +105,7 @@ public class Cache<T> {
                     int type= dataList.get(i).getType();
                     if (filter.filter(data)) {
                         for (String key : fieldsInfo.keySet()) {
-                            String field_name = fieldsInfo.get(key).getField_name();
+                            String field_name = fieldsInfo.get(key).getFieldName();
                             BeanUtils.setProperty(data, field_name, BeanUtils.getProperty(bean, field_name));
                         }
                         if (type == CommonValue.INSERTED_DATA_INDEX || type == CommonValue.ORIGIN_DATA_INDEX) {
