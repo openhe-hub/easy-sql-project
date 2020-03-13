@@ -774,3 +774,41 @@ fulltext index_name(student_name)
 2020-02-08 14:28:59 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
 2020-02-08 14:28:59 INFO  SessionHandler:11 - sql output: 	select * from student;
 2020-02-08 14:28:59 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
+2020-02-08 14:31:17 INFO  Configuration:40 - process: Getting central configuration finished.
+2020-02-08 14:31:17 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
+2020-02-08 14:31:17 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-02-08 14:31:17 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-08 14:31:17 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
+2020-02-08 14:31:17 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
+2020-02-08 14:31:17 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-02-08 14:31:17 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
+2020-02-08 14:31:17 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
+2020-02-08 14:31:18 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-02-08 14:31:18 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Configuration:40 - process: Getting central configuration finished.
+2020-02-22 09:57:18 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
+2020-02-22 09:57:18 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-02-22 09:57:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
+2020-02-22 09:57:18 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
+2020-02-22 09:57:18 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-02-22 09:57:18 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)

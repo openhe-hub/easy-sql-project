@@ -238,6 +238,8 @@ public class XmlHelper {
                             }
                             BeanUtils.setProperty(data, injectPoint,list);
                         }
+
+                        default:{}break;
                     }
                 } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
