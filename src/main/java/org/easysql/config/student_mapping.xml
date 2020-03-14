@@ -36,7 +36,7 @@
                     field="name"
                     type="fulltext"
             />
-            <!--<join type="many to one" form="left join"
+            <join type="many to one" form="left join"
                 from_field="teacher"
                   to_class="Teacher"
                   point="teacher_id->id"
@@ -45,7 +45,7 @@
                 from_field="mark"
                   to_class="Mark"
                   point="student_id->student_id"
-            />-->
+            />
         </set>
 
     </class>

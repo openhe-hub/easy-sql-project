@@ -17,6 +17,7 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -175,14 +176,14 @@ public class XmlHelper {
                         if (session.getClassName().equals(mainClass)) {
                             data = (T) session.getInstance();
                             for (int i = cursor.getStart(); i <= cursor.getEnd(); i++) {
-                                Object obj = rs.getObject(i + 1);
+                                Object obj = rs.getObject(i+1);
                                 BeanUtils.setProperty(data, cursor.getFields().get(i - cursor.getStart()), obj);
                             }
                         }else {
                             Object newBean = session.getInstance();
-                            for (int i = cursor.getStart(); i <= cursor.getEnd(); i++) {
+                            for (int i = cursor.getStart()-1; i < cursor.getEnd(); i++) {
                                 Object obj = rs.getObject(i + 1);
-                                BeanUtils.setProperty(newBean, cursor.getFields().get(i - cursor.getStart()), obj);
+                                BeanUtils.setProperty(newBean, cursor.getFields().get(i - cursor.getStart()+1), obj);
                             }
                             objs.put(session,newBean);
                         }

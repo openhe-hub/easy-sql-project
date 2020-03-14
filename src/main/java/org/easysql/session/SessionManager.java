@@ -12,56 +12,81 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SessionManager {
-    private static LinkedHashMap<String,Session> sessions;//table_name to session
-    private static LinkedHashMap<String,Session> classToSessions;//class_name to session
+    private static LinkedHashMap<String,Session<?>> sessions;//table_name to session
+    private static LinkedHashMap<String,Session<?>> classNameToSession;//class_name to session
+    private static LinkedHashMap<Class<?>,Session<?>> clazzToSession;
+    private static LinkedHashMap<Class<?>,SessionHandler<?>> clazzToSessionHandler;
     private static Logger logger;
 
     static {
         sessions = new LinkedHashMap<>();
-        classToSessions =new LinkedHashMap<>();
+        classNameToSession =new LinkedHashMap<>();
+        clazzToSession=new LinkedHashMap<>();
+        clazzToSessionHandler=new LinkedHashMap<>();
         logger= Configuration.createLogger(SessionManager.class);
     }
 
-    public static void registerSession(Session session) {
+    public static void registerSession(Session<?> session) {
         sessions.put(session.getTableName(), session);
-        classToSessions.put(session.getClassName(),session);
+        classNameToSession.put(session.getClassName(),session);
+        clazzToSession.put(session.getBeanClass(),session);
+        clazzToSessionHandler.put(session.getBeanClass(),session.getHandler());
         logger.info(CommonValue.PROCESS+"Registering session("+session.getClassName()+") finished.");
     }
 
+    public static void AutoScanBeans(){
+        ArrayList<String> classList=Configuration.ScanAllClass();
+        try {
+            for (String className : classList) {
+               Session<?> session=new Session<>(Class.forName(className));
+               session.init();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void initAll(){
-        for (Map.Entry<String,Session> entry:sessions.entrySet()){
+        for (Map.Entry<String,Session<?>> entry:sessions.entrySet()){
             entry.getValue().init();
         }
         logger.info(CommonValue.PROCESS+"All sessions have been successfully initiated.");
     }
 
     public static void createAll(){
-        for (Map.Entry<String,Session> entry:sessions.entrySet()){
+        for (Map.Entry<String,Session<?>> entry:sessions.entrySet()){
             entry.getValue().create();
         }
     }
 
     public static void closeAll(){
-        for (Map.Entry<String,Session> entry:sessions.entrySet()){
+        for (Map.Entry<String,Session<?>> entry:sessions.entrySet()){
             entry.getValue().close();
         }
     }
 
-    public static Session selectSessionByClassName(String class_name){
-        return classToSessions.get(class_name);
+    public static Session<?> selectSessionByClassName(String className){
+        return classNameToSession.get(className);
     }
 
-    public static Session selectSessionByTableName(String table_name){
-        return sessions.get(table_name);
+    public static Session<?> selectSessionByTableName(String tableName){
+        return sessions.get(tableName);
     }
 
+    public static <T> Session<T> getSessionByClass(Class<T> clazz){
+        return (Session<T>) clazzToSession.get(clazz);
+    }
 
-    public static boolean checkForeignKeyConnect(ForeignKeyInfo fk_info) {
-        String from_table = fk_info.getFromTable();
-        String to_table = fk_info.getToTable();
-        String from_column = fk_info.getFromColumn();
-        String to_column = fk_info.getToColumn();
-        ConstraintType type = fk_info.getType();
+    public static <T> SessionHandler<T> getHandlerByClass(Class<T> clazz){
+        return (SessionHandler<T>) clazzToSessionHandler.get(clazz);
+    }
+
+    public static boolean checkForeignKeyConnect(ForeignKeyInfo foreignKeyInfo) {
+        String from_table = foreignKeyInfo.getFromTable();
+        String to_table = foreignKeyInfo.getToTable();
+        String from_column = foreignKeyInfo.getFromColumn();
+        String to_column = foreignKeyInfo.getToColumn();
+        ConstraintType type = foreignKeyInfo.getType();
         switch (type) {
             case ONE_TO_MANY: {
                 return true;
@@ -79,7 +104,7 @@ public class SessionManager {
     }
 
     public static Join getJoin(String main_class,String join_class){
-        Session main_session= classToSessions.get(main_class);
+        Session<?> main_session= classNameToSession.get(main_class);
         Join join = main_session.getClassInfo().getJoins().get(join_class);
         if(join.getToClass().equals(join_class)){
            return join;
@@ -89,8 +114,8 @@ public class SessionManager {
     }
 
     private static boolean ifForeignKeyExists(String from_table, String to_table, String from_column, String to_column, ConstraintType type) {
-        Session toSession = sessions.get(to_table);
-        SessionHandler sessionHandler = toSession.getHandler();
+        Session<?> toSession = sessions.get(to_table);
+        SessionHandler<?> sessionHandler = toSession.getHandler();
         if (!sessionHandler.ifTableExists(null)) {
             return false;
         } else {

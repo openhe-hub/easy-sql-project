@@ -17,7 +17,7 @@ public class Session<T> {
     @Getter
     private String className;
     @Getter
-    private Class beanClass;
+    private Class<T> beanClass;
     @Getter
     private String tableName;
     private String xmlConfigName;

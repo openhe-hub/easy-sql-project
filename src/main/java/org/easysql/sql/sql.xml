@@ -30,11 +30,15 @@
         <join join="Mark"/>
     </select>
 
-    <select id="test2" class="Student,Teacher" return="Teacher" merge="id" >
+    <select id="test2" class="Student,Teacher" return="Student" merge="id" >
         <fields>@(#Student).*,@(#Teacher).*</fields>
-        <join join="Student"/>
+        <join join="Teacher"/>
     </select>
 
+    <select id="test" class="Student,Teacher" return="Student" merge="id">
+        <fields>student.*,teacher.*</fields>
+        <join join="Student"/>
+    </select>
 
 
 </sql>

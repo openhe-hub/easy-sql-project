@@ -5,10 +5,12 @@ import lombok.Setter;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
 import org.easysql.session.Session;
+import org.easysql.session.SessionManager;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Configuration {
@@ -45,14 +47,14 @@ public class Configuration {
         connection=DBConnector.getConnection();
     }
 
-    public static void configure(Class mainClass){
+    public static void configure(Class<?> mainClass){
         try {
             String pkg=mainClass.getPackage().getName();
             String project=new File("").getCanonicalPath();
             String[] pkgs=pkg.split("\\.");
-            String configPath="";
+            StringBuilder configPath= new StringBuilder();
             for (int i=0;i<pkgs.length-1;i++){
-                configPath+=pkgs[i]+"\\";
+                configPath.append(pkgs[i]).append("\\");
             }
             String path = project + JAVA_SRC_PATH + configPath + CONFIG_PKG_NAME;
             setLogger(createLogger(Configuration.class));
@@ -60,6 +62,11 @@ public class Configuration {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void AutoConfigure(Class<?> mainClass){
+        configure(mainClass);
+        SessionManager.AutoScanBeans();
     }
 
     //@para1 className Bean类名
@@ -82,6 +89,16 @@ public class Configuration {
             logger.info(CommonValue.SUGGESTION+"Please check your class name and center_config.xml.");
             return null;
         }
+    }
+
+    public static ArrayList<String> ScanAllClass(){
+        List<Element> classElementList=classRoot.elements("class");
+        ArrayList<String> classList=new ArrayList<>();
+        for (Element element : classElementList) {
+            String className=beanPkg+"."+element.attributeValue("class_name");
+            classList.add(className);
+        }
+        return classList;
     }
 
     public static Logger createLogger(Class clazz){

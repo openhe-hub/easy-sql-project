@@ -39,7 +39,7 @@ public class SessionHandler<T> {
     private PreparedStatement preparedStatement;
     private Logger logger=Logger.getLogger(SessionHandler.class);
 
-    public SessionHandler(Session session) {//将session里的数据解包
+    public SessionHandler(Session<T> session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
         classInfo = classInfos.getClassInfo();
         fieldsInfo = classInfos.getFieldInfos();
@@ -59,13 +59,16 @@ public class SessionHandler<T> {
 
     public void createTable(String table_name) {
         StringBuilder sql = new StringBuilder("create table ");
-        sql.append(table_name).append("(\n");//拼接表名
+        //拼接表名
+        sql.append(table_name).append("(\n");
+        //拼接主键信息
         sql.append(idInfo.getColumnName()).append(" ")
                 .append(idInfo.getColumnType()).append(" primary key ")
                 .append(idInfo.getPrimaryKeyType()).append(" ")
                 .append(appendConstraints(idInfo))
-                .append(",\n");//拼接主键信息
-        for (String key : fieldsInfo.keySet()) {//拼接字段信息
+                .append(",\n");
+        //拼接字段信息
+        for (String key : fieldsInfo.keySet()) {
             FieldInfo fieldInfo = fieldsInfo.get(key);
             String column_name = fieldInfo.getColumnName();
             String column_type = fieldInfo.getColumnType();
@@ -109,14 +112,14 @@ public class SessionHandler<T> {
 
     //拼接sql约束
     private String appendConstraints(FieldInfo fieldInfo) {
-        String constraint_type = "";
+        StringBuilder constraintType = new StringBuilder();
         ConstraintType[] constraints = fieldInfo.getConstraints();
         if (constraints != null) {
             for (ConstraintType type : constraints) {
-                constraint_type += type.getConstraint_type() + " ";
+                constraintType.append(type.getConstraint_type()).append(" ");
             }
         }
-        return constraint_type;
+        return constraintType.toString();
     }
 
     //更新表结构
@@ -342,8 +345,7 @@ public class SessionHandler<T> {
     }
 
     public void updateListToTable(ArrayList<T> beans) {
-        StringBuilder condition = new StringBuilder(idInfo.getColumnName() + "=?");
-        ArrayList<String> toInsertColumns = getUpdatePreparedStatement(condition.toString(), beans.get(0));
+        ArrayList<String> toInsertColumns = getUpdatePreparedStatement(idInfo.getColumnName() + "=?", beans.get(0));
         toInsertColumns.add(idInfo.getFieldName());
         try {
             for (T bean : beans) {
@@ -485,13 +487,14 @@ public class SessionHandler<T> {
 
 
     private ArrayList<T> ResultSetToBean(ResultSet rs, ArrayList<String> data_name) {//convert resultSet to list
-        ArrayList<T> objects = new ArrayList<T>();
+        ArrayList<T> objects = new ArrayList<>();
         try {
             ArrayList<ArrayList<String>> origin_data = new ArrayList<ArrayList<String>>();
             resultSetMetaData = DBConnector.getRsmd(rs);
             int row_count = 0;
 
-            while (rs.next()) {//遍历resultSet
+            //遍历resultSet
+            while (rs.next()) {
                 ArrayList<String> row_data = new ArrayList<String>();
                 for (int i = 0; i < resultSetMetaData.getColumnCount(); i++) {
                     row_data.add(rs.getString(i + 1));
@@ -500,8 +503,8 @@ public class SessionHandler<T> {
                 row_count++;
             }
 
-
-            for (int i = 0; i < row_count; i++) {//将数据进行对应的强制类型转换
+            //将数据进行对应的强制类型转换
+            for (int i = 0; i < row_count; i++) {
                 T obj = (T) BeanClass.newInstance();
                 ArrayList<String> strings = origin_data.get(i);
                 for (int j = 0; j < strings.size(); j++) {
@@ -551,7 +554,7 @@ public class SessionHandler<T> {
 
     //cache
     public Cache<T> buildCache(ArrayList<T> data, int mode) {
-        return new Cache<T>(data, mode, this);
+        return new Cache<>(data, mode, this);
     }
 
     public Transaction startTransaction() {
