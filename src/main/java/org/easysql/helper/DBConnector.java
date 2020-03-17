@@ -18,9 +18,9 @@ public class DBConnector {
     private static String pwd;
     private static String url;
 
-    public static Connection getConnection(){
+    public static Connection getConnection(Element databaseElement){
         //解析数据库配置用户信息
-        getUserInfo();
+        getUserInfo(databaseElement);
         //获取数据库连接
         try {
             Class.forName(driver_class);
@@ -112,13 +112,12 @@ public class DBConnector {
         }
     }
 
-    private static void getUserInfo() {
-        Element db_config= XmlHelper.getRootElement("center_config").element("db_config");
-        db_name=db_config.element("database").attributeValue("name");
-        user=db_config.element("user").attributeValue("name");
-        pwd=db_config.element("pwd").attributeValue("pwd");
-        driver_class=db_config.element("driver_class").attributeValue("class_name");
-        Element url_element=db_config.element("url");
+    private static void getUserInfo(Element databaseElement) {
+        db_name=databaseElement.element("database").attributeValue("name");
+        user=databaseElement.element("user").attributeValue("name");
+        pwd=databaseElement.element("pwd").attributeValue("pwd");
+        driver_class=databaseElement.element("driver_class").attributeValue("class_name");
+        Element url_element=databaseElement.element("url");
         url=url_element.attributeValue("url1")+db_name+url_element.attributeValue("url2");
     }
 }

@@ -112,18 +112,18 @@ public class Session<T> {
             logger.error(CommonValue.ERROR + "Mapping xml not found.Can't read Session(" + className + ") 's configuration.");
             logger.info(CommonValue.SUGGESTION + "Please check your mapping xml and center_config.xml.");
         } else {
-            Element root=XmlHelper.getRootElement(xmlConfigName);
-            Element class_element=root.element("class");
-            Element set=class_element.element("set");
-            getIdInfo(class_element.element("id"));
-            LinkedHashMap<String,String[]> class_map = getClassInfo(class_element);
-            ArrayList<LinkedHashMap<String,FieldInfo>>  field_maps= getFieldInfo(class_element.element("fields"));
-            LinkedHashMap<String,FieldInfo> field_map=field_maps.get(0);
-            LinkedHashMap<String,FieldInfo> column_map=field_maps.get(1);
-            ArrayList<ForeignKeyInfo> fk_list= getForeignKeyInfo(set);
-            ArrayList<IndexInfo> index_list=getIndexInfo(set);
+            Element root=XmlHelper.getRootElement(Configuration.getFile(this.getClass(),xmlConfigName));
+            Element classElement=root.element("class");
+            Element set=classElement.element("set");
+            getIdInfo(classElement.element("id"));
+            LinkedHashMap<String,String[]> classMap = getClassInfo(classElement);
+            ArrayList<LinkedHashMap<String,FieldInfo>>  fieldMaps= getFieldInfo(classElement.element("fields"));
+            LinkedHashMap<String,FieldInfo> fieldMap=fieldMaps.get(0);
+            LinkedHashMap<String,FieldInfo> columnMap=fieldMaps.get(1);
+            ArrayList<ForeignKeyInfo> foreignKeyList= getForeignKeyInfo(set);
+            ArrayList<IndexInfo> indexList=getIndexInfo(set);
             LinkedHashMap<String,Join> join_list= getJoinMap(set);
-            classInfo=new ClassInfo(class_map,field_map,column_map,idInfo,fk_list,index_list,join_list);
+            classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,join_list);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
@@ -170,55 +170,64 @@ public class Session<T> {
     }
 
     private ArrayList<ForeignKeyInfo> getForeignKeyInfo(Element set){
-        List<Element> fk_elements=set.elements("foreign_key");
-        ArrayList<ForeignKeyInfo> fk_list=new ArrayList<>();
-        for (Element fk_element:fk_elements) {
-            String from_table= tableName;
-            String from_column=fk_element.attributeValue("from");
-            String to_info=fk_element.attributeValue("to");
-            String[] to_infos=to_info.split("\\.");
-            ConstraintType type=ConstraintType.fromConstraintType(fk_element.attributeValue("type"));
-            String name=null;
-            if ((name=fk_element.attributeValue("name"))==null){
-                name="fk_"+from_table+"_"+to_infos[0]+"_to_"+to_infos[1];
+        List<Element>  foreignKeys=set.elements("foreign_key");
+        if (foreignKeys!=null) {
+            ArrayList<ForeignKeyInfo> fk_list=new ArrayList<>();
+            for (Element fk_element:foreignKeys) {
+                String from_table= tableName;
+                String from_column=fk_element.attributeValue("from");
+                String to_info=fk_element.attributeValue("to");
+                String[] to_infos=to_info.split("\\.");
+                ConstraintType type=ConstraintType.fromConstraintType(fk_element.attributeValue("type"));
+                String name=null;
+                if ((name=fk_element.attributeValue("name"))==null){
+                    name="fk_"+from_table+"_"+to_infos[0]+"_to_"+to_infos[1];
+                }
+                fk_list.add(new ForeignKeyInfo(from_table,to_infos[0],from_column,to_infos[1],type,name));
             }
-            fk_list.add(new ForeignKeyInfo(from_table,to_infos[0],from_column,to_infos[1],type,name));
+            return fk_list;
         }
-        return fk_list;
+        return null;
     }
 
     private ArrayList<IndexInfo> getIndexInfo(Element set){
-        List<Element> index_elements=set.elements("index");
-        ArrayList<IndexInfo> index_list=new ArrayList<>();
-        for (Element index_element:index_elements) {
-            String field_name=index_element.attributeValue("field");
-            ConstraintType type=ConstraintType.fromConstraintType(index_element.attributeValue("type"));
-            String name=null;
-            if ((name=index_element.attributeValue("name"))==null){
-                name="index_"+field_name;
+        List<Element> indexElements=set.elements("index");
+        if (indexElements!=null) {
+            ArrayList<IndexInfo> index_list=new ArrayList<>();
+            for (Element index_element:indexElements) {
+                String field_name=index_element.attributeValue("field");
+                ConstraintType type=ConstraintType.fromConstraintType(index_element.attributeValue("type"));
+                String name=null;
+                if ((name=index_element.attributeValue("name"))==null){
+                    name="index_"+field_name;
+                }
+                index_list.add(new IndexInfo(field_name,name,type));
             }
-            index_list.add(new IndexInfo(field_name,name,type));
+            return index_list;
         }
-        return index_list;
+        return null;
     }
 
     private LinkedHashMap<String,Join> getJoinMap(Element set){
-        List<Element> join_elements=set.elements("join");
-        LinkedHashMap<String,Join> join_list=new LinkedHashMap<>();
-        for (Element join_element:join_elements) {
-           String type=join_element.attributeValue("type");
-           String form=join_element.attributeValue("form");
-           String from_field=join_element.attributeValue("from_field");
-           String to_class=join_element.attributeValue("to_class");
-           String[] point=join_element.attributeValue("point").split("->");
-           String condition=join_element.attributeValue("cond");
-           String from_class_name= getClassName();
-           condition= (condition==null)?"=":condition;
-           join_list.put(to_class,new Join(from_class_name,from_field,to_class,
-                   ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
-                   ,point,condition));
+        List<Element> joinElements=set.elements("join");
+        if (joinElements!=null) {
+            LinkedHashMap<String,Join> join_list=new LinkedHashMap<>();
+            for (Element join_element:joinElements) {
+               String type=join_element.attributeValue("type");
+               String form=join_element.attributeValue("form");
+               String from_field=join_element.attributeValue("from_field");
+               String to_class=join_element.attributeValue("to_class");
+               String[] point=join_element.attributeValue("point").split("->");
+               String condition=join_element.attributeValue("cond");
+               String from_class_name= getClassName();
+               condition= (condition==null)?"=":condition;
+               join_list.put(to_class,new Join(from_class_name,from_field,to_class,
+                       ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
+                       ,point,condition));
+            }
+            return join_list;
         }
-        return join_list;
+        return null;
     }
 
     //解析sql约束

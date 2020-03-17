@@ -49,13 +49,11 @@ public class XmlHelper {
     @Getter
     private int parasCursor;
 
-    public static Element getRootElement(String configName) {
+    public static Element getRootElement(File file) {
         Element element = null;
-        centerConfigPath = CONFIG_PATH + configName + CONFIG_FILE_TYPE;
         saxReader = new SAXReader();
-        File configureFile = new File(centerConfigPath);
         try {
-            configureDoc = saxReader.read(configureFile);
+            configureDoc = saxReader.read(file);
             element = configureDoc.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();

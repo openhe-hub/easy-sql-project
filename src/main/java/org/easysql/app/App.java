@@ -9,7 +9,7 @@ import org.easysql.session.SessionManager;
 public class App {
     public static void main(String[] args) {
         Configuration.AutoConfigure(App.class);
-        SessionHandler<Student> studentHandler=SessionManager.getHandlerByClass(Student.class);
-        studentHandler.selectAll().forEach(System.out::println);
+        SessionHandler<Student> handler=SessionManager.getHandlerByClass(Student.class);
+        handler.selectAll().forEach(System.out::println);
     }
 }

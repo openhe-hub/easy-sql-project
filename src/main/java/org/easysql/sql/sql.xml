@@ -39,6 +39,4 @@
         <fields>student.*,teacher.*</fields>
         <join join="Student"/>
     </select>
-
-
 </sql>
