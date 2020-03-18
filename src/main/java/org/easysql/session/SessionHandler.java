@@ -416,22 +416,22 @@ public class SessionHandler<T> {
      * @para1:columns like:col1,col2...
      * @para2:like "=value" or ">value" or... You can append like "and column>value"
      * */
-    public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<String> paras) {
+    public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<Object> params) {
         Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
         Matcher m = p.matcher(toSelect.toString());
         toSelect=new StringBuilder(m.replaceAll(""));
-        StringBuffer sql = new StringBuffer("select " + toSelect.toString() + " from " + tableName);
+        StringBuilder sql = new StringBuilder("select " + toSelect.toString() + " from " + tableName);
         if (condition==null) {
             sql.append(";");
         } else {
-            sql.append(" where " + condition.toString() + ";");
+            sql.append(" where ").append(condition.toString()).append(";");
         }
 
         preparedStatement = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
         try {
-            if (paras!=null&&paras.size()>0) {
-                for (int i = 0; i < paras.size(); i++) {
-                    preparedStatement.setObject(i + 1, paras.get(i));
+            if (params!=null&&params.size()>0) {
+                for (int i = 0; i < params.size(); i++) {
+                    preparedStatement.setObject(i + 1, params.get(i));
                 }
             }
             rs = preparedStatement.executeQuery();
@@ -444,18 +444,17 @@ public class SessionHandler<T> {
             list = new ArrayList<>(fieldsInfo.keySet());
             list.add(0, idInfo.getColumnName());
         } else {
-            String[] select_columns = m.replaceAll("").split(",");
+            String[] selectColumns = m.replaceAll("").split(",");
             list = new ArrayList<>();
-            for (String select_column : select_columns) {
-                if (select_column.equals(idInfo.getColumnName())) {
+            for (String selectColumn : selectColumns) {
+                if (selectColumn.equals(idInfo.getColumnName())) {
                     list.add(idInfo.getFieldName());
                 } else {
-                    list.add(columnsInfo.get(select_column).getFieldName());
+                    list.add(columnsInfo.get(selectColumn).getFieldName());
                 }
             }
         }
-        ArrayList<T> beans = ResultSetToBean(rs, list);
-        return beans;
+        return ResultSetToBean(rs, list);
     }
 
     public ArrayList<T> selectAll() {

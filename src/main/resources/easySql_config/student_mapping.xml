@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Student" table_name="student">
+    <class class_name="Student" table_name="student" sql_file="sql">
         <id
                 field_name="id"
                 field_type="int"

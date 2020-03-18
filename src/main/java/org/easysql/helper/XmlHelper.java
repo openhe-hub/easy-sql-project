@@ -21,26 +21,19 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.*;
 
-public class XmlHelper {
-    @Setter
-    @Getter
-    private static String CONFIG_PATH = "";
+public class XmlHelper<T> {
     @Getter
     private static final String CONFIG_FILE_TYPE = ".xml";
-    private static String centerConfigPath = "";
-    private static String sqlPath = "";
     @Setter
     public static String sqlXmlName = "";
     private static SAXReader saxReader;
     private static Logger logger = Configuration.createLogger(XmlHelper.class);;
 
-    private static Document configureDoc;
-    private static Document sqlDoc;
     private static Element sqlRoot;
     @Setter
-    private Session session;
+    private Session<T> session;
     @Setter
-    private SessionHandler handler;
+    private SessionHandler<T> handler;
     @Getter
     @Setter
     private StringBuilder sql;
@@ -53,7 +46,7 @@ public class XmlHelper {
         Element element = null;
         saxReader = new SAXReader();
         try {
-            configureDoc = saxReader.read(file);
+            Document configureDoc = saxReader.read(file);
             element = configureDoc.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();
@@ -67,15 +60,15 @@ public class XmlHelper {
     }
 
     //动态sql解析
-    public void initSqlParser(String sqlXmlName, Session defaultSession, SessionHandler defaultHandler) {
+    public void initSqlParser(String sqlXmlName, Session<T> defaultSession, SessionHandler<T> defaultHandler) {
         session = defaultSession;
         handler = defaultHandler;
         paras = new ArrayList<>();
-        StringBuilder configPkg = new StringBuilder(CONFIG_PATH);
-        sqlPath = configPkg.replace(configPkg.length() - 7, configPkg.length() - 1, "sql").toString();
-        File sqlFile = new File(sqlPath + sqlXmlName + CONFIG_FILE_TYPE);
+        String CONFIG_PATH = Configuration.getSqlRoot().attributeValue("sql_pkg");
+        File sqlFile =new File(Objects.requireNonNull(Configuration.getMainClass().getClassLoader().
+                getResource(CONFIG_PATH + "/" + sqlXmlName + CONFIG_FILE_TYPE)).getFile());
         try {
-            sqlDoc = saxReader.read(sqlFile);
+            Document sqlDoc = saxReader.read(sqlFile);
             sqlRoot = sqlDoc.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();
@@ -83,7 +76,7 @@ public class XmlHelper {
     }
 
     //where条件解析
-    public XmlHelper parseCondition(String id) {
+    public XmlHelper<T> parseCondition(String id) {
         Element whereElement = findSqlElementByID(id, "where");
         if (whereElement != null) {
             sql = new StringBuilder(whereElement.getText());
@@ -96,7 +89,7 @@ public class XmlHelper {
         }
     }
 
-    public XmlHelper parseColumns(String id) {
+    public XmlHelper<T> parseColumns(String id) {
         Element columnElement = findSqlElementByID(id, "fields");
         if (columnElement != null) {
             sql = new StringBuilder(columnElement.getText());
@@ -109,7 +102,7 @@ public class XmlHelper {
     }
 
     //单表查询
-    public <T> ArrayList<T> parseSelect(String id, T bean, String[] datas) {
+    public ArrayList<T> parseSelect(String id, T bean, String[] datas) {
         Element selectElement = findSqlElementByID(id, "select");
         if (selectElement != null) {
             String selectClass = selectElement.attributeValue("class");
@@ -131,22 +124,22 @@ public class XmlHelper {
         }
     }
 
-    private <T> ArrayList<T> selectOneTable(Element selectElement, T bean, String[] datas) {
-        ArrayList resultList;
+    private ArrayList<T> selectOneTable(Element selectElement, T bean, String[] datas) {
+        ArrayList<T> resultList;
         AnalyseSelectPackage analyseSelectPackage = analyzeSelectSql(selectElement, bean, datas, new ArrayList<>());
         resultList = handler.select(analyseSelectPackage.getToSelect(), analyseSelectPackage.getCondition(),
                 analyseSelectPackage.getSelectParas());
         if (resultList != null) {
-            return (ArrayList<T>) resultList;
+            return resultList;
         } else {
             return null;
         }
     }
 
 
-    private <T> ArrayList<T> selectTables(Element selectElement, T bean, String[] datas) {
+    private ArrayList<T> selectTables(Element selectElement, T bean, String[] datas) {
         ArrayList<T> resultList = new ArrayList<>();
-        ArrayList<LinkedHashMap<Session,Object>> tableData=new ArrayList<>();
+        ArrayList<LinkedHashMap<Session<?>,Object>> tableData=new ArrayList<>();
         String merge = selectElement.attributeValue("merge");
         String mainClass = selectElement.attributeValue("return");
         ResultSet rs;
@@ -155,8 +148,8 @@ public class XmlHelper {
         //fill paras and get result
         PreparedStatement preparedStatement = DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
         ArrayList<Object> paras = analyseMultiSelectPackage.getSelectParas();
-        LinkedHashMap<Session, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumnCursor();
-        LinkedHashMap<String,Session> sessions=analyseMultiSelectPackage.getSessions();
+        LinkedHashMap<Session<?>, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumnCursor();
+        LinkedHashMap<String,Session<?>> sessions=analyseMultiSelectPackage.getSessions();
         try {
             if (paras != null && paras.size() > 0) {
                 for (int i = 0; i < paras.size(); i++) {
@@ -167,9 +160,9 @@ public class XmlHelper {
             if (rs != null) {
                 while (rs.next()) {
                     T data = null;
-                    LinkedHashMap<Session,Object> objs=new LinkedHashMap<>();
-                    for (Map.Entry<Session, ColumnCursor> cursorEntry : columnCursor.entrySet()) {
-                        Session session = cursorEntry.getKey();
+                    LinkedHashMap<Session<?>,Object> objs=new LinkedHashMap<>();
+                    for (Map.Entry<Session<?>, ColumnCursor> cursorEntry : columnCursor.entrySet()) {
+                        Session<?> session = cursorEntry.getKey();
                         ColumnCursor cursor = cursorEntry.getValue();
                         if (session.getClassName().equals(mainClass)) {
                             data = (T) session.getInstance();
@@ -189,7 +182,7 @@ public class XmlHelper {
                     tableData.add(objs);
                     resultList.add(data);
                 }
-                resultList = analyzeData(resultList, tableData, mainClass, merge);
+                analyzeData(resultList, tableData, mainClass, merge);
             }
         } catch (SQLException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
@@ -197,13 +190,13 @@ public class XmlHelper {
         return resultList;
     }
 
-    private <T> ArrayList<T> analyzeData(ArrayList<T> resultList, ArrayList<LinkedHashMap<Session, Object>> tableData, String mainClass, String merge) {
+    private ArrayList<T> analyzeData(ArrayList<T> resultList, ArrayList<LinkedHashMap<Session<?>, Object>> tableData, String mainClass, String merge) {
         for (int i=0;i<tableData.size();i++) {
-            LinkedHashMap<Session,Object> objs=tableData.get(i);
+            LinkedHashMap<Session<?>,Object> objs=tableData.get(i);
             T data=resultList.get(i);
-            for (Map.Entry<Session,Object> entry:objs.entrySet()) {
+            for (Map.Entry<Session<?>,Object> entry:objs.entrySet()) {
                 Object obj=entry.getValue();
-                Session session=entry.getKey();
+                Session<?> session=entry.getKey();
                 Join join=SessionManager.getJoin(mainClass,session.getClassName());
                 ConstraintType type=join.getType();
                 try {
@@ -248,23 +241,23 @@ public class XmlHelper {
         return resultList;
     }
 
-    private <T> AnalyseMultiSelectPackage analyseMultiSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
+    private AnalyseMultiSelectPackage analyseMultiSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
         ArrayList<String> tableNames = new ArrayList<>();
         int dataCursor = 0;
         StringBuilder toSelect = new StringBuilder();
         StringBuilder condition = new StringBuilder();
         StringBuilder sql = new StringBuilder("select ");
-        LinkedHashMap<String, Session> sessions = new LinkedHashMap<>();
-        LinkedHashMap<Session, ColumnCursor> columnCursor = new LinkedHashMap<>();
+        LinkedHashMap<String, Session<?>> sessions = new LinkedHashMap<>();
+        LinkedHashMap<Session<?>, ColumnCursor> columnCursor = new LinkedHashMap<>();
 
         String mainClass = selectElement.attributeValue("return");
-        Session mainSession = SessionManager.selectSessionByClassName(mainClass);
+        Session<?> mainSession = SessionManager.selectSessionByClassName(mainClass);
         String mainTable = mainSession.getTableName();
 
         String[] classes = selectElement.attributeValue("class").split(",");
         sessions.put(mainClass, mainSession);
         for (String className : classes) {
-            Session session = SessionManager.selectSessionByClassName(className);
+            Session<?> session = SessionManager.selectSessionByClassName(className);
             if (session == null) {
                 logger.error("Class:" + className + " not found.");
                 logger.info(CommonValue.SUGGESTION+"Please check your sql.xml.");
@@ -304,16 +297,7 @@ public class XmlHelper {
                     if (where != null) {
                         condition.append(" and ");
                         setSql(new StringBuilder(where.getText()));
-                        fillAnd();
-                        String[] subDatas = Arrays.copyOfRange(datas, dataCursor, datas.length);
-                        if (bean != null && datas != null) {
-                            fill(bean, subDatas);
-                        } else if (bean == null && datas != null) {
-                            fill(subDatas);
-                        } else if (bean == null && datas == null) {
-                            fill();
-                        }
-                        dataCursor = getParasCursor();
+                        dataCursor = getDataCursor(bean, datas, dataCursor);
                         condition.append(getSql());
                         selectParas.addAll(getParas());
                     }
@@ -326,7 +310,7 @@ public class XmlHelper {
         return new AnalyseMultiSelectPackage(sessions, columnCursor, sql);
     }
 
-    private <T> AnalyseSelectPackage analyzeSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
+    private  AnalyseSelectPackage analyzeSelectSql(Element selectElement, T bean, String[] datas, ArrayList<Object> selectParas) {
         String tableName;
         int dataCursor = 0;
         StringBuilder toSelect = new StringBuilder();
@@ -342,9 +326,8 @@ public class XmlHelper {
                 }
                 break;
                 case "from": {
-                    String className = text;
                     tableName = session.getTableName();
-                    if (!className.equals(session.getClassName()) ||
+                    if (!text.equals(session.getClassName()) ||
                             !tableName.equals(handler.getTableName())) {
                         logger.error("Session or handler not suit.");
                         return null;
@@ -353,16 +336,7 @@ public class XmlHelper {
                 break;
                 case "where": {
                     setSql(new StringBuilder(text));
-                    fillAnd();
-                    String[] subDatas = Arrays.copyOfRange(datas, dataCursor, datas.length);
-                    if (bean != null && datas != null) {
-                        fill(bean, subDatas);
-                    } else if (bean == null && datas != null) {
-                        fill(subDatas);
-                    } else if (bean == null && datas == null) {
-                        fill();
-                    }
-                    dataCursor = getParasCursor();
+                    dataCursor = getDataCursor(bean, datas, dataCursor);
                     condition = getSql();
                     selectParas.addAll(getParas());
                 }
@@ -390,8 +364,22 @@ public class XmlHelper {
         return new AnalyseSelectPackage(toSelect, condition, selectParas);
     }
 
+    private int getDataCursor(T bean, String[] datas, int dataCursor) {
+        fillAnd();
+        String[] subDatas = Arrays.copyOfRange(datas, dataCursor, datas.length);
+        if (bean != null && datas != null) {
+            fill( bean, subDatas);
+        } else if (bean == null && datas != null) {
+            fill(subDatas);
+        } else if (bean == null && datas == null) {
+            fill();
+        }
+        dataCursor = getParasCursor();
+        return dataCursor;
+    }
 
-    public <T> XmlHelper fill(T bean, String[] datas) {
+
+    public XmlHelper<T> fill(T bean, String[] datas) {
         paras.clear();
         if (session != null) {
             //填充datas数据
@@ -410,7 +398,7 @@ public class XmlHelper {
             if (bean != null) {
                 if (bean.getClass().equals(session.getBeanClass())) {
                     int startFill = 0;
-                    int endFill = 0;
+                    int endFill;
                     boolean isFillData = false;
                     boolean isFillColumn = false;
                     for (int i = 0; i < sql.length(); i++) {
@@ -446,7 +434,7 @@ public class XmlHelper {
     }
 
     //only fill columns
-    public XmlHelper fill() {
+    public XmlHelper<T> fill() {
         int startFill = 0;
         int endFill = 0;
         boolean isFillColumn = false;
@@ -465,7 +453,7 @@ public class XmlHelper {
     }
 
     //fill columns and datas
-    public XmlHelper fill(String[] datas) {
+    public XmlHelper<T> fill(String[] datas) {
         paras.clear();
         fill();
         fillData(datas, sql);
@@ -526,13 +514,13 @@ public class XmlHelper {
     }
 
     //multi-tables fill column
-    private StringBuilder multiFill(String[] fields, LinkedHashMap<String, Session> sessions) {
+    private StringBuilder multiFill(String[] fields, LinkedHashMap<String, Session<?>> sessions) {
         StringBuilder sql = new StringBuilder();
         for (String field : fields) {
             String[] src = field.split("\\.");
             String className = src[0];
             String fieldName = src[1];
-            Session session = null;
+            Session<?> session = null;
 
             if (className.substring(0, 3).equals("@(#") &&
                     className.charAt(className.length() - 1) == ')') {
@@ -540,7 +528,7 @@ public class XmlHelper {
                 session = sessions.get(className);
                 className = session.getTableName();
             }
-            sql.append(className + ".");
+            sql.append(className).append(".");
 
             if (!fieldName.equals("*")) {
                 if (fieldName.substring(0, 2).equals("@(") &&
@@ -557,11 +545,11 @@ public class XmlHelper {
         return sql;
     }
 
-    private LinkedHashMap<Session, ColumnCursor> recordSelectField(LinkedHashMap<String, Session> sessions, String[] fields) {
-        LinkedHashMap<Session, ColumnCursor> ans = new LinkedHashMap<>();
+    private LinkedHashMap<Session<?>, ColumnCursor> recordSelectField(LinkedHashMap<String, Session<?>> sessions, String[] fields) {
+        LinkedHashMap<Session<?>, ColumnCursor> ans = new LinkedHashMap<>();
         String currClass = "";
         int currLength = 0, start = 0, end = 0;
-        Session currSession = null;
+        Session<?> currSession = null;
         ArrayList<String> currFields = new ArrayList<>();
         for (int i = 0; i < fields.length; i++) {
             String field = fields[i];

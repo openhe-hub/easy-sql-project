@@ -16,6 +16,7 @@ public class SessionManager {
     private static LinkedHashMap<String,Session<?>> classNameToSession;//class_name to session
     private static LinkedHashMap<Class<?>,Session<?>> clazzToSession;
     private static LinkedHashMap<Class<?>,SessionHandler<?>> clazzToSessionHandler;
+    private static LinkedHashMap<Class<?>,SqlSession<?>>  clazzToSqlSession;
     private static Logger logger;
 
     static {
@@ -23,6 +24,7 @@ public class SessionManager {
         classNameToSession =new LinkedHashMap<>();
         clazzToSession=new LinkedHashMap<>();
         clazzToSessionHandler=new LinkedHashMap<>();
+        clazzToSqlSession=new LinkedHashMap<> ();
         logger= Configuration.createLogger(SessionManager.class);
     }
 
@@ -31,6 +33,7 @@ public class SessionManager {
         classNameToSession.put(session.getClassName(),session);
         clazzToSession.put(session.getBeanClass(),session);
         clazzToSessionHandler.put(session.getBeanClass(),session.getHandler());
+        clazzToSqlSession.put(session.getBeanClass(),session.getSqlSession());
         logger.info(CommonValue.PROCESS+"Registering session("+session.getClassName()+") finished.");
     }
 
@@ -79,6 +82,10 @@ public class SessionManager {
 
     public static <T> SessionHandler<T> getHandlerByClass(Class<T> clazz){
         return (SessionHandler<T>) clazzToSessionHandler.get(clazz);
+    }
+
+    public static <T> SqlSession<T> getSqlSessionByClass(Class<T> clazz){
+        return (SqlSession<T>) clazzToSqlSession.get(clazz);
     }
 
     public static boolean checkForeignKeyConnect(ForeignKeyInfo foreignKeyInfo) {

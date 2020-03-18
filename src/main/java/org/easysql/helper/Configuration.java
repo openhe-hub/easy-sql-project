@@ -19,6 +19,7 @@ public class Configuration {
     private static Element rootElement;
     private static Element classRoot;
     private static Element dbRoot;
+    @Getter
     private static Element sqlRoot;
     @Getter
     private static Connection connection;
@@ -34,8 +35,11 @@ public class Configuration {
     @Getter
     @Setter
     private static Logger logger;
+    @Getter@Setter
+    public static Class<?> mainClass;
 
     public static void configure(Class<?> mainClass) {
+        setMainClass(mainClass);
         File file = getFile(mainClass, CENTER_CONFIG_NAME);
         rootElement = XmlHelper.getRootElement(file);
         classRoot = rootElement.element("class_config");

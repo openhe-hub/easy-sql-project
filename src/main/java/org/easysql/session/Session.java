@@ -20,8 +20,11 @@ public class Session<T> {
     private Class<T> beanClass;
     @Getter
     private String tableName;
+    @Getter
+    private String sqlFileName;
     private String xmlConfigName;
     private SessionHandler<T> sessionHandler;
+    private SqlSession<T> sqlSession;
     @Getter
     private int field_length;
     private Logger logger;
@@ -56,6 +59,18 @@ public class Session<T> {
         }
     }
 
+    public SqlSession<T> getSqlSession(){
+        if (sqlSession!=null){
+            logger.info(CommonValue.PROCESS + "SqlSession(" + className + ") has been built successfully.");
+            return sqlSession;
+        }
+        else {
+            logger.error(CommonValue.ERROR + "SessionSession(" + className + ") is null.");
+            logger.info(CommonValue.SUGGESTION + "Please init first.");
+            return null;
+        }
+    }
+
     public Object getInstance(){
         try {
             return  beanClass.newInstance();
@@ -68,6 +83,7 @@ public class Session<T> {
     public void init(){
         getConfig();
         this.sessionHandler=new SessionHandler<>(this);
+        this.sqlSession=new SqlSession<>(this,sessionHandler);
         if (classInfo != null) {
             logger.info(CommonValue.PROCESS + "Initiating session(" + className + ") finished.");
         }
@@ -126,12 +142,13 @@ public class Session<T> {
             classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,join_list);
         }
     }
-    private LinkedHashMap<String,String[]> getClassInfo(Element class_element ) {
-        className =class_element.attributeValue("class_name");
-        tableName =class_element.attributeValue("table_name");
-        LinkedHashMap<String,String[]> class_map=new LinkedHashMap<>();
-        class_map.put(className,new String[]{className, tableName});
-        return class_map;
+    private LinkedHashMap<String,String[]> getClassInfo(Element classElement ) {
+        className =classElement.attributeValue("class_name");
+        tableName =classElement.attributeValue("table_name");
+        sqlFileName= classElement.attributeValue("sql_file");
+        LinkedHashMap<String,String[]> classMap=new LinkedHashMap<>();
+        classMap.put(className,new String[]{className, tableName,sqlFileName});
+        return classMap;
     }
 
     private void getIdInfo(Element id_element){

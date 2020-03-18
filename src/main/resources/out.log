@@ -1267,3 +1267,100 @@ fulltext index_name(student_name)
 2020-03-17 15:23:11 INFO  SessionManager:34 - process: Registering session(Mark) finished.
 2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Mark) finished.
 2020-03-17 15:23:11 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-17 15:30:15 INFO  Configuration:48 - process: Getting central configuration finished.
+2020-03-17 15:30:16 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:30:16 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:30:16 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:30:16 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:30:16 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:31:30 INFO  Configuration:48 - process: Getting central configuration finished.
+2020-03-17 15:31:30 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:31:30 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:31:30 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:31:30 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:31:30 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:44:48 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
+2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Student) finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
+2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Mark) finished.
+2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:45:38 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
+2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Student) finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
+2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Mark) finished.
+2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:46:01 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
+2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Student) finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Student) finished.
+2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
+2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
+2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Mark) finished.
+2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Mark) finished.
+2020-03-17 15:47:31 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:47:32 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:47:32 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:47:32 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:47:32 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:47:32 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:48:26 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:48:26 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:48:26 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:48:26 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:48:26 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:48:26 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:48:34 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:48:34 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:48:34 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:48:34 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:48:34 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:48:34 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:49:11 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:49:12 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:49:12 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:49:12 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:49:12 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:49:12 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:49:36 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:49:36 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:49:36 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:49:36 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:49:36 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:49:36 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:51:43 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-17 15:51:43 INFO  Session:37 - process: Getting session(User) 's configuration finished.
+2020-03-17 15:51:43 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:51:43 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
+2020-03-17 15:51:43 INFO  SessionManager:34 - process: Registering session(User) finished.
+2020-03-17 15:51:43 INFO  Session:72 - process: Initiating session(User) finished.
+2020-03-17 15:51:43 INFO  SessionHandler:11 - sql output: 	select * from user where username=?;

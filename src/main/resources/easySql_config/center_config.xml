@@ -22,7 +22,7 @@
                 config_name="mark_mapping"/>
     </class_config>
 
-    <sql_config sql_pkg="org.easysql.sql">
+    <sql_config sql_pkg="sql">
         <sql name="service"/>
     </sql_config>
 </center_config>
