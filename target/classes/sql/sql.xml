@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <select id="sel_mark_rank10" class="Student" return="Student">
+        <fields>@(id),@(name),@(mark)</fields>
+        <from>Student</from>
+        <where>
+            @(mark)>?,
+            @(mark)&lt;>@{mark}
+        </where>
+        <order type="desc">@(mark)</order>
+    </select>
+    <where id="condition1" class="Student" >
+        @(mark)>?
+    </where>
+    <fields id="to_select" class="Student">
+        @(id),@(name),@(mark)
+    </fields>
+
+    <select id="sel2" class="Student" return="Student">
+        <fields>*</fields>
+        <from>Student</from>
+        <where>
+            @(mark)> (select @(mark) from @(#) where id=?)
+         </where>
+    </select>
+
+    <select id="test1" class="Student,Teacher,Mark" return="Student" merge="student_id" >
+        <fields>@(#Student).*,@(#Teacher).@(name),@(#Mark).@(mark)</fields>
+        <join join="Teacher"/>
+        <join join="Mark"/>
+    </select>
+
+    <select id="test2" class="Student,Teacher" return="Student" merge="id" >
+        <fields>@(#Student).*,@(#Teacher).*</fields>
+        <join join="Teacher"/>
+    </select>
+
+    <select id="test" class="Student,Teacher" return="Student" merge="id">
+        <fields>student.*,teacher.*</fields>
+        <join join="Student"/>
+    </select>
+</sql>

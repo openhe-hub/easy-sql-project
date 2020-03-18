@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class class_name="Student" table_name="student">
+        <id
+                field_name="id"
+                field_type="int"
+                type="auto_increment"/>
+        <fields>
+            <field
+                field_name="student_id"
+                field_type="int"
+                constraint="unique"
+            />
+            <field
+                    field_name="name"
+                    field_type="java.lang.String"
+                    column_name="student_name"
+                    constraint="not null,unique"
+            />
+            <field
+                    field_name="teacher_id"
+                    field_type="long"
+            />
+            <field
+                    field_name="birthday"
+                    field_type="java.util.Date"
+            />
+        </fields>
+        <set>
+            <foreign_key
+                type="many to one"
+                from="teacher_id"
+                to="teacher.id"
+            />
+            <index
+                    field="name"
+                    type="fulltext"
+            />
+            <join type="many to one" form="left join"
+                from_field="teacher"
+                  to_class="Teacher"
+                  point="teacher_id->id"
+            />
+            <join type="one to one" form="inner join"
+                from_field="mark"
+                  to_class="Mark"
+                  point="student_id->student_id"
+            />
+        </set>
+
+    </class>
+</mapping>

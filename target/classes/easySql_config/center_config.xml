@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<center_config>
+    <db_config>
+        <database name="jdbc_test"/>
+        <user name="root"/>
+        <pwd pwd="31415926"/>
+        <url url1="jdbc:mysql://localhost:3306/"
+             url2="?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true&amp;allowPublicKeyRetrieval=true"
+        />
+        <driver_class class_name="com.mysql.cj.jdbc.Driver"/>
+    </db_config>
+
+    <class_config bean_pkg="org.easysql.bean">
+        <class class_name="Student"
+               table_name="student"
+                config_name="student_mapping"/>
+        <class class_name="Teacher"
+               table_name="teacher"
+                config_name="teacher_mapping"/>
+        <class class_name="Mark"
+               table_name="mark"
+                config_name="mark_mapping"/>
+    </class_config>
+
+    <sql_config sql_pkg="sql">
+        <sql name="service"/>
+    </sql_config>
+</center_config>
