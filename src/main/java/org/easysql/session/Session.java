@@ -151,13 +151,13 @@ public class Session<T> {
         return classMap;
     }
 
-    private void getIdInfo(Element id_element){
-        String field_name=id_element.attributeValue("field_name");
-        String id_name=id_element.attributeValue("id_name");
-        String field_type=id_element.attributeValue("field_type");
-        String id_type=id_element.attributeValue("id_type");
-        String type=id_element.attributeValue("type");
-        ConstraintType[] constraintTypes=getConstraintTypes(id_element);
+    private void getIdInfo(Element idElement){
+        String field_name=idElement.attributeValue("field_name");
+        String id_name=idElement.attributeValue("id_name");
+        String field_type=idElement.attributeValue("field_type");
+        String id_type=idElement.attributeValue("id_type");
+        String type=idElement.attributeValue("type");
+        ConstraintType[] constraintTypes=getConstraintTypes(idElement);
         String[] finished_info=generate_info(new String[]{field_name,field_type,id_name,id_type});
         idInfo=new IdInfo(finished_info,constraintTypes,type);
     }

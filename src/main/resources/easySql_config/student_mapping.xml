@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping[
+        <!ELEMENT mapping (class)>
+        <!ELEMENT class (id,fields,set)>
+        <!ELEMENT id EMPTY>
+        <!ELEMENT fields (field*)>
+        <!ELEMENT set (foreign_key*,index*,join*)>
+        <!ELEMENT field EMPTY>
+        <!ELEMENT foreign_key EMPTY>
+        <!ELEMENT index EMPTY>
+        <!ELEMENT join EMPTY>
+        <!ATTLIST class class_name CDATA #REQUIRED
+                table_name CDATA #REQUIRED
+                sql_file CDATA #IMPLIED>
+        <!ATTLIST id field_name CDATA #REQUIRED
+                 field_type CDATA #IMPLIED
+                column_name CDATA #IMPLIED
+                column_type CDATA #IMPLIED
+                type CDATA #IMPLIED>
+        <!ATTLIST field field_name CDATA #REQUIRED
+                field_type CDATA #IMPLIED
+                column_name CDATA #IMPLIED
+                column_type CDATA #IMPLIED
+                constraint CDATA #IMPLIED>
+        <!ATTLIST foreign_key type CDATA #REQUIRED
+                from CDATA #REQUIRED
+                to CDATA #REQUIRED>
+        <!ATTLIST index field CDATA #REQUIRED
+                type CDATA #REQUIRED >
+        <!ATTLIST join
+                type CDATA #REQUIRED
+                from_field CDATA #REQUIRED
+                to_class CDATA #REQUIRED
+                point CDATA #REQUIRED
+                form CDATA #REQUIRED>
+        ]>
 <mapping>
-    <class class_name="Student" table_name="student" sql_file="sql">
+    <class class_name="student" table_name="student" sql_file="sql" >
         <id
                 field_name="id"
                 field_type="int"
@@ -47,6 +82,5 @@
                   point="student_id->student_id"
             />
         </set>
-
     </class>
 </mapping>
