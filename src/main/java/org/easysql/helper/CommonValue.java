@@ -13,6 +13,13 @@ public interface CommonValue {
     String ALTER_COLUMN_TYPE = "alter column type:";
     String ALTER_TABLE_NAME = "alter table name:";
 
+    String WHERE_ELEMENT_NAME="where";
+    String UPDATE_ELEMENT_NAME="update";
+    String DELETE_ELEMENT_NAME="delete";
+    String INSERT_ELEMENT_NAME="insert";
+    String SELECT_ELEMENT_NAME="select";
+    String ALL="*";
+
     int ONLY_VALUE = 31;
     int ALL_VALUE = 37;
 

@@ -1,1482 +1,364 @@
-2020-02-04 18:12:01 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:13:40 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:14:33 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:16:17 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:16:18 FATAL Session:41 - getting session Student 's configuration failed.
-2020-02-04 18:17:49 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:17:58 FATAL Session:41 - getting session Student 's configuration failed.
-2020-02-04 18:18:47 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 18:18:47 INFO  Session:38 - process: getting session Student 's configuration finished.
-2020-02-04 18:18:47 INFO  Session:72 - process: Init finished.
-2020-02-04 18:18:47 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 19:08:48 INFO  org.easysql.app.App:41 - process: getting central configuration finished.
-2020-02-04 19:08:48 INFO  org.easysql.app.App:39 - process: getting session Student 's configuration finished.
-2020-02-04 19:08:48 INFO  org.easysql.app.App:73 - process: Init finished.
-2020-02-04 19:08:48 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:12:00 INFO  Configuration:42 - process: getting central configuration finished.
-2020-02-04 20:12:00 INFO  Session:39 - process: getting session Student 's configuration finished.
-2020-02-04 20:12:00 INFO  Session:73 - process: Init finished.
-2020-02-04 20:12:00 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:16:08 INFO  Configuration:42 - process: getting central configuration finished.
-2020-02-04 20:16:09 INFO  Session:39 - process: getting session( Student) 's configuration finished.
-2020-02-04 20:16:09 INFO  Session:73 - process: Init finished.
-2020-02-04 20:16:09 INFO  SessionManager:28 - process: registering session(Student) finished.
-2020-02-04 20:16:09 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:27:51 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:27:52 INFO  Session:39 - process: getting session(Student) 's configuration finished.
-2020-02-04 20:27:52 INFO  Session:73 - process: Initiating session(Student) finished.
-2020-02-04 20:27:52 INFO  SessionManager:28 - process: registering session(Student) finished.
-2020-02-04 20:27:52 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:31:34 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:31:34 INFO  Session:39 - process: getting session(Student) 's configuration finished.
-2020-02-04 20:31:34 INFO  Session:73 - process: Initiating session(Student) finished.
-2020-02-04 20:31:34 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 20:31:34 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:45:14 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:45:14 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 20:45:14 INFO  Session:76 - process: Initiating session(Student) finished.
-2020-02-04 20:45:14 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 20:45:14 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-02-04 20:45:14 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 20:46:35 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:46:35 FATAL Session:35 - java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-2020-02-04 20:46:35 FATAL Configuration:80 - ERRORClass name not found.
-2020-02-04 20:46:35 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:46:35 FATAL Session:46 - ERRORGetting session Stdent 's configuration failed.
-2020-02-04 20:46:35 ERROR Session:57 - ERRORSessionHandler(Stdent) is null.
-2020-02-04 20:46:35 INFO  Session:58 - suggestion: Please init first.
-2020-02-04 20:47:10 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:47:10 FATAL Session:35 - java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-2020-02-04 20:47:10 FATAL Configuration:80 - error: Class name not found.
-2020-02-04 20:47:10 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:47:10 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
-2020-02-04 20:47:10 ERROR Session:57 - error: SessionHandler(Stdent) is null.
-2020-02-04 20:47:10 INFO  Session:58 - suggestion: Please init first.
-2020-02-04 20:48:39 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:48:39 FATAL Session:35 - error: class not found.
-
-java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:264)
-	at org.easysql.session.Session.<init>(Session.java:33)
-	at org.easysql.app.org.easysql.app.App.main(org.easysql.app.App.java:23)
-2020-02-04 20:48:39 FATAL Configuration:80 - error: Class name not found.
-2020-02-04 20:48:39 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:48:39 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
-2020-02-04 20:48:39 ERROR Session:56 - error: SessionHandler(Stdent) is null.
-2020-02-04 20:48:39 INFO  Session:57 - suggestion: Please init first.
-2020-02-04 20:49:09 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:49:09 FATAL Session:35 - error: class not found.
-
-java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:264)
-	at org.easysql.session.Session.<init>(Session.java:33)
-	at org.easysql.app.org.easysql.app.App.main(org.easysql.app.App.java:23)
-2020-02-04 20:49:09 FATAL Configuration:80 - error: Class name not found.
-2020-02-04 20:49:09 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:49:09 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
-2020-02-04 20:49:09 ERROR Session:56 - error: SessionHandler(Stdent) is null.
-2020-02-04 20:49:09 INFO  Session:57 - suggestion: Please init first.
-2020-02-04 20:49:52 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:49:52 FATAL Session:35 - error: class not found.
-java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-2020-02-04 20:49:52 FATAL Configuration:80 - error: Class name not found.
-2020-02-04 20:49:52 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:49:52 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
-2020-02-04 20:49:52 ERROR Session:56 - error: SessionHandler(Stdent) is null.
-2020-02-04 20:49:52 INFO  Session:57 - suggestion: Please init first.
-2020-02-04 20:52:19 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 20:52:19 FATAL Session:35 - error: class not found.java.lang.ClassNotFoundException: org.easysql.bean.Stdent
-2020-02-04 20:52:19 FATAL Configuration:80 - error: Class name not found.
-2020-02-04 20:52:19 INFO  Configuration:81 - suggestion: Please check your class name and center_config.xml.
-2020-02-04 20:52:19 FATAL Session:46 - error: Getting session Stdent 's configuration failed.
-2020-02-04 20:52:19 ERROR Session:56 - error: SessionHandler(Stdent) is null.
-2020-02-04 20:52:19 INFO  Session:57 - suggestion: Please init first.
-2020-02-04 21:05:47 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 21:05:47 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 21:05:47 INFO  Session:75 - process: Initiating session(Student) finished.
-2020-02-04 21:05:47 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 21:05:47 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-02-04 21:05:47 INFO  SessionHandler:372 - sql output: select * from student;
-2020-02-04 21:30:46 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 21:30:46 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 21:30:46 INFO  Session:75 - process: Initiating session(Student) finished.
-2020-02-04 21:30:46 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 21:32:51 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 21:32:52 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 21:32:52 INFO  Session:75 - process: Initiating session(Student) finished.
-2020-02-04 21:32:52 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:31:30 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:31:30 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:31:30 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:31:30 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:31:30 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:32:21 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:32:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:32:22 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:32:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:32:22 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:34:22 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:34:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:36:18 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:36:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:36:18 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:36:47 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:36:48 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:38:44 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:38:44 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:38:44 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:38:58 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:38:59 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:38:59 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:38:59 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:38:59 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:38:59 ERROR SessionHandler:146 - error: Can't find your update type.
-2020-02-04 22:38:59 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:38:59 INFO  Session:97 - process: Table(student) updated successfully.
-2020-02-04 22:39:25 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:39:25 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:39:25 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:39:25 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:39:25 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:03 ERROR SessionHandler:146 - error: Can't find your update type.
-2020-02-04 22:41:03 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:03 INFO  Session:97 - process: Table(student) updated successfully.
-2020-02-04 22:41:08 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:41:09 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:41:09 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:41:09 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:41:09 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:13 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:13 INFO  Session:97 - process: Table(student) updated successfully.
-2020-02-04 22:41:17 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:41:18 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:41:18 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:41:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:41:18 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:18 INFO  SessionHandler:7 - sql output: sql
-2020-02-04 22:41:18 INFO  Session:97 - process: Table(student) updated successfully.
-2020-02-04 22:42:49 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-04 22:42:50 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-04 22:42:50 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-04 22:42:50 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-04 22:42:50 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
-2020-02-04 22:42:50 INFO  Session:97 - process: Table(student) updated successfully.
-2020-02-05 20:40:07 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:40:07 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:40:07 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:40:07 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:40:07 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:40:07 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:40:07 ERROR SessionHandler:148 - error: Can't find your update type.
-2020-02-05 20:40:07 INFO  SessionHandler:7 - sql output: null
-2020-02-05 20:40:07 INFO  SessionHandler:154 - process: Table(student) updated successfully.
-2020-02-05 20:41:02 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:41:02 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:41:02 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:41:02 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:41:02 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:41:02 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:41:02 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
-2020-02-05 20:41:02 INFO  SessionHandler:153 - process: Table(student) updated successfully.
-2020-02-05 20:41:46 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:41:47 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:41:47 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:41:47 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:41:47 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:41:47 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:41:47 INFO  SessionHandler:7 - sql output: alter table student add birthday datetime;
-2020-02-05 20:41:47 INFO  SessionHandler:153 - process: Table(student) updated successfully.
-2020-02-05 20:43:36 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:43:37 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:43:37 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:43:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:43:37 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:43:37 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:50:07 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:50:08 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:50:08 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:50:08 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:50:08 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:50:08 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:50:08 INFO  SessionHandler:7 - sql output: alter table student rename column birthday to student_birthday;
-2020-02-05 20:50:08 INFO  SessionHandler:158 - process: Table(student) updated successfully.
-2020-02-05 20:51:01 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:51:01 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:51:01 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:51:01 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:51:01 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:51:01 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:54:31 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:54:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:54:31 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:54:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:54:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:54:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:54:32 INFO  SessionHandler:7 - sql output: alter table student alter column student_birthday date;
-2020-02-05 20:54:32 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-05 20:55:14 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:55:14 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:55:14 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:55:14 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:55:14 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:55:14 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:55:14 INFO  SessionHandler:7 - sql output: alter table student alter column student_birthday date;
-2020-02-05 20:55:14 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-05 20:56:20 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:56:20 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:56:20 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:56:20 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:56:20 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:56:20 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:56:20 INFO  SessionHandler:7 - sql output: alter table student modify student_birthday date;
-2020-02-05 20:56:21 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-05 20:58:03 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:58:03 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:58:03 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:58:03 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:58:03 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:58:03 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:58:03 INFO  SessionHandler:7 - sql output: alter table student drop column student_birthday;
-2020-02-05 20:58:04 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-05 20:58:37 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:58:38 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:58:38 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:58:38 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:58:38 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:58:38 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:59:15 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:59:16 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:59:16 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:59:16 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:59:16 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:59:16 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-05 20:59:16 INFO  SessionHandler:7 - sql output: rename table student_info to student;
-2020-02-05 20:59:16 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-05 20:59:53 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 20:59:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 20:59:54 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 20:59:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 20:59:54 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 20:59:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 20:59:54 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
-2020-02-05 21:00:56 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:00:56 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:00:56 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:00:56 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:00:56 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:00:56 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:00:56 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
-2020-02-05 21:02:30 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:02:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:02:31 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:02:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:02:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:02:58 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:03:06 ERROR SessionHandler:159 - error: Table(student_info) not exists.Update failed.
-2020-02-05 21:05:54 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:05:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:05:54 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:05:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:05:54 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:05:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:05:54 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:05:54 ERROR SessionHandler:161 - error: Table(student_info) not exists.Update failed.
-2020-02-05 21:07:48 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:07:49 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:07:49 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:07:49 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:07:49 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:07:49 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:07:49 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:07:49 ERROR SessionHandler:161 - error: Table(student_info) not exists.Update failed.
-2020-02-05 21:08:23 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:08:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:08:23 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:08:23 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:08:23 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:08:23 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:08:23 INFO  SessionHandler:7 - sql output: rename table student to student_info;
-2020-02-05 21:08:23 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
-2020-02-05 21:08:55 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-05 21:08:56 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-05 21:08:56 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-05 21:08:56 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-05 21:08:56 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-05 21:08:56 INFO  SessionHandler:7 - sql output: alter table student_info add student_birthday date;
-2020-02-05 21:08:56 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
-2020-02-06 09:18:56 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 09:18:57 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 09:18:57 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 09:18:57 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 09:18:57 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 09:18:57 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student_info';
-2020-02-06 09:18:57 INFO  SessionHandler:7 - sql output: alter table student_info add birthday datetime;
-2020-02-06 09:18:58 INFO  SessionHandler:157 - process: Table(student_info) updated successfully.
-2020-02-06 09:23:55 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 09:23:55 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 09:23:55 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 09:23:55 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 09:23:55 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 09:23:55 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 09:23:55 INFO  SessionHandler:7 - sql output: rename table student_info to student;
-2020-02-06 09:23:55 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-06 11:11:37 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:11:37 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:11:37 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:11:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:11:37 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:11:37 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:11:37 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:27:31 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:27:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:27:31 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:27:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:27:31 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:27:31 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:27:31 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:28:28 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:28:29 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:28:30 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:28:30 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:28:30 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:28:30 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:28:30 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:29:56 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:29:57 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:32:31 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:32:33 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:32:35 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:32:49 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:32:50 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:33:54 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:33:54 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:33:54 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:33:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:33:54 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:33:54 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:33:54 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:34:51 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:34:52 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:36:21 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:36:27 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:36:36 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:37:35 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:37:35 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:37:40 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:37:41 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:37:41 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:37:41 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:37:41 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:37:41 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:37:41 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:37:41 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 11:37:41 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 11:37:41 WARN  SessionHandler:96 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 11:37:41 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 11:37:41 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 11:37:41 INFO  SessionHandler:7 - sql output: rename table student_info to student;
-2020-02-06 11:37:41 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-06 11:41:31 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:41:31 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:41:31 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:41:31 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:41:31 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:41:31 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:41:31 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:41:31 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 11:41:31 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 11:41:31 WARN  SessionHandler:96 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 11:41:31 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 11:41:31 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 11:41:31 INFO  SessionHandler:7 - sql output: rename table student_info to student;
-2020-02-06 11:41:31 INFO  SessionHandler:157 - process: Table(student) updated successfully.
-2020-02-06 11:44:22 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:44:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:44:22 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:44:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:44:22 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:44:22 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:44:22 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: create table teacher(
-id bigint primary key auto_increment ,
-teacher_name varchar(255) not null ,
-constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-);
-2020-02-06 11:44:22 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 11:44:22 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 11:44:22 WARN  SessionHandler:95 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: create table student(
-id int primary key auto_increment ,
-student_id int unique ,
-student_name varchar(255) not null unique ,
-teacher_id bigint ,
-birthday datetime ,
-constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-fulltext index_name(student_name)
-);
-2020-02-06 11:44:22 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 11:44:22 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 11:44:22 INFO  SessionHandler:7 - sql output: rename table student_info to student;
-2020-02-06 11:44:22 INFO  SessionHandler:156 - process: Table(student) updated successfully.
-2020-02-06 11:49:39 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:49:39 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:49:39 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:49:39 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:49:39 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:49:39 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:49:39 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 11:49:39 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 11:49:39 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 11:49:39 WARN  SessionHandler:95 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 11:49:39 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 11:49:39 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 11:49:39 INFO  SessionHandler:9 - sql output: 	rename table student_info to student;
-2020-02-06 11:49:39 INFO  SessionHandler:156 - process: Table(student) updated successfully.
-2020-02-06 11:57:32 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 11:57:32 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 11:57:33 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 11:57:33 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 11:57:33 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 11:57:33 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 11:57:33 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 11:57:33 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 11:57:33 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 11:57:33 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 11:57:33 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 11:57:33 INFO  Session:51 - process: SessionHandler(Student) has been built successfully.
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='student';
-2020-02-06 11:57:33 INFO  SessionHandler:9 - sql output: 	rename table student_info to student;
-2020-02-06 11:57:33 INFO  SessionHandler:158 - process: Table(student) updated successfully.
-2020-02-06 12:05:11 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:05:12 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:05:20 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:05:20 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:05:20 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:05:20 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:05:20 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:05:20 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:05:20 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:05:20 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:05:23 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:05:23 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:05:23 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:05:23 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:05:23 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:05:23 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:05:23 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 12:06:20 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:06:36 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:06:36 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:06:36 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 12:06:36 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:06:36 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 12:06:40 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:06:41 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:06:41 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:06:41 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:06:41 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:06:41 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:06:41 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:06:41 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:06:41 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:06:41 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 12:06:41 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:06:41 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 12:18:03 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:18:03 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:18:03 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:18:03 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:18:03 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:18:03 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:18:03 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:18:03 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:18:03 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:18:03 WARN  SessionHandler:97 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 12:18:03 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:18:03 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 12:18:59 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:18:59 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:19:00 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:19:00 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:19:00 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:19:00 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:19:00 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	constraint fk_teacher_student_to_teacher_id foreign key(id) references student(teacher_id)
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:19:00 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:19:00 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:19:00 WARN  SessionHandler:99 - your foreign key(student.teacher_id->teacher.id) maybe invalid.
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 12:19:00 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:19:00 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-06 12:21:22 INFO  Configuration:39 - process: Getting central configuration finished.
-2020-02-06 12:21:22 INFO  Session:39 - process: Getting session(Student) 's configuration finished.
-2020-02-06 12:21:22 INFO  Session:74 - process: Initiating session(Student) finished.
-2020-02-06 12:21:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-06 12:21:22 INFO  Session:39 - process: Getting session(Teacher) 's configuration finished.
-2020-02-06 12:21:22 INFO  Session:74 - process: Initiating session(Teacher) finished.
-2020-02-06 12:21:22 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	create table teacher(
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	id bigint primary key auto_increment ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	teacher_name varchar(255) not null 
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:21:22 INFO  Session:89 - process: Table(teacher) has been created successfully.
-2020-02-06 12:21:22 INFO  Session:51 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	select count(*) from information_schema.TABLES where TABLE_SCHEMA='jdbc_test' and TABLE_NAME='teacher';
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	create table student(
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	id int primary key auto_increment ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	student_id int unique ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	student_name varchar(255) not null unique ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	teacher_id bigint ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	birthday datetime ,
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	constraint fk_student_teacher_to_id foreign key(teacher_id) references teacher(id),
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	fulltext index_name(student_name)
-2020-02-06 12:21:22 INFO  SessionHandler:9 - sql output: 	);
-2020-02-06 12:21:23 INFO  Session:89 - process: Table(student) has been created successfully.
-2020-02-08 11:28:13 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 11:28:13 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 11:28:13 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 11:28:13 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 11:30:00 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 11:30:00 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 11:30:00 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 11:30:00 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 11:44:13 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 11:44:14 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 11:44:14 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 11:44:14 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 11:44:14 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 11:44:14 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 11:44:14 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 11:44:14 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 11:44:14 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 11:48:53 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 11:48:53 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 11:48:53 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 11:48:53 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 11:48:53 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 11:48:53 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 11:48:53 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 11:48:53 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 11:48:53 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 11:48:53 INFO  SessionHandler:9 - sql output: 	insert into teacher(id,teacher_name) values(?,?)
-2020-02-08 11:48:53 INFO  SessionHandler:9 - sql output: 	insert into student(id,student_id,student_name,teacher_id) values(?,?,?,?)
-2020-02-08 12:17:00 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:17:00 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:17:00 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:17:00 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:17:00 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:17:00 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:17:00 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:17:00 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:17:00 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:17:00 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:18:56 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:18:57 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:18:57 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:18:57 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:18:57 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:18:57 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:18:57 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:18:57 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:18:57 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:18:57 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:18:57 INFO  SessionHandler:14 - process: 	Cache(null) has benn created successfully.
-2020-02-08 12:22:09 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:22:10 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:22:10 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:22:10 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:22:10 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:22:10 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:22:10 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:22:10 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:22:10 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:22:10 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:22:10 INFO  SessionHandler:14 - process: 	Cache(null) has benn created successfully.
-2020-02-08 12:22:24 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:25:01 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:25:01 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:25:01 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:25:01 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:25:01 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:25:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:25:01 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:25:01 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:28:01 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:28:01 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:28:01 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:28:01 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:28:01 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:28:01 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:28:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:28:01 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:28:01 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:28:01 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:28:01 INFO  SessionHandler:14 - process: 	Cache(null) has benn created successfully.
-2020-02-08 12:28:33 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:28:47 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:28:47 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:28:47 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:28:47 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:28:47 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:28:47 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:28:47 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:28:47 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:28:48 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:28:48 INFO  SessionHandler:14 - process: 	Cache(null) has benn created successfully.
-2020-02-08 12:28:54 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:28:55 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:28:55 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:28:55 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:28:55 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:28:55 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:28:55 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:28:55 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:28:55 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:28:55 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:29:54 INFO  SessionHandler:14 - process: 	Cache(null) has benn created successfully.
-2020-02-08 12:29:59 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:29:59 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:30:00 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:30:00 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:30:00 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:30:00 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:30:00 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:30:00 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:30:00 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:30:00 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:30:00 INFO  SessionHandler:14 - process: 	Cache(Student) has benn created successfully.
-2020-02-08 12:30:28 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 12:30:29 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 12:30:29 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 12:30:29 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 12:30:29 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 12:30:29 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 12:30:29 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 12:30:29 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 12:30:29 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 12:30:29 INFO  SessionHandler:9 - sql output: 	select * from student;
-2020-02-08 12:30:29 INFO  Cache:14 - process: 	Cache(Student) has benn created successfully.
-2020-02-08 14:28:58 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 14:28:59 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 14:28:59 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 14:28:59 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 14:28:59 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 14:28:59 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 14:28:59 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 14:28:59 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 14:28:59 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 14:28:59 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-02-08 14:28:59 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
-2020-02-08 14:31:17 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-08 14:31:17 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-08 14:31:17 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-08 14:31:17 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-08 14:31:17 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-08 14:31:17 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-02-08 14:31:17 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-02-08 14:31:17 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-02-08 14:31:17 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-02-08 14:31:18 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-02-08 14:31:18 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-08 14:31:18 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-02-22 09:57:18 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-02-22 09:57:18 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-02-22 09:57:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-02-22 09:57:18 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-02-22 09:57:18 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-02-22 09:57:18 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-02-22 09:57:18 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:28 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-13 14:03:29 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-13 14:03:29 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-13 14:03:29 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-13 14:03:29 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-13 14:03:29 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-13 14:03:29 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:03:29 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:37 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-13 14:10:38 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-13 14:10:38 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-13 14:10:38 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-13 14:10:38 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-13 14:10:38 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-13 14:10:38 INFO  Cache:16 - process: 	Cache(Student) has benn created successfully.
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-13 14:10:38 INFO  Cache:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
-2020-03-14 09:31:38 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:31:38 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:31:39 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:31:39 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:31:39 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:31:39 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:31:39 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:31:39 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:31:39 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:35:37 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:35:37 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:35:37 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:35:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:35:37 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:35:37 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:35:37 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:35:37 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:35:37 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:36:28 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:36:28 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:36:28 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:36:28 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:36:28 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:36:28 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:36:28 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:36:28 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:36:28 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:38:31 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:38:32 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:38:32 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:38:32 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:38:32 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:38:32 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:38:32 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:38:32 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:38:32 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:44:22 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:44:23 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:44:23 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:44:23 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:44:23 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:44:23 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:44:23 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:44:23 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:44:23 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:47:38 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:47:39 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:47:39 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:47:39 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:47:39 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:47:39 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:47:39 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:47:39 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:47:39 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:48:09 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:48:10 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:48:10 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:48:10 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:48:10 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:48:10 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:48:10 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:48:10 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:48:10 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:53:34 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:53:35 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:53:35 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:53:35 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:53:35 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:53:35 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:53:35 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:53:35 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:53:35 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:54:11 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:54:12 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:54:12 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:54:12 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:54:12 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:54:12 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:54:12 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:54:12 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:54:12 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:55:54 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:55:55 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:55:55 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:55:55 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:55:55 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:55:55 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:55:55 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:55:55 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:55:55 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:57:22 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:57:22 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:57:22 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:57:22 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:57:22 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:57:22 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:57:22 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:57:22 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:57:22 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 09:57:44 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 09:57:45 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 09:57:45 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 09:57:45 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 09:57:45 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 09:57:45 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 09:57:45 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 09:57:45 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 09:57:45 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:00:26 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:00:26 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:00:26 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:00:26 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:00:26 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:00:26 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:00:26 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:00:26 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:00:26 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:03:18 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:03:18 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:03:18 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:03:18 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:03:18 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:03:18 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:03:18 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:03:18 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:03:18 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:03:37 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:03:37 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:03:37 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:03:37 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:03:37 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:03:37 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:03:37 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:03:37 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:03:37 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:04:26 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:04:26 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:04:26 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:04:26 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:04:26 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:04:26 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:04:26 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:04:26 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:04:26 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:08:56 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:08:57 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:08:57 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:08:57 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:08:57 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:08:57 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:08:57 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:08:57 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:08:57 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:09:13 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:09:13 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:09:13 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:09:13 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:09:13 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:09:13 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:09:13 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:09:13 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:09:13 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:13:56 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:13:57 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:13:57 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:13:57 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:13:57 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:13:57 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:13:57 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:13:57 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:13:57 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:28:04 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:28:05 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:28:05 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:28:05 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:28:05 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:28:05 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:28:05 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:28:05 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:28:05 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:30:01 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:30:01 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:30:01 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:30:01 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:30:01 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:30:01 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:30:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:30:01 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:30:01 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:30:41 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:30:41 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:30:41 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:30:41 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:30:41 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:30:41 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:30:41 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:30:41 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:30:41 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:36:42 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:36:43 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:36:43 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:36:43 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:36:43 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:36:43 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:36:43 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:36:43 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:36:43 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:37:07 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:37:07 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:37:07 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:37:07 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:37:07 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:37:07 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:37:07 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:37:07 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:37:07 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:40:12 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:40:12 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:40:12 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:40:12 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:40:12 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:40:12 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:40:12 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:40:12 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:40:12 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:40:54 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:40:54 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:40:54 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:40:54 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:40:54 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:40:54 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:40:54 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:40:54 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:40:54 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 10:41:46 INFO  Configuration:40 - process: Getting central configuration finished.
-2020-03-14 10:41:46 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 10:41:46 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 10:41:46 INFO  SessionManager:28 - process: Registering session(Student) finished.
-2020-03-14 10:41:46 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 10:41:46 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 10:41:46 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 10:41:46 INFO  SessionManager:28 - process: Registering session(Teacher) finished.
-2020-03-14 10:41:46 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 11:39:19 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:39:58 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:40:39 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:40:58 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:41:52 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:42:40 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:42:41 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:42:41 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:46:05 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:46:05 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:46:05 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:46:36 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:46:40 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:46:40 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:47:03 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:47:21 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:47:21 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:47:57 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:48:20 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:48:20 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:49:15 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:50:02 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:50:58 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:50:59 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:51:39 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:51:45 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:51:45 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:53:10 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:53:10 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:53:10 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:53:10 INFO  SessionManager:31 - process: Registering session(Student) finished.
-2020-03-14 11:53:10 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:53:39 INFO  Configuration:41 - process: Getting central configuration finished.
-2020-03-14 11:53:39 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:53:39 INFO  SessionManager:31 - process: Registering session(Student) finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 11:53:39 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 11:53:39 INFO  SessionManager:31 - process: Registering session(Teacher) finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 11:53:39 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-14 11:53:39 INFO  SessionManager:31 - process: Registering session(Mark) finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-14 11:53:39 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 11:53:39 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 11:53:39 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 11:53:39 INFO  SessionManager:31 - process: Registering session(Teacher) finished.
-2020-03-14 11:53:39 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 12:29:13 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-14 12:29:14 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 12:29:14 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-14 12:29:14 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-14 12:29:14 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 12:29:14 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-14 12:29:14 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-14 12:29:14 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-14 12:29:14 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
-2020-03-14 12:29:14 INFO  SessionManager:34 - process: Registering session(Mark) finished.
-2020-03-14 12:29:14 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-14 12:29:14 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-17 12:10:52 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:11:26 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:11:26 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:12:18 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:12:18 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:20:09 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:20:10 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:21:12 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:21:12 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:21:12 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:21:12 INFO  Session:49 - process: SessionHandler() has been built successfully.
-2020-03-17 12:21:12 INFO  SessionManager:34 - process: Registering session() finished.
-2020-03-17 12:21:12 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:21:12 INFO  SessionHandler:11 - sql output: 	select * from ;
-2020-03-17 12:21:44 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:21:45 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:21:45 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:21:45 INFO  Session:49 - process: SessionHandler() has been built successfully.
-2020-03-17 12:21:45 INFO  SessionManager:34 - process: Registering session() finished.
-2020-03-17 12:21:45 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:21:53 INFO  SessionHandler:11 - sql output: 	select * from ;
-2020-03-17 12:22:02 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:22:03 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:22:03 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:22:03 INFO  Session:49 - process: SessionHandler() has been built successfully.
-2020-03-17 12:22:03 INFO  SessionManager:34 - process: Registering session() finished.
-2020-03-17 12:22:03 INFO  Session:72 - process: Initiating session() finished.
-2020-03-17 12:23:11 INFO  SessionHandler:11 - sql output: 	select * from ;
-2020-03-17 12:23:19 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:23:20 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:23:20 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 12:23:20 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 12:23:20 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 12:23:20 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 12:23:20 INFO  SessionHandler:11 - sql output: 	select * from user;
-2020-03-17 12:23:45 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 12:23:46 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 12:23:46 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 12:23:46 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 12:23:46 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 12:23:46 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 12:23:46 INFO  SessionHandler:11 - sql output: 	select * from user;
-2020-03-17 13:24:47 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:24:47 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:24:47 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:24:47 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:24:47 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:24:47 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:24:47 INFO  SessionHandler:11 - sql output: 	select * from user where username=?;
-2020-03-17 13:27:01 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:27:01 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:27:01 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:27:01 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:27:01 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:27:01 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:27:39 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:27:39 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:27:39 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:27:39 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:27:39 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:27:39 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:27:45 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:27:45 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:27:45 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:27:45 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:27:45 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:27:45 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:28:17 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:28:18 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:28:18 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:28:18 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:28:18 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:28:18 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:29:04 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 13:29:04 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 13:29:04 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:29:04 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 13:29:04 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 13:29:04 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 13:29:04 INFO  SessionHandler:11 - sql output: 	select * from user where username=?;
-2020-03-17 14:39:32 ERROR XmlHelper:66 - Configure name error.
-2020-03-17 14:41:39 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 14:41:39 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 14:41:39 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 14:41:39 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 14:41:39 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 14:41:39 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 14:42:44 INFO  Configuration:42 - process: Getting central configuration finished.
-2020-03-17 14:42:44 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 14:42:44 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 14:42:44 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 14:42:44 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 14:42:44 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 14:43:20 ERROR XmlHelper:66 - Configure name error.
-2020-03-17 15:23:10 INFO  Configuration:66 - process: Getting central configuration finished.
-2020-03-17 15:23:11 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:23:11 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-17 15:23:11 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:23:11 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:23:11 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-17 15:23:11 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:23:11 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:23:11 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
-2020-03-17 15:23:11 INFO  SessionManager:34 - process: Registering session(Mark) finished.
-2020-03-17 15:23:11 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:23:11 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-17 15:30:15 INFO  Configuration:48 - process: Getting central configuration finished.
-2020-03-17 15:30:16 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:30:16 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:30:16 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:30:16 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:30:16 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:31:30 INFO  Configuration:48 - process: Getting central configuration finished.
-2020-03-17 15:31:30 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:31:30 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:31:30 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:31:30 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:31:30 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:44:48 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:44:48 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:44:48 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
-2020-03-17 15:44:48 INFO  SessionManager:34 - process: Registering session(Mark) finished.
-2020-03-17 15:44:48 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:45:38 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:45:38 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:45:38 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
-2020-03-17 15:45:38 INFO  SessionManager:34 - process: Registering session(Mark) finished.
-2020-03-17 15:45:38 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:46:01 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Teacher) 's configuration finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Teacher) finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Teacher) finished.
-2020-03-17 15:46:01 INFO  Session:37 - process: Getting session(Mark) 's configuration finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:46:01 INFO  Session:49 - process: SessionHandler(Mark) has been built successfully.
-2020-03-17 15:46:01 INFO  SessionManager:34 - process: Registering session(Mark) finished.
-2020-03-17 15:46:01 INFO  Session:72 - process: Initiating session(Mark) finished.
-2020-03-17 15:47:31 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:47:32 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:47:32 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:47:32 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:47:32 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:47:32 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:48:26 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:48:26 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:48:26 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:48:26 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:48:26 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:48:26 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:48:34 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:48:34 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:48:34 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:48:34 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:48:34 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:48:34 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:49:11 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:49:12 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:49:12 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:49:12 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:49:12 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:49:12 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:49:36 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:49:36 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:49:36 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:49:36 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:49:36 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:49:36 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:51:43 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-17 15:51:43 INFO  Session:37 - process: Getting session(User) 's configuration finished.
-2020-03-17 15:51:43 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:51:43 INFO  Session:49 - process: SessionHandler(User) has been built successfully.
-2020-03-17 15:51:43 INFO  SessionManager:34 - process: Registering session(User) finished.
-2020-03-17 15:51:43 INFO  Session:72 - process: Initiating session(User) finished.
-2020-03-17 15:51:43 INFO  SessionHandler:11 - sql output: 	select * from user where username=?;
-2020-03-19 23:07:40 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-19 23:07:41 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-19 23:07:41 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:07:41 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-19 23:07:41 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-19 23:07:41 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-19 23:07:41 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:07:41 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-19 23:10:03 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-19 23:10:03 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-19 23:10:03 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:10:03 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-19 23:10:03 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-19 23:10:03 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-19 23:10:03 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:10:03 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-19 23:10:53 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-19 23:10:53 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-19 23:13:04 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:13:04 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-19 23:13:04 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-19 23:13:04 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-19 23:13:04 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:13:04 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-19 23:14:07 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-19 23:14:08 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:14:08 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-19 23:14:08 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-19 23:14:08 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-19 23:14:08 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-19 23:14:08 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-19 23:14:08 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
-2020-03-19 23:14:08 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-19 23:14:08 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-19 23:14:08 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
-2020-03-19 23:14:08 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
-2020-03-19 23:14:08 INFO  SessionManager:37 - process: Registering session(Mark) finished.
-2020-03-19 23:14:08 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-19 23:14:08 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-20 13:30:01 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 13:30:01 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-20 13:30:01 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-20 13:30:01 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-20 13:30:01 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-20 13:30:01 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-20 13:30:01 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-20 13:30:02 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-20 13:30:02 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 13:30:02 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-20 13:30:02 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
-2020-03-20 13:30:02 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
-2020-03-20 13:30:02 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 13:30:02 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
-2020-03-20 13:30:02 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 13:30:02 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
-2020-03-20 13:30:02 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
-2020-03-20 13:30:02 INFO  SessionManager:37 - process: Registering session(Mark) finished.
-2020-03-20 13:30:02 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 13:30:02 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-20 13:30:30 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 13:30:31 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-20 13:30:31 INFO  Session:52 - process: SessionHandler(Student) has been built successfully.
-2020-03-20 13:30:31 INFO  Session:64 - process: SqlSession(Student) has been built successfully.
-2020-03-20 13:30:31 INFO  SessionManager:37 - process: Registering session(Student) finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Student) finished.
-2020-03-20 13:30:31 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 13:30:31 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-20 13:30:31 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
-2020-03-20 13:30:31 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 13:30:31 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 13:30:31 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
-2020-03-20 13:30:31 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
-2020-03-20 13:30:31 INFO  SessionManager:37 - process: Registering session(Mark) finished.
-2020-03-20 13:30:31 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 13:30:31 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-20 15:05:52 ERROR XmlHelper:62 - Configure name error.
-2020-03-20 15:09:16 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 15:09:17 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-20 15:21:56 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 15:21:56 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-20 15:22:57 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 15:22:57 INFO  Session:37 - process: Getting session(Student) 's configuration finished.
-2020-03-20 15:22:57 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-20 15:22:57 INFO  Session:49 - process: SessionHandler(Student) has been built successfully.
-2020-03-20 15:22:57 INFO  SessionManager:34 - process: Registering session(Student) finished.
-2020-03-20 15:22:57 INFO  Session:72 - process: Initiating session(Student) finished.
-2020-03-20 15:22:57 INFO  SessionHandler:11 - sql output: 	select * from student;
-2020-03-20 18:17:33 INFO  Configuration:52 - process: Getting central configuration finished.
-2020-03-20 18:17:33 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(student) finished.
-2020-03-20 18:17:33 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
-2020-03-20 18:17:33 INFO  Session:64 - process: SqlSession(student) has been built successfully.
-2020-03-20 18:17:33 INFO  SessionManager:37 - process: Registering session(student) finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(student) finished.
-2020-03-20 18:17:33 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 18:17:33 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
-2020-03-20 18:17:33 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
-2020-03-20 18:17:33 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(Teacher) finished.
-2020-03-20 18:17:33 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 18:17:33 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
-2020-03-20 18:17:33 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
-2020-03-20 18:17:33 INFO  SessionManager:37 - process: Registering session(Mark) finished.
-2020-03-20 18:17:33 INFO  Session:88 - process: Initiating session(Mark) finished.
-2020-03-20 18:17:33 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 10:09:03 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 10:09:03 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 10:09:04 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 10:09:04 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 10:09:04 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 10:09:04 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 10:09:04 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 10:09:04 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 10:09:04 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 10:09:04 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 10:09:04 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 10:09:04 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 10:09:04 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 10:09:04 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 10:09:04 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=1, student_id=15, name=he0, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=2, student_id=16, name=he1, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=3, student_id=17, name=he2, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=4, student_id=18, name=he3, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=5, student_id=19, name=he4, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=6, student_id=20, name=he5, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=7, student_id=21, name=he6, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=8, student_id=22, name=he7, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=9, student_id=23, name=he8, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 10:09:04 INFO  App:20 - data output: 	Student(id=10, student_id=24, name=he9, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-03-21 12:20:41 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 12:20:41 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:20:41 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 12:20:41 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 12:20:41 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:20:41 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:20:41 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 12:20:41 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 12:20:41 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:20:41 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:20:41 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 12:20:41 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 12:20:41 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 12:20:41 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:20:41 ERROR XmlHelper:612 - sql not found.
+2020-03-21 12:20:41 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 12:34:36 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 12:34:37 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:34:37 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 12:34:37 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 12:34:37 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:34:37 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:34:37 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 12:34:37 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 12:34:37 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:34:37 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:34:37 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 12:34:37 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 12:34:37 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 12:34:37 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:34:37 ERROR XmlHelper:612 - sql not found.
+2020-03-21 12:34:37 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 12:34:51 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 12:34:51 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:34:51 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 12:34:51 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 12:34:51 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:34:51 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:34:51 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 12:34:51 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 12:34:51 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:34:51 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:34:51 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 12:34:51 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 12:34:51 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 12:34:51 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:36:29 ERROR XmlHelper:612 - sql not found.
+2020-03-21 12:36:29 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 12:36:33 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 12:36:34 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 12:37:44 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:37:46 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 12:37:46 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 12:37:46 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 12:37:56 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:37:59 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 12:38:01 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:38:02 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 12:38:02 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 12:38:02 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 12:38:06 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:38:08 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 12:38:14 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:38:23 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 12:38:23 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 12:38:23 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 12:38:47 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:38:47 ERROR XmlHelper:612 - sql not found.
+2020-03-21 12:38:47 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 12:39:10 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 12:39:10 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:39:10 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 12:39:10 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 12:39:10 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 12:39:10 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:39:10 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 12:39:10 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 12:39:10 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 12:39:10 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:39:10 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 12:39:10 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 12:39:10 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 12:39:10 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 12:58:48 ERROR XmlHelper:612 - sql not found.
+2020-03-21 12:58:48 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 13:00:17 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:00:18 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:00:18 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:00:18 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:00:18 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:00:18 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:00:18 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:00:18 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:00:18 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:00:18 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:00:18 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:00:18 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:00:18 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:00:18 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:00:18 ERROR XmlHelper:614 - sql not found.
+2020-03-21 13:00:18 INFO  XmlHelper:615 - suggestion: Please check your sql.xml and id.
+2020-03-21 13:01:30 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:01:31 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:02:47 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:02:47 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:02:47 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:02:47 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:02:47 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:02:47 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:02:47 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:02:47 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:02:47 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:02:47 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:02:47 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:02:47 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:02:47 ERROR XmlHelper:612 - sql not found.
+2020-03-21 13:02:47 INFO  XmlHelper:613 - suggestion: Please check your sql.xml and id.
+2020-03-21 13:02:53 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:02:54 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:02:54 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:02:54 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:02:54 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:02:54 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:02:54 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:02:54 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:02:54 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:02:54 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:02:54 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:02:54 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:02:54 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:02:54 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:02:54 INFO  SqlSession:11 - sql output: 	insert into student values 
+2020-03-21 13:02:54 INFO  SqlSession:11 - sql output: 	            (1,'he',18),
+2020-03-21 13:02:54 INFO  SqlSession:11 - sql output: 	            (2,'he2',19),
+2020-03-21 13:02:54 INFO  SqlSession:11 - sql output: 	            (4,'he3',?)
+2020-03-21 13:02:54 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:02:54 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:04:22 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:04:23 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:04:23 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:04:23 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:04:23 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:04:23 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:04:23 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:04:23 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:04:23 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:04:23 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:04:23 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:04:23 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:04:23 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:04:23 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:04:23 INFO  SqlSession:11 - sql output: 	insert into student values 
+2020-03-21 13:04:23 INFO  SqlSession:11 - sql output: 	            (12,'he',18),
+2020-03-21 13:04:23 INFO  SqlSession:11 - sql output: 	            (2,'he2',19),
+2020-03-21 13:04:23 INFO  SqlSession:11 - sql output: 	            (4,'he3',20)
+2020-03-21 13:04:23 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:04:23 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:05:31 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:05:31 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:05:31 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:05:31 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:05:31 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:05:31 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:05:31 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:05:31 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:05:31 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:05:31 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:05:31 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:05:31 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:05:31 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:05:31 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:05:31 INFO  SqlSession:11 - sql output: 	insert into student (id,student_id,student_name) values 
+2020-03-21 13:05:31 INFO  SqlSession:11 - sql output: 	            (12,'he',18),
+2020-03-21 13:05:31 INFO  SqlSession:11 - sql output: 	            (2,'he2',19),
+2020-03-21 13:05:31 INFO  SqlSession:11 - sql output: 	            (4,'he3',20)
+2020-03-21 13:05:31 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:05:31 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:06:31 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:06:31 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:06:31 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:06:31 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:06:31 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:06:31 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:06:31 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:06:31 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:06:31 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:06:31 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:06:31 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:06:31 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:06:31 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:06:31 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:06:31 INFO  SqlSession:11 - sql output: 	insert into student (student_id,student_name) values 
+2020-03-21 13:06:31 INFO  SqlSession:11 - sql output: 	            (202204015,'he1'),
+2020-03-21 13:06:31 INFO  SqlSession:11 - sql output: 	            (202204016,'he2'),
+2020-03-21 13:06:31 INFO  SqlSession:11 - sql output: 	            (202204017,'he3')
+2020-03-21 13:06:31 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:06:31 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:38:41 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:38:41 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:38:41 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:38:41 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:38:41 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:38:41 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:38:41 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:38:41 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:38:41 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:38:41 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:38:41 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:38:41 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:38:41 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:38:41 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:38:41 INFO  SqlSession:11 - sql output: 	insert into student (student_id,student_name) values 
+2020-03-21 13:38:41 INFO  SqlSession:11 - sql output: 	            (202204015,'he1'),
+2020-03-21 13:38:41 INFO  SqlSession:11 - sql output: 	            (202204016,'he2'),
+2020-03-21 13:38:41 INFO  SqlSession:11 - sql output: 	            (202204017,?)
+2020-03-21 13:38:41 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:38:42 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:38:42 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:38:42 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:38:42 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:08 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:39:08 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:39:08 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:39:08 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:39:08 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:39:08 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:39:08 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:39:08 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:39:08 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:39:08 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:39:08 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:39:08 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:39:08 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:39:08 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:39:08 INFO  SqlSession:11 - sql output: 	insert into student (student_id,student_name) values 
+2020-03-21 13:39:08 INFO  SqlSession:11 - sql output: 	            (202204015,'he11'),
+2020-03-21 13:39:08 INFO  SqlSession:11 - sql output: 	            (202204016,'he22'),
+2020-03-21 13:39:08 INFO  SqlSession:11 - sql output: 	            (202204017,?)
+2020-03-21 13:39:08 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:39:08 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:39:08 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:08 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:08 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  Configuration:52 - process: Getting central configuration finished.
+2020-03-21 13:39:27 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:39:27 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 13:39:27 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 13:39:27 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 13:39:27 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:39:27 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 13:39:27 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 13:39:27 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 13:39:27 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:39:27 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 13:39:27 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 13:39:27 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 13:39:27 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 13:39:27 INFO  SqlSession:11 - sql output: 	insert into student (student_id,student_name) values 
+2020-03-21 13:39:27 INFO  SqlSession:11 - sql output: 	            (202204019,'he11'),
+2020-03-21 13:39:27 INFO  SqlSession:11 - sql output: 	            (202204010,'he22'),
+2020-03-21 13:39:27 INFO  SqlSession:11 - sql output: 	            (2022040112,?)
+2020-03-21 13:39:27 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 13:39:27 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=20, student_id=202204019, name=he11, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=21, student_id=202204010, name=he22, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=22, student_id=2022040112, name=he33, teacher_id=0, birthday=null, mark=null, teacher=null)

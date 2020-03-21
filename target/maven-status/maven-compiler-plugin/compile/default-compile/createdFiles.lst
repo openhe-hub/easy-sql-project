@@ -1,6 +1,8 @@
+org\easysql\app\EasySqlApplication.class
 org\easysql\session\SessionManager$1.class
 org\easysql\helper\DBConnector.class
 org\easysql\helper\XmlHelper$1.class
 org\easysql\helper\Configuration.class
 org\easysql\bean\Teacher.class
+org\easysql\helper\SqlIdScanner.class
 org\easysql\helper\XmlHelper.class

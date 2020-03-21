@@ -27,6 +27,8 @@ public class Configuration {
     private static String beanPkg;
     @Getter
     private static String sqlPkg;
+    @Getter
+    private static String idFile;
     @Setter
     private static String CONFIG_PACKAGE = "easySql_config";
     @Setter
@@ -47,6 +49,7 @@ public class Configuration {
         sqlRoot = rootElement.element("sql_config");
         beanPkg = classRoot.attributeValue("bean_pkg");
         sqlPkg = sqlRoot.attributeValue("sql_pkg");
+        idFile = sqlRoot.attributeValue("id_file");
         setLogger(createLogger(Configuration.class));
         if (rootElement != null) {
             logger.info(CommonValue.PROCESS + "Getting central configuration finished.");

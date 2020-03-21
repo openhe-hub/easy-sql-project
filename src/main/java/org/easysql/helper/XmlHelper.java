@@ -29,7 +29,7 @@ public class XmlHelper<T> {
     private static SAXReader saxReader;
     private static Logger logger = Configuration.createLogger(XmlHelper.class);;
 
-    private static Element sqlRoot;
+    private Element sqlRoot;
     @Setter
     private Session<T> session;
     @Setter
@@ -602,14 +602,14 @@ public class XmlHelper<T> {
         }
     }
 
-    private Element findSqlElementByID(String id, String elementType) {
+    public Element findSqlElementByID(String id, String elementType) {
         List<Element> elements = (List<Element>) sqlRoot.elements(elementType);
         for (Element element : elements) {
             if (element.attributeValue("id").equals(id)) {
                 return element;
             }
         }
-        logger.error("Condition not found.");
+        logger.error("sql not found.");
         logger.info(CommonValue.SUGGESTION+"Please check your sql.xml and id.");
         return null;
     }

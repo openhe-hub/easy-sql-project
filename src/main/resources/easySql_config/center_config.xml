@@ -22,7 +22,7 @@
         <!ATTLIST class class_name CDATA #REQUIRED
                 table_name CDATA #REQUIRED
                 config_name CDATA #REQUIRED>
-        <!ATTLIST sql_config sql_pkg CDATA "sql">
+        <!ATTLIST sql_config id_file CDATA #REQUIRED sql_pkg CDATA #REQUIRED>
         <!ATTLIST sql name CDATA #REQUIRED>
         ]>
 <center_config>
@@ -48,7 +48,8 @@
                 config_name="mark_mapping"/>
     </class_config>
 
-    <sql_config sql_pkg="sql">
-        <sql name="service"/>
+    <sql_config sql_pkg="sql" id_file="org.easysql.info.R">
+        <sql name="newsql"/>
+        <sql name="sql"/>
     </sql_config>
 </center_config>

@@ -19,11 +19,19 @@ IDE:Intellij IDEA
 
 #### 安装教程
 
-1. git clone到本地,编译打包成jar即可  
-2.到\out\artifacts\EasySqlProject_jar 下载jar包
+1. git clone到本地,编译打包成jar即可
+2. 到\out\artifacts\EasySqlProject_jar 下载jar包
 
 #### 使用说明
 详见文档
+
+#### What's New
+* Version 3.5.2 2020-03-21
+1. 继承EasySqlApp类进行快速开发
+2. SqlSession类加强提议
+3. lombok升级到1.18.12
+4. 下一版本为3.5稳定版本，发布时将会merge到主分支
+
 
 #### 参与贡献
 @author:open he
