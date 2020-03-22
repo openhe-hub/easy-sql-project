@@ -362,3 +362,86 @@
 2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=20, student_id=202204019, name=he11, teacher_id=0, birthday=null, mark=null, teacher=null)
 2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=21, student_id=202204010, name=he22, teacher_id=0, birthday=null, mark=null, teacher=null)
 2020-03-21 13:39:27 INFO  App:20 - data output: 	Student(id=22, student_id=2022040112, name=he33, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:55 INFO  Configuration:55 - process: Getting central configuration finished.
+2020-03-21 17:02:56 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 17:02:56 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-21 17:02:56 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-21 17:02:56 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-21 17:02:56 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 17:02:56 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-21 17:02:56 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-21 17:02:56 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-21 17:02:56 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 17:02:56 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-21 17:02:56 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-21 17:02:56 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-21 17:02:56 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-21 17:02:56 INFO  SqlSession:11 - sql output: 	insert into student (student_id,student_name) values 
+2020-03-21 17:02:56 INFO  SqlSession:11 - sql output: 	            (202204019,'he11'),
+2020-03-21 17:02:56 INFO  SqlSession:11 - sql output: 	            (202204010,'he22'),
+2020-03-21 17:02:56 INFO  SqlSession:11 - sql output: 	            (2022040112,?)
+2020-03-21 17:02:56 INFO  SqlSession:11 - sql output: 	        
+2020-03-21 17:02:56 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=20, student_id=202204019, name=he11, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=21, student_id=202204010, name=he22, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-21 17:02:56 INFO  App:20 - data output: 	Student(id=22, student_id=2022040112, name=he33, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:13 INFO  Configuration:55 - process: Getting central configuration finished.
+2020-03-22 17:24:14 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-22 17:24:14 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-22 17:24:14 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-22 17:24:14 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-22 17:24:14 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-22 17:24:14 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-22 17:24:14 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-22 17:24:14 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-22 17:24:14 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-22 17:24:14 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-22 17:24:14 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-22 17:24:14 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-22 17:24:14 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-22 17:24:14 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=20, student_id=202204019, name=he11, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=21, student_id=202204010, name=he22, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:24:14 INFO  App:20 - data output: 	Student(id=22, student_id=2022040112, name=he33, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  Configuration:55 - process: Getting central configuration finished.
+2020-03-22 17:26:54 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-22 17:26:54 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-22 17:26:54 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-22 17:26:54 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-22 17:26:54 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-22 17:26:54 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-22 17:26:54 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-22 17:26:54 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-22 17:26:54 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-22 17:26:54 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-22 17:26:54 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-22 17:26:54 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-22 17:26:54 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-22 17:26:54 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=11, student_id=202204015, name=he1, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=12, student_id=202204016, name=he2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=13, student_id=202204017, name=he3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=20, student_id=202204019, name=he11, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=21, student_id=202204010, name=he22, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-22 17:26:54 INFO  App:20 - data output: 	Student(id=22, student_id=2022040112, name=he33, teacher_id=0, birthday=null, mark=null, teacher=null)

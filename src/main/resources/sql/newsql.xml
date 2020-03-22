@@ -6,9 +6,7 @@
     <insert id="insert">
         <col>student_id,student_name</col>
         <values>
-            (202204019,'he11'),
-            (202204010,'he22'),
-            (2022040112,?)
+            (?,?)
         </values>
     </insert>
     <update id="update">

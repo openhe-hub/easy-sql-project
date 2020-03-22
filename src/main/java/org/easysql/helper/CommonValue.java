@@ -20,6 +20,8 @@ public interface CommonValue {
     String SELECT_ELEMENT_NAME="select";
     String ALL="*";
 
+    String COLUMN_ELEMENT_NAME="col";
+
     int ONLY_VALUE = 31;
     int ALL_VALUE = 37;
 

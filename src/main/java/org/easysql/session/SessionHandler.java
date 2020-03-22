@@ -224,10 +224,10 @@ public class SessionHandler<T> {
         StringBuilder sql = new StringBuilder("insert into " + tableName + " values(");
         try {
             String id_value = BeanUtils.getProperty(bean, idInfo.getFieldName());//先填充主键数据
-            sql.append("\'").append(id_value).append("\',");
+            sql.append("'").append(id_value).append("',");
             for (String key : fieldsInfo.keySet()) {//填充其它数据
                 String values = BeanUtils.getProperty(bean, key);
-                sql.append("\'").append(values).append("\',");
+                sql.append("'").append(values).append("',");
             }
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
@@ -411,10 +411,11 @@ public class SessionHandler<T> {
     }
 
 
-    //select
     /*
-     * @para1:columns like:col1,col2...
-     * @para2:like "=value" or ">value" or... You can append like "and column>value"
+     * @param1:columns to be selected (* is allowed)
+     * @param2:selection condition
+     * @param3:data to be filled in Sql
+     * @return:selected data(in a list of Bean object)
      * */
     public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<Object> params) {
         Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
