@@ -2,12 +2,14 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\Logg
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\CommonValue.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\IndexInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\CacheData.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\pageHelper\PageHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\XmlHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\Join.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Transaction.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\SessionConfiguration.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\app\EasySqlApplication.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Teacher.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\pageHelper\CachePageHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Cache.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\IdInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\AnalyseMultiSelectPackage.java
@@ -28,4 +30,5 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\Conf
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Mark.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\FieldInfo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Session.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\pageHelper\GenericPageHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Student.java

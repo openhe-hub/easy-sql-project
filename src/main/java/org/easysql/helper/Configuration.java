@@ -8,8 +8,7 @@ import org.dom4j.Element;
 import org.easysql.session.Session;
 import org.easysql.session.SessionManager;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -54,6 +53,7 @@ public class Configuration {
         idFile = sqlRoot.attributeValue("id_file");
         setLogger(createLogger(Configuration.class));
         if (rootElement != null) {
+            bannerOutput();
             logger.info(CommonValue.PROCESS + "Getting central configuration finished.");
         } else {
             logger.fatal(CommonValue.ERROR + "Getting central configuration failed.");
@@ -114,6 +114,20 @@ public class Configuration {
         logRoot = rootElement.element("log_config");
         if (logRoot!=null){
             PropertyConfigurator.configure(logRoot.getTextTrim());
+        }
+    }
+
+    private static void bannerOutput(){
+        try {
+            File bannerFile =new File(Objects.requireNonNull(mainClass.getClassLoader().
+                    getResource("banner.txt")).getFile());
+            BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
+            String line=null;
+            while ((line=reader.readLine()) != null){
+                logger.info("\t\t\t\t\t\t"+line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

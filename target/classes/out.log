@@ -92,3 +92,466 @@
 2020-03-28 15:58:38 INFO  SessionHandler:11 - sql output: 	select * from student;
 2020-03-28 15:58:38 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
 2020-03-28 15:58:38 INFO  App:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 16:11:16 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 16:11:16 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 16:11:16 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 16:11:16 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 16:11:16 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 16:11:16 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 16:11:16 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 16:11:16 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 16:11:16 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 16:11:16 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 16:11:16 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 16:11:16 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 16:11:16 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 16:11:16 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 16:11:16 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 16:11:17 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 16:11:17 INFO  App:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 16:11:17 INFO  App:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 16:11:17 INFO  App:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:21:23 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:21:24 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:21:24 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:21:24 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:21:24 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:21:24 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:21:24 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:21:24 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:21:24 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:21:24 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:21:24 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:21:24 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:21:24 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:21:24 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:21:24 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:21:24 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:22:24 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:22:25 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:22:25 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:22:25 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:22:25 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:22:25 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:22:25 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:22:25 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:22:25 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:22:25 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:22:25 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:22:25 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:22:25 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:22:25 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:22:25 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:22:25 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:25:15 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:25:16 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:25:16 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:25:16 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:25:16 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:25:16 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:25:16 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:25:16 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:25:16 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:25:16 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:25:16 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:25:16 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:25:16 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:25:16 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:25:16 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:25:16 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:25:16 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:25:16 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:25:16 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:25:16 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:25:16 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:25:16 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:26:26 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:26:26 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:26:26 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:26:26 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:26:26 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:26:26 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:26:26 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:26:26 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:26:26 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:26:26 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:26:26 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:26:26 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:26:26 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:26:26 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:26:26 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:26:26 INFO  GenericPageHelper:93 - page1
+2020-03-28 17:26:26 INFO  GenericPageHelper:94 - =======================================================================================
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:93 - page1
+2020-03-28 17:26:26 INFO  GenericPageHelper:94 - =======================================================================================
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:93 - page1
+2020-03-28 17:26:26 INFO  GenericPageHelper:94 - =======================================================================================
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:93 - page1
+2020-03-28 17:26:26 INFO  GenericPageHelper:94 - =======================================================================================
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:26:26 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:06 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:28:07 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:28:07 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:28:07 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:28:07 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:28:07 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:28:07 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:28:07 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:28:07 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:28:07 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:28:07 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:28:07 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:28:07 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:28:07 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:28:07 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:28:07 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:28:07 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:28:07 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:92 - page2
+2020-03-28 17:28:07 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=27, student_id=2345, name=hae, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=28, student_id=23457, name=hae6, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=29, student_id=23465, name=hae5, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:92 - page3
+2020-03-28 17:28:07 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:92 - page4
+2020-03-28 17:28:07 INFO  GenericPageHelper:93 - =======================================================================================
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:07 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:42 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:28:43 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:28:43 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:28:43 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:28:43 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:28:43 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:28:43 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:28:43 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:28:43 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:28:43 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:28:43 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:28:43 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:28:43 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:28:43 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:28:43 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:28:43 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:28:43 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:28:43 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:92 - page2
+2020-03-28 17:28:43 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=27, student_id=2345, name=hae, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=28, student_id=23457, name=hae6, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=29, student_id=23465, name=hae5, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:92 - page3
+2020-03-28 17:28:43 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:92 - page4
+2020-03-28 17:28:43 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:28:43 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:00 INFO  Configuration:57 -  _______  _______  _______           _______  _______  _       
+(  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \      
+| (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (      
+| (__    | (___) || (_____  \ (_) / | (_____ | |   | || |      
+|  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |      
+| (      | (   ) |      ) |   ) (         ) || | /\| || |      
+| (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+(_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:32:00 INFO  Configuration:58 - process: Getting central configuration finished.
+2020-03-28 17:32:01 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:32:01 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:32:01 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:32:01 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:32:01 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:32:01 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:32:01 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:32:01 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:32:01 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:32:01 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:32:01 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:32:01 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:32:01 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:32:01 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:32:01 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:32:01 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:32:01 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:92 - page2
+2020-03-28 17:32:01 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=27, student_id=2345, name=hae, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=28, student_id=23457, name=hae6, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=29, student_id=23465, name=hae5, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:92 - page3
+2020-03-28 17:32:01 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:92 - page4
+2020-03-28 17:32:01 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:32:01 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:36:10 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:36:11 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:37:05 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:37:05 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:37:05 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:37:05 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:37:05 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:37:05 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:37:05 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:37:05 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:37:05 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:37:05 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:37:05 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:37:05 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:37:05 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:37:05 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:37:05 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:37:05 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:37:05 INFO  GenericPageHelper:92 - page1
+2020-03-28 17:37:05 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=25, student_id=2344, name=he0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=26, student_id=234, name=ha, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:92 - page2
+2020-03-28 17:37:05 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=27, student_id=2345, name=hae, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=28, student_id=23457, name=hae6, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=29, student_id=23465, name=hae5, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:92 - page3
+2020-03-28 17:37:05 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:92 - page4
+2020-03-28 17:37:05 INFO  GenericPageHelper:93 - =======================================================================================================================
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:37:05 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 17:38:50 INFO  Configuration:127 -  _______  _______  _______           _______  _______  _
+2020-03-28 17:38:50 INFO  Configuration:127 - (  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \
+2020-03-28 17:38:50 INFO  Configuration:127 - | (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (
+2020-03-28 17:38:50 INFO  Configuration:127 - | (__    | (___) || (_____  \ (_) / | (_____ | |   | || |
+2020-03-28 17:38:50 INFO  Configuration:127 - |  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |
+2020-03-28 17:38:50 INFO  Configuration:127 - | (      | (   ) |      ) |   ) (         ) || | /\| || |
+2020-03-28 17:38:50 INFO  Configuration:127 - | (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+2020-03-28 17:38:50 INFO  Configuration:127 - (_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:38:50 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:38:51 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:38:51 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:38:51 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:38:51 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:38:51 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:38:51 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:38:51 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:38:51 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:38:51 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:38:51 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:38:51 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:38:51 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:38:51 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:38:51 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:38:51 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:39:22 INFO  Configuration:127 - 						 _______  _______  _______           _______  _______  _
+2020-03-28 17:39:22 INFO  Configuration:127 - 						(  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \
+2020-03-28 17:39:22 INFO  Configuration:127 - 						| (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (
+2020-03-28 17:39:22 INFO  Configuration:127 - 						| (__    | (___) || (_____  \ (_) / | (_____ | |   | || |
+2020-03-28 17:39:22 INFO  Configuration:127 - 						|  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |
+2020-03-28 17:39:22 INFO  Configuration:127 - 						| (      | (   ) |      ) |   ) (         ) || | /\| || |
+2020-03-28 17:39:22 INFO  Configuration:127 - 						| (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+2020-03-28 17:39:22 INFO  Configuration:127 - 						(_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:39:22 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:39:22 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:39:22 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:39:22 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:39:22 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:39:22 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:39:22 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:39:22 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:39:22 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:39:22 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:39:22 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:39:22 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:39:22 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:39:22 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:39:22 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:39:22 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:40:25 INFO  Configuration:127 - 						 _______  _______  _______           _______  _______  _
+2020-03-28 17:40:25 INFO  Configuration:127 - 						(  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \
+2020-03-28 17:40:25 INFO  Configuration:127 - 						| (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (
+2020-03-28 17:40:25 INFO  Configuration:127 - 						| (__    | (___) || (_____  \ (_) / | (_____ | |   | || |
+2020-03-28 17:40:25 INFO  Configuration:127 - 						|  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |
+2020-03-28 17:40:25 INFO  Configuration:127 - 						| (      | (   ) |      ) |   ) (         ) || | /\| || |
+2020-03-28 17:40:25 INFO  Configuration:127 - 						| (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+2020-03-28 17:40:25 INFO  Configuration:127 - 						(_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:40:25 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:40:26 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:40:26 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:40:26 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:40:26 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:40:26 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:40:26 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:40:26 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:40:26 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:40:26 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:40:26 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:40:26 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:40:26 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:40:26 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:40:26 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:40:26 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:41:40 INFO  Configuration:127 - 						 _______  _______  _______           _______  _______  _
+2020-03-28 17:41:40 INFO  Configuration:127 - 						(  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \
+2020-03-28 17:41:40 INFO  Configuration:127 - 						| (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (
+2020-03-28 17:41:40 INFO  Configuration:127 - 						| (__    | (___) || (_____  \ (_) / | (_____ | |   | || |
+2020-03-28 17:41:40 INFO  Configuration:127 - 						|  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |
+2020-03-28 17:41:40 INFO  Configuration:127 - 						| (      | (   ) |      ) |   ) (         ) || | /\| || |
+2020-03-28 17:41:40 INFO  Configuration:127 - 						| (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+2020-03-28 17:41:40 INFO  Configuration:127 - 						(_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:41:40 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:41:40 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:41:40 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:41:40 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:41:40 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:41:40 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:41:40 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:41:40 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:41:40 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:41:40 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:41:40 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:41:40 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:41:40 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:41:40 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:41:40 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:41:40 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 17:42:12 INFO  Configuration:127 - 						 _______  _______  _______           _______  _______  _
+2020-03-28 17:42:12 INFO  Configuration:127 - 						(  ____ \(  ___  )(  ____ \|\     /|(  ____ \(  ___  )( \
+2020-03-28 17:42:12 INFO  Configuration:127 - 						| (    \/| (   ) || (    \/( \   / )| (    \/| (   ) || (
+2020-03-28 17:42:12 INFO  Configuration:127 - 						| (__    | (___) || (_____  \ (_) / | (_____ | |   | || |
+2020-03-28 17:42:12 INFO  Configuration:127 - 						|  __)   |  ___  |(_____  )  \   /  (_____  )| |   | || |
+2020-03-28 17:42:12 INFO  Configuration:127 - 						| (      | (   ) |      ) |   ) (         ) || | /\| || |
+2020-03-28 17:42:12 INFO  Configuration:127 - 						| (____/\| )   ( |/\____) |   | |   /\____) || (_\ \ || (____/\
+2020-03-28 17:42:12 INFO  Configuration:127 - 						(_______/|/     \|\_______)   \_/   \_______)(____\/_)(_______/
+2020-03-28 17:42:12 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 17:42:12 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:42:12 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 17:42:12 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 17:42:12 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 17:42:12 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:42:12 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 17:42:12 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 17:42:12 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 17:42:12 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:42:12 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 17:42:12 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 17:42:12 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 17:42:12 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 17:42:12 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 17:42:13 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.

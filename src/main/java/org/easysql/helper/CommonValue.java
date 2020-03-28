@@ -38,4 +38,6 @@ public interface CommonValue {
     int INSERTED_DATA_INDEX = 1;
     int UPDATED_DATA_INDEX = 2;
     int DELETED_DATA_INDEX = 3;
+
+    String PRINT_SEPERATOR="=======================================================================================================================";
 }

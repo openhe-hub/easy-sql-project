@@ -31,6 +31,7 @@ public class Cache<T> {
             dataList.add(new CacheData<>(t, CommonValue.ORIGIN_DATA_INDEX));
         }
         logger = Logger.getLogger(Cache.class);
+        filter = (data)->true;
         LoggerHelper.ProcessOutput("Cache(" + handler.getClassName() + ")" + " has benn created successfully.", logger);
     }
 
