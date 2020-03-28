@@ -146,6 +146,9 @@ public class Session<T> {
         className =classElement.attributeValue("class_name");
         tableName =classElement.attributeValue("table_name");
         sqlFileName= classElement.attributeValue("sql_file");
+        if (sqlFileName == null){
+            sqlFileName="";
+        }
         LinkedHashMap<String,String[]> classMap=new LinkedHashMap<>();
         classMap.put(className,new String[]{className, tableName,sqlFileName});
         return classMap;

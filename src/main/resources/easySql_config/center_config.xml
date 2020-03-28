@@ -11,6 +11,7 @@
         <!ELEMENT driver_class EMPTY>
         <!ELEMENT database EMPTY>
         <!ELEMENT sql EMPTY>
+        <!ELEMENT log_config EMPTY>
         <!ATTLIST database name CDATA #REQUIRED>
         <!ATTLIST user name CDATA #REQUIRED>
         <!ATTLIST pwd pwd CDATA #REQUIRED>
@@ -24,6 +25,7 @@
                 config_name CDATA #REQUIRED>
         <!ATTLIST sql_config id_file CDATA #REQUIRED sql_pkg CDATA #REQUIRED>
         <!ATTLIST sql name CDATA #REQUIRED>
+        <!ATTLIST log_config file CDATA #REQUIRED>
         ]>
 <center_config>
     <db_config>
@@ -52,4 +54,6 @@
         <sql name="newsql"/>
         <sql name="sql"/>
     </sql_config>
+
+<!--    <log_config file="log4j.properties"/>-->
 </center_config>

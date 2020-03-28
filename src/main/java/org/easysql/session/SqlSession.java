@@ -32,7 +32,12 @@ public class SqlSession<T>{
         this.classInfo =session.getClassInfo();
         this.logger= Configuration.createLogger(SqlSession.class);
         parser=new XmlHelper<>();
-        parser.initSqlParser(session.getSqlFileName(),session,sessionHandler);
+        String sqlFileName = session.getSqlFileName();
+        if ("".equals(sqlFileName)){
+            logger.warn("No sql.xml exists.SqlSession is not available.");
+        }else {
+            parser.initSqlParser(sqlFileName,session,sessionHandler);
+        }
     }
 
     public StringBuilder where(String id){

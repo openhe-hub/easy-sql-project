@@ -22,15 +22,15 @@ public class Cache<T> {
     private ArrayList<CacheData<T>> dataList;
     private Logger logger;
 
-    public Cache(ArrayList<T> source_data, int mode, SessionHandler handler) {
+    public Cache(ArrayList<T> sourceData, int mode, SessionHandler<T> handler) {
         this.mode = mode;
         this.fieldsInfo = handler.getFieldsInfo();
-        dataList =new ArrayList<>();
-        for (T t : source_data) {
+        dataList = new ArrayList<>();
+        for (T t : sourceData) {
             dataList.add(new CacheData<>(t, CommonValue.ORIGIN_DATA_INDEX));
         }
         logger = Logger.getLogger(Cache.class);
-        LoggerHelper.ProcessOutput("Cache("+handler.getClassName()+")"+" has benn created successfully.", logger);
+        LoggerHelper.ProcessOutput("Cache(" + handler.getClassName() + ")" + " has benn created successfully.", logger);
     }
 
     //效率计时器
@@ -235,31 +235,28 @@ public class Cache<T> {
     }
 
     private void commit() {
-        ArrayList<T> insert_list=new ArrayList<>();
-        ArrayList<T> update_list=new ArrayList<>();
-        ArrayList<T> delete_list=new ArrayList<>();
-        for (CacheData<T> cacheData : dataList) {
-            T data=cacheData.getData();
-            int type=cacheData.getType();
-            switch (type){
+        ArrayList<T> insertList = new ArrayList<>();
+        ArrayList<T> updateList = new ArrayList<>();
+        ArrayList<T> deleteList = new ArrayList<>();
+        dataList.forEach(cacheData -> {
+            T data = cacheData.getData();
+            int type = cacheData.getType();
+            switch (type) {
                 case CommonValue.INSERTED_DATA_INDEX:{
-                    insert_list.add(data);
+                    insertList.add(data);
                 }break;
                 case CommonValue.UPDATED_DATA_INDEX:{
-                    update_list.add(data);
+                    updateList.add(data);
                 }break;
-                case CommonValue.DELETED_DATA_INDEX:{
-                    delete_list.add(data);
+                case CommonValue.DELETED_DATA_INDEX: {
+                    deleteList.add(data);
                 }break;
-                default: {
-                }break;
-            }
-        }
-        handler.insertListToTable(insert_list);
-        handler.updateListToTableByID(update_list);
-        handler.deleteListAsID(delete_list);
+                default: {}break;
+                    }});
+        handler.insertListToTable(insertList);
+        handler.updateListToTableByID(updateList);
+        handler.deleteListAsID(deleteList);
     }
-
 }
 
 

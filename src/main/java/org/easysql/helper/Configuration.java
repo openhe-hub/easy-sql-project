@@ -3,6 +3,7 @@ package org.easysql.helper;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Element;
 import org.easysql.session.Session;
 import org.easysql.session.SessionManager;
@@ -19,6 +20,7 @@ public class Configuration {
     private static Element rootElement;
     private static Element classRoot;
     private static Element dbRoot;
+    private static Element logRoot;
     @Getter
     private static Element sqlRoot;
     @Getter
@@ -104,8 +106,15 @@ public class Configuration {
     }
 
 
-    public static Logger createLogger(Class clazz){
+    public static Logger createLogger(Class<?> clazz){
         return Logger.getLogger(clazz);
+    }
+
+    private static void configLogger(){
+        logRoot = rootElement.element("log_config");
+        if (logRoot!=null){
+            PropertyConfigurator.configure(logRoot.getTextTrim());
+        }
     }
 }
 
