@@ -27,10 +27,14 @@ IDE:Intellij IDEA
 
 #### What's New
 * Version 3.5.2 2020-03-21
-1. 继承EasySqlApp类进行快速开发
-2. SqlSession类加强提议
-3. lombok升级到1.18.12
+1. 继承EasySqlApp类进行快速开发 -开发完成
+2. SqlSession类 -加强提议
+3. lombok升级到1.18.12 -完成
 4. 下一版本为3.5稳定版本，发布时将会merge到主分支
+* Version 3.5.3 2020-03-28
+1. PageHelper插件 -加强提议 -初步开发
+2. SqlSession -初步开发
+3. 加入启动banner字符画 -开发完成
 
 
 #### 参与贡献

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <where id="condition">
+        mark>?
+    </where>
+    <insert id="insert">
+        <col>student_id,student_name</col>
+        <values>
+            (?,?)
+        </values>
+    </insert>
+    <update id="update">
+        <values>
+            name=?,
+            mark=100
+        </values>
+        <where>
+            id=?
+        </where>
+    </update>
+    <delete id="delete">
+        <where>
+            mark=?
+        </where>
+    </delete>
+    <select id="select1" class="default">
+        <col>*</col>
+    </select>
+    <select id="select2" class="Student,Teacher">
+        <col></col>
+        <from></from>
+        <where></where>
+    </select>
+</sql>
