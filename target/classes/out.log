@@ -70,3 +70,25 @@
 2020-03-28 15:58:18 INFO  SessionHandler:11 - sql output: 	select * from student;
 2020-03-28 15:58:18 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
 2020-03-28 15:58:18 INFO  App:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-28 15:58:38 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-28 15:58:38 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 15:58:38 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-28 15:58:38 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-28 15:58:38 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-28 15:58:38 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 15:58:38 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-28 15:58:38 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-28 15:58:38 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-28 15:58:38 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 15:58:38 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-28 15:58:38 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-28 15:58:38 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-28 15:58:38 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-28 15:58:38 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-28 15:58:38 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-03-28 15:58:38 INFO  App:20 - data output: 	Student(id=24, student_id=2000, name=he, teacher_id=0, birthday=null, mark=null, teacher=null)

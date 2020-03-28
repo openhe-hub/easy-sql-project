@@ -9,6 +9,7 @@ import org.easysql.info.FieldInfo;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 
 public class Cache<T> {
@@ -132,6 +133,14 @@ public class Cache<T> {
                dataList.set(i,new CacheData<>(dataList.get(i).getData(),CommonValue.DELETED_DATA_INDEX));
             }
         }
+    }
+
+    public void orderBy(Comparator<T> comparator){
+        dataList.sort((a,b)->{
+            T data1=a.getData();
+            T data2=b.getData();
+            return comparator.compare(data1, data2);
+        });
     }
 
     public void orderBy(String field_name, int ORDER_TYPE, int SORT_TYPE) {
