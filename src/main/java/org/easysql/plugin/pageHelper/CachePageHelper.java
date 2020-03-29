@@ -24,10 +24,20 @@ public class CachePageHelper<T> extends GenericPageHelper<T> {
         super.calculate();
         loadOriginalData(cache);
     }
+
+    public CachePageHelper(ArrayList<T> data,int pageSize){
+        super.init(pageSize);
+        super.setRowNum(data.size());
+        super.calculate();
+        loadOriginalData(data);
+    }
     
     public void loadOriginalData(Cache<T> cache) {
+        setData(loadOriginalData(cache.selectAll()));
+    }
+
+    public LinkedHashMap<Integer,ArrayList<T>> loadOriginalData(ArrayList<T> originalData) {
         LinkedHashMap<Integer,ArrayList<T>> data=new LinkedHashMap<>();
-        ArrayList<T> originalData= cache.selectAll();
         for (int i = 0; i < getPageNum(); i++) {
             ArrayList<T> pageTemp=new ArrayList<>();
             for (int j = 0; j < getPageSize()&&(j+i*getPageSize())<getRowNum(); j++) {
@@ -36,5 +46,7 @@ public class CachePageHelper<T> extends GenericPageHelper<T> {
             data.put(i,pageTemp);
         }
         setData(data);
+        return data;
     }
+
 }

@@ -124,7 +124,7 @@ public class Configuration {
             BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
             String line=null;
             while ((line=reader.readLine()) != null){
-                logger.info("\t\t\t\t\t\t"+line);
+                logger.info(" banner:\t\t\t\t\t"+line);
             }
         } catch (IOException e) {
             e.printStackTrace();
