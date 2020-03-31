@@ -19,9 +19,10 @@ import java.util.LinkedHashMap;
 @Data
 @ToString(callSuper = true)
 public class CachePageHelper<T> extends GenericPageHelper<T> {
+    private Cache<T> dataSource;
     public CachePageHelper(Cache<T> cache,int pageSize){
         super.init(pageSize);
-        super.setRowNum((int)cache.countBy());
+        super.setRowNum((int)cache.getLength());
         super.calculate();
         loadOriginalData(cache);
     }
@@ -34,6 +35,7 @@ public class CachePageHelper<T> extends GenericPageHelper<T> {
     }
     
     public void loadOriginalData(Cache<T> cache) {
+        this.dataSource=cache;
         setData(loadOriginalData(cache.selectAll()));
     }
 
@@ -48,6 +50,20 @@ public class CachePageHelper<T> extends GenericPageHelper<T> {
         }
         setData(data);
         return data;
+    }
+
+    public void reLoad() {
+        super.init(getPageSize());
+        super.setRowNum((int)dataSource.getLength());
+        super.calculate();
+        loadOriginalData(dataSource);
+    }
+
+    public void reLoad(int pageSize) {
+        super.init(pageSize);
+        super.setRowNum((int)dataSource.getLength());
+        super.calculate();
+        loadOriginalData(dataSource);
     }
 
     public CachePageHelper<T> searchAsPage(Filter<T> filter, int[] bound,int newPageSize){

@@ -17,10 +17,10 @@ public class Cache<T> {
     private SessionHandler<T> handler;
     private LinkedHashMap<String, FieldInfo> fieldsInfo;
     private int mode;
-    @Setter
-    private Filter<T> filter;
     @Getter
     private ArrayList<CacheData<T>> dataList;
+    @Getter
+    private int length;
     private Logger logger;
 
     public Cache(ArrayList<T> sourceData, int mode, SessionHandler<T> handler) {
@@ -31,7 +31,7 @@ public class Cache<T> {
             dataList.add(new CacheData<>(t, CommonValue.ORIGIN_DATA_INDEX));
         }
         logger = Logger.getLogger(Cache.class);
-        filter = (data)->true;
+        length = sourceData.size();
         LoggerHelper.ProcessOutput("Cache(" + handler.getClassName() + ")" + " has benn created successfully.", logger);
     }
 
@@ -49,20 +49,22 @@ public class Cache<T> {
     public ArrayList<T> selectAll() {
         ArrayList<T> result = new ArrayList<>();
         for (CacheData<T> cacheData : dataList) {
-            result.add(cacheData.getData());
+            if (!isDeleted(cacheData)) {
+                result.add(cacheData.getData());
+            }
         }
         return result;
     }
 
-    public ArrayList<T> select() {
-        return select(CommonValue.ALL_VALUE);
+    public ArrayList<T> select(Filter<T> filter) {
+        return select(CommonValue.ALL_VALUE,filter);
     }
 
-    public ArrayList<T> select(int selectType) {
-        ArrayList<T> ans = new ArrayList<T>();
+    public ArrayList<T> select(int selectType,Filter<T> filter) {
+        ArrayList<T> ans = new ArrayList<>();
         for (CacheData<T> cacheData : dataList) {
             T data = cacheData.getData();
-            if (filter.filter(data)) {
+            if (filter.filter(data)&&!isDeleted(cacheData)) {
                 ans.add(data);
                 if (selectType == CommonValue.ONLY_VALUE) {
                     return ans;
@@ -73,11 +75,10 @@ public class Cache<T> {
     }
 
     public void logAll(){
-        setFilter((T data)-> true);
-        log();
+        log(d->true);
     }
 
-    public void log(){
+    public void log(Filter<T> filter){
         for (CacheData<T> cacheData : dataList) {
             T data = cacheData.getData();
             if (filter.filter(data)){
@@ -90,6 +91,7 @@ public class Cache<T> {
     public void insert(T bean) {
         if (modeCheck()) {
             dataList.add(new CacheData<>(bean,CommonValue.INSERTED_DATA_INDEX));
+            length++;
         }
     }
 
@@ -99,7 +101,7 @@ public class Cache<T> {
         }
     }
 
-    public void update(T bean) {
+    public void update(T bean,Filter<T> filter) {
         if (modeCheck()) {
             try {
                 for (int i = 0; i< dataList.size(); i++) {
@@ -113,6 +115,7 @@ public class Cache<T> {
                         if (type == CommonValue.INSERTED_DATA_INDEX || type == CommonValue.ORIGIN_DATA_INDEX) {
                             dataList.set(i,new CacheData<>(data,CommonValue.UPDATED_DATA_INDEX));
                         }
+                        length++;
                         return;
                     }
                 }
@@ -122,17 +125,30 @@ public class Cache<T> {
         }
     }
 
-    public void updateListToCache(ArrayList<T> beans) {
-        for (T t : beans) {
-            update(t);
+    public void updateListToCache(ArrayList<T> beans,ArrayList<Filter<T>> filters) {
+        for (int i = 0; i < beans.size(); i++) {
+            update(beans.get(i),filters.get(i));
         }
     }
 
-    public void delete() {
+    public void delete(Filter<T> filter){
         if (modeCheck()) {
             for (int i = 0; i < dataList.size(); i++) {
-               dataList.set(i,new CacheData<>(dataList.get(i).getData(),CommonValue.DELETED_DATA_INDEX));
+                T data = dataList.get(i).getData();
+                if(filter.filter(data)){
+                    dataList.set(i,new CacheData<>(data,CommonValue.DELETED_DATA_INDEX));
+                    length--;
+                }
             }
+        }
+    }
+
+    public void deleteAll() {
+        if (modeCheck()) {
+            for (int i = 0; i < dataList.size(); i++) {
+                dataList.set(i,new CacheData<>(dataList.get(i).getData(),CommonValue.DELETED_DATA_INDEX));
+            }
+            length=0;
         }
     }
 
@@ -224,10 +240,10 @@ public class Cache<T> {
         return ans;
     }
 
-    public long countBy(){
+    public long countBy(Filter<T> filter){
         long count=0;
         for (CacheData<T> cacheData : dataList) {
-            if (filter.filter(cacheData.getData())){
+            if (filter.filter(cacheData.getData())&&!isDeleted(cacheData)){
                 count++;
             }
         }
@@ -241,6 +257,10 @@ public class Cache<T> {
             System.out.println("error:This is a only_read cache,you can't modify it!");
             return false;
         }
+    }
+
+    private boolean isDeleted(CacheData<T> cacheData){
+        return cacheData.getType()==CommonValue.DELETED_DATA_INDEX;
     }
 
     public void close() {
