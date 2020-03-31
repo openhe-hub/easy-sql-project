@@ -13,8 +13,7 @@ public class App extends EasySqlApplication {
     public static void main(String[] args) {
         init(App.class);
         SessionHandler<Student> handler=handler(Student.class);
-        CachePageHelper<Student> pageHelper=new CachePageHelper<>(handler.selectAll(),3);
-        CachePageHelper<Student> pageResult=new CachePageHelper<>(pageHelper.search(d->d.getId()>=30),2);
-        pageResult.logAll();
+        Cache<Student> studentCache=handler.buildCache(handler.selectAll(),CommonValue.READ_WRITE_MODE);
+        studentCache.limit(3,1).forEach(System.out::println);
     }
 }

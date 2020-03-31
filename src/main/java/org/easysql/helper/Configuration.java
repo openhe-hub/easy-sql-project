@@ -31,7 +31,7 @@ public class Configuration {
     @Getter
     private static String idFile;
     @Setter
-    private static String CONFIG_PACKAGE = "easySql_config";
+    private static String CONFIG_PACKAGE = "easy_sql_config";
     @Setter
     private static String CENTER_CONFIG_NAME = "center_config";
     private final static String CONFIG_FILE_TYPE = ".xml";
@@ -49,8 +49,10 @@ public class Configuration {
         dbRoot = rootElement.element("db_config");
         sqlRoot = rootElement.element("sql_config");
         beanPkg = classRoot.attributeValue("bean_pkg");
-        sqlPkg = sqlRoot.attributeValue("sql_pkg");
-        idFile = sqlRoot.attributeValue("id_file");
+        if (sqlRoot != null) {
+            sqlPkg = sqlRoot.attributeValue("sql_pkg");
+            idFile = sqlRoot.attributeValue("id_file");
+        }
         setLogger(createLogger(Configuration.class));
         if (rootElement != null) {
             bannerOutput();
@@ -119,8 +121,7 @@ public class Configuration {
 
     private static void bannerOutput(){
         try {
-            File bannerFile =new File(Objects.requireNonNull(mainClass.getClassLoader().
-                    getResource("banner.txt")).getFile());
+            File bannerFile =new File(Objects.requireNonNull(Configuration.class.getClassLoader().getResource("banner.txt")).getFile());
             BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
             String line=null;
             while ((line=reader.readLine()) != null){

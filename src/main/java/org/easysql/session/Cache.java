@@ -136,6 +136,14 @@ public class Cache<T> {
         }
     }
 
+    public ArrayList<T> limit(int pageSize,int pageIndex){
+        ArrayList<T> result= new ArrayList<> ();
+        for (int i = pageSize*pageIndex; i < pageSize*(pageIndex+1); i++) {
+            result.add(dataList.get(i).getData());
+        }
+        return result;
+    }
+
     public void orderBy(Comparator<T> comparator){
         dataList.sort((a,b)->{
             T data1=a.getData();

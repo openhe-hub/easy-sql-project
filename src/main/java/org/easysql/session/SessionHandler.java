@@ -76,9 +76,11 @@ public class SessionHandler<T> {
             sql.append(column_name).append(" ").append(column_type).append(" ").append(constraint_type).append(",\n");
         }
 
-        for (ForeignKeyInfo foreignKeyInfo : foreignKeyInfos) {
-            if (!foreignKeyInfo.getType().equals(ConstraintType.ONE_TO_MANY)) {
-                sql.append(appendForeignKeyConstraints(foreignKeyInfo));
+        if (foreignKeyInfos != null) {
+            for (ForeignKeyInfo foreignKeyInfo : foreignKeyInfos) {
+                if (!foreignKeyInfo.getType().equals(ConstraintType.ONE_TO_MANY)) {
+                    sql.append(appendForeignKeyConstraints(foreignKeyInfo));
+                }
             }
         }
 

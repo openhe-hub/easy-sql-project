@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Teacher" table_name="teacher" sql_file="sql">
+    <class class_name="Teacher" table_name="teacher">
         <id
                 field_name="id"
                 field_type="long"

@@ -65,8 +65,7 @@ public class Session<T> {
             return sqlSession;
         }
         else {
-            logger.error(CommonValue.ERROR + "SessionSession(" + className + ") is null.");
-            logger.info(CommonValue.SUGGESTION + "Please init first.");
+            logger.warn(CommonValue.WARNING + "SqlSession(" + className + ") is null.");
             return null;
         }
     }
@@ -83,7 +82,9 @@ public class Session<T> {
     public void init(){
         getConfig();
         this.sessionHandler=new SessionHandler<>(this);
-        this.sqlSession=new SqlSession<>(this,sessionHandler);
+        if (sqlFileName!=null) {
+            this.sqlSession=new SqlSession<>(this,sessionHandler);
+        }
         if (classInfo != null) {
             logger.info(CommonValue.PROCESS + "Initiating session(" + className + ") finished.");
         }
@@ -136,9 +137,14 @@ public class Session<T> {
             ArrayList<LinkedHashMap<String,FieldInfo>>  fieldMaps= getFieldInfo(classElement.element("fields"));
             LinkedHashMap<String,FieldInfo> fieldMap=fieldMaps.get(0);
             LinkedHashMap<String,FieldInfo> columnMap=fieldMaps.get(1);
-            ArrayList<ForeignKeyInfo> foreignKeyList= getForeignKeyInfo(set);
-            ArrayList<IndexInfo> indexList=getIndexInfo(set);
-            LinkedHashMap<String,Join> join_list= getJoinMap(set);
+            ArrayList<ForeignKeyInfo> foreignKeyList= null;
+            ArrayList<IndexInfo> indexList= null;
+            LinkedHashMap<String,Join> join_list= null;
+            if (set!=null) {
+                foreignKeyList = getForeignKeyInfo(set);
+                indexList = getIndexInfo(set);
+                join_list = getJoinMap(set);
+            }
             classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,join_list);
         }
     }
@@ -146,9 +152,6 @@ public class Session<T> {
         className =classElement.attributeValue("class_name");
         tableName =classElement.attributeValue("table_name");
         sqlFileName= classElement.attributeValue("sql_file");
-        if (sqlFileName == null){
-            sqlFileName="";
-        }
         LinkedHashMap<String,String[]> classMap=new LinkedHashMap<>();
         classMap.put(className,new String[]{className, tableName,sqlFileName});
         return classMap;

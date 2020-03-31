@@ -1,6 +1,9 @@
 package org.easysql.info;
 
 import lombok.Getter;
+import org.easysql.helper.CommonValue;
+import org.easysql.helper.Configuration;
+import org.easysql.helper.LoggerHelper;
 
 public enum ConstraintType {
 
@@ -37,9 +40,8 @@ public enum ConstraintType {
                 return type;
             }
         }
-        System.out.println("error:constraint("+str+") not exist.Please check your mapping.xml");
+        Configuration.createLogger(ConstraintType.class).
+                error(CommonValue.ERROR +"constraint type("+str+") not exist.Please check your mapping.xml");
         return null;
     }
-
-
 }

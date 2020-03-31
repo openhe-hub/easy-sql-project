@@ -35,7 +35,7 @@
                 form CDATA #REQUIRED>
         ]>
 <mapping>
-    <class class_name="student" table_name="student" sql_file="newsql" >
+    <class class_name="student" table_name="student" >
         <id
                 field_name="id"
                 field_type="int"
@@ -61,7 +61,7 @@
                     field_type="java.util.Date"
             />
         </fields>
-        <set>
+       <!-- <set>
             <foreign_key
                 type="many to one"
                 from="teacher_id"
@@ -81,6 +81,6 @@
                   to_class="Mark"
                   point="student_id->student_id"
             />
-        </set>
+        </set>-->
     </class>
 </mapping>

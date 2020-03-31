@@ -1010,3 +1010,625 @@
 2020-03-29 14:34:43 INFO  GenericPageHelper:148 - page3
 2020-03-29 14:34:43 INFO  GenericPageHelper:149 - =======================================================================================================================
 2020-03-29 14:34:43 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-30 18:56:21 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-30 18:56:21 INFO  Session:40 - process: Getting session(User) 's configuration finished.
+2020-03-31 09:25:18 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-31 09:25:18 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:25:19 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:25:19 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-31 09:25:19 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:25:19 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:25:19 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:25:19 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-31 09:25:19 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:25:19 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:25:19 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:25:19 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-31 09:25:19 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:25:19 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:25:19 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:25:20 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:25:20 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:20 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:20 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:20 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:25:20 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:20 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:20 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:20 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:25:20 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:20 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:50 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-31 09:25:50 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:25:50 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:25:50 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-31 09:25:50 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:25:50 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:25:50 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:25:50 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-31 09:25:50 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:25:50 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:25:50 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:25:50 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-31 09:25:50 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:25:50 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:25:50 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:25:50 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:25:50 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:50 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:50 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:50 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:25:50 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:50 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:50 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:25:50 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:25:50 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:25:50 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:28:29 INFO  Configuration:126 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:28:29 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-31 09:28:30 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:28:30 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:28:30 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-31 09:28:30 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:28:30 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:28:30 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:28:30 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-31 09:28:30 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:28:30 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:28:30 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:28:30 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-31 09:28:30 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:28:30 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:28:30 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:28:30 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:28:30 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:28:30 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:28:30 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:28:30 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:28:30 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:28:30 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:28:30 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:28:30 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:28:30 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:28:30 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:31:11 INFO  Configuration:126 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:31:11 INFO  Configuration:57 - process: Getting central configuration finished.
+2020-03-31 09:31:11 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:31:11 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:31:11 INFO  Session:64 - process: SqlSession(student) has been built successfully.
+2020-03-31 09:31:11 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(student) finished.
+2020-03-31 09:31:11 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:31:11 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:31:11 INFO  Session:64 - process: SqlSession(Teacher) has been built successfully.
+2020-03-31 09:31:11 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(Teacher) finished.
+2020-03-31 09:31:11 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:31:11 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:31:11 INFO  Session:64 - process: SqlSession(Mark) has been built successfully.
+2020-03-31 09:31:11 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:31:11 INFO  Session:88 - process: Initiating session(Mark) finished.
+2020-03-31 09:31:11 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:31:11 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:31:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:31:11 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:31:11 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:31:11 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:31:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:31:11 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:31:11 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:31:11 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:31:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:31:11 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:34:17 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:34:17 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:34:18 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:35:40 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:35:40 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:35:41 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:36:18 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:36:18 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:36:18 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:36:41 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:36:41 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:36:41 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:37:11 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:37:11 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:37:11 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(student) finished.
+2020-03-31 09:37:11 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:37:11 ERROR Session:68 - error: SessionSession(student) is null.
+2020-03-31 09:37:11 INFO  Session:69 - suggestion: Please init first.
+2020-03-31 09:37:11 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(student) finished.
+2020-03-31 09:37:11 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(Teacher) finished.
+2020-03-31 09:37:11 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:37:11 ERROR Session:68 - error: SessionSession(Teacher) is null.
+2020-03-31 09:37:11 INFO  Session:69 - suggestion: Please init first.
+2020-03-31 09:37:11 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(Teacher) finished.
+2020-03-31 09:37:11 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(Mark) finished.
+2020-03-31 09:37:11 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:37:11 ERROR Session:68 - error: SessionSession(Mark) is null.
+2020-03-31 09:37:11 INFO  Session:69 - suggestion: Please init first.
+2020-03-31 09:37:11 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:37:11 INFO  Session:90 - process: Initiating session(Mark) finished.
+2020-03-31 09:37:11 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:37:11 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:37:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:37:11 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:37:11 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:37:11 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:37:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:37:11 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:37:11 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:37:11 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:37:11 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:37:11 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:39:04 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:39:04 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:39:04 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:39:04 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:39:04 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:39:04 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:39:04 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:39:04 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:39:04 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:39:04 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:39:04 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:39:04 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:39:04 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:39:04 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:39:04 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:39:04 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:39:04 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:39:04 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:39:04 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:39:04 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:39:04 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:39:04 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:39:04 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:39:04 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:39:04 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:39:04 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:39:04 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:45:29 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:45:29 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:45:37 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:45:37 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:45:37 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:45:37 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:45:37 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:45:38 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:45:55 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:45:56 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:45:56 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:45:56 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:45:56 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:46:14 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:46:28 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:46:28 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:46:28 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:46:28 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:46:28 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:46:57 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:47:02 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:47:02 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:47:06 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:47:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:47:06 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:47:06 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:47:06 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:47:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:47:08 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:47:08 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:47:08 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:47:08 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:47:08 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:47:11 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:47:20 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:47:20 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:47:20 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:47:20 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:47:20 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:47:26 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:47:30 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:47:30 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:47:33 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:47:33 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:47:33 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:47:33 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:47:33 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:47:33 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:47:36 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:47:36 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:47:36 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:47:36 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:47:36 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:47:37 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:48:11 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:48:38 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:50:01 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:50:01 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:50:01 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:50:01 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:51:18 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:51:18 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:51:19 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:51:19 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:51:19 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:51:19 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:51:19 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:51:19 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:51:19 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:51:19 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:51:19 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:51:19 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:51:19 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:51:19 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:51:19 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:51:19 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:51:19 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:51:19 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:51:19 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:51:19 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:51:19 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:51:19 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:51:19 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:51:19 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:51:19 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:51:19 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:51:19 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:52:37 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:52:37 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:52:38 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:52:38 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:52:38 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:52:38 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:52:38 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:52:38 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:52:38 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:52:38 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:52:38 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:52:38 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:52:38 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:52:38 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:52:38 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:52:38 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 09:52:38 INFO  GenericPageHelper:148 - page1
+2020-03-31 09:52:38 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:52:38 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:38 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:38 INFO  GenericPageHelper:148 - page2
+2020-03-31 09:52:38 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:52:38 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:38 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:38 INFO  GenericPageHelper:148 - page3
+2020-03-31 09:52:38 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 09:52:38 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:52:45 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:52:45 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:52:45 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:52:45 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:52:51 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:52:51 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:52:51 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:52:56 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:53:09 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:53:16 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:53:19 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:53:19 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:53:19 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:53:27 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:53:30 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:53:30 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:53:35 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:53:35 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:53:35 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:53:35 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:53:49 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:53:49 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:53:52 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:53:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:53:52 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:53:52 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:53:52 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:53:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:53:52 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:53:52 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:53:52 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:53:52 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:53:52 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:53:53 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:54:04 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:54:07 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:54:11 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:54:11 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:54:11 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:54:37 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:54:45 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:54:45 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:54:48 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:54:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:54:48 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:54:48 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:54:48 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:54:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:54:49 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:54:49 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:54:49 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:54:49 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:54:49 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:54:49 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:54:56 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:54:57 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:55:01 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:55:01 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:55:01 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:55:01 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:55:06 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:55:06 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:55:08 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:55:08 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:55:08 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:55:08 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:55:08 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:55:08 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:55:09 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:55:09 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:55:09 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:55:09 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:55:09 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:55:10 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:55:18 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 09:57:11 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:57:11 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 09:57:11 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 09:57:11 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 09:57:11 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 09:57:14 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 09:57:14 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 09:57:16 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 09:57:16 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:57:16 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 09:57:16 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 09:57:16 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 09:57:16 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 09:57:20 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 09:57:20 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:57:20 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 09:57:20 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 09:57:20 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 09:57:21 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 09:57:30 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 10:01:23 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 10:01:23 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 10:01:23 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 10:01:23 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 10:01:23 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 10:01:28 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 10:01:28 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 10:01:28 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 10:01:28 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 10:01:28 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 10:01:28 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 10:01:28 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 10:01:28 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 10:01:28 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 10:01:28 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 10:01:28 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 10:01:28 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 10:01:28 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 10:01:28 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 10:01:28 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 10:01:28 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 10:01:28 INFO  GenericPageHelper:148 - page1
+2020-03-31 10:01:28 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 10:01:28 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 10:01:28 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 10:01:28 INFO  GenericPageHelper:148 - page2
+2020-03-31 10:01:28 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 10:01:28 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 10:01:28 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 10:01:28 INFO  GenericPageHelper:148 - page3
+2020-03-31 10:01:28 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 10:01:28 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 11:08:59 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 11:08:59 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 11:08:59 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 11:08:59 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 11:08:59 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 11:08:59 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 11:08:59 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 11:08:59 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 11:08:59 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 11:08:59 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 11:08:59 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 11:08:59 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 11:08:59 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 11:08:59 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 11:08:59 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 11:08:59 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 11:08:59 INFO  GenericPageHelper:148 - page1
+2020-03-31 11:08:59 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 11:08:59 INFO  GenericPageHelper:20 - data output: 	Student(id=30, student_id=25345, name=hae4, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:08:59 INFO  GenericPageHelper:20 - data output: 	Student(id=31, student_id=42345, name=hae7, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:08:59 INFO  GenericPageHelper:148 - page2
+2020-03-31 11:08:59 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 11:08:59 INFO  GenericPageHelper:20 - data output: 	Student(id=32, student_id=23545, name=hae3, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:08:59 INFO  GenericPageHelper:20 - data output: 	Student(id=33, student_id=26345, name=hae2, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:08:59 INFO  GenericPageHelper:148 - page3
+2020-03-31 11:08:59 INFO  GenericPageHelper:149 - =======================================================================================================================
+2020-03-31 11:08:59 INFO  GenericPageHelper:20 - data output: 	Student(id=34, student_id=23045, name=hae0, teacher_id=0, birthday=null, mark=null, teacher=null)
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					______           _______     _______  ____  _
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-03-31 11:38:15 INFO  Configuration:128 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-03-31 11:38:15 INFO  Configuration:59 - process: Getting central configuration finished.
+2020-03-31 11:38:15 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 11:38:15 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-03-31 11:38:15 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-03-31 11:38:15 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(student) finished.
+2020-03-31 11:38:15 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 11:38:15 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-03-31 11:38:15 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-03-31 11:38:15 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-03-31 11:38:15 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 11:38:15 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-03-31 11:38:15 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-03-31 11:38:15 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-03-31 11:38:15 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-03-31 11:38:15 INFO  SessionHandler:11 - sql output: 	select * from student;
+2020-03-31 11:38:15 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.

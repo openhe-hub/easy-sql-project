@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.easysql.session.Cache;
+import org.easysql.session.Filter;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -47,6 +48,14 @@ public class CachePageHelper<T> extends GenericPageHelper<T> {
         }
         setData(data);
         return data;
+    }
+
+    public CachePageHelper<T> searchAsPage(Filter<T> filter, int[] bound,int newPageSize){
+        return new CachePageHelper<>(search(filter, bound),newPageSize);
+    }
+
+    public CachePageHelper<T> searchAsPage(Filter<T> filter,int newPageSize){
+        return new CachePageHelper<>(search(filter),newPageSize);
     }
 
 }

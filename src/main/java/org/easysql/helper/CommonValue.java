@@ -6,6 +6,7 @@ public interface CommonValue {
     String SQL_OUTPUT = "sql output: ";
     String DATA_OUTPUT="data output: ";
     String ERROR = "error: ";
+    String WARNING = "warning: ";
 
     String ADD_COLUMN = "add column:";
     String DELETE_COLUMN = "delete column:";

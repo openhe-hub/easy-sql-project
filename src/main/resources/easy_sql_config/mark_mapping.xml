@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mapping>
-    <class class_name="Mark" table_name="mark" sql_file="sql">
+    <class class_name="Mark" table_name="mark">
         <id
                 field_name="id"
                 field_type="int"
@@ -18,7 +18,7 @@
         </fields>
         <set>
             <foreign_key
-                    type="one_to_one"
+                    type="one to one"
                     from="student_id"
                     to="student.student_id"
             />
