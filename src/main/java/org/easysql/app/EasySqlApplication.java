@@ -18,7 +18,7 @@ import org.easysql.session.SqlSession;
 public class EasySqlApplication {
     public static Logger logger;
     public static <T> void init(Class<T> clazz) {
-        Configuration.AutoConfigure(clazz);
+        Configuration.autoConfigure(clazz);
         logger= Configuration.createLogger(clazz);
     }
 

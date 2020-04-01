@@ -1,11 +1,11 @@
 package org.easysql.helper;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Element;
-import org.easysql.session.Session;
 import org.easysql.session.SessionManager;
 
 import java.io.*;
@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Data
 public class Configuration {
     private static Element rootElement;
     private static Element classRoot;
     private static Element dbRoot;
     private static Element logRoot;
+    private static Element bannerElement;
     @Getter
     private static Element sqlRoot;
     @Getter
@@ -48,6 +50,7 @@ public class Configuration {
         classRoot = rootElement.element("class_config");
         dbRoot = rootElement.element("db_config");
         sqlRoot = rootElement.element("sql_config");
+        bannerElement = rootElement.element("banner_config");
         beanPkg = classRoot.attributeValue("bean_pkg");
         if (sqlRoot != null) {
             sqlPkg = sqlRoot.attributeValue("sql_pkg");
@@ -55,7 +58,9 @@ public class Configuration {
         }
         setLogger(createLogger(Configuration.class));
         if (rootElement != null) {
-            bannerOutput();
+            if (bannerElement!=null){
+                bannerOutput(bannerElement.attributeValue("file"));
+            }
             logger.info(CommonValue.PROCESS + "Getting central configuration finished.");
         } else {
             logger.fatal(CommonValue.ERROR + "Getting central configuration failed.");
@@ -70,9 +75,9 @@ public class Configuration {
         return new File(Objects.requireNonNull(url).getFile());
     }
 
-    public static void AutoConfigure(Class<?> mainClass) {
+    public static void autoConfigure(Class<?> mainClass) {
         configure(mainClass);
-        SessionManager.AutoScanBeans();
+        SessionManager.autoScanBeans();
     }
 
     //@para1 className Bean类名
@@ -97,7 +102,7 @@ public class Configuration {
         }
     }
 
-    public static ArrayList<String> ScanAllClass(){
+    public static ArrayList<String> scanAllClass(){
         List<Element> classElementList=classRoot.elements("class");
         ArrayList<String> classList=new ArrayList<>();
         for (Element element : classElementList) {
@@ -119,9 +124,9 @@ public class Configuration {
         }
     }
 
-    private static void bannerOutput(){
+    private static void bannerOutput(String file){
         try {
-            File bannerFile =new File(Objects.requireNonNull(Configuration.class.getClassLoader().getResource("banner.txt")).getFile());
+            File bannerFile =new File(Objects.requireNonNull(mainClass.getClassLoader().getResource(file)).getFile());
             BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
             String line=null;
             while ((line=reader.readLine()) != null){

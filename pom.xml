@@ -6,7 +6,7 @@
 
     <groupId>org.easysql</groupId>
     <artifactId>EasySql</artifactId>
-    <version>3.5.4.20200331</version>
+    <version>3.5.4.20200401</version>
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>

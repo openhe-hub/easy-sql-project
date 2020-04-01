@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE center_config[
-        <!ELEMENT center_config (db_config,class_config,sql_config)>
+        <!ELEMENT center_config (db_config,class_config,sql_config,log_config,banner_config)>
         <!ELEMENT class_config (class*)>
         <!ELEMENT db_config (database,user,pwd,url,driver_class)>
         <!ELEMENT class EMPTY>
@@ -12,6 +12,7 @@
         <!ELEMENT database EMPTY>
         <!ELEMENT sql EMPTY>
         <!ELEMENT log_config EMPTY>
+        <!ELEMENT banner_config EMPTY>
         <!ATTLIST database name CDATA #REQUIRED>
         <!ATTLIST user name CDATA #REQUIRED>
         <!ATTLIST pwd pwd CDATA #REQUIRED>
@@ -26,6 +27,7 @@
         <!ATTLIST sql_config id_file CDATA #REQUIRED sql_pkg CDATA #REQUIRED>
         <!ATTLIST sql name CDATA #REQUIRED>
         <!ATTLIST log_config file CDATA #REQUIRED>
+        <!ATTLIST banner_config file CDATA #REQUIRED>
         ]>
 <center_config>
 <db_config>
@@ -49,11 +51,6 @@
            table_name="mark"
            config_name="mark_mapping"/>
 </class_config>
+    <banner_config file="banner.txt"/>
 
-<!--<sql_config sql_pkg="sql" id_file="org.easysql.info.R">
-    <sql name="newsql"/>
-    <sql name="sql"/>
-</sql_config>-->
-
-<!--    <log_config file="log4j.properties"/>-->
 </center_config>

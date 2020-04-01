@@ -39,7 +39,6 @@ public abstract class GenericPageHelper<T> implements PageHelper<T> {
 
     @Override
     public ArrayList<T> getPage(int pageNum) {
-        currPage++;
         return data.get(pageNum);
     }
 

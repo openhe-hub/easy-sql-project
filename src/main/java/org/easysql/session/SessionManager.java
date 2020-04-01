@@ -37,8 +37,8 @@ public class SessionManager {
         logger.info(CommonValue.PROCESS+"Registering session("+session.getClassName()+") finished.");
     }
 
-    public static void AutoScanBeans(){
-        ArrayList<String> classList=Configuration.ScanAllClass();
+    public static void autoScanBeans(){
+        ArrayList<String> classList=Configuration.scanAllClass();
         try {
             for (String className : classList) {
                Session<?> session=new Session<>(Class.forName(className));
