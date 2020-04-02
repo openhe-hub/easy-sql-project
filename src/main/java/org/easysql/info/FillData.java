@@ -1,6 +1,8 @@
 package org.easysql.info;
 
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @program: EasySqlProject
@@ -77,5 +79,20 @@ public class FillData {
 
     public ArrayList<String> getParamList() {
         return params;
+    }
+
+    /**
+     *
+     * @return the first parameter
+     * @description this method is a simulation of the queue FIFO
+     */
+    public String getNext(){
+        if (params.size()>0) {
+            String result=params.get(0);
+            params.remove(0);
+            return result;
+        }else {
+            return null;
+        }
     }
 }

@@ -20,6 +20,7 @@ public interface CommonValue {
     String INSERT_ELEMENT_NAME="insert";
     String SELECT_ELEMENT_NAME="select";
     String ALL="*";
+    char PLACEHOLDER='?';
 
     String COLUMN_ELEMENT_NAME="col";
 

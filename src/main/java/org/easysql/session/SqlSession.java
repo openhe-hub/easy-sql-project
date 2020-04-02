@@ -47,6 +47,19 @@ public class SqlSession<T>{
         return str;
     }
 
+    public StringBuilder where(String id,FillData fillData){
+        Element element=parser.findSqlElementByID(id, CommonValue.WHERE_ELEMENT_NAME);
+        StringBuilder str=new StringBuilder(element.getText());
+        LoggerHelper.sqlOutput(str.toString(),logger);
+        for (int i = 0; i < str.length(); i++) {
+            char ch=str.charAt(i);
+            if (ch == CommonValue.PLACEHOLDER){
+                str.replace(i,i+1,fillData.getNext());
+            }
+        }
+        return str;
+    }
+
     public void insert(String id){
         StringBuilder sql = getInsertSql(id);
         DBConnector.executeSQL(sql.toString());
@@ -79,19 +92,7 @@ public class SqlSession<T>{
     public void insert(String id,T bean){
         Element element=parser.findSqlElementByID(id, CommonValue.INSERT_ELEMENT_NAME);
         String[] cols=element.element(CommonValue.COLUMN_ELEMENT_NAME).getTextTrim().split(",");
-        ArrayList<String> fields=new ArrayList<>();
-        if (cols.length==1&&cols[0].equals(CommonValue.ALL)){
-            fields.add(classInfo.getIdInfo().getFieldName());
-            fields.addAll(classInfo.getFieldInfos().keySet());
-        }else {
-            for (String col : cols) {
-                if (col.equals(classInfo.getIdInfo().getColumnName())) {
-                    fields.add(classInfo.getIdInfo().getFieldName());
-                } else {
-                    fields.add(classInfo.getColumnInfos().get(col).getFieldName());
-                }
-            }
-        }
+        ArrayList<String> fields=analyzeFields(cols);
         FillData fillData=new FillData();
         try {
             for (String field : fields) {
@@ -101,6 +102,35 @@ public class SqlSession<T>{
             e.printStackTrace();
         }
         insert(id,fillData);
+    }
+
+
+    /**
+     *
+     * @param id sql id
+     * @param beans data list to fill
+     * this method fill data list into your sql in sql.xml
+     * where corresponds columns in the element <col></col>
+     * and use batch inserting to execute sql
+     * col:* is accepted in this method
+     */
+    public void insertList(String id,ArrayList<T> beans){
+        Element element=parser.findSqlElementByID(id, CommonValue.INSERT_ELEMENT_NAME);
+        String[] cols=element.element(CommonValue.COLUMN_ELEMENT_NAME).getTextTrim().split(",");
+        ArrayList<String> fields=analyzeFields(cols);
+        StringBuilder sql=getInsertSql(id);
+        LoggerHelper.sqlOutput(sql.toString(),logger);
+        PreparedStatement preparedStatement=DBConnector.getPreparedStatement(sql.toString());
+        try {
+            for (T bean : beans) {
+                for (int i = 0; i < fields.size(); i++) {
+                    preparedStatement.setString(i+1,BeanUtils.getProperty(bean,fields.get(i)));
+                }
+                preparedStatement.addBatch();
+            }
+        } catch (SQLException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
     private StringBuilder getInsertSql(String id) {
@@ -117,6 +147,59 @@ public class SqlSession<T>{
         sql.append("values ").append(values);
         return sql;
     }
+
+    private ArrayList<String> analyzeFields(String[] cols) {
+        ArrayList<String> fields=new ArrayList<>();
+        if (cols.length==1&&cols[0].equals(CommonValue.ALL)){
+            fields.add(classInfo.getIdInfo().getFieldName());
+            fields.addAll(classInfo.getFieldInfos().keySet());
+        }else {
+            for (String col : cols) {
+                if (col.equals(classInfo.getIdInfo().getColumnName())) {
+                    fields.add(classInfo.getIdInfo().getFieldName());
+                } else {
+                    fields.add(classInfo.getColumnInfos().get(col).getFieldName());
+                }
+            }
+        }
+        return fields;
+    }
+
+    public void update(String id){
+
+    }
+
+    public void update(String id,FillData bean,FillData condition){
+
+    }
+
+    public void update(String id,T bean,FillData condition){
+
+    }
+
+    public void update(String id,T bean){
+
+    }
+
+    public void updateList(String id,ArrayList<T> beans,FillData condition){
+
+    }
+
+    public void updateList(String id,ArrayList<T> beans){
+
+    }
+
+    private StringBuilder getUpdateSql(String id){
+        StringBuilder sql= new StringBuilder();
+        sql.append("update ").append(session.getTableName()).append(" set");
+        Element element=parser.findSqlElementByID(id, CommonValue.UPDATE_ELEMENT_NAME);
+        Element conditionElement=element.element(CommonValue.WHERE_ELEMENT_NAME);
+        String values = element.element("values").getText();
+        String condition=conditionElement.getText();
+        sql.append(values).append(" where ").append(condition);
+        return sql;
+    }
+
 
 
 
