@@ -16,6 +16,8 @@ public class App extends EasySqlApplication {
         SessionHandler<Student> handler=handler(Student.class);
         Cache<Student> cache=handler.buildCache(new ArrayList<>(),CommonValue.READ_WRITE_MODE);
         cache.insert(new Student("haha",1,314));
-        cache.close();
+        cache.insert(new Student("haha",1,314));
+        cache.insert(new Student("haha",1,314));
+        cache.logAll();
     }
 }

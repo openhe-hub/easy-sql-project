@@ -5,6 +5,7 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Cac
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\pageHelper\PageHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\XmlHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\Join.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\DaoManager\DaoManager.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Transaction.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\SessionConfiguration.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\app\EasySqlApplication.java
@@ -23,6 +24,7 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\Constr
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\app\App.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ColumnCursor.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ClassInfo.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\DaoManager\EasySqlDao.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Filter.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\SqlIdScanner.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ForeignKeyInfo.java

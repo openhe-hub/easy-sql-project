@@ -1,5 +1,6 @@
 package org.easysql.session;
 
+import com.sun.org.apache.bcel.internal.generic.PUTFIELD;
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
@@ -122,6 +123,18 @@ public class Cache<T> {
                 }
             } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public void update(Action<T> action,Filter<T> filter){
+        if (modeCheck()){
+            for (int i=0;i<dataList.size(); i++) {
+                CacheData<T> cacheData = dataList.get(i);
+                T data= cacheData.getData();
+                if (!isDeleted(cacheData)&&filter.filter(data)){
+                    dataList.set(i,new CacheData<>(action.doAction(data),CommonValue.UPDATED_DATA_INDEX));
+                }
             }
         }
     }
