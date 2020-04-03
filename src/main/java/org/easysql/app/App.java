@@ -7,16 +7,15 @@ import org.easysql.session.Cache;
 import org.easysql.session.SessionHandler;
 import org.easysql.session.SqlSession;
 
+import java.util.ArrayList;
+
 
 public class App extends EasySqlApplication {
     public static void main(String[] args) {
         init(App.class);
         SessionHandler<Student> handler=handler(Student.class);
-        Cache<Student> cache=handler.buildCache(handler.selectAll(),CommonValue.READ_WRITE_MODE);
-        CachePageHelper<Student> pageHelper=new CachePageHelper<>(cache,3);
-        pageHelper.logAll();
-        cache.delete(d->d.getId()==29);
-        pageHelper.reLoad(4);
-        pageHelper.logAll();
+        Cache<Student> cache=handler.buildCache(new ArrayList<>(),CommonValue.READ_WRITE_MODE);
+        cache.insert(new Student("haha",1,314));
+        cache.close();
     }
 }

@@ -25,6 +25,7 @@ public class Cache<T> {
 
     public Cache(ArrayList<T> sourceData, int mode, SessionHandler<T> handler) {
         this.mode = mode;
+        this.handler=handler;
         this.fieldsInfo = handler.getFieldsInfo();
         dataList = new ArrayList<>();
         for (T t : sourceData) {

@@ -27,8 +27,6 @@
         <col>*</col>
     </select>
     <select id="select2" class="Student,Teacher">
-        <col></col>
-        <from></from>
-        <where></where>
+        <col>*,*</col>
     </select>
 </sql>
