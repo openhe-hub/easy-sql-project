@@ -17,7 +17,6 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -287,7 +286,7 @@ public class XmlHelper<T> {
                 case "join": {
                     String joinClass = subElement.attributeValue("join");
                     Join join = SessionManager.getJoin(mainClass, joinClass);
-                    String form = join.getForm().getConstraint_type();
+                    String form = join.getForm().getConstraintType();
                     String joinTable = SessionManager.selectSessionByClassName(joinClass).getTableName();
                     String[] point = join.getPoint();
                     String joinCondition = join.getCondition();

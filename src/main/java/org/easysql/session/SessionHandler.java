@@ -108,7 +108,7 @@ public class SessionHandler<T> {
     }
 
     private String appendIndex(IndexInfo index_info) {
-        return index_info.getType().getConstraint_type() + " " + index_info.getName() + "(" +
+        return index_info.getType().getConstraintType() + " " + index_info.getName() + "(" +
                 fieldsInfo.get(index_info.getFieldName()).getColumnName() + "),\n";
     }
 
@@ -118,7 +118,7 @@ public class SessionHandler<T> {
         ConstraintType[] constraints = fieldInfo.getConstraints();
         if (constraints != null) {
             for (ConstraintType type : constraints) {
-                constraintType.append(type.getConstraint_type()).append(" ");
+                constraintType.append(type.getConstraintType()).append(" ");
             }
         }
         return constraintType.toString();
@@ -464,8 +464,8 @@ public class SessionHandler<T> {
         return select(new StringBuilder("*"), null,null);
     }
 
-    public T selectAsID(Object id_value) {
-        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
+    public T selectAsID(Object idValue) {
+        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";");
         ArrayList<String> list = getFieldList();
         return ResultSetToBean(rs, list).get(0);
     }

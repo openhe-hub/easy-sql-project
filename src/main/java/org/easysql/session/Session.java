@@ -139,13 +139,13 @@ public class Session<T> {
             LinkedHashMap<String,FieldInfo> columnMap=fieldMaps.get(1);
             ArrayList<ForeignKeyInfo> foreignKeyList= null;
             ArrayList<IndexInfo> indexList= null;
-            LinkedHashMap<String,Join> join_list= null;
+            LinkedHashMap<String,Join> joinList= null;
             if (set!=null) {
                 foreignKeyList = getForeignKeyInfo(set);
                 indexList = getIndexInfo(set);
-                join_list = getJoinMap(set);
+                joinList = getJoinMap(set);
             }
-            classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,join_list);
+            classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,joinList);
         }
     }
     private LinkedHashMap<String,String[]> getClassInfo(Element classElement ) {

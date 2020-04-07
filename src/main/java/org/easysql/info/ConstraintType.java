@@ -3,7 +3,6 @@ package org.easysql.info;
 import lombok.Getter;
 import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
-import org.easysql.helper.LoggerHelper;
 
 public enum ConstraintType {
 
@@ -27,15 +26,15 @@ public enum ConstraintType {
 
 
     @Getter
-    private String constraint_type;
+    private String constraintType;
 
-    ConstraintType(String constraint_type) {
-        this.constraint_type=constraint_type;
+    ConstraintType(String constraintType) {
+        this.constraintType = constraintType;
     }
 
     public static ConstraintType fromConstraintType(String str){
         for (ConstraintType type:ConstraintType.values()){
-            String type_str=type.getConstraint_type();
+            String type_str=type.getConstraintType();
             if (type_str.equals(str)){
                 return type;
             }
