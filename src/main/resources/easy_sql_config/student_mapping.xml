@@ -4,11 +4,11 @@
         <!ELEMENT class (id,fields,set)>
         <!ELEMENT id EMPTY>
         <!ELEMENT fields (field*)>
-        <!ELEMENT set (foreign_key*,index*,join*)>
+        <!ELEMENT set (foreign_key*,index*,joinInfo*)>
         <!ELEMENT field EMPTY>
         <!ELEMENT foreign_key EMPTY>
         <!ELEMENT index EMPTY>
-        <!ELEMENT join EMPTY>
+        <!ELEMENT joinInfo EMPTY>
         <!ATTLIST class class_name CDATA #REQUIRED
                 table_name CDATA #REQUIRED
                 sql_file CDATA #IMPLIED>
@@ -27,7 +27,7 @@
                 to CDATA #REQUIRED>
         <!ATTLIST index field CDATA #REQUIRED
                 type CDATA #REQUIRED >
-        <!ATTLIST join
+        <!ATTLIST joinInfo
                 type CDATA #REQUIRED
                 from_field CDATA #REQUIRED
                 to_class CDATA #REQUIRED
@@ -71,12 +71,12 @@
                     field="name"
                     type="fulltext"
             />
-            <join type="many to one" form="left join"
+            <joinInfo type="many to one" form="left joinInfo"
                 from_field="teacher"
                   to_class="Teacher"
                   point="teacher_id->id"
             />
-            <join type="one to one" form="inner join"
+            <joinInfo type="one to one" form="inner joinInfo"
                 from_field="mark"
                   to_class="Mark"
                   point="student_id->student_id"

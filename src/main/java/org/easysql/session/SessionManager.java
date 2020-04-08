@@ -5,7 +5,7 @@ import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
 import org.easysql.info.ConstraintType;
 import org.easysql.info.ForeignKeyInfo;
-import org.easysql.info.Join;
+import org.easysql.info.JoinInfo;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -110,11 +110,11 @@ public class SessionManager {
         }
     }
 
-    public static Join getJoin(String main_class,String join_class){
+    public static JoinInfo getJoin(String main_class, String join_class){
         Session<?> main_session= classNameToSession.get(main_class);
-        Join join = main_session.getClassInfo().getJoins().get(join_class);
-        if(join.getToClass().equals(join_class)){
-           return join;
+        JoinInfo joinInfo = main_session.getClassInfo().getJoins().get(join_class);
+        if(joinInfo.getToClass().equals(join_class)){
+           return joinInfo;
         }else {
             return null;
         }

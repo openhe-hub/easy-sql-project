@@ -1,23 +1,16 @@
 package org.easysql.plugin.annotationHelper;
 
-import com.sun.org.apache.bcel.internal.generic.RET;
 import org.apache.log4j.Logger;
-import org.easysql.annotation.Column;
-import org.easysql.annotation.EasySqlPojo;
-import org.easysql.annotation.EasySqlSmartPojo;
-import org.easysql.annotation.Id;
+import org.easysql.annotation.*;
 import org.easysql.helper.Configuration;
-import org.easysql.helper.LoggerHelper;
-import org.easysql.info.ClassInfo;
-import org.easysql.info.FieldInfo;
-import org.easysql.info.IdInfo;
+import org.easysql.info.*;
+import org.easysql.info.JoinInfo;
 
 import java.io.File;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Objects;
-import java.util.regex.Matcher;
 
 /**
  * @program: EasySqlProject
@@ -48,14 +41,17 @@ public class BeanAnnotationAnalyzer {
                 Class<?> clazz=Class.forName(className);
                 if (clazz.isAnnotationPresent(EasySqlPojo.class)){
                     LinkedHashMap<String,String[]> pojoInfo=handleBean(clazz.getAnnotation(EasySqlPojo.class),className);
+                    ArrayList<LinkedHashMap<String,AnnotationFieldInfo>> fieldInfos=new ArrayList<>();
+                    IdInfo idInfo = null;
                     Field[] fields = clazz.getDeclaredFields();
+                    /*UNFINISHED CODE
                     for (Field field : fields) {
                         if (field.isAnnotationPresent(Id.class)){
-
+                            idInfo=handleId(field.getAnnotation(Id.class),field);
                         }else if (field.isAnnotationPresent(Column.class)){
-
+                            fieldInfos.add(handleColumn(field.getAnnotation(Column.class),field));
                         }
-                    }
+                    }*/
                 }else if (clazz.isAnnotationPresent(EasySqlSmartPojo.class)){
 
                 }else {
@@ -72,11 +68,21 @@ public class BeanAnnotationAnalyzer {
         beanFolder=new File(Objects.requireNonNull(mainClass.getClassLoader().getResource(beanPackagePath)).getPath());
     }
 
-   /* private FieldInfo handleFile(Column column) {
+
+    /* UNFINISHED CODE
+    private LinkedHashMap<String,AnnotationFieldInfo> handleColumn(Column column,Field field) {
+        String fieldName=field.getName();
+        String fieldType=field.getType().getName();
+        String columnName=column.columnName();
+        String columnType=column.columnType();
+        ConstraintType[] constraintTypes=column.constraintTypes();
+        ForeignKey[] foreignKeyInfos=column.foreignKey();
+        Index[] indexInfos = column.index();
+        Join[] joinInfos = column.join();
 
     }
 
-    private IdInfo handleId(Id id) {
+    private IdInfo handleId(Id id,Field field) {
 
     }*/
 

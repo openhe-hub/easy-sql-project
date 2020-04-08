@@ -19,7 +19,7 @@
                     from="id"
                     to="student.teacher_id"
             />
-            <join type="one to many" form="inner join"
+            <joinInfo type="one to many" form="inner joinInfo"
                   from_field="students"
                   to_class="Student"
                   point="id->teacher_id"

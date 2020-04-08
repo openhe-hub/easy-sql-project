@@ -1,6 +1,7 @@
 package org.easysql.annotation;
 
 import org.easysql.info.ConstraintType;
+import org.easysql.info.JoinInfo;
 
 import java.lang.annotation.*;
 
@@ -15,9 +16,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
     String columnName() default "";
-    String columnType() default "integer";
+    String columnType() default "";
     ConstraintType[] constraintTypes() default {};
-    ForeignKey foreignKey() default @ForeignKey();
-    Index index() default @Index();
-    Join join() default @Join();
+    ForeignKey[] foreignKey() default {@ForeignKey()};
+    Index[] index() default {@Index()};
+    Join[] join() default {@Join()};
 }

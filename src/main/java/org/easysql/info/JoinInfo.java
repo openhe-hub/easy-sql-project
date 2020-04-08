@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data@AllArgsConstructor@NoArgsConstructor
-public class Join {
+public class JoinInfo {
     private String fromClassName;
     private String fromField;
     private String toClass;

@@ -196,10 +196,10 @@ public class XmlHelper<T> {
             for (Map.Entry<Session<?>,Object> entry:objs.entrySet()) {
                 Object obj=entry.getValue();
                 Session<?> session=entry.getKey();
-                Join join=SessionManager.getJoin(mainClass,session.getClassName());
-                ConstraintType type=join.getType();
+                JoinInfo joinInfo =SessionManager.getJoin(mainClass,session.getClassName());
+                ConstraintType type= joinInfo.getType();
                 try {
-                    String injectPoint = join.getFromField();;//inject point where data inject into main bean
+                    String injectPoint = joinInfo.getFromField();;//inject point where data inject into main bean
                     switch (type){
                         case ONE_TO_ONE:
                         case MANY_TO_ONE: {
@@ -285,11 +285,11 @@ public class XmlHelper<T> {
                 break;
                 case "join": {
                     String joinClass = subElement.attributeValue("join");
-                    Join join = SessionManager.getJoin(mainClass, joinClass);
-                    String form = join.getForm().getConstraintType();
+                    JoinInfo joinInfo = SessionManager.getJoin(mainClass, joinClass);
+                    String form = joinInfo.getForm().getConstraintType();
                     String joinTable = SessionManager.selectSessionByClassName(joinClass).getTableName();
-                    String[] point = join.getPoint();
-                    String joinCondition = join.getCondition();
+                    String[] point = joinInfo.getPoint();
+                    String joinCondition = joinInfo.getCondition();
                     condition = new StringBuilder(" " + form + " " + joinTable + " on " + mainTable + "." + point[0] + joinCondition + joinTable + "." + point[1]);
 
                     Element where = subElement.element("where");

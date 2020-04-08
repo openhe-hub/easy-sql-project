@@ -12,7 +12,7 @@ public class FieldInfo {
     private String columnType;
     private ConstraintType[] constraints;
 
-    public FieldInfo(String[] finishedInfo,ConstraintType[] constraints){
-        this(finishedInfo[0],finishedInfo[1],finishedInfo[2],finishedInfo[3],constraints);
+    public FieldInfo(String[] infos,ConstraintType[] constraints){
+        this(infos[0],infos[1],infos[2],infos[3],constraints);
     }
 }

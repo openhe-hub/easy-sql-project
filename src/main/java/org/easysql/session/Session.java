@@ -80,7 +80,7 @@ public class Session<T> {
     }
 
     public void init(){
-        getConfig();
+        loadXMLConfig();
         this.sessionHandler=new SessionHandler<>(this);
         if (sqlFileName!=null) {
             this.sqlSession=new SqlSession<>(this,sessionHandler);
@@ -124,7 +124,7 @@ public class Session<T> {
     }
 
     //private method
-    private void getConfig() {
+    private void loadXMLConfig() {
         if (xmlConfigName.equals("")) {
             logger.error(CommonValue.ERROR + "Mapping xml not found.Can't read Session(" + className + ") 's configuration.");
             logger.info(CommonValue.SUGGESTION + "Please check your mapping xml and center_config.xml.");
@@ -139,7 +139,7 @@ public class Session<T> {
             LinkedHashMap<String,FieldInfo> columnMap=fieldMaps.get(1);
             ArrayList<ForeignKeyInfo> foreignKeyList= null;
             ArrayList<IndexInfo> indexList= null;
-            LinkedHashMap<String,Join> joinList= null;
+            LinkedHashMap<String, JoinInfo> joinList= null;
             if (set!=null) {
                 foreignKeyList = getForeignKeyInfo(set);
                 indexList = getIndexInfo(set);
@@ -231,10 +231,10 @@ public class Session<T> {
         return null;
     }
 
-    private LinkedHashMap<String,Join> getJoinMap(Element set){
+    private LinkedHashMap<String, JoinInfo> getJoinMap(Element set){
         List<Element> joinElements=set.elements("join");
         if (joinElements!=null) {
-            LinkedHashMap<String,Join> join_list=new LinkedHashMap<>();
+            LinkedHashMap<String, JoinInfo> join_list=new LinkedHashMap<>();
             for (Element join_element:joinElements) {
                String type=join_element.attributeValue("type");
                String form=join_element.attributeValue("form");
@@ -244,7 +244,7 @@ public class Session<T> {
                String condition=join_element.attributeValue("cond");
                String from_class_name= getClassName();
                condition= (condition==null)?"=":condition;
-               join_list.put(to_class,new Join(from_class_name,from_field,to_class,
+               join_list.put(to_class,new JoinInfo(from_class_name,from_field,to_class,
                        ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
                        ,point,condition));
             }

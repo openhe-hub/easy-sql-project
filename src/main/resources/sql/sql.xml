@@ -26,17 +26,17 @@
 
     <select id="test1" class="Student,Teacher,Mark" return="Student" merge="student_id" >
         <fields>@(#Student).*,@(#Teacher).@(name),@(#Mark).@(mark)</fields>
-        <join join="Teacher"/>
-        <join join="Mark"/>
+        <joinInfo joinInfo="Teacher"/>
+        <joinInfo joinInfo="Mark"/>
     </select>
 
     <select id="test2" class="Student,Teacher" return="Student" merge="id" >
         <fields>@(#Student).*,@(#Teacher).*</fields>
-        <join join="Teacher"/>
+        <joinInfo joinInfo="Teacher"/>
     </select>
 
     <select id="test" class="Student,Teacher" return="Student" merge="id">
         <fields>student.*,teacher.*</fields>
-        <join join="Student"/>
+        <joinInfo joinInfo="Student"/>
     </select>
 </sql>
