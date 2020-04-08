@@ -16,7 +16,7 @@ import java.lang.annotation.*;
 public @interface Column {
     String columnName() default "";
     String columnType() default "integer";
-    ConstraintType[] constraintTypes() default {ConstraintType.PRIMARY_KEY};
+    ConstraintType[] constraintTypes() default {};
     ForeignKey foreignKey() default @ForeignKey();
     Index index() default @Index();
     Join join() default @Join();

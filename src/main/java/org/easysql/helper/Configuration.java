@@ -37,8 +37,7 @@ public class Configuration {
     @Setter
     private static String CENTER_CONFIG_NAME = "center_config";
     private final static String CONFIG_FILE_TYPE = ".xml";
-    @Getter
-    @Setter
+    @Getter@Setter
     private static Logger logger;
     @Getter@Setter
     public static Class<?> mainClass;

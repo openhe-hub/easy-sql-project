@@ -1,4 +1,8 @@
+import org.easysql.helper.Configuration;
+import org.easysql.plugin.annotationHelper.BeanAnnotationAnalyzer;
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
 
 /**
  * @program: EasySqlProject
@@ -8,7 +12,14 @@ import org.junit.jupiter.api.Test;
  **/
 public class Test1 {
     @Test
-    public void Test1() {
-        System.out.println("test");
+    public void test1() {
+        Configuration.autoConfigure(Test1.class);
+        BeanAnnotationAnalyzer analyzer=new BeanAnnotationAnalyzer();
+        analyzer.analyzeBeanAnnotation();
+    }
+
+    @Test
+    public void test2(){
+        System.out.println("\\"+File.separator);
     }
 }

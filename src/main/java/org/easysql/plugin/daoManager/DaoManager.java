@@ -1,4 +1,4 @@
-package org.easysql.plugin.DaoManager;
+package org.easysql.plugin.daoManager;
 
 import org.easysql.helper.Configuration;
 

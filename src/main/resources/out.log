@@ -1,0 +1,1004 @@
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 11:30:55 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 11:30:55 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 11:30:55 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 11:30:55 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 11:30:55 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 11:30:55 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 11:30:55 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 11:30:55 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 11:30:55 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 11:30:55 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 11:30:55 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 11:30:55 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 11:30:55 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 11:30:55 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 11:30:55 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 11:30:55 INFO  Cache:16 - process: 	Cache(student) has benn created successfully.
+2020-04-08 11:30:55 INFO  Cache:20 - data output: 	Student(id=0, student_id=314, name=haha, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-04-08 11:30:55 INFO  Cache:20 - data output: 	Student(id=0, student_id=314, name=haha, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-04-08 11:30:55 INFO  Cache:20 - data output: 	Student(id=0, student_id=314, name=haha, teacher_id=1, birthday=null, mark=null, teacher=null)
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:01:48 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:01:48 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:01:48 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:01:48 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:01:48 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:01:48 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:01:48 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:01:48 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:01:48 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:01:48 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:01:48 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:01:48 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:01:48 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:01:48 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:01:48 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:05:52 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:05:52 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:05:52 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:05:52 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:05:52 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:05:52 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:05:52 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:05:52 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:05:52 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:05:52 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:05:52 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:05:52 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:05:52 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:05:52 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:05:52 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:12:44 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:12:44 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:12:45 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:12:45 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:12:45 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:12:45 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:12:45 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:12:45 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:12:45 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:12:45 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:12:45 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:12:45 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:12:45 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:12:45 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:12:45 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:14:54 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:14:54 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:14:54 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:14:54 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:14:54 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:14:54 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:14:54 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:14:54 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:14:54 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:14:54 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:14:54 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:14:54 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:14:54 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:14:54 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:14:54 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:15:53 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:15:53 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:15:53 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:15:53 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:15:53 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:15:53 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:15:53 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:15:53 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:15:53 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:15:53 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:15:53 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:15:53 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:15:53 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:15:53 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:15:53 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:16:15 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:16:15 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:16:15 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:16:15 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:16:15 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:16:15 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:16:15 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:16:15 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:16:15 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:16:15 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:16:15 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:16:15 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:16:15 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:16:15 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:16:15 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:17:32 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:17:32 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:17:33 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:17:33 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:17:33 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:17:33 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:17:33 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:17:33 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:17:33 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:17:33 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:17:33 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:17:33 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:17:33 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:17:33 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:17:33 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:18:29 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:18:29 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:18:29 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:18:29 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:18:29 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:18:29 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:18:29 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:18:29 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:18:29 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:18:29 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:18:29 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:18:29 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:18:29 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:18:29 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:18:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:19:24 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:19:24 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:19:24 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:19:24 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:19:24 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:19:24 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:19:24 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:19:24 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:19:24 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:19:24 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:19:24 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:19:24 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:19:24 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:19:24 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:19:24 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:20:20 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:20:20 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:20:20 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:20:20 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:20:20 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:20:20 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:20:20 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:20:20 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:20:20 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:20:20 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:20:20 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:20:20 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:20:20 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:20:20 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:20:20 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:20:47 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:20:47 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:20:48 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:20:48 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:20:48 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:20:48 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:20:48 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:20:48 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:20:48 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:20:48 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:20:48 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:20:48 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:20:48 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:20:48 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:20:48 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:21:24 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:21:24 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:21:24 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:21:24 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:21:24 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:21:24 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:21:24 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:21:24 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:21:24 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:21:24 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:21:24 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:21:24 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:21:24 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:21:24 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:21:24 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:23:10 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:23:10 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:23:10 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:23:10 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:23:10 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:23:10 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:23:10 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:23:10 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:23:10 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:23:10 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:23:10 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:23:10 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:23:10 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:23:10 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:23:10 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:23:30 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:23:30 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:23:31 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:23:31 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:23:31 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:23:31 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:23:31 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:23:31 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:23:31 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:23:31 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:23:31 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:23:31 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:23:31 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:23:31 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:23:31 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:25:49 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:25:49 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:25:49 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:25:49 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:25:49 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:25:49 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:25:49 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:25:49 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:25:49 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:25:49 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:25:49 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:25:49 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:25:49 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:25:49 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:25:49 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:26:37 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:26:37 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:26:37 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:26:37 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:26:37 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:26:37 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:26:37 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:26:37 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:26:37 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:26:37 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:26:37 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:26:37 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:26:37 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:26:37 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:26:37 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:27:25 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:27:25 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:27:25 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:27:25 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:27:25 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:27:25 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:27:25 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:27:25 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:27:25 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:27:25 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:27:25 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:27:25 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:27:25 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:27:25 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:27:25 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:27:44 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:27:44 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:27:45 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:27:45 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:27:45 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:27:45 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:27:45 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:27:45 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:27:45 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:27:45 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:27:45 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:27:45 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:27:45 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:27:45 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:27:45 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:28:25 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:28:25 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:28:25 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:28:25 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:28:25 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:28:25 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:28:25 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:28:25 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:28:25 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:28:25 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:28:25 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:28:25 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:28:25 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:28:25 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:28:25 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:32:05 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:32:05 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:32:05 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:32:05 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:32:05 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:32:05 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:32:05 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:32:05 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:32:05 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:32:05 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:32:05 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:32:05 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:32:05 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:32:05 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:32:05 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:32:47 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:32:47 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:32:47 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:32:47 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:32:47 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:32:47 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:32:47 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:32:47 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:32:47 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:32:47 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:32:47 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:32:47 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:32:47 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:32:47 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:32:47 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:33:04 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:33:04 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:33:04 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:33:04 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:33:04 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:33:04 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:33:04 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:33:04 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:33:04 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:33:04 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:33:04 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:33:04 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:33:04 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:33:04 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:33:04 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:34:21 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:34:21 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:34:22 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:34:22 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:34:22 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:34:22 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:34:22 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:34:22 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:34:22 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:34:22 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:34:22 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:34:22 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:34:22 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:34:22 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:34:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:35:06 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:35:06 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:35:06 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:35:06 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:35:06 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:35:06 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:35:06 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:35:06 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:35:06 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:35:06 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:35:06 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:35:06 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:35:06 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:35:06 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:35:06 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:35:22 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:35:22 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:35:22 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:35:22 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:35:22 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:35:22 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:35:22 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:35:22 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:35:22 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:35:22 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:35:22 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:35:22 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:35:22 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:35:22 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:35:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:36:22 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:36:22 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:36:22 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:36:22 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:36:22 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:36:22 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:36:22 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:36:22 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:36:22 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:36:22 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:36:22 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:36:22 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:36:22 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:36:22 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:36:22 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:36:45 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:36:45 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:36:46 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:36:46 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:36:46 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:36:46 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:36:46 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:36:46 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:36:46 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:36:46 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:36:46 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:36:46 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:36:46 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:36:46 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:36:46 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:39:28 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:39:28 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:39:29 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:39:29 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:39:29 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:39:29 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:39:29 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:39:29 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:39:29 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:39:29 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:39:29 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:39:29 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:39:29 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:39:29 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:39:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:39:52 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:39:52 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:39:52 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:39:52 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:39:52 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:39:52 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:39:52 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:39:52 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:39:52 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:39:52 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:39:52 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:39:52 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:39:52 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:39:52 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:39:52 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:40:27 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:40:27 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:40:28 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:40:28 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:40:28 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:40:28 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:40:28 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:40:28 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:40:28 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:40:28 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:40:28 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:40:28 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:40:28 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:40:28 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:40:28 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:43:16 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:43:16 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:43:16 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:43:16 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:43:16 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:43:16 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:43:16 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:43:16 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:43:16 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:43:16 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:43:16 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:43:16 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:43:16 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:43:16 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:43:16 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:45:06 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:45:06 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:45:06 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:45:06 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:45:06 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:45:06 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:45:06 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:45:06 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:45:06 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:45:06 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:45:06 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:45:06 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:45:06 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:45:06 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:45:06 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:47:02 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:47:02 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:47:02 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:47:02 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:47:02 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:47:02 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:47:02 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:47:02 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:47:02 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:47:02 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:47:02 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:47:02 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:47:02 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:47:02 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:47:02 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:47:34 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:47:34 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:47:34 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:47:34 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:47:34 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:47:34 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:47:34 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:47:34 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:47:34 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:47:34 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:47:34 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:47:34 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:47:34 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:47:34 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:47:34 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:53:46 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:53:46 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:53:46 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:53:46 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:53:46 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:53:46 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:53:46 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:53:46 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:53:46 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:53:46 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:53:46 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:53:46 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:53:46 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:53:46 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:53:46 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:54:29 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:54:29 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:54:29 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:54:29 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:54:29 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:54:29 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:54:29 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:54:29 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:54:29 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:54:29 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:54:29 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:54:29 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:54:29 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:54:29 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:54:29 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:54:49 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:54:49 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:54:49 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:54:50 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:54:50 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:54:50 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:54:50 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:54:50 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:54:50 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:54:50 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:54:50 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:54:50 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:54:50 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:54:50 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:54:50 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:55:50 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:55:50 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:55:50 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:55:50 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:55:50 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:55:50 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:55:50 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:55:50 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:55:50 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:55:50 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:55:50 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:55:50 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:55:50 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:55:50 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:55:50 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					______           _______     _______  ____  _
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					|  ____|   /\    / ____\ \   / / ____|/ __ \| |
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					| |__     /  \  | (___  \ \_/ / (___ | |  | | |
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					|  __|   / /\ \  \___ \  \   / \___ \| |  | | |
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					| |____ / ____ \ ____) |  | |  ____) | |__| | |____
+2020-04-08 12:56:10 INFO  Configuration:132 -  banner:					|______/_/    \_\_____/   |_| |_____/ \___\_\______|
+2020-04-08 12:56:10 INFO  Configuration:63 - process: Getting central configuration finished.
+2020-04-08 12:56:10 INFO  Session:40 - process: Getting session(Student) 's configuration finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:56:10 INFO  Session:52 - process: SessionHandler(student) has been built successfully.
+2020-04-08 12:56:10 WARN  Session:68 - warning: SqlSession(student) is null.
+2020-04-08 12:56:10 INFO  SessionManager:37 - process: Registering session(student) finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(student) finished.
+2020-04-08 12:56:10 INFO  Session:40 - process: Getting session(Teacher) 's configuration finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:56:10 INFO  Session:52 - process: SessionHandler(Teacher) has been built successfully.
+2020-04-08 12:56:10 WARN  Session:68 - warning: SqlSession(Teacher) is null.
+2020-04-08 12:56:10 INFO  SessionManager:37 - process: Registering session(Teacher) finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(Teacher) finished.
+2020-04-08 12:56:10 INFO  Session:40 - process: Getting session(Mark) 's configuration finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(Mark) finished.
+2020-04-08 12:56:10 INFO  Session:52 - process: SessionHandler(Mark) has been built successfully.
+2020-04-08 12:56:10 WARN  Session:68 - warning: SqlSession(Mark) is null.
+2020-04-08 12:56:10 INFO  SessionManager:37 - process: Registering session(Mark) finished.
+2020-04-08 12:56:10 INFO  Session:89 - process: Initiating session(Mark) finished.

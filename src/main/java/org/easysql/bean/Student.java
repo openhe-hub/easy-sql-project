@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Data@AllArgsConstructor@NoArgsConstructor@Builder
+@Data@AllArgsConstructor@NoArgsConstructor
 public class Student {
     private int id;
     private int student_id;

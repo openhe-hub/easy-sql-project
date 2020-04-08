@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Pojo {
+public @interface EasySqlPojo {
     String tableName();
     String sqlFile() default "";
 }

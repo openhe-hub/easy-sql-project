@@ -1,4 +1,4 @@
-package org.easysql.plugin.DaoManager;
+package org.easysql.plugin.daoManager;
 
 import org.apache.log4j.Logger;
 import org.easysql.helper.Configuration;
@@ -6,7 +6,6 @@ import org.easysql.helper.LoggerHelper;
 import org.easysql.session.Session;
 import org.easysql.session.SessionHandler;
 import org.easysql.session.SessionManager;
-import org.easysql.session.SqlSession;
 
 import java.util.ArrayList;
 
