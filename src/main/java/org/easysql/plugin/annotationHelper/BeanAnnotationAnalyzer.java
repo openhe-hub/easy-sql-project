@@ -1,5 +1,6 @@
 package org.easysql.plugin.annotationHelper;
 
+import com.sun.org.apache.bcel.internal.generic.RET;
 import org.apache.log4j.Logger;
 import org.easysql.annotation.Column;
 import org.easysql.annotation.EasySqlPojo;
@@ -87,5 +88,6 @@ public class BeanAnnotationAnalyzer {
         String sqlFileName=pojo.sqlFile();
         LinkedHashMap<String,String[]> pojoInfo=new LinkedHashMap<>();
         pojoInfo.put(className,new String[]{className,tableName,sqlFileName});
+        return pojoInfo;
     }
 }
