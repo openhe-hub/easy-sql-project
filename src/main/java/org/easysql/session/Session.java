@@ -17,7 +17,7 @@ public class Session<T> {
     @Getter
     private String className;
     @Getter
-    private Class<T> beanClass;
+    private final Class<T> beanClass;
     @Getter
     private String tableName;
     @Getter
@@ -27,7 +27,7 @@ public class Session<T> {
     private SqlSession<T> sqlSession;
     @Getter
     private int field_length;
-    private Logger logger;
+    private final Logger logger;
 
     public Session(Class<T> beanClass){
         this.beanClass=beanClass;
@@ -120,7 +120,6 @@ public class Session<T> {
         sessionHandler=null;
         classInfo=null;
         System.gc();
-        DBConnector.close();
     }
 
     //private method

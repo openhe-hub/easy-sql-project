@@ -23,10 +23,18 @@
             mark=?
         </where>
     </delete>
-    <select id="select1" class="default">
-        <col>*</col>
+    <select id="select1" class="default" return="map1"><col>*</col></select>
+    <select id="select2" class="Student,Teacher" return="map2">
+        <col>student.*,teacher.*</col>
+        <join>Teacher</join>
+        <where>
+            teacher.id=?
+        </where>
     </select>
-    <select id="select2" class="Student,Teacher">
-        <col>*,*</col>
-    </select>
+    <result-map id="map1" class="default">
+        <include>default</include>
+    </result-map>
+    <result-map id="map2" class="Student">
+        <include>Student,Teacher</include>
+    </result-map>
 </sql>

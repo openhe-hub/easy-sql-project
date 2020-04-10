@@ -10,7 +10,6 @@ import org.easysql.session.SessionManager;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,8 +23,6 @@ public class Configuration {
     private static Element bannerElement;
     @Getter
     private static Element sqlRoot;
-    @Getter
-    private static Connection connection;
     @Getter
     private static String beanPkg;
     @Getter
@@ -65,7 +62,7 @@ public class Configuration {
             logger.fatal(CommonValue.ERROR + "Getting central configuration failed.");
             logger.info(CommonValue.SUGGESTION + "Please check your center_config.xml.");
         }
-        connection = DBConnector.getConnection(dbRoot);
+         DataBaseConnector.init(dbRoot);
     }
 
     public static File getFile(Class<?> mainClass, String configName) {
@@ -128,9 +125,11 @@ public class Configuration {
             File bannerFile =new File(Objects.requireNonNull(mainClass.getClassLoader().getResource(file)).getFile());
             BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
             String line=null;
+            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPERATOR);
             while ((line=reader.readLine()) != null){
-                logger.info(" banner:\t\t\t\t\t"+line);
+                logger.info(" banner:\t\t\t\t\t\t\t\t\t\t"+line);
             }
+            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPERATOR);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -18,7 +18,7 @@ public @interface Column {
     String columnName() default "";
     String columnType() default "";
     ConstraintType[] constraintTypes() default {};
-    ForeignKey[] foreignKey() default {@ForeignKey()};
-    Index[] index() default {@Index()};
-    Join[] join() default {@Join()};
+    ForeignKey[] foreignKey() default {@ForeignKey(point = "")};
+    Index[] index() default {@Index};
+    Join[] join() default {@Join(point = "")};
 }

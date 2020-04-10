@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class class_name="User" table_name="user">
+        <id
+                field_name="uid"
+                field_type="int"
+                type="auto_increment"/>
+        <fields>
+            <field
+                    field_name="name"
+                    field_type="java.lang.String"
+                    constraint="unique"
+            />
+            <field
+                    field_name="password"
+                    field_type="java.lang.String"
+            />
+            <field
+                    field_name="age"
+                    field_type="int"
+            />
+        </fields>
+    </class>
+</mapping>

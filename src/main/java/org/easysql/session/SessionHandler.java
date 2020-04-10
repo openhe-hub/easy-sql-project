@@ -5,7 +5,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
-import org.easysql.helper.DBConnector;
+import org.easysql.helper.DataBaseConnector;
 import org.easysql.helper.LoggerHelper;
 import org.easysql.info.*;
 
@@ -18,26 +18,25 @@ import java.util.regex.Pattern;
 
 public class SessionHandler<T> {
     @Getter
-    private LinkedHashMap<String, String[]> classInfo;
+    private final LinkedHashMap<String, String[]> classInfo;
     @Getter
-    private LinkedHashMap<String, FieldInfo> fieldsInfo;
+    private final LinkedHashMap<String, FieldInfo> fieldsInfo;
     @Getter
-    private LinkedHashMap<String, FieldInfo> columnsInfo;
+    private final LinkedHashMap<String, FieldInfo> columnsInfo;
     @Getter
-    private ArrayList<ForeignKeyInfo> foreignKeyInfos;
+    private final ArrayList<ForeignKeyInfo> foreignKeyInfos;
     @Getter
-    private ArrayList<IndexInfo> indexInfos;
+    private final ArrayList<IndexInfo> indexInfos;
     @Getter
-    private IdInfo idInfo;
+    private final IdInfo idInfo;
     @Getter
-    private String tableName;
+    private final String tableName;
     @Getter
-    private String className;
-    private Class BeanClass;
+    private final String className;
+    private final Class<?> BeanClass;
     private ResultSet rs;
-    private ResultSetMetaData resultSetMetaData;
     private PreparedStatement preparedStatement;
-    private Logger logger=Logger.getLogger(SessionHandler.class);
+    private final Logger logger;
 
     public SessionHandler(Session<T> session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
@@ -50,6 +49,7 @@ public class SessionHandler<T> {
         tableName = session.getTableName();
         className=session.getClassName();
         BeanClass = session.getBeanClass();
+        logger=Configuration.createLogger(SessionHandler.class);
     }
 
     //DDL
@@ -91,8 +91,8 @@ public class SessionHandler<T> {
         }
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
-        LoggerHelper.sqlOutput(sql.toString(),logger);
-        DBConnector.executeSQL(sql.toString());
+        LoggerHelper.sqlOutput(sql,logger);
+        DataBaseConnector.executeSQL(sql);
     }
 
     private String appendForeignKeyConstraints(ForeignKeyInfo foreignKeyInfo) {
@@ -163,7 +163,7 @@ public class SessionHandler<T> {
                 }
                 if (sql!=null) {
                     LoggerHelper.sqlOutput(sql, logger);
-                    DBConnector.executeSQL(sql);
+                    DataBaseConnector.executeSQL(sql);
                 }
             }
             logger.info(CommonValue.PROCESS + "Table(" + tableName + ") updated successfully.");
@@ -197,12 +197,12 @@ public class SessionHandler<T> {
         if (tableName==null){
             tableName=this.tableName;
         }
-        String db_name = DBConnector.getDb_name();
+        String dbName = DataBaseConnector.getDataBaseInfo().getDatabaseName();
         boolean ans = false;
         try {
-            String sql = "select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + db_name + "\' and TABLE_NAME=\'" + tableName + "\';";
+            String sql = "select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + dbName + "\' and TABLE_NAME=\'" + tableName + "\';";
             LoggerHelper.sqlOutput(sql, logger);
-            rs = DBConnector.executeQuery(sql);
+            rs = DataBaseConnector.executeQuery(sql);
             while (rs.next()) {
                 ans = rs.getInt(1) != 0;
             }
@@ -217,7 +217,7 @@ public class SessionHandler<T> {
     public void deleteTable() {
         String sql = "drop table " + tableName + ";";
         LoggerHelper.sqlOutput(sql,logger);
-        DBConnector.executeSQL(sql);
+        DataBaseConnector.executeSQL(sql);
     }
 
     //DML
@@ -233,8 +233,8 @@ public class SessionHandler<T> {
             }
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
-            LoggerHelper.sqlOutput(sql.toString(),logger);
-            DBConnector.executeSQL(sql.toString());
+            LoggerHelper.sqlOutput(sql,logger);
+            DataBaseConnector.executeSQL(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -308,8 +308,8 @@ public class SessionHandler<T> {
             insert_columns.deleteCharAt(insert_columns.length() - 1).append(")");
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
-            LoggerHelper.sqlOutput(sql.toString(),logger);
-            preparedStatement = DBConnector.getPreparedStatement(sql.toString());
+            LoggerHelper.sqlOutput(sql,logger);
+            preparedStatement = DataBaseConnector.getPreparedStatement(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -407,8 +407,8 @@ public class SessionHandler<T> {
         }
         sql.deleteCharAt(sql.length() - 1);
         sql.append(" where ").append(condition);
-        LoggerHelper.sqlOutput(sql.toString(),logger);
-        preparedStatement = DBConnector.getPreparedStatement(sql.toString());
+        LoggerHelper.sqlOutput(sql,logger);
+        preparedStatement = DataBaseConnector.getPreparedStatement(sql);
         return toInsertColumns;
     }
 
@@ -430,7 +430,7 @@ public class SessionHandler<T> {
             sql.append(" where ").append(condition.toString()).append(";");
         }
 
-        preparedStatement = DBConnector.getPreparedStatement(sql.toString());//防止sql注入攻击
+        preparedStatement = DataBaseConnector.getPreparedStatement(sql);//防止sql注入攻击
         try {
             if (params!=null&&params.size()>0) {
                 for (int i = 0; i < params.size(); i++) {
@@ -441,7 +441,7 @@ public class SessionHandler<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        LoggerHelper.sqlOutput(sql.toString(), logger);
+        LoggerHelper.sqlOutput(sql, logger);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fieldsInfo.keySet());
@@ -465,14 +465,14 @@ public class SessionHandler<T> {
     }
 
     public T selectAsID(Object idValue) {
-        rs = DBConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";");
+        rs = DataBaseConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";");
         ArrayList<String> list = getFieldList();
         return ResultSetToBean(rs, list).get(0);
     }
 
     //get a column string list
     private ArrayList<String> getColumnList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add(idInfo.getColumnName());
         for (String key : fieldsInfo.keySet()) {
             list.add(fieldsInfo.get(key).getColumnName());
@@ -491,8 +491,8 @@ public class SessionHandler<T> {
     private ArrayList<T> ResultSetToBean(ResultSet rs, ArrayList<String> data_name) {//convert resultSet to list
         ArrayList<T> objects = new ArrayList<>();
         try {
-            ArrayList<ArrayList<String>> origin_data = new ArrayList<ArrayList<String>>();
-            resultSetMetaData = DBConnector.getRsmd(rs);
+            ArrayList<ArrayList<String>> origin_data = new ArrayList<>();
+            ResultSetMetaData resultSetMetaData = DataBaseConnector.getResultSetMetaData(rs);
             int row_count = 0;
 
             //遍历resultSet
@@ -532,8 +532,8 @@ public class SessionHandler<T> {
             e.printStackTrace();
         }
         StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
-        LoggerHelper.sqlOutput(sql.toString(),logger);
-        DBConnector.executeSQL(sql.toString());
+        LoggerHelper.sqlOutput(sql,logger);
+        DataBaseConnector.executeSQL(sql);
     }
 
     public void delete(String columns, String condition) {
@@ -543,8 +543,8 @@ public class SessionHandler<T> {
         } else {
             sql.append("(").append(columns).append("） where ").append(condition).append(";");
         }
-        LoggerHelper.sqlOutput(sql.toString(),logger);
-        DBConnector.executeSQL(sql.toString());
+        LoggerHelper.sqlOutput(sql,logger);
+        DataBaseConnector.executeSQL(sql);
     }
 
     public void deleteListAsID(ArrayList<T> beans) {
@@ -553,21 +553,17 @@ public class SessionHandler<T> {
         }
     }
 
-
     //cache
     public Cache<T> buildCache(ArrayList<T> data, int mode) {
         return new Cache<>(data, mode, this);
     }
 
+    //transaction
     public Transaction startTransaction() {
-        Transaction transaction = new Transaction(Configuration.getConnection(), Connection.TRANSACTION_REPEATABLE_READ);
-        return transaction;
+        return new Transaction(Objects.requireNonNull(DataBaseConnector.getConnection()), Connection.TRANSACTION_REPEATABLE_READ);
     }
 
     public Transaction startTransaction(int level) {
-        Transaction transaction = new Transaction(Configuration.getConnection(), level);
-        return transaction;
+        return new Transaction(Objects.requireNonNull(DataBaseConnector.getConnection()), level);
     }
-
-
 }

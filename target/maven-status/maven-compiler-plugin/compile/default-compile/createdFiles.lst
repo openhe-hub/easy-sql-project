@@ -1,10 +1,12 @@
+org\easysql\helper\DataBaseConnector.class
 org\easysql\info\FillData.class
-org\easysql\bean\Student$StudentBuilder.class
 org\easysql\info\AnalyseMultiSelectPackage.class
+org\easysql\annotation\ForeignKey.class
 org\easysql\session\Filter.class
 org\easysql\info\AnalyseSelectPackage.class
-org\easysql\info\Join.class
+org\easysql\annotation\Column.class
 org\easysql\session\SessionHandler.class
+org\easysql\info\AnnotationFieldInfo.class
 org\easysql\helper\CommonValue.class
 org\easysql\plugin\pageHelper\PageHelper.class
 org\easysql\info\ClassInfo.class
@@ -12,6 +14,7 @@ org\easysql\info\IndexInfo.class
 org\easysql\session\Transaction.class
 org\easysql\bean\Mark.class
 org\easysql\info\ForeignKeyInfo.class
+org\easysql\bean\User.class
 org\easysql\helper\XmlHelper.class
 org\easysql\session\SqlSession.class
 org\easysql\info\ConstraintType.class
@@ -19,15 +22,17 @@ org\easysql\app\EasySqlApplication.class
 org\easysql\session\CacheData.class
 org\easysql\session\SessionManager$1.class
 org\easysql\helper\SessionConfiguration.class
-org\easysql\helper\DBConnector.class
 org\easysql\plugin\pageHelper\GenericPageHelper.class
 org\easysql\app\App.class
 org\easysql\info\ColumnCursor.class
+org\easysql\plugin\annotationHelper\BeanAnnotationAnalyzer.class
 org\easysql\helper\XmlHelper$1.class
 org\easysql\helper\Configuration.class
 org\easysql\plugin\daoManager\DaoManager.class
 org\easysql\session\SessionManager.class
+org\easysql\annotation\Index.class
 org\easysql\session\Session.class
+org\easysql\annotation\Join.class
 org\easysql\helper\LoggerHelper.class
 org\easysql\plugin\daoManager\EasySqlDao.class
 org\easysql\info\FieldInfo.class
@@ -37,3 +42,4 @@ org\easysql\session\Cache.class
 org\easysql\helper\SqlIdScanner.class
 org\easysql\bean\Student.class
 org\easysql\plugin\pageHelper\CachePageHelper.class
+org\easysql\info\DataBaseInfo$DataBaseInfoBuilder.class

@@ -12,6 +12,10 @@ public class LoggerHelper {
         }
     }
 
+    public static void sqlOutput(StringBuilder sql, Logger logger){
+        sqlOutput(sql.toString(), logger);
+    }
+
     public static void ProcessOutput(String process,Logger logger){
         logger.info(CommonValue.PROCESS+"\t"+process);
     }
@@ -21,8 +25,9 @@ public class LoggerHelper {
     }
 
     public static <T>  void DataOutput(ArrayList<T> dataList, Logger logger){
-        for (T data : dataList) {
-            DataOutput(data,logger);
-        }
+        logger.info(CommonValue.DATA_OUTPUT+"\tdata list output.");
+        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
+        dataList.forEach(data -> DataOutput(data,logger));
+        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
     }
 }

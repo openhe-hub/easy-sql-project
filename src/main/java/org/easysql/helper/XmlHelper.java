@@ -145,7 +145,7 @@ public class XmlHelper<T> {
         //analyze
         AnalyseMultiSelectPackage analyseMultiSelectPackage = analyseMultiSelectSql(selectElement, bean, datas, new ArrayList<>());
         //fill paras and get result
-        PreparedStatement preparedStatement = DBConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
+        PreparedStatement preparedStatement = DataBaseConnector.getPreparedStatement(analyseMultiSelectPackage.getSql().toString());
         ArrayList<Object> paras = analyseMultiSelectPackage.getSelectParas();
         LinkedHashMap<Session<?>, ColumnCursor> columnCursor = analyseMultiSelectPackage.getColumnCursor();
         LinkedHashMap<String,Session<?>> sessions=analyseMultiSelectPackage.getSessions();

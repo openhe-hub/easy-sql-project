@@ -35,7 +35,7 @@
                 form CDATA #REQUIRED>
         ]>
 <mapping>
-    <class class_name="student" table_name="student" >
+    <class class_name="student" table_name="student" sql_file="newsql" >
         <id
                 field_name="id"
                 field_type="int"
