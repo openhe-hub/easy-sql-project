@@ -18,6 +18,11 @@ public class FillData {
         add(i);
     }
 
+    public FillData(boolean i){
+        this();
+        add(i);
+    }
+
     public FillData(long i) {
         this();
         add(i);
@@ -48,6 +53,11 @@ public class FillData {
     }
 
     public FillData add(int i) {
+        params.add(i+"");
+        return this;
+    }
+
+    public FillData add(boolean i) {
         params.add(i+"");
         return this;
     }

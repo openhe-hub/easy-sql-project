@@ -5,7 +5,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 import org.easysql.helper.CommonValue;
 import org.easysql.helper.Configuration;
-import org.easysql.helper.DataBaseConnector;
+import org.easysql.helper.DatabaseConnector;
 import org.easysql.helper.LoggerHelper;
 import org.easysql.info.*;
 
@@ -92,7 +92,7 @@ public class SessionHandler<T> {
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
         LoggerHelper.sqlOutput(sql,logger);
-        DataBaseConnector.executeSQL(sql);
+        DatabaseConnector.executeSQL(sql);
     }
 
     private String appendForeignKeyConstraints(ForeignKeyInfo foreignKeyInfo) {
@@ -163,7 +163,7 @@ public class SessionHandler<T> {
                 }
                 if (sql!=null) {
                     LoggerHelper.sqlOutput(sql, logger);
-                    DataBaseConnector.executeSQL(sql);
+                    DatabaseConnector.executeSQL(sql);
                 }
             }
             logger.info(CommonValue.PROCESS + "Table(" + tableName + ") updated successfully.");
@@ -197,12 +197,12 @@ public class SessionHandler<T> {
         if (tableName==null){
             tableName=this.tableName;
         }
-        String dbName = DataBaseConnector.getDataBaseInfo().getDatabaseName();
+        String dbName = DatabaseConnector.getDataBaseInfo().getDatabaseName();
         boolean ans = false;
         try {
             String sql = "select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + dbName + "\' and TABLE_NAME=\'" + tableName + "\';";
             LoggerHelper.sqlOutput(sql, logger);
-            rs = DataBaseConnector.executeQuery(sql);
+            rs = DatabaseConnector.executeQuery(sql);
             while (rs.next()) {
                 ans = rs.getInt(1) != 0;
             }
@@ -217,7 +217,7 @@ public class SessionHandler<T> {
     public void deleteTable() {
         String sql = "drop table " + tableName + ";";
         LoggerHelper.sqlOutput(sql,logger);
-        DataBaseConnector.executeSQL(sql);
+        DatabaseConnector.executeSQL(sql);
     }
 
     //DML
@@ -234,7 +234,7 @@ public class SessionHandler<T> {
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
             LoggerHelper.sqlOutput(sql,logger);
-            DataBaseConnector.executeSQL(sql);
+            DatabaseConnector.executeSQL(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -260,7 +260,7 @@ public class SessionHandler<T> {
     }
 
     /*根据每个bean的ID循环插入,当每个bean插入字段不同时，使用该方法*/
-    public void insertListToTableByID(ArrayList<T> beans) {
+    public void insertListByID(ArrayList<T> beans) {
         for (T bean : beans) {
             insert(bean);
         }
@@ -309,7 +309,7 @@ public class SessionHandler<T> {
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
             LoggerHelper.sqlOutput(sql,logger);
-            preparedStatement = DataBaseConnector.getPreparedStatement(sql);
+            preparedStatement = DatabaseConnector.getPreparedStatement(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -346,7 +346,7 @@ public class SessionHandler<T> {
         }
     }
 
-    public void updateListToTable(ArrayList<T> beans) {
+    public void updateList(ArrayList<T> beans) {
         ArrayList<String> toInsertColumns = getUpdatePreparedStatement(idInfo.getColumnName() + "=?", beans.get(0));
         toInsertColumns.add(idInfo.getFieldName());
         try {
@@ -363,7 +363,7 @@ public class SessionHandler<T> {
     }
 
 
-    public void updateListToTableByID(ArrayList<T> beans, ArrayList<HashMap<Integer, String>> conditions) {
+    public void updateListByID(ArrayList<T> beans, ArrayList<HashMap<Integer, String>> conditions) {
         int condition_index = 0;
         String condition = null;
         boolean is_condition_end = false;
@@ -381,7 +381,7 @@ public class SessionHandler<T> {
         }
     }
 
-    public void updateListToTableByID(ArrayList<T> beans) {
+    public void updateListByID(ArrayList<T> beans) {
         for (T bean : beans) {
             updateAsID(bean);
         }
@@ -408,16 +408,16 @@ public class SessionHandler<T> {
         sql.deleteCharAt(sql.length() - 1);
         sql.append(" where ").append(condition);
         LoggerHelper.sqlOutput(sql,logger);
-        preparedStatement = DataBaseConnector.getPreparedStatement(sql);
+        preparedStatement = DatabaseConnector.getPreparedStatement(sql);
         return toInsertColumns;
     }
 
 
-    /*
-     * @param1:columns to be selected (* is allowed)
-     * @param2:selection condition
-     * @param3:data to be filled in Sql
-     * @return:selected data(in a list of Bean object)
+    /**
+     * @param toSelect: to be selected (* is allowed)
+     * @param condition:select condition
+     * @param params:data to be filled in Sql
+     * @return result data(in a list of Bean object)
      * */
     public ArrayList<T> select(StringBuilder toSelect, StringBuilder condition, ArrayList<Object> params) {
         Pattern p = Pattern.compile("\\s*|\t|\r|\n");//正则表达式去空格，换行符
@@ -430,7 +430,7 @@ public class SessionHandler<T> {
             sql.append(" where ").append(condition.toString()).append(";");
         }
 
-        preparedStatement = DataBaseConnector.getPreparedStatement(sql);//防止sql注入攻击
+        preparedStatement = DatabaseConnector.getPreparedStatement(sql);//防止sql注入攻击
         try {
             if (params!=null&&params.size()>0) {
                 for (int i = 0; i < params.size(); i++) {
@@ -464,10 +464,12 @@ public class SessionHandler<T> {
         return select(new StringBuilder("*"), null,null);
     }
 
-    public T selectAsID(Object idValue) {
-        rs = DataBaseConnector.executeQuery("select * from " + tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";");
+    public T selectAsID(int idValue) {
+        String sql="select * from "+tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";";
+        LoggerHelper.sqlOutput(sql,logger);
+        rs = DatabaseConnector.executeQuery(sql);
         ArrayList<String> list = getFieldList();
-        return ResultSetToBean(rs, list).get(0);
+        return Objects.requireNonNull(ResultSetToBean(rs, list)).get(0);
     }
 
     //get a column string list
@@ -492,7 +494,7 @@ public class SessionHandler<T> {
         ArrayList<T> objects = new ArrayList<>();
         try {
             ArrayList<ArrayList<String>> origin_data = new ArrayList<>();
-            ResultSetMetaData resultSetMetaData = DataBaseConnector.getResultSetMetaData(rs);
+            ResultSetMetaData resultSetMetaData = DatabaseConnector.getResultSetMetaData(rs);
             int row_count = 0;
 
             //遍历resultSet
@@ -523,8 +525,13 @@ public class SessionHandler<T> {
 
 
     //delete
+    public void deleteAsID(int idValue) {
+        String sql="delete from "+tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";";
+        LoggerHelper.sqlOutput(sql,logger);
+        DatabaseConnector.executeSQL(sql);
+    }
 
-    public void deleteAsID(T bean) {
+    public void deleteAsBean(T bean) {
         Object id_value = null;
         try {
             id_value = BeanUtils.getProperty(bean, idInfo.getFieldName());
@@ -533,7 +540,7 @@ public class SessionHandler<T> {
         }
         StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
         LoggerHelper.sqlOutput(sql,logger);
-        DataBaseConnector.executeSQL(sql);
+        DatabaseConnector.executeSQL(sql);
     }
 
     public void delete(String columns, String condition) {
@@ -544,12 +551,12 @@ public class SessionHandler<T> {
             sql.append("(").append(columns).append("） where ").append(condition).append(";");
         }
         LoggerHelper.sqlOutput(sql,logger);
-        DataBaseConnector.executeSQL(sql);
+        DatabaseConnector.executeSQL(sql);
     }
 
     public void deleteListAsID(ArrayList<T> beans) {
         for (T bean : beans) {
-            deleteAsID(bean);
+            deleteAsBean(bean);
         }
     }
 
@@ -560,10 +567,10 @@ public class SessionHandler<T> {
 
     //transaction
     public Transaction startTransaction() {
-        return new Transaction(Objects.requireNonNull(DataBaseConnector.getConnection()), Connection.TRANSACTION_REPEATABLE_READ);
+        return new Transaction(Objects.requireNonNull(DatabaseConnector.getConnection()), Connection.TRANSACTION_REPEATABLE_READ);
     }
 
     public Transaction startTransaction(int level) {
-        return new Transaction(Objects.requireNonNull(DataBaseConnector.getConnection()), level);
+        return new Transaction(Objects.requireNonNull(DatabaseConnector.getConnection()), level);
     }
 }

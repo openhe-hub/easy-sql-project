@@ -2,25 +2,22 @@
 <!DOCTYPE center_config[
         <!ELEMENT center_config (db_config,class_config,sql_config,log_config,banner_config)>
         <!ELEMENT class_config (class*)>
-        <!ELEMENT db_config (database,user,pwd,url,driver-class,load)>
+        <!ELEMENT db_config (database,username,password,url,url-params,driver-class,load,max,initial,wait-time)>
         <!ELEMENT class EMPTY>
         <!ELEMENT sql_config (sql*)>
-        <!ELEMENT user EMPTY>
-        <!ELEMENT pwd EMPTY>
-        <!ELEMENT url EMPTY>
-        <!ELEMENT load EMPTY>
-        <!ELEMENT driver-class EMPTY>
-        <!ELEMENT database EMPTY>
+        <!ELEMENT username ANY>
+        <!ELEMENT password ANY>
+        <!ELEMENT url ANY>
+        <!ELEMENT url-params ANY>
+        <!ELEMENT load ANY>
+        <!ELEMENT max ANY>
+        <!ELEMENT initial ANY>
+        <!ELEMENT wait-time ANY>
+        <!ELEMENT driver-class ANY>
+        <!ELEMENT database ANY>
         <!ELEMENT sql EMPTY>
         <!ELEMENT log_config EMPTY>
         <!ELEMENT banner_config EMPTY>
-        <!ATTLIST database name CDATA #REQUIRED>
-        <!ATTLIST load file CDATA #REQUIRED>
-        <!ATTLIST user name CDATA #REQUIRED>
-        <!ATTLIST pwd pwd CDATA #REQUIRED>
-        <!ATTLIST url url CDATA #IMPLIED
-                url-params CDATA #IMPLIED>
-        <!ATTLIST driver-class class_name CDATA #IMPLIED>
         <!ATTLIST class_config bean_pkg CDATA #REQUIRED>
         <!ATTLIST class class_name CDATA #REQUIRED
                 table_name CDATA #REQUIRED
@@ -32,7 +29,11 @@
         ]>
 <center_config>
 <db_config>
-    <load file="druid.properties"/>
+    <username>root</username>
+    <password>31415926</password>
+    <database>jdbc_test</database>
+    <initial>9</initial>
+    <max>9</max>
 </db_config>
 
 <class_config bean_pkg="org.easysql.bean">

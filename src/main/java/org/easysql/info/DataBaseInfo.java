@@ -12,14 +12,14 @@ import lombok.NoArgsConstructor;
  * @create: 2020-04-10 12:26
  **/
 
-@Data@AllArgsConstructor@NoArgsConstructor@Builder
+@Data@AllArgsConstructor@NoArgsConstructor
 public class DataBaseInfo {
     private String username;
     private String password;
     private String databaseName;
-    private String driverClassName="com.mysql.cj.jdbc.Driver";
-    private String url="jdbc:mysql://localhost:3306/";
-    private String urlParameters="characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true";
+    private String driverClassName;
+    private String url;
+    private String urlParameters;
     private int maxActive=10;
     private int initialSize=10;
     private long maxWait=3000;

@@ -1,4 +1,3 @@
-org\easysql\helper\DataBaseConnector.class
 org\easysql\info\FillData.class
 org\easysql\info\AnalyseMultiSelectPackage.class
 org\easysql\annotation\ForeignKey.class
@@ -25,6 +24,7 @@ org\easysql\helper\SessionConfiguration.class
 org\easysql\plugin\pageHelper\GenericPageHelper.class
 org\easysql\app\App.class
 org\easysql\info\ColumnCursor.class
+org\easysql\helper\DatabaseConnector.class
 org\easysql\plugin\annotationHelper\BeanAnnotationAnalyzer.class
 org\easysql\helper\XmlHelper$1.class
 org\easysql\helper\Configuration.class
@@ -42,4 +42,3 @@ org\easysql\session\Cache.class
 org\easysql\helper\SqlIdScanner.class
 org\easysql\bean\Student.class
 org\easysql\plugin\pageHelper\CachePageHelper.class
-org\easysql\info\DataBaseInfo$DataBaseInfoBuilder.class

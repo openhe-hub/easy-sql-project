@@ -15,7 +15,9 @@ import java.util.ArrayList;
 public class App extends EasySqlApplication {
     public static void main(String[] args) {
         init(App.class);
-        ArrayList<User> users=handler(User.class).selectAll();
-        DataOutput(users);
+        SessionHandler<User> handler = handler(User.class);
+        User user= handler.selectAsID(1);
+        DataOutput(user);
+        handler.deleteAsID(user);
     }
 }

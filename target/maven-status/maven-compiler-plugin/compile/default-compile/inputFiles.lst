@@ -30,6 +30,7 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\page
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\bean\Student.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\Action.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\annotation\Column.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\DefaultParameters.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\LoggerHelper.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\CommonValue.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\IndexInfo.java
@@ -42,7 +43,6 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\anno
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\AnalyseMultiSelectPackage.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\AnalyseSelectPackage.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\annotationHelper\DaoAnnotationAnalyzer.java
-D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\DBConnector.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\SessionManager.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\session\SqlSession.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\annotationHelper\BeanAnnotationAnalyzer.java
@@ -52,5 +52,6 @@ D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\app\App.jav
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\info\ColumnCursor.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\annotation\EasySqlPojo.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\annotation\Id.java
+D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\DataBaseConnector.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\helper\SqlIdScanner.java
 D:\javaprojects\javase\jdbc\EasySqlProject\src\main\java\org\easysql\plugin\pageHelper\SessionPageHelper.java

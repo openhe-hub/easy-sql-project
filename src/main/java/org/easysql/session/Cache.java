@@ -1,6 +1,5 @@
 package org.easysql.session;
 
-import com.sun.org.apache.bcel.internal.generic.PUTFIELD;
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
@@ -306,7 +305,7 @@ public class Cache<T> {
                 default: {}break;
                     }});
         handler.insertListToTable(insertList);
-        handler.updateListToTableByID(updateList);
+        handler.updateListByID(updateList);
         handler.deleteListAsID(deleteList);
     }
 }

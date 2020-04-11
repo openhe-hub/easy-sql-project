@@ -30,11 +30,20 @@ IDE:Intellij IDEA
 1. 继承EasySqlApp类进行快速开发 -开发完成
 2. SqlSession类 -加强提议
 3. lombok升级到1.18.12 -完成
-4. 下一版本为3.5稳定版本，发布时将会merge到主分支
 * Version 3.5.3 2020-03-28
 1. PageHelper插件 -加强提议 -初步开发
 2. SqlSession -初步开发
 3. 加入启动banner字符画 -开发完成
+* Version 3.5.4 2020-04-01
+1. CachePageHelper/GenericPageHelper分页插件 -开发完成
+2. 自定义banner启动字符画 -bug fix
+3. sql脚本配置修复 -bug fix
+4. EasySqlDao/DaoManager进行快速开发Dao层开发 -加强提议
+* Version 3.5.5 2020-04-10
+1. 引入alibaba druid数据库连接池重构DatabaseConnector -开发完成
+2. 引入注解配置 -初步开发
+3. 引入注解解析器 -初步开发
+4. SqlSession -更新
 
 
 #### 参与贡献

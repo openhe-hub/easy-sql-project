@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 
-public class DataBaseConnector {
+public class DatabaseConnector {
     @Getter
     private static DataSource dataSource;
     private static Logger logger;
@@ -28,7 +28,7 @@ public class DataBaseConnector {
     private static DataBaseInfo dataBaseInfo;
 
     public static void init(Element databaseElement) {
-        logger = Configuration.createLogger(DataBaseConnector.class);
+        logger = Configuration.createLogger(DatabaseConnector.class);
         loadDataSource(databaseElement);
     }
 
@@ -58,7 +58,6 @@ public class DataBaseConnector {
         if (stmt != null) {
             return stmt;
         } else {
-
             System.out.println("error:can't create statement.Please check your connection");
             return null;
         }
@@ -75,8 +74,6 @@ public class DataBaseConnector {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            close(conn, stmt);
         }
     }
 
@@ -99,8 +96,6 @@ public class DataBaseConnector {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-        } finally {
-            close(conn, stmt);
         }
     }
 
@@ -201,7 +196,7 @@ public class DataBaseConnector {
     private static void loadPropertiesDataBaseConfiguration(String propertiesFileName) {
         Properties props = new Properties();
         try {
-            props.load(new FileReader(Objects.requireNonNull(DataBaseConnector.class.getClassLoader().getResource("druid.properties")).getPath()));
+            props.load(new FileReader(Objects.requireNonNull(DatabaseConnector.class.getClassLoader().getResource("druid.properties")).getPath()));
             dataSource = DruidDataSourceFactory.createDataSource(props);
         } catch (Exception e) {
             e.printStackTrace();
@@ -209,37 +204,52 @@ public class DataBaseConnector {
     }
 
     private static void loadXMLDataBaseConfiguration(Element databaseElement) {
-        //necessary configuration
-        String databaseName = databaseElement.element("database").attributeValue("name");
-        String userName = databaseElement.element("user").attributeValue("name");
-        String password = databaseElement.element("pwd").attributeValue("pwd");
-        dataBaseInfo = DataBaseInfo.builder()
-                .databaseName(databaseName)
-                .username(userName)
-                .password(password)
-                .build();
-
-        //extra configuration
-        Element databaseUrl, databaseDriverClass;
-        String url, urlParams, driverClass;
-        if ((databaseUrl = databaseElement.element("url")) != null) {
-            url = databaseUrl.attributeValue("url");
-            if (url != null && !url.isEmpty()) {
-                dataBaseInfo.setUrl(url);
-            }
-            urlParams = databaseUrl.attributeValue("url-params");
-            if (urlParams != null && !urlParams.isEmpty()) {
-                dataBaseInfo.setUrlParameters(urlParams.trim());
-            }
-        }
-        if ((databaseDriverClass = databaseElement.element("driver-class")) != null) {
-            driverClass = databaseDriverClass.attributeValue("class_name");
-            if (driverClass != null && !driverClass.isEmpty()) {
-                dataBaseInfo.setDriverClassName(driverClass);
-            }
-        }
+        /*
+         * key[0]:class fields
+         * key[1]:xml element
+         */
+        HashMap<String[], String> map = new HashMap<>();
+        map.put(new String[]{"databaseName", "database"}, "");
+        map.put(new String[]{"username", "username"}, "");
+        map.put(new String[]{"password", "password"}, "");
+        map.put(new String[]{"url", "url"}, DefaultParameters.URL);
+        map.put(new String[]{"urlParameters", "url-params"}, DefaultParameters.URL_PARAMETERS);
+        map.put(new String[]{"driverClassName", "driver-class"}, DefaultParameters.DRIVER_CLASS);
+        map.put(new String[]{"maxActive", "max"}, DefaultParameters.MAX_ACTIVE_CONNECTION + "");
+        map.put(new String[]{"initialSize", "initial"}, DefaultParameters.INITIAL_CONNECTION + "");
+        map.put(new String[]{"maxWait", "wait-time"}, DefaultParameters.MAX_WAIT_TIME + "");
+        DataBaseInfo dataBaseInfo = setXMLConfigurationValue(map, databaseElement);
         //dynamic data source configuration
         createDataSource(dataBaseInfo);
+    }
+
+    private static DataBaseInfo setXMLConfigurationValue(HashMap<String[], String> map, Element databaseElement) {
+        DataBaseInfo dataBaseInfo = new DataBaseInfo();
+        map.forEach((k,v)->{
+            Element temp = null;
+            try {
+                if ((temp = databaseElement.element(k[1])) != null) {
+                    String tempStr = temp.getTextTrim();
+                    if (tempStr != null && !tempStr.isEmpty()) {
+                        BeanUtils.setProperty(dataBaseInfo, k[0], tempStr);
+                    } else {
+                        //error,empty configuration
+                        logger.error("Please configure " + k[1] + " first.");
+                    }
+                } else {
+                    //use default settings
+                    if (v.isEmpty()) {
+                        //error,user must configure it first
+                        logger.error("Please configure " + k[1] + " first.");
+                    } else {
+                        BeanUtils.setProperty(dataBaseInfo, k[0], v);
+                    }
+                }
+            } catch (InvocationTargetException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        });
+        return dataBaseInfo;
     }
 
     /**
@@ -251,11 +261,13 @@ public class DataBaseConnector {
             String fieldName = field.getName();
             try {
                 //concat database url
-                if ((fieldName.equals("url") || fieldName.equals("urlParameters") || fieldName.equals("databaseName")) && !infoMap.containsKey("url")) {
-                    infoMap.put("url", BeanUtils.getProperty(dataBaseInfo, "url")
-                            .concat("?")
-                            .concat(BeanUtils.getProperty(dataBaseInfo, "databaseName"))
-                            .concat(BeanUtils.getProperty(dataBaseInfo, "urlParameters")));
+                if ((fieldName.equals("url") || fieldName.equals("urlParameters") || fieldName.equals("databaseName"))) {
+                    if (!infoMap.containsKey("url")) {
+                        infoMap.put("url", BeanUtils.getProperty(dataBaseInfo, "url")
+                                .concat(BeanUtils.getProperty(dataBaseInfo, "databaseName"))
+                                .concat("?")
+                                .concat(BeanUtils.getProperty(dataBaseInfo, "urlParameters")));
+                    }
                 } else {
                     infoMap.put(fieldName, BeanUtils.getProperty(dataBaseInfo, fieldName));
                 }

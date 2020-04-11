@@ -62,14 +62,14 @@ public class SqlSession<T>{
 
     public void insert(String id){
         StringBuilder sql = getInsertSql(id);
-        DataBaseConnector.executeSQL(sql.toString());
+        DatabaseConnector.executeSQL(sql.toString());
         LoggerHelper.sqlOutput(sql.toString(),logger);
     }
 
     public void insert(String id, FillData fillData){
         StringBuilder sql=getInsertSql(id);
         LoggerHelper.sqlOutput(sql.toString(),logger);
-        PreparedStatement preparedStatement= DataBaseConnector.getPreparedStatement(sql.toString());
+        PreparedStatement preparedStatement= DatabaseConnector.getPreparedStatement(sql.toString());
         ArrayList<String> paramList=fillData.getParamList();
         try {
             for (int i = 0; i < paramList.size(); i++) {
@@ -120,7 +120,7 @@ public class SqlSession<T>{
         ArrayList<String> fields=analyzeFields(cols);
         StringBuilder sql=getInsertSql(id);
         LoggerHelper.sqlOutput(sql.toString(),logger);
-        PreparedStatement preparedStatement= DataBaseConnector.getPreparedStatement(sql.toString());
+        PreparedStatement preparedStatement= DatabaseConnector.getPreparedStatement(sql.toString());
         try {
             for (T bean : beans) {
                 for (int i = 0; i < fields.size(); i++) {
@@ -167,26 +167,28 @@ public class SqlSession<T>{
 
     public void update(String id){
         StringBuilder sql=getUpdateSql(id);
-        DataBaseConnector.executeSQL(sql.toString());
+        DatabaseConnector.executeSQL(sql.toString());
         LoggerHelper.sqlOutput(sql.toString(),logger);
     }
 
     public void update(String id,FillData bean,FillData condition){
         StringBuilder sql=getUpdateSql(id);
         LoggerHelper.sqlOutput(sql.toString(),logger);
-        PreparedStatement preparedStatement= DataBaseConnector.getPreparedStatement(sql.toString());
-        ArrayList<String> beanParamList=bean.getParamList();
-        ArrayList<String> conditionParamList=condition.getParamList();
-        try {
-            for (int i = 0; i < beanParamList.size(); i++) {
-                preparedStatement.setString(i+1,beanParamList.get(i));
+        PreparedStatement preparedStatement= DatabaseConnector.getPreparedStatement(sql.toString());
+        if (preparedStatement != null) {
+            ArrayList<String> beanParamList=bean.getParamList();
+            ArrayList<String> conditionParamList=condition.getParamList();
+            try {
+                for (int i = 0; i < beanParamList.size(); i++) {
+                    preparedStatement.setString(i+1,beanParamList.get(i));
+                }
+                for (int j = 0; j < conditionParamList.size(); j++) {
+                    preparedStatement.setString(j+1+beanParamList.size(),conditionParamList.get(j));
+                }
+                preparedStatement.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            for (int j = 0; j < conditionParamList.size(); j++) {
-                preparedStatement.setString(j+1+beanParamList.size(),conditionParamList.get(j));
-            }
-            preparedStatement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 

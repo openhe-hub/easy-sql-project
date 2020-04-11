@@ -62,7 +62,7 @@ public class Configuration {
             logger.fatal(CommonValue.ERROR + "Getting central configuration failed.");
             logger.info(CommonValue.SUGGESTION + "Please check your center_config.xml.");
         }
-         DataBaseConnector.init(dbRoot);
+         DatabaseConnector.init(dbRoot);
     }
 
     public static File getFile(Class<?> mainClass, String configName) {

@@ -11,15 +11,11 @@ import java.util.LinkedHashMap;
  * @create: 2020-04-01 21:12
  **/
 public class DaoManager {
-    private static boolean isInitialized=false;
     private static LinkedHashMap<Class<?>,EasySqlDao<?>> classToDao;
 
     public static void init(Class<?> clazz) {
-        if (!isInitialized){
-            isInitialized = true;
-            Configuration.autoConfigure(clazz);
-            classToDao = new LinkedHashMap<>();
-        }
+        Configuration.autoConfigure(clazz);
+        classToDao = new LinkedHashMap<>();
     }
 
     public static <T> void registerDao(Class<T> clazz,EasySqlDao<T> dao){
