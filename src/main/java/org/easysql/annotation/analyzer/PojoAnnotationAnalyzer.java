@@ -105,7 +105,13 @@ public class PojoAnnotationAnalyzer {
     }
 
     private void handleId(Id id, Field field) {
-        //FIXME:UNFINISHED WORK
+        String fieldName = field.getName();
+        String fieldType = field.getType().getName();
+        String columnName = id.columnName();
+        String columnType = id.columnType();
+        ConstraintType generatePolicy=id.generatePolicy();
+        ConstraintType[] constraintTypes=id.constraintTypes();
+        idInfo=new IdInfo(new String[]{fieldName,fieldType,columnName,columnType}, constraintTypes, generatePolicy.getConstraintType());
     }
 
     private void handleForeignInfos(ForeignKey[] foreignKeys, String columnName) {

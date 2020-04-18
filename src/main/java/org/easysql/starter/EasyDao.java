@@ -15,19 +15,18 @@ import java.util.ArrayList;
  * @author: he
  * @create: 2020-04-01 21:12
  **/
-public class EasySqlDao<T> {
-    public Logger logger;
-    public Class<T> clazz;
-    public SessionHandler<T> handler;
-    public Session<T> session;
+public class EasyDao<T> {
+    protected Logger logger;
+    protected Class<T> pojoClass;
+    protected SessionHandler<T> handler;
+    protected Session<T> session;
 
-    public EasySqlDao(Class<T> clazz){
-        this.clazz = clazz;
-        DaoManager.init(clazz);
-        DaoManager.registerDao(clazz,this);
+    public void init(Class<?> clazz){
+        this.pojoClass = (Class<T>) clazz;
+        DaoManager.registerDao(pojoClass,this);
         logger=Configuration.createLogger(clazz);
-        handler=SessionManager.getHandlerByClass(clazz);
-        session=SessionManager.getSessionByClass(clazz);
+        handler= SessionManager.getHandlerByClass(pojoClass);
+        session= SessionManager.getSessionByClass(pojoClass);
     }
 
     public ArrayList<T> selectAll(){

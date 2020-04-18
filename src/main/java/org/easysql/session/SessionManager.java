@@ -1,6 +1,8 @@
 package org.easysql.session;
 
 import org.apache.log4j.Logger;
+import org.easysql.configuration.AnnotationConfiguration;
+import org.easysql.info.orm.ClassInfo;
 import org.easysql.utils.CommonValue;
 import org.easysql.configuration.Configuration;
 import org.easysql.info.constraint.ConstraintType;
@@ -48,6 +50,10 @@ public class SessionManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void autoScanBeansByAnnotation(){
+        LinkedHashMap<Class<?>, ClassInfo> pojoConfiguration = AnnotationConfiguration.getPojoConfiguration();
     }
 
     public static void initAll(){

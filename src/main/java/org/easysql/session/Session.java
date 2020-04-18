@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+//Fixme: xml tag name changed
 public class Session<T> {
     @Getter
     private ClassInfo classInfo;
@@ -29,7 +30,7 @@ public class Session<T> {
     private SessionHandler<T> sessionHandler;
     private SqlSession<T> sqlSession;
     @Getter
-    private int field_length;
+    private int fieldLength;
     private final Logger logger;
 
     public Session(Class<T> beanClass){
@@ -39,7 +40,7 @@ public class Session<T> {
         this.className =pathArr[pathArr.length-1];
         logger = Configuration.createLogger(Session.class);
         SessionConfiguration sessionConfiguration=Configuration.getConfiguration(className);
-        if (sessionConfiguration!=null){
+        if (sessionConfiguration != null) {
             logger.info(CommonValue.PROCESS + "Getting session(" + className + ") 's configuration finished.");
             tableName = sessionConfiguration.getTableName();
             xmlConfigName = sessionConfiguration.getConfigXmlName();
@@ -50,12 +51,25 @@ public class Session<T> {
         }
     }
 
-    public SessionHandler<T> getHandler(){
-        if (sessionHandler!=null){
+    public Session(Class<T> beanClass, ClassInfo classInfo) {
+        this.beanClass = beanClass;
+        logger = Configuration.createLogger(Session.class);
+        this.classInfo = classInfo;
+        this.className = beanClass.getName();
+        this.tableName = classInfo.getClassInfo().get(className)[1];
+        this.sqlFileName = classInfo.getClassInfo().get(className)[2];
+        this.idInfo = classInfo.getIdInfo();
+        this.fieldLength = classInfo.getFieldInfo().size();
+        logger.info(CommonValue.PROCESS + "Getting session(" + className + ") 's configuration finished.");
+        init();
+        SessionManager.registerSession(this);
+    }
+
+    public SessionHandler<T> getHandler() {
+        if (sessionHandler != null) {
             logger.info(CommonValue.PROCESS + "SessionHandler(" + className + ") has been built successfully.");
             return sessionHandler;
-        }
-        else {
+        } else {
             logger.error(CommonValue.ERROR + "SessionHandler(" + className + ") is null.");
             logger.info(CommonValue.SUGGESTION + "Please init first.");
             return null;
@@ -66,8 +80,7 @@ public class Session<T> {
         if (sqlSession!=null){
             logger.info(CommonValue.PROCESS + "SqlSession(" + className + ") has been built successfully.");
             return sqlSession;
-        }
-        else {
+        } else {
             logger.warn(CommonValue.WARNING + "SqlSession(" + className + ") is null.");
             return null;
         }
@@ -85,23 +98,22 @@ public class Session<T> {
     public void init(){
         loadXMLConfig();
         this.sessionHandler=new SessionHandler<>(this);
-        if (sqlFileName!=null) {
-            this.sqlSession=new SqlSession<>(this,sessionHandler);
+        if (sqlFileName != null && !sqlFileName.equals("")) {
+            this.sqlSession = new SqlSession<>(this, sessionHandler);
         }
         if (classInfo != null) {
             logger.info(CommonValue.PROCESS + "Initiating session(" + className + ") finished.");
-        }
-        else{
+        } else {
             logger.fatal(CommonValue.ERROR + "Initiating session(" + className + ") failed.");
-            logger.debug(CommonValue.SUGGESTION+" Please check your configuration file");
+            logger.debug(CommonValue.SUGGESTION + " Please check your configuration file");
         }
     }
 
     /*自动创建或更新表：
-    *  1.确保已初始化
-    *  2.自动检测是否表已经创建，若已创建，则更新
-    *  3.若表结构不需更新，无需用此方法
-    *  4.若需更改表名，请调用alter_table_name方法*/
+     *  1.确保已初始化
+     *  2.自动检测是否表已经创建，若已创建，则更新
+     *  3.若表结构不需更新，无需用此方法
+     *  4.若需更改表名，请调用alter_table_name方法*/
     public void create(){
         sessionHandler.createTable();
         logger.info(CommonValue.PROCESS + "Table(" + tableName + ") has been created successfully.");
@@ -150,6 +162,7 @@ public class Session<T> {
             classInfo=new ClassInfo(classMap,fieldMap,columnMap,idInfo,foreignKeyList,indexList,joinList);
         }
     }
+
     private LinkedHashMap<String,String[]> getClassInfo(Element classElement ) {
         className =classElement.attributeValue("class_name");
         tableName =classElement.attributeValue("table_name");
@@ -170,10 +183,9 @@ public class Session<T> {
         idInfo=new IdInfo(finished_info,constraintTypes,type);
     }
 
-    private ArrayList<LinkedHashMap<String, FieldInfo>>  getFieldInfo(Element field_element)
-    {
+    private ArrayList<LinkedHashMap<String, FieldInfo>>  getFieldInfo(Element field_element) {
         List<Element> field_list=field_element.elements("field");
-        field_length=field_list.size();
+        fieldLength = field_list.size();
         LinkedHashMap<String,FieldInfo> fieldMap=new LinkedHashMap<>();
         LinkedHashMap<String,FieldInfo> columnMap=new LinkedHashMap<>();
 
@@ -238,17 +250,17 @@ public class Session<T> {
         if (joinElements!=null) {
             LinkedHashMap<String, JoinInfo> join_list=new LinkedHashMap<>();
             for (Element join_element:joinElements) {
-               String type=join_element.attributeValue("type");
-               String form=join_element.attributeValue("form");
-               String from_field=join_element.attributeValue("from_field");
-               String to_class=join_element.attributeValue("to_class");
-               String[] point=join_element.attributeValue("point").split("->");
-               String condition=join_element.attributeValue("cond");
-               String from_class_name= getClassName();
-               condition= (condition==null)?"=":condition;
-               join_list.put(to_class,new JoinInfo(from_class_name,from_field,to_class,
-                       ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
-                       ,point,condition));
+                String type=join_element.attributeValue("type");
+                String form=join_element.attributeValue("form");
+                String from_field=join_element.attributeValue("from_field");
+                String to_class=join_element.attributeValue("to_class");
+                String[] point=join_element.attributeValue("point").split("->");
+                String condition=join_element.attributeValue("cond");
+                String from_class_name= getClassName();
+                condition= (condition==null)?"=":condition;
+                join_list.put(to_class,new JoinInfo(from_class_name,from_field,to_class,
+                        ConstraintType.fromConstraintType(type),ConstraintType.fromConstraintType(form)
+                        ,point,condition));
             }
             return join_list;
         }
@@ -283,8 +295,7 @@ public class Session<T> {
         if (originType == null) {
             logger.error(CommonValue.ERROR + "Field type(" + originName + ") is null.Generating column type automatically failed.");
             return null;
-        }
-        else {
+        } else {
             switch (originType) {
                 case "int": {
                     return "int";

@@ -15,11 +15,15 @@ import org.easysql.parser.SqlSession;
  * @author: he
  * @create: 2020-03-21 10:10
  **/
-public class EasySqlApplication {
+public class EasyApplication {
     public static Logger logger;
     public static <T> void init(Class<T> clazz) {
         Configuration.autoConfigure(clazz);
         logger= Configuration.createLogger(clazz);
+    }
+
+    public static <T> EasyDao<T> dao(Class<T> clazz){
+        return DaoManager.dao(clazz);
     }
 
     public static <T> SessionHandler<T> handler(Class<T> clazz){

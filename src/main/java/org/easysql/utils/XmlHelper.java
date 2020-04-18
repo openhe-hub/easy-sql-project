@@ -591,7 +591,7 @@ public class XmlHelper<T> {
                 for (Map.Entry<String, FieldInfo> entry : allField.entrySet()) {
                     currFields.add(entry.getValue().getFieldName());
                 }
-                currLength += currSession.getField_length() + 1;
+                currLength += currSession.getFieldLength() + 1;
             }
         }
         end = start + currLength - 1;

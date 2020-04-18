@@ -1,7 +1,10 @@
 package app;
 
 import bean.Student;
-import org.easysql.starter.EasySqlApplication;
+import bean.User;
+import dao.UserDao;
+import org.easysql.annotation.starter.EasySqlApplication;
+import org.easysql.starter.EasyApplication;
 
 /**
  * @program: EasySqlProject
@@ -9,9 +12,10 @@ import org.easysql.starter.EasySqlApplication;
  * @author: he
  * @create: 2020-04-18 10:56
  **/
-public class App extends EasySqlApplication {
+public class App extends EasyApplication {
     public static void main(String[] args) {
         init(App.class);
-        DataOutput(handler(Student.class).selectAll());
+        UserDao dao = (UserDao) dao(User.class);
+        dao.logAll();
     }
 }

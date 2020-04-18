@@ -1,11 +1,13 @@
 package org.easysql.configuration;
 
+import com.alibaba.druid.sql.visitor.functions.If;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Element;
+import org.easysql.annotation.starter.EasySqlApplication;
 import org.easysql.session.SessionManager;
 import org.easysql.utils.CommonValue;
 import org.easysql.utils.DatabaseConnector;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+//Fixme: xml tag name changed
 @Data
 public class Configuration {
     private static Element rootElement;
@@ -29,6 +32,8 @@ public class Configuration {
     private static Element sqlRoot;
     @Getter
     private static String beanPkg;
+    @Getter
+    private static String daoPkg;
     @Getter
     private static String sqlPkg;
     @Getter
@@ -42,16 +47,18 @@ public class Configuration {
     private static Logger logger;
     @Getter@Setter
     public static Class<?> mainClass;
+    private static boolean isAnnotationConfiguration;
 
     public static void configure(Class<?> mainClass) {
         setMainClass(mainClass);
         File file = getFile(mainClass, CENTER_CONFIG_NAME);
         rootElement = XmlHelper.getRootElement(file);
-        classRoot = rootElement.element("class_config");
-        dbRoot = rootElement.element("db_config");
-        sqlRoot = rootElement.element("sql_config");
-        bannerElement = rootElement.element("banner_config");
-        beanPkg = classRoot.attributeValue("bean_pkg");
+        classRoot = rootElement.element("bean-config");
+        dbRoot = rootElement.element("db-config");
+        sqlRoot = rootElement.element("sql-config");
+        bannerElement = rootElement.element("banner-config");
+        beanPkg = classRoot.attributeValue("bean-pkg");
+        daoPkg=rootElement.element("dao-config").attributeValue("dao-pak");
         if (sqlRoot != null) {
             sqlPkg = sqlRoot.attributeValue("sql_pkg");
             idFile = sqlRoot.attributeValue("id_file");
@@ -77,6 +84,11 @@ public class Configuration {
 
     public static void autoConfigure(Class<?> mainClass) {
         configure(mainClass);
+        if (mainClass.isAnnotationPresent(EasySqlApplication.class)){
+            isAnnotationConfiguration=true;
+            AnnotationConfiguration.configure();
+        }
+        isAnnotationConfiguration=false;
         SessionManager.autoScanBeans();
     }
 
@@ -103,6 +115,10 @@ public class Configuration {
     }
 
     public static ArrayList<String> scanAllClass(){
+        return loadPojoByXml();
+    }
+
+    private static ArrayList<String> loadPojoByXml(){
         List<Element> classElementList=classRoot.elements("class");
         ArrayList<String> classList=new ArrayList<>();
         for (Element element : classElementList) {

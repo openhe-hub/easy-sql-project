@@ -1,5 +1,6 @@
 package org.easysql.annotation.analyzer;
 
+import lombok.Getter;
 import org.apache.log4j.Logger;
 import org.easysql.annotation.pojo.*;
 import org.easysql.configuration.Configuration;
@@ -20,11 +21,11 @@ import java.util.Objects;
  **/
 public class BeanAnnotationAnalyzer {
     private final String beanPackage;
+    @Getter
     private LinkedHashMap<Class<?>, ClassInfo> classToConfiguration;
     private final Class<?> mainClass;
     private File beanFolder;
     private final Logger logger;
-    private String tableName;
 
     public BeanAnnotationAnalyzer(){
         this.beanPackage=Configuration.getBeanPkg();
@@ -36,7 +37,7 @@ public class BeanAnnotationAnalyzer {
     public void analyzeBeanAnnotation(){
         getBeanFolder();
         for (File file : Objects.requireNonNull(beanFolder.listFiles())) {
-            String classType = ".class";
+            final String classType = ".class";
             String className=file.getName().substring(0,file.getName().length()- classType.length());
             className=beanPackage.concat(".").concat(className);
             try {
