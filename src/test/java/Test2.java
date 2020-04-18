@@ -1,4 +1,4 @@
-import org.easysql.bean.User;
+import bean.User;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;

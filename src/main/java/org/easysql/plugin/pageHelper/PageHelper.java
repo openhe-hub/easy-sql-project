@@ -1,6 +1,6 @@
 package org.easysql.plugin.pageHelper;
 
-import org.easysql.session.Filter;
+import org.easysql.cache.Filter;
 
 import java.util.ArrayList;
 

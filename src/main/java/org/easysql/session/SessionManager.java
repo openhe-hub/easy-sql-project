@@ -1,11 +1,12 @@
 package org.easysql.session;
 
 import org.apache.log4j.Logger;
-import org.easysql.helper.CommonValue;
-import org.easysql.helper.Configuration;
-import org.easysql.info.ConstraintType;
-import org.easysql.info.ForeignKeyInfo;
-import org.easysql.info.JoinInfo;
+import org.easysql.utils.CommonValue;
+import org.easysql.configuration.Configuration;
+import org.easysql.info.constraint.ConstraintType;
+import org.easysql.info.orm.ForeignKeyInfo;
+import org.easysql.info.orm.JoinInfo;
+import org.easysql.parser.SqlSession;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -16,7 +17,7 @@ public class SessionManager {
     private static LinkedHashMap<String,Session<?>> classNameToSession;//class_name to session
     private static LinkedHashMap<Class<?>,Session<?>> clazzToSession;
     private static LinkedHashMap<Class<?>,SessionHandler<?>> clazzToSessionHandler;
-    private static LinkedHashMap<Class<?>,SqlSession<?>>  clazzToSqlSession;
+    private static LinkedHashMap<Class<?>, SqlSession<?>>  clazzToSqlSession;
     private static Logger logger;
 
     static {
@@ -112,7 +113,7 @@ public class SessionManager {
 
     public static JoinInfo getJoin(String main_class, String join_class){
         Session<?> main_session= classNameToSession.get(main_class);
-        JoinInfo joinInfo = main_session.getClassInfo().getJoins().get(join_class);
+        JoinInfo joinInfo = main_session.getClassInfo().getJoinInfo().get(join_class);
         if(joinInfo.getToClass().equals(join_class)){
            return joinInfo;
         }else {
@@ -126,7 +127,7 @@ public class SessionManager {
         if (!sessionHandler.ifTableExists(null)) {
             return false;
         } else {
-            ArrayList<ForeignKeyInfo> toSearch_fk_infos = toSession.getClassInfo().getForeignKeyInfos();
+            ArrayList<ForeignKeyInfo> toSearch_fk_infos = toSession.getClassInfo().getForeignKeyInfo();
             for (ForeignKeyInfo toSearch_fk_info : toSearch_fk_infos) {
                 if (toSearch_fk_info.equals(new ForeignKeyInfo(to_table, from_table, to_column, from_column,
                         type, toSearch_fk_info.getName()))) {

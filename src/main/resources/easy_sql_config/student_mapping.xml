@@ -4,65 +4,65 @@
         <!ELEMENT class (id,fields,set)>
         <!ELEMENT id EMPTY>
         <!ELEMENT fields (field*)>
-        <!ELEMENT set (foreign_key*,index*,joinInfo*)>
+        <!ELEMENT set (foreign-key*,index*,join*)>
         <!ELEMENT field EMPTY>
-        <!ELEMENT foreign_key EMPTY>
+        <!ELEMENT foreign-key EMPTY>
         <!ELEMENT index EMPTY>
-        <!ELEMENT joinInfo EMPTY>
-        <!ATTLIST class class_name CDATA #REQUIRED
-                table_name CDATA #REQUIRED
-                sql_file CDATA #IMPLIED>
-        <!ATTLIST id field_name CDATA #REQUIRED
-                 field_type CDATA #IMPLIED
-                column_name CDATA #IMPLIED
-                column_type CDATA #IMPLIED
+        <!ELEMENT join EMPTY>
+        <!ATTLIST class class-name CDATA #REQUIRED
+                table-name CDATA #REQUIRED
+                sql-file CDATA #IMPLIED>
+        <!ATTLIST id field-name CDATA #REQUIRED
+                 field-type CDATA #IMPLIED
+                column-name CDATA #IMPLIED
+                column-type CDATA #IMPLIED
                 type CDATA #IMPLIED>
-        <!ATTLIST field field_name CDATA #REQUIRED
-                field_type CDATA #IMPLIED
-                column_name CDATA #IMPLIED
-                column_type CDATA #IMPLIED
+        <!ATTLIST field field-name CDATA #REQUIRED
+                field-type CDATA #IMPLIED
+                column-name CDATA #IMPLIED
+                column-type CDATA #IMPLIED
                 constraint CDATA #IMPLIED>
-        <!ATTLIST foreign_key type CDATA #REQUIRED
+        <!ATTLIST foreign-key type CDATA #REQUIRED
                 from CDATA #REQUIRED
                 to CDATA #REQUIRED>
         <!ATTLIST index field CDATA #REQUIRED
                 type CDATA #REQUIRED >
-        <!ATTLIST joinInfo
+        <!ATTLIST join
                 type CDATA #REQUIRED
-                from_field CDATA #REQUIRED
-                to_class CDATA #REQUIRED
+                from-field CDATA #REQUIRED
+                to-class CDATA #REQUIRED
                 point CDATA #REQUIRED
                 form CDATA #REQUIRED>
         ]>
 <mapping>
-    <class class_name="student" table_name="student" sql_file="newsql" >
+    <class class-name="student" table-name="student" sql-file="newsql" >
         <id
-                field_name="id"
-                field_type="int"
-                type="auto_increment"/>
+                field-name="id"
+                field-type="int"
+                type="auto-increment"/>
         <fields>
             <field
-                field_name="student_id"
-                field_type="int"
+                field-name="student_id"
+                field-type="int"
                 constraint="unique"
             />
             <field
-                    field_name="name"
-                    field_type="java.lang.String"
-                    column_name="student_name"
+                    field-name="name"
+                    field-type="java.lang.String"
+                    column-name="student-name"
                     constraint="not null,unique"
             />
             <field
-                    field_name="teacher_id"
-                    field_type="long"
+                    field-name="teacher_id"
+                    field-type="long"
             />
             <field
-                    field_name="birthday"
-                    field_type="java.util.Date"
+                    field-name="birthday"
+                    field-type="java.util.Date"
             />
         </fields>
-       <!-- <set>
-            <foreign_key
+        <set>
+            <foreign-key
                 type="many to one"
                 from="teacher_id"
                 to="teacher.id"
@@ -71,16 +71,16 @@
                     field="name"
                     type="fulltext"
             />
-            <joinInfo type="many to one" form="left joinInfo"
-                from_field="teacher"
-                  to_class="Teacher"
+            <join type="many to one" form="left joinInfo"
+                  from-field="teacher"
+                  to-class="Teacher"
                   point="teacher_id->id"
             />
-            <joinInfo type="one to one" form="inner joinInfo"
-                from_field="mark"
-                  to_class="Mark"
+            <join type="one to one" form="inner joinInfo"
+                  from-field="mark"
+                  to-class="Mark"
                   point="student_id->student_id"
             />
-        </set>-->
+        </set>
     </class>
 </mapping>

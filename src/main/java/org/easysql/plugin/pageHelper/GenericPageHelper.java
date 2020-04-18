@@ -2,11 +2,10 @@ package org.easysql.plugin.pageHelper;
 
 import lombok.*;
 import org.apache.log4j.Logger;
-import org.easysql.helper.CommonValue;
-import org.easysql.helper.Configuration;
-import org.easysql.helper.LoggerHelper;
-import org.easysql.session.Cache;
-import org.easysql.session.Filter;
+import org.easysql.utils.CommonValue;
+import org.easysql.configuration.Configuration;
+import org.easysql.utils.LoggerUtils;
+import org.easysql.cache.Filter;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -144,7 +143,7 @@ public abstract class GenericPageHelper<T> implements PageHelper<T> {
             logger.info("page" + (currPage + 1));
             logger.info(CommonValue.PRINT_SEPERATOR);
             ArrayList<T> temp = nextPage();
-            LoggerHelper.DataOutput(temp,logger);
+            LoggerUtils.DataOutput(temp,logger);
         }
     }
 }

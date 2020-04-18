@@ -1,5 +1,5 @@
-import org.easysql.helper.Configuration;
-import org.easysql.plugin.annotationHelper.BeanAnnotationAnalyzer;
+import org.easysql.configuration.Configuration;
+import org.easysql.annotation.analyzer.BeanAnnotationAnalyzer;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

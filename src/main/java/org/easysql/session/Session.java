@@ -3,8 +3,11 @@ package org.easysql.session;
 import lombok.Getter;
 import org.apache.log4j.Logger;
 import org.dom4j.Element;
-import org.easysql.helper.*;
-import org.easysql.info.*;
+import org.easysql.configuration.Configuration;
+import org.easysql.utils.*;
+import org.easysql.info.constraint.ConstraintType;
+import org.easysql.info.orm.*;
+import org.easysql.parser.SqlSession;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -133,7 +136,7 @@ public class Session<T> {
             Element set=classElement.element("set");
             getIdInfo(classElement.element("id"));
             LinkedHashMap<String,String[]> classMap = getClassInfo(classElement);
-            ArrayList<LinkedHashMap<String,FieldInfo>>  fieldMaps= getFieldInfo(classElement.element("fields"));
+            ArrayList<LinkedHashMap<String, FieldInfo>>  fieldMaps= getFieldInfo(classElement.element("fields"));
             LinkedHashMap<String,FieldInfo> fieldMap=fieldMaps.get(0);
             LinkedHashMap<String,FieldInfo> columnMap=fieldMaps.get(1);
             ArrayList<ForeignKeyInfo> foreignKeyList= null;
@@ -194,20 +197,20 @@ public class Session<T> {
     private ArrayList<ForeignKeyInfo> getForeignKeyInfo(Element set){
         List<Element>  foreignKeys=set.elements("foreign_key");
         if (foreignKeys!=null) {
-            ArrayList<ForeignKeyInfo> fk_list=new ArrayList<>();
-            for (Element fk_element:foreignKeys) {
-                String from_table= tableName;
-                String from_column=fk_element.attributeValue("from");
-                String to_info=fk_element.attributeValue("to");
-                String[] to_infos=to_info.split("\\.");
-                ConstraintType type=ConstraintType.fromConstraintType(fk_element.attributeValue("type"));
+            ArrayList<ForeignKeyInfo> fkList=new ArrayList<>();
+            for (Element fkElement:foreignKeys) {
+                String fromTable= tableName;
+                String fromColumn=fkElement.attributeValue("from");
+                String toInfo=fkElement.attributeValue("to");
+                String[] toInfos=toInfo.split("\\.");
+                ConstraintType type=ConstraintType.fromConstraintType(fkElement.attributeValue("type"));
                 String name=null;
-                if ((name=fk_element.attributeValue("name"))==null){
-                    name="fk_"+from_table+"_"+to_infos[0]+"_to_"+to_infos[1];
+                if ((name=fkElement.attributeValue("name"))==null){
+                    name="fk_"+fromTable+"_"+toInfos[0]+"_to_"+toInfos[1];
                 }
-                fk_list.add(new ForeignKeyInfo(from_table,to_infos[0],from_column,to_infos[1],type,name));
+                fkList.add(new ForeignKeyInfo(fromTable,toInfos[0],fromColumn,toInfos[1],type,name));
             }
-            return fk_list;
+            return fkList;
         }
         return null;
     }

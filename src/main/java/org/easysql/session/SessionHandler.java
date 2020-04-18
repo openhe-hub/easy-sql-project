@@ -3,11 +3,13 @@ package org.easysql.session;
 import lombok.Getter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
-import org.easysql.helper.CommonValue;
-import org.easysql.helper.Configuration;
-import org.easysql.helper.DatabaseConnector;
-import org.easysql.helper.LoggerHelper;
-import org.easysql.info.*;
+import org.easysql.cache.Cache;
+import org.easysql.utils.CommonValue;
+import org.easysql.configuration.Configuration;
+import org.easysql.utils.DatabaseConnector;
+import org.easysql.utils.LoggerUtils;
+import org.easysql.info.constraint.ConstraintType;
+import org.easysql.info.orm.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -41,9 +43,9 @@ public class SessionHandler<T> {
     public SessionHandler(Session<T> session) {//将session里的数据解包
         ClassInfo classInfos = session.getClassInfo();
         classInfo = classInfos.getClassInfo();
-        fieldsInfo = classInfos.getFieldInfos();
-        columnsInfo = classInfos.getColumnInfos();
-        foreignKeyInfos = classInfos.getForeignKeyInfos();
+        fieldsInfo = classInfos.getFieldInfo();
+        columnsInfo = classInfos.getColumnInfo();
+        foreignKeyInfos = classInfos.getForeignKeyInfo();
         idInfo = classInfos.getIdInfo();
         indexInfos = classInfos.getIndexInfos();
         tableName = session.getTableName();
@@ -91,7 +93,7 @@ public class SessionHandler<T> {
         }
         sql.deleteCharAt(sql.length() - 2);
         sql.append(");");
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         DatabaseConnector.executeSQL(sql);
     }
 
@@ -107,9 +109,9 @@ public class SessionHandler<T> {
         return sql;
     }
 
-    private String appendIndex(IndexInfo index_info) {
-        return index_info.getType().getConstraintType() + " " + index_info.getName() + "(" +
-                fieldsInfo.get(index_info.getFieldName()).getColumnName() + "),\n";
+    private String appendIndex(IndexInfo indexInfo) {
+        return indexInfo.getType().getConstraintType() + " " + indexInfo.getName() + "(" +
+                indexInfo.getColumnName() + "),\n";
     }
 
     //拼接sql约束
@@ -162,7 +164,7 @@ public class SessionHandler<T> {
                     break;
                 }
                 if (sql!=null) {
-                    LoggerHelper.sqlOutput(sql, logger);
+                    LoggerUtils.sqlOutput(sql, logger);
                     DatabaseConnector.executeSQL(sql);
                 }
             }
@@ -201,7 +203,7 @@ public class SessionHandler<T> {
         boolean ans = false;
         try {
             String sql = "select count(*) from information_schema.TABLES where TABLE_SCHEMA=\'" + dbName + "\' and TABLE_NAME=\'" + tableName + "\';";
-            LoggerHelper.sqlOutput(sql, logger);
+            LoggerUtils.sqlOutput(sql, logger);
             rs = DatabaseConnector.executeQuery(sql);
             while (rs.next()) {
                 ans = rs.getInt(1) != 0;
@@ -216,7 +218,7 @@ public class SessionHandler<T> {
     //删除表
     public void deleteTable() {
         String sql = "drop table " + tableName + ";";
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         DatabaseConnector.executeSQL(sql);
     }
 
@@ -233,7 +235,7 @@ public class SessionHandler<T> {
             }
             sql.deleteCharAt(sql.length() - 1);
             sql.append(");");
-            LoggerHelper.sqlOutput(sql,logger);
+            LoggerUtils.sqlOutput(sql,logger);
             DatabaseConnector.executeSQL(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -308,7 +310,7 @@ public class SessionHandler<T> {
             insert_columns.deleteCharAt(insert_columns.length() - 1).append(")");
             insert_values.deleteCharAt(insert_values.length() - 1).append(")");
             sql.append(insert_columns).append(insert_values);//拼接sql
-            LoggerHelper.sqlOutput(sql,logger);
+            LoggerUtils.sqlOutput(sql,logger);
             preparedStatement = DatabaseConnector.getPreparedStatement(sql);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -407,7 +409,7 @@ public class SessionHandler<T> {
         }
         sql.deleteCharAt(sql.length() - 1);
         sql.append(" where ").append(condition);
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         preparedStatement = DatabaseConnector.getPreparedStatement(sql);
         return toInsertColumns;
     }
@@ -441,7 +443,7 @@ public class SessionHandler<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        LoggerHelper.sqlOutput(sql, logger);
+        LoggerUtils.sqlOutput(sql, logger);
         ArrayList<String> list;
         if (toSelect.toString().equals("*")) {
             list = new ArrayList<>(fieldsInfo.keySet());
@@ -466,7 +468,7 @@ public class SessionHandler<T> {
 
     public T selectAsID(int idValue) {
         String sql="select * from "+tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";";
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         rs = DatabaseConnector.executeQuery(sql);
         ArrayList<String> list = getFieldList();
         return Objects.requireNonNull(ResultSetToBean(rs, list)).get(0);
@@ -527,7 +529,7 @@ public class SessionHandler<T> {
     //delete
     public void deleteAsID(int idValue) {
         String sql="delete from "+tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";";
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         DatabaseConnector.executeSQL(sql);
     }
 
@@ -539,7 +541,7 @@ public class SessionHandler<T> {
             e.printStackTrace();
         }
         StringBuilder sql = new StringBuilder("delete from " + tableName + " where " + idInfo.getColumnName() + "=" + id_value + ";");
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         DatabaseConnector.executeSQL(sql);
     }
 
@@ -550,7 +552,7 @@ public class SessionHandler<T> {
         } else {
             sql.append("(").append(columns).append("） where ").append(condition).append(";");
         }
-        LoggerHelper.sqlOutput(sql,logger);
+        LoggerUtils.sqlOutput(sql,logger);
         DatabaseConnector.executeSQL(sql);
     }
 

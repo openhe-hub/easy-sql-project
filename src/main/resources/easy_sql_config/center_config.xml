@@ -36,7 +36,7 @@
     <max>9</max>
 </db_config>
 
-<class_config bean_pkg="org.easysql.bean">
+<class_config bean_pkg="bean">
     <class class_name="Student"
            table_name="student"
            config_name="student_mapping"/>

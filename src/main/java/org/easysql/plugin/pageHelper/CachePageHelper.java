@@ -3,8 +3,8 @@ package org.easysql.plugin.pageHelper;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.easysql.session.Cache;
-import org.easysql.session.Filter;
+import org.easysql.cache.Cache;
+import org.easysql.cache.Filter;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
