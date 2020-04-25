@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE center-config[
+        <!ELEMENT center-config (db-config,bean-config,sql-config,log-config,banner-config,dao-config)>
+        <!ELEMENT bean-config (class*)>
+        <!ELEMENT db-config (database,username,password,url,url-params,driver-class,load,max,initial,wait-time)>
+        <!ELEMENT class EMPTY>
+        <!ELEMENT sql-config (sql*)>
+        <!ELEMENT dao-config ANY>
+        <!ELEMENT username ANY>
+        <!ELEMENT password ANY>
+        <!ELEMENT url ANY>
+        <!ELEMENT url-params ANY>
+        <!ELEMENT load ANY>
+        <!ELEMENT max ANY>
+        <!ELEMENT initial ANY>
+        <!ELEMENT wait-time ANY>
+        <!ELEMENT driver-class ANY>
+        <!ELEMENT database ANY>
+        <!ELEMENT sql EMPTY>
+        <!ELEMENT log-config EMPTY>
+        <!ELEMENT banner-config EMPTY>
+        <!ATTLIST bean-config bean-pkg CDATA #REQUIRED>
+        <!ATTLIST dao-config dao-pkg CDATA #REQUIRED>
+        <!ATTLIST center-config auto-scan CDATA #REQUIRED>
+        <!ATTLIST class class-name CDATA #REQUIRED
+                table-name CDATA #REQUIRED
+                config-name CDATA #REQUIRED>
+        <!ATTLIST sql-config id-file CDATA #IMPLIED sql-pkg CDATA #REQUIRED>
+        <!ATTLIST sql name CDATA #REQUIRED>
+        <!ATTLIST log-config file CDATA #REQUIRED>
+        <!ATTLIST banner-config file CDATA #REQUIRED>
+        ]>
+<center-config auto-scan="true">
+    <db-config>
+        <username>root</username>
+        <password>31415926</password>
+        <database>jdbc_test</database>
+    </db-config>
+    <bean-config bean-pkg="bean"/>
+    <dao-config dao-pkg="dao"/>
+    <banner-config file="banner.txt"/>
+    <sql-config sql-pkg="sql"/>
+    <log-config file="log4j.properties"/>
+</center-config>

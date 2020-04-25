@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class class_name="Mark" table_name="mark">
+        <id
+                field_name="id"
+                field_type="int"
+                type="auto_increment"/>
+        <fields>
+            <field
+                    field_name="mark"
+                    field_type="double"
+                    column_name="student_mark"
+            />
+            <field
+                    field_name="student_id"
+                    field_type="int"
+            />
+        </fields>
+        <set>
+            <foreign_key
+                    type="one to one"
+                    from="student_id"
+                    to="student.student_id"
+            />
+        </set>
+    </class>
+</mapping>

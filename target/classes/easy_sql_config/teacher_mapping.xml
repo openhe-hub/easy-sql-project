@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+    <class class_name="Teacher" table_name="teacher">
+        <id
+                field_name="id"
+                field_type="long"
+                type="auto_increment"/>
+        <fields>
+            <field
+                    field_name="name"
+                    field_type="java.lang.String"
+                    column_name="teacher_name"
+                    constraint="not null"
+            />
+        </fields>
+        <set>
+            <foreign_key
+                    type="one to many"
+                    from="id"
+                    to="student.teacher_id"
+            />
+            <joinInfo type="one to many" form="inner joinInfo"
+                  from_field="students"
+                  to_class="Student"
+                  point="id->teacher_id"
+            />
+        </set>
+
+    </class>
+</mapping>
