@@ -1,6 +1,5 @@
 package org.easysql.configuration;
 
-import com.alibaba.druid.sql.visitor.functions.If;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +9,8 @@ import org.dom4j.Element;
 import org.easysql.annotation.starter.EasySqlApplication;
 import org.easysql.session.SessionManager;
 import org.easysql.utils.*;
+import org.easysql.utils.values.CommonValue;
+import org.easysql.utils.values.DefaultParameters;
 
 import java.io.*;
 import java.net.URL;
@@ -145,12 +146,12 @@ public class Configuration {
             File bannerFile =new File(Objects.requireNonNull(mainClass.getClassLoader().getResource(file)).getFile());
             BufferedReader reader=new BufferedReader(new FileReader(bannerFile));
             String line=null;
-            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPERATOR);
+            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPARATOR);
             while ((line=reader.readLine()) != null){
                 logger.info(" banner:\t\t\t\t\t\t\t\t\t\t"+line);
             }
             logger.info(" banner:\t\t\t\t\t\t\t\t\t\t\t\t"+"{ EasySql -version 3.6.0 -beta }");
-            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPERATOR);
+            logger.info(" banner:\t\t"+CommonValue.PRINT_SEPARATOR);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -8,6 +8,8 @@ import org.easysql.utils.*;
 import org.easysql.info.constraint.ConstraintType;
 import org.easysql.info.orm.*;
 import org.easysql.parser.SqlSession;
+import org.easysql.utils.generator.InternalInfoGenerator;
+import org.easysql.utils.values.CommonValue;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -285,44 +287,11 @@ public class Session<T> {
 
     private String[] generate_info(String[] src){//field_name,filed_type,column_name,column_type
         if (src[2]==null){//如果默认配置column_name
-            src[2]=src[0];//将field_name作为column_name
+            src[2]= InternalInfoGenerator.generateColumnName(src[0]);//将field_name作为column_name
         }
         if (src[3]==null){//if choose default setting
-            src[3] = judgeType(src[1], src[0]);//EasySql will
+            src[3] = InternalInfoGenerator.generateColumnType(src[1]);//EasySql will
         }
         return src;
-    }
-
-    private String judgeType(String originType, String originName) {
-        if (originType == null) {
-            logger.error(CommonValue.ERROR + "Field type(" + originName + ") is null.Generating column type automatically failed.");
-            return null;
-        } else {
-            switch (originType) {
-                case "int": {
-                    return "int";
-                }
-                case "long": {
-                    return "bigint";
-                }
-                case "double": {
-                    return "double";
-                }
-                case "float": {
-                    return "float";
-                }
-                case "java.lang.String": {
-                    return "varchar(255)";
-                }
-                case "java.util.Date":{
-                    return "datetime";//default date type in EasySql is datetime.
-                }
-                default:{
-                    logger.error(" This field type isn't supported.");
-                    logger.info(CommonValue.SUGGESTION+" Please set it in your mapping.xml.");
-                    return null;
-                }
-            }
-        }
     }
 }

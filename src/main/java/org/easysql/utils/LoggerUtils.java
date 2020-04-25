@@ -2,6 +2,7 @@ package org.easysql.utils;
 
 import org.apache.log4j.Logger;
 import org.easysql.configuration.Configuration;
+import org.easysql.utils.values.CommonValue;
 
 import java.util.ArrayList;
 
@@ -27,9 +28,9 @@ public class LoggerUtils {
 
     public static <T>  void DataOutput(ArrayList<T> dataList, Logger logger){
         logger.info(CommonValue.DATA_OUTPUT+"\tdata list output.");
-        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
+        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPARATOR);
         dataList.forEach(data -> DataOutput(data,logger));
-        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
+        logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPARATOR);
     }
 
     /**

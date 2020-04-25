@@ -1,4 +1,4 @@
-package org.easysql.utils;
+package org.easysql.utils.values;
 
 public interface CommonValue {
     String PROCESS = "process: ";
@@ -41,5 +41,5 @@ public interface CommonValue {
     int UPDATED_DATA_INDEX = 2;
     int DELETED_DATA_INDEX = 3;
 
-    String PRINT_SEPERATOR="=======================================================================================================================";
+    String PRINT_SEPARATOR ="=======================================================================================================================";
 }

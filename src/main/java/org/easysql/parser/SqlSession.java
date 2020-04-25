@@ -9,6 +9,7 @@ import org.easysql.info.orm.ClassInfo;
 import org.easysql.info.fill.FillData;
 import org.easysql.session.Session;
 import org.easysql.session.SessionHandler;
+import org.easysql.utils.values.CommonValue;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.PreparedStatement;

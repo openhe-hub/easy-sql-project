@@ -3,7 +3,7 @@ package org.easysql.session;
 import org.apache.log4j.Logger;
 import org.easysql.configuration.AnnotationConfiguration;
 import org.easysql.info.orm.ClassInfo;
-import org.easysql.utils.CommonValue;
+import org.easysql.utils.values.CommonValue;
 import org.easysql.configuration.Configuration;
 import org.easysql.info.constraint.ConstraintType;
 import org.easysql.info.orm.ForeignKeyInfo;

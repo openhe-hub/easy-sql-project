@@ -9,6 +9,7 @@ import org.dom4j.Element;
 
 import org.easysql.configuration.Configuration;
 import org.easysql.info.DataBaseInfo;
+import org.easysql.utils.values.DefaultParameters;
 
 import javax.sql.DataSource;
 import java.io.FileReader;

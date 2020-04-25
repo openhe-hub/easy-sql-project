@@ -1,4 +1,4 @@
-package org.easysql.utils;
+package org.easysql.utils.values;
 
 /**
  * @program: EasySqlProject

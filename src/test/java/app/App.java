@@ -14,6 +14,10 @@ import org.easysql.starter.EasyApplication;
  **/
 public class App extends EasyApplication {
     public static void main(String[] args) {
+        new App().run();
+    }
+
+    public void run(){
         init(App.class);
         UserDao dao = (UserDao) dao(User.class);
         dao.logAll();

@@ -1,13 +1,13 @@
 package org.easysql.info.constraint;
 
 import lombok.Getter;
-import org.easysql.utils.CommonValue;
+import org.easysql.utils.values.CommonValue;
 import org.easysql.configuration.Configuration;
 
 public enum ConstraintType {
 
     PRIMARY_KEY("primary key"),
-    AUTO_INCREMENT("auto-increment"),
+    AUTO_INCREMENT("auto_increment"),
     NOT_NULL("not null"),
     NULL("null"),
     UNIQUE("unique"),
@@ -26,7 +26,7 @@ public enum ConstraintType {
 
 
     @Getter
-    private String constraintType;
+    private final String constraintType;
 
     ConstraintType(String constraintType) {
         this.constraintType = constraintType;

@@ -3,7 +3,7 @@ package org.easysql.cache;
 import lombok.*;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
-import org.easysql.utils.CommonValue;
+import org.easysql.utils.values.CommonValue;
 import org.easysql.utils.LoggerUtils;
 import org.easysql.info.orm.FieldInfo;
 import org.easysql.session.SessionHandler;

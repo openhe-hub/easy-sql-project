@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 import org.easysql.cache.Cache;
-import org.easysql.utils.CommonValue;
+import org.easysql.utils.values.CommonValue;
 import org.easysql.configuration.Configuration;
 import org.easysql.utils.DatabaseConnector;
 import org.easysql.utils.LoggerUtils;
@@ -320,7 +320,7 @@ public class SessionHandler<T> {
 
 
     //update
-    public void updateAsID(T bean, String condition) {
+    public void updateByID(T bean, String condition) {
         try {
             update(idInfo.getColumnName() + "=" + BeanUtils.getProperty(bean, idInfo.getFieldName()) + " and " + condition, bean);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
@@ -328,7 +328,7 @@ public class SessionHandler<T> {
         }
     }
 
-    public void updateAsID(T bean) {
+    public void updateByID(T bean) {
         try {
             update(idInfo.getColumnName() + "=" + BeanUtils.getProperty(bean, idInfo.getFieldName()), bean);
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
@@ -371,21 +371,21 @@ public class SessionHandler<T> {
         boolean is_condition_end = false;
         for (int i = 0; i < beans.size(); i++) {
             if ((condition = conditions.get(condition_index).get(i)) != null && is_condition_end == false) {
-                updateAsID(beans.get(i), condition);
+                updateByID(beans.get(i), condition);
                 if (condition_index < conditions.size() - 1) {
                     condition_index++;
                 } else {
                     is_condition_end = true;
                 }
             } else {
-                updateAsID(beans.get(i));
+                updateByID(beans.get(i));
             }
         }
     }
 
     public void updateListByID(ArrayList<T> beans) {
         for (T bean : beans) {
-            updateAsID(bean);
+            updateByID(bean);
         }
     }
 
@@ -466,7 +466,7 @@ public class SessionHandler<T> {
         return select(new StringBuilder("*"), null,null);
     }
 
-    public T selectAsID(int idValue) {
+    public T selectByID(String idValue) {
         String sql="select * from "+tableName + " where " + idInfo.getColumnName() + "=" + idValue + ";";
         LoggerUtils.sqlOutput(sql,logger);
         rs = DatabaseConnector.executeQuery(sql);

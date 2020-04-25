@@ -1,4 +1,7 @@
 package org.easysql.annotation.pojo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.lang.annotation.*;
 
 /**
