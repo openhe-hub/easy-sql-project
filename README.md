@@ -1,49 +1,41 @@
-# EasySql
+# **EasySql**   
+ 
+### Introduction 
+**EasySql Framework** -- a capable and intelligent framework  
+  
+EasySql is an excellent backend Dao layer framework based on ORM framework idea, written by Java .Like Hibernate and JPA,
+using the EasySql framework, you can easily CRUD the database with OOP and DDD thought.At the same time, the complete 
+separation of the business layer code from the data manipulation layer allows you to focus on the logical code without 
+losing control of the data.It has the advantages of simplicity and efficiency.Just get started!
 
-#### 介绍 
-EasySql是一个优秀的，基于orm框架思想实现的后台Dao层框架，由Java编写，xml配置。
-通过使用EasySql框架，您可以轻松地对数据库进行CRUD操作，以及多表查询。
-同时，业务层代码与数据操作层的完全分离，能达到让您专注于逻辑代码，而同时不失去对数据的掌控。
-具有简洁性、高效性的优点。
+### Project Info
+* Language：Java8  
+* Build Tool：maven  
+* Version Control：git  
+* IDE: Intellij IDEA  
+* Database Supported：MySQL 
+* License： Apache License 2.0（about:http://www.apache.org/licenses/）
+
+### How to start
+Ensure you have configured Java8,Maven and MySQL. Then just use git clone,the framework doesn't need any extra environment.
+
+### Tutorial
 
 
-
-
-#### 软件架构
-开发语言：Java8  
-项目搭建工具：maven  
-版本控制：git  
-IDE:Intellij IDEA  
-支持数据库：mysql  
-开源许可证： Apache License 2.0（详见http://www.apache.org/licenses/）
-
-#### 安装教程
-
-1. git clone到本地,编译打包成jar即可
-2. 到\out\artifacts\EasySqlProject_jar 下载jar包
-
-#### 使用说明
-详见文档
-
-#### What's New
-* Version 3.5.2 2020-03-21
-1. 继承EasySqlApp类进行快速开发 -开发完成
-2. SqlSession类 -加强提议
-3. lombok升级到1.18.12 -完成
-* Version 3.5.3 2020-03-28
-1. PageHelper插件 -加强提议 -初步开发
-2. SqlSession -初步开发
-3. 加入启动banner字符画 -开发完成
-* Version 3.5.4 2020-04-01
-1. CachePageHelper/GenericPageHelper分页插件 -开发完成
-2. 自定义banner启动字符画 -bug fix
-3. sql脚本配置修复 -bug fix
-4. EasySqlDao/DaoManager进行快速开发Dao层开发 -加强提议
-* Version 3.5.5 2020-04-10
-1. 引入alibaba druid数据库连接池重构DatabaseConnector -开发完成
-2. 引入注解配置 -初步开发
-3. 引入注解解析器 -初步开发
-4. SqlSession -更新
-#### 参与贡献
-@author:open he
+### What's New
+* Version 3.5-final 2020-04-11
+1. Plugin module -feature
+2. PageHelper plugin -feature
+3. Druid database connection pour(Powered by Alibaba) -feature -refactor
+4. xml configuration -bug fix
+5. sql script in xml -proposal
+6. SqlSession as sql parser -developing
+7. banner (ASCII icon) on starting -feature
+* Version 3.6.0-beta 2020-04-25
+1. Annotation Configuration -feature
+2. EasyDao module -feature
+3. Annotation parser -bug fix
+### developers
+@author:open he    
+To Join the project together!
 

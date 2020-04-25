@@ -1,6 +1,7 @@
 package org.easysql.utils;
 
 import org.apache.log4j.Logger;
+import org.easysql.configuration.Configuration;
 
 import java.util.ArrayList;
 
@@ -29,5 +30,23 @@ public class LoggerUtils {
         logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
         dataList.forEach(data -> DataOutput(data,logger));
         logger.info(CommonValue.DATA_OUTPUT+"\t"+CommonValue.PRINT_SEPERATOR);
+    }
+
+    /**
+     *
+     * @param clazz proxy logger class
+     * @param errorMessage error message to output
+     */
+    public static void error(Class<?> clazz,String errorMessage){
+        Configuration.createLogger(clazz).error(errorMessage);
+    }
+
+    /**
+     *
+     * @param clazz proxy logger class
+     * @param infoMessage info message to output
+     */
+    public static void info(Class<?> clazz,String infoMessage){
+        Configuration.createLogger(clazz).error(infoMessage);
     }
 }

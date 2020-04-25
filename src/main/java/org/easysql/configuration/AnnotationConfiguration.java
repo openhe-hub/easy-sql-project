@@ -3,6 +3,7 @@ package org.easysql.configuration;
 import org.easysql.annotation.analyzer.BeanAnnotationAnalyzer;
 import org.easysql.annotation.analyzer.DaoAnnotationAnalyzer;
 import org.easysql.info.orm.ClassInfo;
+import org.easysql.session.SessionManager;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,6 +21,7 @@ public class AnnotationConfiguration {
         beanAnalyzer=new BeanAnnotationAnalyzer();
         daoAnalyzer=new DaoAnnotationAnalyzer();
         configureBean();
+        SessionManager.autoScanBeansByAnnotation();
         configureDao();
     }
 

@@ -13,4 +13,6 @@ public interface DefaultParameters {
     int MAX_ACTIVE_CONNECTION=10;
     int INITIAL_CONNECTION = 10;
     long MAX_WAIT_TIME=3000;
+
+    String DAO_PACKAGE="dao";
 }

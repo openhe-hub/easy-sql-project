@@ -10,7 +10,7 @@ import java.lang.annotation.*;
  * @author: he
  * @create: 2020-04-07 13:31
  **/
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EasySqlApplication {}

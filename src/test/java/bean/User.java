@@ -1,6 +1,7 @@
 package bean;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.easysql.annotation.pojo.Column;
@@ -14,17 +15,15 @@ import org.easysql.info.constraint.ConstraintType;
  * @author: he
  * @create: 2020-04-08 13:08
  **/
-@Data@AllArgsConstructor@NoArgsConstructor
+@Data@NoArgsConstructor@AllArgsConstructor@Builder
 @EasySqlPojo(tableName = "user")
 public class User {
     @Id
-    private String uid;
-    @Column(constraintTypes = ConstraintType.UNIQUE)
+    private int uid;
+    @Column(constraintTypes = ConstraintType.UNIQUE,columnName = "username")
     private String name;
     @Column
     private String password;
-    @Column
-    private int age;
 }
 
 /*@Data@AllArgsConstructor@NoArgsConstructor

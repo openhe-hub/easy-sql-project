@@ -9,10 +9,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.dom4j.Element;
 import org.easysql.annotation.starter.EasySqlApplication;
 import org.easysql.session.SessionManager;
-import org.easysql.utils.CommonValue;
-import org.easysql.utils.DatabaseConnector;
-import org.easysql.utils.SessionConfiguration;
-import org.easysql.utils.XmlHelper;
+import org.easysql.utils.*;
 
 import java.io.*;
 import java.net.URL;
@@ -58,10 +55,13 @@ public class Configuration {
         sqlRoot = rootElement.element("sql-config");
         bannerElement = rootElement.element("banner-config");
         beanPkg = classRoot.attributeValue("bean-pkg");
-        daoPkg=rootElement.element("dao-config").attributeValue("dao-pak");
+        daoPkg=rootElement.element("dao-config").attributeValue("dao-pkg");
         if (sqlRoot != null) {
             sqlPkg = sqlRoot.attributeValue("sql_pkg");
             idFile = sqlRoot.attributeValue("id_file");
+        }
+        if (daoPkg==null){
+            daoPkg= DefaultParameters.DAO_PACKAGE;
         }
         setLogger(createLogger(Configuration.class));
         if (rootElement != null) {
@@ -149,6 +149,7 @@ public class Configuration {
             while ((line=reader.readLine()) != null){
                 logger.info(" banner:\t\t\t\t\t\t\t\t\t\t"+line);
             }
+            logger.info(" banner:\t\t\t\t\t\t\t\t\t\t\t\t"+"{ EasySql -version 3.6.0 -beta }");
             logger.info(" banner:\t\t"+CommonValue.PRINT_SEPERATOR);
         } catch (IOException e) {
             e.printStackTrace();

@@ -42,8 +42,8 @@ public class BeanAnnotationAnalyzer {
             className=beanPackage.concat(".").concat(className);
             try {
                 Class<?> pojoClass=Class.forName(className);
-                ClassInfo classInfo=new PojoAnnotationAnalyzer(pojoClass).analyzePojo();
-                if (classInfo != null) {
+                if (pojoClass.isAnnotationPresent(EasySqlPojo.class)||pojoClass.isAnnotationPresent(EasySqlSmartPojo.class)){
+                    ClassInfo classInfo=new PojoAnnotationAnalyzer(pojoClass).analyzePojo();
                     classToConfiguration.put(pojoClass,classInfo);
                 }
             } catch (ClassNotFoundException e) {

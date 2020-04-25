@@ -96,7 +96,9 @@ public class Session<T> {
     }
 
     public void init(){
-        loadXMLConfig();
+        if (classInfo==null) {
+            loadXMLConfig();
+        }
         this.sessionHandler=new SessionHandler<>(this);
         if (sqlFileName != null && !sqlFileName.equals("")) {
             this.sqlSession = new SqlSession<>(this, sessionHandler);

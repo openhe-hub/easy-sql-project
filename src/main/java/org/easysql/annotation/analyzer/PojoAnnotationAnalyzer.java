@@ -6,6 +6,7 @@ import org.easysql.annotation.pojo.*;
 import org.easysql.configuration.Configuration;
 import org.easysql.info.constraint.ConstraintType;
 import org.easysql.info.orm.*;
+import org.easysql.utils.InfoGenerator;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class PojoAnnotationAnalyzer {
         logger = Configuration.createLogger(PojoAnnotationAnalyzer.class);
         classInfo = new LinkedHashMap<>();
         fieldInfo = new LinkedHashMap<>();
+        columnInfo = new LinkedHashMap<>();
         indexInfo = new ArrayList<>();
         foreignKeyInfo = new ArrayList<>();
         joinInfo = new LinkedHashMap<>();
@@ -70,29 +72,33 @@ public class PojoAnnotationAnalyzer {
         }
     }
 
-    private LinkedHashMap<String, String[]> handlePojo(EasySqlPojo pojo, String className) {
+    private void handlePojo(EasySqlPojo pojo, String className) {
         tableName = pojo.tableName();
         if (tableName.equals("")) {
             logger.error("Bean " + className + " mapping table not found.");
         }
         String sqlFileName = pojo.sqlFile();
-        LinkedHashMap<String, String[]> pojoInfo = new LinkedHashMap<>();
-        pojoInfo.put(className, new String[]{className, tableName, sqlFileName});
-        return pojoInfo;
+        classInfo.put(className, new String[]{className, tableName, sqlFileName});
     }
 
     private void handleField(Column column, Field field) {
         String fieldName = field.getName();
         String fieldType = field.getType().getName();
-        String columnName = column.columnName();
-        String columnType = column.columnType();
+        String columnName = column.columnName().equals("") ? InfoGenerator.generateColumnName(fieldName) : column.columnName();
+        String columnType = column.columnType().equals("") ? InfoGenerator.generateColumnType(fieldType) : column.columnName();
         ConstraintType[] constraintTypes = column.constraintTypes();
-        ForeignKey[] foreignKeys = column.foreignKey();
-        Index[] indices = column.index();
-        Join[] joinInfos = column.join();
-        handleForeignInfos(foreignKeys, columnName);
-        handleIndexInfos(indices, columnName);
-        handleJoinInfos(joinInfos, columnName);
+        if (field.isAnnotationPresent(ForeignKey.class)) {
+            ForeignKey[] foreignKeys = column.foreignKey();
+            handleForeignInfos(foreignKeys, columnName);
+        }
+        if (field.isAnnotationPresent(Index.class)) {
+            Index[] indices = column.index();
+            handleIndexInfos(indices, columnName);
+        }
+        if (field.isAnnotationPresent(Join.class)) {
+            Join[] joinInfos = column.join();
+            handleJoinInfos(joinInfos, columnName);
+        }
         FieldInfo info = FieldInfo.builder()
                 .fieldName(fieldType)
                 .columnName(columnName)
@@ -107,8 +113,8 @@ public class PojoAnnotationAnalyzer {
     private void handleId(Id id, Field field) {
         String fieldName = field.getName();
         String fieldType = field.getType().getName();
-        String columnName = id.columnName();
-        String columnType = id.columnType();
+        String columnName = id.columnName().equals("") ? InfoGenerator.generateColumnName(fieldName) : id.columnName();
+        String columnType = id.columnType().equals("") ? InfoGenerator.generateIdType(fieldType) : id.columnName();
         ConstraintType generatePolicy=id.generatePolicy();
         ConstraintType[] constraintTypes=id.constraintTypes();
         idInfo=new IdInfo(new String[]{fieldName,fieldType,columnName,columnType}, constraintTypes, generatePolicy.getConstraintType());

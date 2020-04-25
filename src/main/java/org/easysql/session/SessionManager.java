@@ -54,6 +54,10 @@ public class SessionManager {
 
     public static void autoScanBeansByAnnotation(){
         LinkedHashMap<Class<?>, ClassInfo> pojoConfiguration = AnnotationConfiguration.getPojoConfiguration();
+        pojoConfiguration.forEach((clazz,info)->{
+            Session<?> session=new Session<>(clazz, info);
+            session.init();
+        });
     }
 
     public static void initAll(){

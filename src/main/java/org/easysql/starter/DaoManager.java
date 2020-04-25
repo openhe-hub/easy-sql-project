@@ -1,5 +1,6 @@
 package org.easysql.starter;
 
+import org.easysql.configuration.AnnotationConfiguration;
 import org.easysql.configuration.Configuration;
 
 import java.util.LinkedHashMap;
@@ -12,15 +13,12 @@ import java.util.LinkedHashMap;
  **/
 public class DaoManager {
     private static LinkedHashMap<Class<?>, EasyDao<?>> classToDao;
+    static {
+        classToDao = new LinkedHashMap<>();
+    }
 
     public static void init(Class<?> clazz) {
         Configuration.autoConfigure(clazz);
-        classToDao = new LinkedHashMap<>();
-        scanAllDao();
-    }
-
-    private static void scanAllDao(){
-
     }
 
     public static <T> void registerDao(Class<T> clazz, EasyDao<T> dao){
